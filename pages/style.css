@@ -159,3 +159,13 @@ footer {
         margin-bottom: 15px;
     }
 }
+
+.developers ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.developers li {
+    font-size: 18px;
+    margin: 10px 0;
+}
