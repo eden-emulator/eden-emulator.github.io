@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #141a21;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #16202b;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px;
+    border-radius: 10px;
+    background: #272f38;
+    margin: 20px;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+    min-width: 300px;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.button.source-code {
+    background: #444;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 40px;
+    background: #16202b;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.card {
+    background: #272f38;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    min-width: 300px;
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    padding: 15px;
+    background: #16202b;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Mobile things*/
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .info {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+}
