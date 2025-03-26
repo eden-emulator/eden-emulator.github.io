@@ -47,12 +47,11 @@ nav a {
     border-radius: 10px;
     background: #272f38;
     margin: 20px;
-    text-align: center;
 }
 
 .hero-text {
     flex: 1;
-    text-align: center;
+    text-align: left;
     padding: 20px;
     min-width: 300px;
 }
@@ -67,16 +66,10 @@ nav a {
     width: 100%;
     max-width: 400px;
     border-radius: 10px;
-    display: block;
-    margin: 0 auto;
 }
 
 .buttons {
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
 }
 
 .button {
@@ -164,17 +157,6 @@ footer {
     }
 
     .hero-text {
-        text-align: center;
-        padding: 10px 15px;
-    }
-
-    .buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .button {
-        width: 80%;
         text-align: center;
     }
 
