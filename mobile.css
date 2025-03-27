@@ -1,13 +1,25 @@
 @media (max-width: 768px) {
-    .hero, .info, .card {
-        width: 90%;
-        margin: 10px auto;
-        text-align: center;
-        max-width: 100%;
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: url('your-background-image.jpg') no-repeat center top;
+        background-size: cover;
+        overflow-x: hidden;
     }
 
-    .hero-text, .card {
+    .hero, .info, .card {
+        width: 90%;
+        max-width: 400px;
+        margin: 10px auto;
+        text-align: center;
         padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .hero-text {
+        padding: 10px;
     }
 
     .hero-image img {
@@ -19,16 +31,35 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+        align-items: center;
     }
 
     .button {
+        width: 90%;
+        max-width: 300px;
+        margin: 10px auto;
+        text-align: center;
+        padding: 10px;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        background: #16202b;
         width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
         text-align: center;
     }
-}
 
-html, body {
-    height: 100%;
-    overflow-x: hidden;
-}
+    nav a {
+        padding: 10px;
+        display: block;
+        border-bottom: 1px solid #272f38;
+    }
 
+    .nav-active {
+        display: flex;
+    }
+}
