@@ -1,0 +1,27 @@
+@media (max-width: 768px) {
+    .hero, .info, .card {
+        width: 90%;
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    .hero-text, .card {
+        padding: 15px;
+    }
+
+    .hero-image img {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+}
