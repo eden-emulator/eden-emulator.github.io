@@ -1,25 +1,14 @@
 @media (max-width: 768px) {
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: url('your-background-image.jpg') no-repeat center top;
-        background-size: cover;
-        overflow-x: hidden;
-    }
-
-    .hero, .info, .card {
+    .hero, .info {
         width: 90%;
-        max-width: 400px;
         margin: 10px auto;
         text-align: center;
-        padding: 15px;
-        box-sizing: border-box;
+        max-width: 100%;
     }
 
-    .hero-text {
-        padding: 10px;
+    .hero-text, .card {
+        padding: 15px;
+        width: 100%;
     }
 
     .hero-image img {
@@ -31,35 +20,38 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        align-items: center;
     }
 
     .button {
-        width: 90%;
-        max-width: 300px;
-        margin: 10px auto;
-        text-align: center;
-        padding: 10px;
-    }
-
-    nav {
-        display: none;
-        flex-direction: column;
-        background: #16202b;
         width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
         text-align: center;
     }
 
-    nav a {
-        padding: 10px;
-        display: block;
-        border-bottom: 1px solid #272f38;
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
 
-    .nav-active {
-        display: flex;
+    .card {
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        background: #272f38;
+        padding: 20px;
+        border-radius: 10px;
     }
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.box {
+    width: 90%;
+    max-width: 400px;
+    margin: 10px auto;
+    text-align: center;
 }
