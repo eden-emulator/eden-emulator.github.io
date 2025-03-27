@@ -3,6 +3,7 @@
         width: 90%;
         margin: 10px auto;
         text-align: center;
+        max-width: 100%;
     }
 
     .hero-text, .card {
