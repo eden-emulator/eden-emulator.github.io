@@ -1,57 +1,83 @@
-@media (max-width: 768px) {
-    .hero, .info {
-        width: 90%;
-        margin: 10px auto;
+@media screen and (max-width: 768px) {
+    body {
+        display: block;
         text-align: center;
-        max-width: 100%;
     }
 
-    .hero-text, .card {
-        padding: 15px;
+    header {
+        flex-direction: column;
+        padding: 10px 5px;
+        margin: 5px;
+        border-radius: 8px;
+        gap: 10px;
+    }
+
+    nav {
+        flex-direction: column;
         width: 100%;
+        gap: 5px;
+    }
+
+    nav a {
+        width: 100%;
+        padding: 8px 0;
+        white-space: normal;
+        font-size: 14px;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        padding: 15px;
+        margin: 5px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .hero-text,
+    .hero-image {
+        width: 100%;
+        min-width: unset;
+        padding: 10px 0;
+        text-align: center;
     }
 
     .hero-image img {
-        width: 80%;
-        max-width: 300px;
+        max-width: 80%;
+        margin: 0 auto;
     }
 
     .buttons {
-        display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
+        margin-top: 15px;
     }
 
     .button {
         width: 100%;
-        text-align: center;
+        padding: 12px;
+        box-sizing: border-box;
     }
 
     .info {
-        display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        padding: 15px;
+        margin: 5px;
+        gap: 10px;
+        border-radius: 8px;
     }
 
     .card {
-        width: 90%;
-        max-width: 400px;
-        text-align: center;
-        background: #272f38;
-        padding: 20px;
-        border-radius: 10px;
+        width: 100%;
+        max-width: 100%;
+        min-width: unset;
+        margin: 0;
+        padding: 15px;
+        box-sizing: border-box;
     }
-}
 
-html, body {
-    height: 100%;
-    overflow-x: hidden;
-}
-
-.box {
-    width: 90%;
-    max-width: 400px;
-    margin: 10px auto;
-    text-align: center;
+    footer {
+        margin: 5px;
+        padding: 10px;
+        border-radius: 8px;
+    }
 }
