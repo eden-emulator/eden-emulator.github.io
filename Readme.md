@@ -1,1 +1,6 @@
-This is a VERY W.I.P website for eden
+# A W.I.P website for Eden switch emualtor
+Please make Pull requests for any changes/additions However, Please make all pull requests in English (Gb)
+Also, this site was NOT solo made by myself, my friends helped me with devolpment, design and fixes. 
+Also, I would like to thank the @Eden ogs for testing.
+
+
