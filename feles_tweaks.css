@@ -1,0 +1,42 @@
+/* Base object specificity force */
+.hero > .hero-text .button {
+    color: white;
+}
+
+header > nav > a:link,
+header > nav > a:visited,
+header > nav > a:hover {
+    color: white;
+}
+
+/* Base object behavior replacement */
+
+
+
+/* Feles base tweaks */
+
+a:link {
+    color: rgb(50, 100, 238)
+}
+
+a:visited {
+    color: rgb(135, 76, 139)
+}
+
+a:hover {
+    color: rgb(75, 150, 238)
+}
+
+header{
+    margin: 20px 20px 10px;
+}
+
+footer {
+    margin: 10px 20px 20px;
+    margin-top: auto; /* Forces footer to bottom of window */
+}
+
+.hero,
+.info {
+    margin: 10px 30px;
+}

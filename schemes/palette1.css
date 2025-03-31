@@ -1,0 +1,59 @@
+body {
+    background: rgb(24, 12, 27);
+
+    background-image: url("bg1.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header,
+footer,
+.info {
+    background: rgb(33, 18, 46);
+}
+
+.hero,
+.card {
+    background: rgb(57, 20, 58);
+}
+
+.button {
+    background: rgb(213, 66, 221);
+}
+
+.button.source-code {
+    background: rgb(80, 51, 82);
+}
+
+/* Margins are moving to border boxes */
+header,
+footer,
+.hero,
+.info {
+    margin: 0px;
+}
+
+.outer-fx {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(255,64,195);
+    border-width: 2px;
+
+    -webkit-box-shadow:0px 0px 10px 5px rgba(255,64,195,1);
+    -moz-box-shadow: 0px 0px 10px 5px rgba(255,64,195,1);
+    box-shadow: 0px 0px 10px 5px rgba(255,64,195,1);
+}
+
+.outer-fx.header-margins {
+    margin: 20px 20px 14px;
+}
+
+.outer-fx.content-margins {
+    margin: 14px 30px;
+}
+
+.outer-fx.footer-margins {
+    margin: auto 20px 20px;
+}
