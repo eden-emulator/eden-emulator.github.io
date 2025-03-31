@@ -1,7 +1,7 @@
 body {
-    background: rgb(24, 12, 27);
+    background: rgb(20, 1, 38);
 
-    background-image: url("bg1.jpg");
+    background-image: url("bg2.png");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,20 +11,20 @@ body {
 header,
 footer,
 .info {
-    background: rgb(33, 18, 46);
+    background: rgb(36, 2, 64);
 }
 
 .hero,
 .card {
-    background: rgb(57, 20, 58);
+    background: rgb(48, 12, 90);
 }
 
 .button {
-    background: rgb(213, 66, 221);
+    background: rgb(183, 94, 242);
 }
 
 .button.source-code {
-    background: rgb(80, 51, 82);
+    background: rgb(70, 51, 82);
 }
 
 /* Margins are moving to border boxes */
@@ -38,12 +38,12 @@ footer,
 .outer-fx {
     border-radius: 10px;
     border-style: solid;
-    border-color: rgb(255,64,195);
+    border-color: rgb(228, 121, 242);
     border-width: 2px;
 
-    -webkit-box-shadow:0px 0px 10px 5px rgba(255,64,195,1);
-    -moz-box-shadow: 0px 0px 10px 5px rgba(255,64,195,1);
-    box-shadow: 0px 0px 10px 5px rgba(255,64,195,1);
+    -webkit-box-shadow:0px 0px 10px 5px rgb(228, 121, 242);
+    -moz-box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
+    box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
 }
 
 .outer-fx.header-margins {
