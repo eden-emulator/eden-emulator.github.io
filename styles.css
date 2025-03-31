@@ -123,6 +123,7 @@ footer {
     border-radius: 10px;
     text-align: center;
     margin: 10px;
+    margin-top: auto;
 }
 
 .logo img {

@@ -127,6 +127,11 @@ footer {
     margin-top: auto;
 }
 
+.logo img {
+    max-width: 100%;
+    display: block;
+}
+
 /* Mobile things*/
 @media (max-width: 768px) {
     header {
