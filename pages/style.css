@@ -47,6 +47,10 @@ nav a {
     margin: 20px;
 }
 
+.developers {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
 .hero-text {
     flex: 1;
     text-align: left;
