@@ -1,0 +1,69 @@
+body {
+    background: rgb(20, 1, 38);
+
+    background-image: url("bg1.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header,
+footer,
+.info {
+    background: rgb(36, 2, 64);
+}
+
+.hero,
+.card {
+    background: rgb(48, 12, 90);
+}
+
+.button {
+    background: rgb(183, 94, 242);
+}
+
+.button.source-code {
+    background: rgb(70, 51, 82);
+}
+
+/* Margins are moving to border boxes */
+header,
+footer,
+.hero,
+.info {
+    margin: 0px;
+}
+
+.outer-fx {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(228, 121, 242);
+    border-width: 2px;
+
+    -webkit-box-shadow:0px 0px 10px 5px rgb(228, 121, 242);
+    -moz-box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
+    box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
+}
+
+.outer-fx.header-margins {
+    margin: 20px 20px 15px;
+}
+
+.outer-fx.content-margins {
+    margin: 15px 30px;
+}
+
+.outer-fx.footer-margins {
+    margin: auto 20px 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .outer-fx.header-margins {
+        margin: 20px 20px 30px;
+    }
+
+    .outer-fx.content-margins {
+        margin: 30px 20px;
+    }
+}
