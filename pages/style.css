@@ -1,4 +1,4 @@
-body {
+body {   /* main area */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@ body {
     min-height: 100vh;
 }
 
-header {
+header { /* header bit with page links and log */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,11 +18,6 @@ header {
     background: #16202b;
     border-radius: 10px;
     margin: 10px;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
 }
 
 nav {
@@ -45,10 +40,6 @@ nav a {
     border-radius: 10px;
     background: #272f38;
     margin: 20px;
-}
-
-.developers {
-    font-family: Helvetica, Arial, sans-serif;
 }
 
 .hero-text {
@@ -154,7 +145,7 @@ body {
     gap: 20px;
 }
 
-.dev-card {
+.dev-card { /* dev page cards */
     background: #1e1e1e;
     padding: 15px;
     border-radius: 10px;
@@ -178,7 +169,7 @@ body {
 }
 
 
-/* Mobile things*/
+/* moblie things*/
 @media (max-width: 768px) {
     header {
         flex-direction: column;
