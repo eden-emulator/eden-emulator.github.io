@@ -1,6 +1,6 @@
 @media screen and (max-width: 768px) {
     body {
-        display: block;
+        /* display: block; */
         text-align: center;
     }
 
@@ -8,9 +8,18 @@
         flex-direction: column;
         padding: 10px 5px;
         /* margin: 5px; */
-        margin: 20px 20px 10px;
-        border-radius: 8px;
+        /* margin: 20px 20px 10px; */
+        margin: 20px 20px 15px;
+        /* border-radius: 8px; */
         gap: 10px;
+    }
+
+    section {
+        margin: 15px 20px;
+    }
+
+    p {
+        margin: 15px 0;
     }
 
     nav {
@@ -30,8 +39,9 @@
         flex-direction: column-reverse;
         padding: 15px;
         /* margin: 5px; */
-        margin: 10px 30px;
-        border-radius: 8px;
+        /* margin: 10px 30px; */
+        margin: 15px 20px;
+        /* border-radius: 8px; */
         text-align: center;
     }
 
@@ -41,10 +51,12 @@
         min-width: unset;
         padding: 10px 0;
         text-align: center;
+        margin: 0;
     }
 
     .hero-image img {
-        max-width: 80%;
+        min-width: 80%;
+        width: 80%;
         margin: 0 auto;
     }
 
@@ -64,9 +76,10 @@
         flex-direction: column;
         padding: 15px;
         /* margin: 5px; */
-        margin: 10px 30px;
+        /* margin: 10px 30px; */
+        margin: 15px 20px;
         gap: 10px;
-        border-radius: 8px;
+        /* border-radius: 8px; */
     }
 
     .card {
@@ -78,11 +91,39 @@
         box-sizing: border-box;
     }
 
+    .dev-group {
+        padding: 15px;
+    }
+
+    .dev-group h2 {
+        margin-bottom: 15px;
+    }
+
+    .dev-list {
+        gap: 15px;
+    }
+
+    .dev-card { /* dev page cards */
+        /* width: 97px; */
+        width: 36%;
+    }
+
+    .dev-card p {
+        /* inline-size: 97px; */
+        inline-size: 100%;
+        overflow-wrap: break-word;
+     }
+
+    .dev-card .icon {
+        margin: 0;
+    }
+
     footer {
         /* margin: 5px; */
-        margin: 10px 20px 20px;
+        /* margin: 10px 20px 20px; */
+        margin: auto 20px 15px;
         padding: 10px;
-        border-radius: 8px;
-        margin-top: auto;
+        /* border-radius: 8px; */
     }
 }
+
