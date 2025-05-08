@@ -1,4 +1,4 @@
-body {
+body {   /* main area */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@ body {
     min-height: 100vh;
 }
 
-header {
+header { /* header bit with page links and log */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,11 +18,6 @@ header {
     background: #16202b;
     border-radius: 10px;
     margin: 10px;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
 }
 
 nav {
@@ -132,7 +127,49 @@ footer {
     display: block;
 }
 
-/* Mobile things*/
+body {
+    background: #141a21;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.dev-group {
+    margin: 40px 0;
+}
+
+.dev-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.dev-card { /* dev page cards */
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dev-card img {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+}
+
+.dev-card .icon {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+
+/* moblie things*/
 @media (max-width: 768px) {
     header {
         flex-direction: column;

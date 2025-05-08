@@ -126,12 +126,12 @@ footer {
     margin-top: auto;
 }
 
-.logo img {
+.logo img { /* image logo on the header */
     max-width: 100%;
     display: block;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* mobile area */
     header {
         flex-direction: column;
         padding: 10px;
