@@ -95,6 +95,7 @@ nav a {
     background: #272f38;
     padding: 20px;
     border-radius: 10px;
+    flex: 1;
     width: 45%;
     min-width: 300px;
 }
