@@ -10,7 +10,7 @@
     <meta name="color-scheme" content="dark">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eden - Nintendo Switch Emulator</title>
-    <link rel="icon" type="image/x-icon" href="/img/logofavicon1.png">
+    <link rel="icon" type="image/png" href="/img/logofavicon1.png">
     <!-- Preconnect external asset urls -->
     <link rel="preconnect" href="https://unpkg.com">
     <!-- Preload important assets -->
@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/flickity-fade@2/flickity-fade.css">
     <script src="https://unpkg.com/flickity@3/dist/flickity.pkgd.min.js"></script>
     <script>
-        // overwrite stopPlayer method
+        // Overwrite stopPlayer method, we don't want it
         Flickity.prototype.stopPlayer = function() {
             //this.player.stop();
         };
@@ -104,12 +104,13 @@
         <h6>Website Made by Bix, Refined by Feles</h6>
     </footer>
 
-    <!-- Flickity config for carousel -->
-    <script defer>
+    <!-- Flickity DOM -->
+    <script>
+        // Config for carousel
         var elem = document.querySelector('.main-carousel');
         var flkty = new Flickity( elem, {
             // options
-            "autoPlay": 4000,
+            "autoPlay": 4000, // 4ms
             "cellSelector": '.carousel-cell',
             "contain": true,
             "draggable": false,
@@ -117,8 +118,9 @@
             "pageDots": false,
             "pauseAutoPlayOnHover": false,
             "prevNextButtons": false,
-            "selectedAttraction": 0.0075
+            "selectedAttraction": 0.0075 // fade speed, smaller value takes longer
         });
+        // Caption for carousel
         var caption = document.querySelector('.carousel-caption-txt');
         flkty.on( 'select', function() {
             // set image caption using img's alt
