@@ -34,6 +34,12 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/flickity@3/dist/flickity.min.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/flickity-fade@2/flickity-fade.css">
     <script src="https://unpkg.com/flickity@3/dist/flickity.pkgd.min.js"></script>
+    <script>
+        // overwrite stopPlayer method
+        Flickity.prototype.stopPlayer = function() {
+            //this.player.stop();
+        };
+    </script>
     <script src="https://unpkg.com/flickity-fade@2/flickity-fade.js"></script>
 </head>
 
