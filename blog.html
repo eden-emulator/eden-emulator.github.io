@@ -3,7 +3,7 @@
 <head>
     <meta property="og:title" content="Eden - Blog">
     <meta property="og:description" content="Hear the Latest news about the Eden Project.">
-    <meta property="og:image" content="../fulllogobase.png">
+    <meta property="og:image" content="../logofavicon2.png">
     <meta property="og:url" content="https://eden-emu.dev">
     <meta property="og:type" content="website">
     <meta charset="UTF-8">
@@ -11,14 +11,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eden - Blog</title>
     <link rel="icon" type="image/x-icon" href="/img/logofavicon1.png">
-    <link rel="stylesheet" href="css/core_styles.css?202505080337">
-    <link rel="stylesheet" href="css/mobile_styles.css?202505080337" media="screen and (max-width: 768px)">
+    <!-- Preload important assets -->
+    <link rel="preload" as="style" href="css/core_styles.css?202505080337">
+    <link rel="preload" as="style" href="css/mobile_styles.css?202505080337">
+    <link rel="preload" as="image" href="img/logofavicon2.png">
+    <link rel="preload" as="image" href="img/bg1.jpg">
+    <!-- Eden -->
+    <link rel="stylesheet" type="text/css" href="css/core_styles.css?202505080337">
+    <link rel="stylesheet" type="text/css" href="css/mobile_styles.css?202505080337" media="screen and (max-width: 768px)">
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="img/fulllogobase.png" alt="Eden" width="75" height="75"></a>
+            <a href="index.html"><img src="img/logofavicon2.png" alt="Eden" width="75" height="75"></a>
         </div>
         <nav>
             <a href="blog.html">Blog</a>

@@ -3,7 +3,7 @@
 <head>
     <meta property="og:title" content="Eden - Nintendo Switch Emulator">
     <meta property="og:description" content="Eden is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind.">
-    <meta property="og:image" content="img/fulllogobase.png">
+    <meta property="og:image" content="img/logofavicon2.png">
     <meta property="og:url" content="https://eden-emu.dev">
     <meta property="og:type" content="website">
     <meta charset="UTF-8">
@@ -11,14 +11,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eden - Nintendo Switch Emulator</title>
     <link rel="icon" type="image/x-icon" href="/img/logofavicon1.png">
-    <link rel="stylesheet" href="css/core_styles.css?202505080337">
-    <link rel="stylesheet" href="css/mobile_styles.css?202505080337" media="screen and (max-width: 768px)">
+    <!-- Preconnect external asset urls -->
+    <link rel="preconnect" href="https://unpkg.com">
+    <!-- Preload important assets -->
+    <link rel="preload" as="style" href="css/core_styles.css?202505080337">
+    <link rel="preload" as="style" href="css/mobile_styles.css?202505080337">
+    <link rel="preload" as="image" href="img/logofavicon2.png">
+    <link rel="preload" as="image" href="img/bg1.jpg">
+    <!-- Eden -->
+    <link rel="stylesheet" type="text/css" href="css/core_styles.css?202505080337">
+    <link rel="stylesheet" type="text/css" href="css/mobile_styles.css?202505080337" media="screen and (max-width: 768px)">
+    <!-- Preload Flickity pkgs for carousel -->
+    <link rel="preload" as="script" href="https://unpkg.com/flickity@3/dist/flickity.pkgd.min.js">
+    <link rel="preload" as="script" href="https://unpkg.com/flickity-fade@2/flickity-fade.js">
+    <link rel="preload" as="image" href="img/carousel/zelda.jpg">
+    <link rel="preload" as="image" href="img/carousel/mario.jpg">
+    <link rel="preload" as="image" href="img/carousel/splatoon.jpg">
+    <link rel="preload" as="image" href="img/carousel/pkmn.jpg">
+    <link rel="preload" as="image" href="img/carousel/mkart.jpg">
+    <link rel="preload" as="image" href="img/carousel/monkey.jpg">
+    <!-- Flickity pkgs for carousel -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/flickity@3/dist/flickity.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/flickity-fade@2/flickity-fade.css">
+    <script src="https://unpkg.com/flickity@3/dist/flickity.pkgd.min.js"></script>
+    <script src="https://unpkg.com/flickity-fade@2/flickity-fade.js"></script>
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="img/fulllogobase.png" alt="Eden" width="75" height="75"></a>
+            <a href="index.html"><img src="img/logofavicon2.png" alt="Eden" width="75" height="75"></a>
         </div>
         <nav>
             <a href="blog.html">Blog</a>
@@ -32,8 +54,11 @@
     <section class="hero">
         <div class="hero-text">
             <h1>Nintendo Switch Emulator</h1>
-            <p>Eden is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind.</p>
-            <p>It is written in C++ with cross-platform support for Windows, Linux and Android.</p>
+            <p>
+                Eden is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind.
+                <br>
+                <br>
+                It is written in C++ with cross-platform support for Windows, Linux and Android.</p>
             <div class="buttons">
                 <a href="https://git.eden-emu.dev/eden-emu/eden/releases" class="button download">Download</a>
                 <a href="https://git.eden-emu.dev/eden-emu/eden" class="button source-code">Source Code</a>
@@ -41,7 +66,18 @@
         </div>
         <div class="hero-image">
             <!-- <img src="img/eden_landscape.png" alt="image of emu"> -->
-            <img src="img/jojo-galaxy.gif" alt="image of emu">
+            <!-- <img src="img/jojo-galaxy.gif" alt="image of emu"> -->
+            <div class="main-carousel">                
+                <div class="carousel-cell"><img src="img/carousel/zelda.jpg" alt="Legend of Zelda: Tears of the Kingdom"></div>
+                <div class="carousel-cell"><img src="img/carousel/mario.jpg" alt="Super Mario Odyssey"></div>
+                <div class="carousel-cell"><img src="img/carousel/splatoon.jpg" alt="Splatoon 3"></div>
+                <div class="carousel-cell"><img src="img/carousel/pkmn.jpg" alt="Pokémon: Violet"></div>
+                <div class="carousel-cell"><img src="img/carousel/mkart.jpg" alt="Mario Kart 8 Deluxe"></div>
+                <div class="carousel-cell"><img src="img/carousel/monkey.jpg" alt="Donkey Kong Country Returns HD"></div>
+            </div>
+            <p class="carousel-caption">
+                <span class="carousel-caption-txt">Legend of Zelda: Tears of the Kingdom</span>
+            </p>
         </div>
     </section>
 
@@ -61,5 +97,27 @@
         <a href="devs.html">Eden Emulator, Developed by The Eden Team</a>
         <h6>Website Made by Bix, Refined by Feles</h6>
     </footer>
+
+    <!-- Flickity config for carousel -->
+    <script defer>
+        var elem = document.querySelector('.main-carousel');
+        var flkty = new Flickity( elem, {
+            // options
+            "autoPlay": 4000,
+            "cellSelector": '.carousel-cell',
+            "contain": true,
+            "draggable": false,
+            "fade": true,
+            "pageDots": false,
+            "pauseAutoPlayOnHover": false,
+            "prevNextButtons": false,
+            "selectedAttraction": 0.0075
+        });
+        var caption = document.querySelector('.carousel-caption-txt');
+        flkty.on( 'select', function() {
+            // set image caption using img's alt
+            caption.textContent = flkty.selectedElement.childNodes[0].alt;
+        });
+    </script>
 </body>
 </html>

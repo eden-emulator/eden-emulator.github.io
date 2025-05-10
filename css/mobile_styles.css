@@ -54,21 +54,32 @@
         margin: 0;
     }
 
+    .hero-text h1 {
+        margin-top: 0.5rem;
+    }
+
     .hero-image img {
         min-width: 80%;
         width: 80%;
         margin: 0 auto;
     }
 
+    .carousel-caption {
+        min-width: 80%;
+        width: 80%;
+        left: 10%;
+    }
+
     .buttons {
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
         margin-top: 15px;
     }
 
     .button {
-        width: 100%;
+        width: 80%;
         padding: 12px;
+        margin: 0 auto;
         box-sizing: border-box;
     }
 
