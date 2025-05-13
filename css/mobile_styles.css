@@ -4,14 +4,21 @@
         text-align: center;
     }
 
-    header {
+    /* Old static header */
+    /* header {
         flex-direction: column;
         padding: 10px 5px;
-        /* margin: 5px; */
-        /* margin: 20px 20px 10px; */
         margin: 20px 20px 15px;
-        /* border-radius: 8px; */
         gap: 10px;
+    } */
+
+    /* New hotness hamburger menu */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        margin: 20px 20px 15px;
     }
 
     section {
@@ -136,5 +143,96 @@
         padding: 10px;
         /* border-radius: 8px; */
     }
-}
 
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1000;
+    }
+
+    .hamburger-box {
+        width: 30px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+    }
+
+    .hamburger-inner {
+        display: block;
+        top: 50%;
+        margin-top: -2px;
+    }
+
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 4px;
+        position: absolute;
+        transition: transform 0.15s ease;
+    }
+
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        content: "";
+        display: block;
+    }
+
+    .hamburger-inner::before {
+        top: -10px;
+    }
+
+    .hamburger-inner::after {
+        bottom: -10px;
+    }
+
+    .nav-mobile {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        /* Reduzido de 70% para 60% */
+        height: 100%;
+        background-color: #2a0a4a;
+        /* Cor roxa escura (altere para a cor desejada) */
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        gap: 15px;
+        transition: right 0.3s ease;
+        z-index: 999;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        /* Sombra para destacar */
+    }
+
+    .nav-mobile a {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 16px;
+        text-align: left;
+        color: #fff;
+        /* Cor do texto */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        /* Divisor sutil */
+        transition: background-color 0.2s;
+    }
+
+    .nav-mobile a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        /* Efeito hover */
+    }
+
+    .nav-mobile.active {
+        right: 0;
+    }
+
+}

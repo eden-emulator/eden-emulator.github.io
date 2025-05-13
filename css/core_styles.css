@@ -102,6 +102,9 @@ nav a {
     font-size: 16px;
 }
 
+.hamburger {
+        display: none;
+}
 
 /* ------------ */
 /* BODY CONTENT */
