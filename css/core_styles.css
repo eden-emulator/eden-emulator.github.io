@@ -273,6 +273,10 @@ nav a {
     overflow-wrap: break-word;
 } */
 
+.dev-card a {
+    margin-top: auto;
+}
+
 .dev-card img {
     border-radius: 50%;
     width: 64px;
@@ -282,8 +286,10 @@ nav a {
 
 .dev-card .icon {
     font-size: 40px;
+    border-radius: 0;
     width: 40px;
     height: 40px;
+    object-fit: scale-down;
     /* margin-top: 10px;
     margin-bottom: 10px; */
 }
