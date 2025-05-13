@@ -1,10 +1,147 @@
 @media screen and (max-width: 768px) {
+    body {
+        /* display: block; */
+        text-align: center;
+    }
+
+    /* Old static header */
+    /* header {
+        flex-direction: column;
+        padding: 10px 5px;
+        margin: 20px 20px 15px;
+        gap: 10px;
+    } */
+
+    /* New hotness hamburger menu */
     header {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         padding: 10px 20px;
         margin: 20px 20px 15px;
+    }
+
+    section {
+        margin: 15px 20px;
+    }
+
+    p {
+        margin: 15px 0;
+    }
+
+    nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    nav a {
+        width: 100%;
+        padding: 8px 0;
+        white-space: normal;
+        font-size: 14px;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        padding: 15px;
+        /* margin: 5px; */
+        /* margin: 10px 30px; */
+        margin: 15px 20px;
+        /* border-radius: 8px; */
+        text-align: center;
+    }
+
+    .hero-text,
+    .hero-image {
+        width: 100%;
+        min-width: unset;
+        padding: 10px 0;
+        text-align: center;
+        margin: 0;
+    }
+
+    .hero-text h1 {
+        margin-top: 0.5rem;
+    }
+
+    .hero-image img {
+        min-width: 80%;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .carousel-caption {
+        min-width: 80%;
+        width: 80%;
+        left: 10%;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 15px;
+    }
+
+    .button {
+        width: 80%;
+        padding: 12px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .info {
+        flex-direction: column;
+        padding: 15px;
+        /* margin: 5px; */
+        /* margin: 10px 30px; */
+        margin: 15px 20px;
+        gap: 10px;
+        /* border-radius: 8px; */
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+        min-width: unset;
+        margin: 0;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .dev-group {
+        padding: 15px;
+    }
+
+    .dev-group h2 {
+        margin-bottom: 15px;
+    }
+
+    .dev-list {
+        gap: 15px;
+    }
+
+    .dev-card { /* dev page cards */
+        /* width: 97px; */
+        width: 36%;
+    }
+
+    .dev-card p {
+        /* inline-size: 97px; */
+        inline-size: 100%;
+        overflow-wrap: break-word;
+     }
+
+    .dev-card .icon {
+        margin: 0;
+    }
+
+    footer {
+        /* margin: 5px; */
+        /* margin: 10px 20px 20px; */
+        margin: auto 20px 15px;
+        padding: 10px;
+        /* border-radius: 8px; */
     }
 
     .hamburger {
