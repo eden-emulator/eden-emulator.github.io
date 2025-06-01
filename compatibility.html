@@ -3,7 +3,7 @@
 <head>
     <meta property="og:title" content="Eden - Compatibility">
     <meta property="og:description" content="This shows you what games are compatible with the Eden Emulator.">
-    <meta property="og:image" content="img/logofavicon2.png">
+    <meta property="og:image" content="../logofavicon2.png">
     <meta property="og:url" content="https://eden-emu.dev">
     <meta property="og:type" content="website">
     <meta charset="UTF-8">
@@ -12,8 +12,8 @@
     <title>Eden - Compatibility</title>
     <!-- Preconnect external asset urls -->
     <!-- Preload important assets -->
-    <link rel="preload" as="style" href="css/core_styles.css?202505131513">
-    <link rel="preload" as="style" href="css/mobile_styles.css?202505131513">
+    <link rel="preload" as="style" href="css/core_styles.css?202505100039">
+    <link rel="preload" as="style" href="css/mobile_styles.css?202505100039">
     <link rel="preload" as="image" href="favicon.ico?202505100214">
     <link rel="preload" as="image" href="icon.svg?202505100214">
     <link rel="preload" as="image" href="img/bg1.jpg">
@@ -23,8 +23,8 @@
     <link rel="icon" href="icon.svg?202505100214" type="image/svg+xml"> <!-- Modern Browsers -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png?202505100214"> <!-- Apple devices -->
     <!-- Eden -->
-    <link rel="stylesheet" type="text/css" href="css/core_styles.css?202505131513">
-    <link rel="stylesheet" type="text/css" href="css/mobile_styles.css?202505131513" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" type="text/css" href="css/core_styles.css?202505100039">
+    <link rel="stylesheet" type="text/css" href="css/mobile_styles.css?202505100039" media="screen and (max-width: 768px)">
 </head>
 
 <body>
@@ -42,57 +42,153 @@
             <a href="https://git.eden-emu.dev/eden-emu/eden/releases">Download</a>
             <a href="compatibility.html">Compatibility</a>
             <a href="devs.html">Developers</a>
-            <a href="https://discord.gg/edenemu">Join Our Discord</a>
+            <a href="https://discord.gg/QFWtSENh">Join Our Discord</a>
         </nav>
     </header>
 
     <section class="hero-header">
-    <h1> Requirements </h1>
-<h2>CPU</h2>
-<p>Any amd64 CPU with support for the FMA instruction set, or an ARM64-v8a or newer CPU. 6 threads or more are recommended.</p>
+    <h1>System Requirements</h1>
+    
+    <div class="requirement-category">
+        <h2>CPU</h2>
+        <p>Any amd64 CPU with support for the FMA instruction set, or an ARM64-v8a or newer CPU. 6 threads or more are recommended.</p>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-minimum">Minimum</span>
+            <span>Intel Core i5-4430 / AMD Ryzen 3 1200 / Qualcomm Snapdragon 460</span>
+        </div>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-recommended">Recommended</span>
+            <span>Intel Core i5-11400 / AMD Ryzen 5 3600 / Qualcomm Snapdragon 865</span>
+        </div>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-optimal">Optimal</span>
+            <span>Intel Core i9-13900K / AMD Ryzen 7 7800X3D / Qualcomm Snapdragon 8 Gen 2</span>
+        </div>
+    </div>
+    
+    <div class="requirement-category">
+        <h2>Laptop CPU</h2>
+        <p>Mobile and Laptop CPUs generally need to be far newer to effectively run Eden due to their thermal throttling and lower power draw.</p>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-recommended">Recommended</span>
+            <span>Intel Core i5-13420H / AMD Ryzen 7 5700U</span>
+        </div>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-optimal">Optimal</span>
+            <span>Intel Core Ultra 7 265H / AMD Ryzen AI 9 HX 370</span>
+        </div>
+    </div>
 
-<p><b>Minimum</b>: Intel Core i5-4430 / AMD Ryzen 3 1200 / Qualcomm Snapdragon 460</p>
+    <div class="requirement-category">
+        <h2>Dedicated Graphics</h2>
+        <p>OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-float support and VP9 decoding support are recommended.</p>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-minimum">Minimum for Linux</span>
+            <span>NVIDIA GeForce GT 1050 4GB / AMD Radeon R7 240 4GB</span>
+        </div>
 
-<p><b>Recommended</b>: Intel Core i5-11400 / AMD Ryzen 5 3600 / Qualcomm Snapdragon 865</p>
+        <div class="requirement-tier">
+            <span class="tier-label tier-minimum">Minimum for Windows</span>
+            <span>NVIDIA GeForce GT 1050 4GB / AMD Radeon RX 550 4GB</span>
+        </div>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-recommended">Recommended</span>
+            <span>NVIDIA GeForce GTX 1660 6GB / AMD Radeon RX 5500 8GB (with “Force maximum clocks” enabled)</span>
+        </div>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-optimal">Optimal</span>
+            <span>NVIDIA Geforce RTX 3060 12GB / AMD Radeon RX 6700 10GB (with “Force maximum clocks” enabled)</span>
+        </div>
+    </div>
 
-<p><b>Optimal</b>: Intel Core i9-13900K / AMD Ryzen 7 7800X3D / Qualcomm Snapdragon 8 Gen 2</p>
+    <div class="requirement-category">
+        <h2>Integrated Graphics</h2>
+        <p>Integrated graphics will produce very low performance. A dedicated GPU will produce better results on all scenarios. This is only for listing iGPU support.</p>
+        
+        <h3>Windows</h3>
+        <div class="requirement-tier">
+            <span class="tier-label tier-minimum">Minimum</span>
+            <span>Intel UHD Graphics 730 / AMD Radeon Vega 3</span>
+        </div>
 
-<h2>Laptop CPU</h2>
+        <div class="requirement-tier">
+            <span class="tier-label tier-recommended">Recommended</span>
+            <span>Intel Iris Xe Graphics / AMD Radeon 680M</span>
+        </div>
 
-<p>Mobile and Laptop CPUs generally need to be far newer to effectively run Eden due to their thermal throttling and lower power draw.</p>
+        <h3>Linux</h3>
+        <div class="requirement-tier">
+            <span class="tier-label tier-minimum">Minimum</span>
+            <span>Intel HD Graphics 4400 / AMD Radeon R5 Graphics</span>
+        </div>
 
-<p><b>Recommended</b>: Intel Core i5-13420H / AMD Ryzen 7 5700U</p>
+        <div class="requirement-tier">
+            <span class="tier-label tier-recommended">Recommended</span>
+            <span>Intel Iris Xe Graphics / AMD Radeon 680M</span>
+        </div>
 
-<p><b>Optimal</b>: Intel Core Ultra 7 265H / AMD Ryzen AI 9 HX 370</p>
+        <h3>Android</h3>
+        <div class="requirement-tier">
+            <span class="tier-label tier-minimum">Minimum for Android</span>
+            <span>Qualcomm Adreno 605 (with Turnip drivers) / ARM Mali G57</span>
+        </div>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-recommended">Recommended</span>
+            <span>Qualcomm Adreno 740 / ARM Mali G720</span>
+        </div>
+    </div>
 
-<h2> Dedicated Graphics</h2>
-OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-float support and VP9 decoding support are recommended.</p>
+        <div class="requirement-category">
+        <h2>RAM</h2>
+        <p>Since an integrated GPU uses system RAM as its video memory (VRAM), our memory requirement in this configuration is higher. Highest possible frequency is strongly recommended.</p>
+        
+        <h3>Dedicated GPU Desktop</h3>
+        <div class="requirement-tier">
+            <span class="tier-label tier-minimum">Minimum</span>
+            <span>8GB</span>
+        </div>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-recommended">Recommended</span>
+            <span>16GB</span>
+        </div>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-optimal">Optimal</span>
+            <span>32GB</span>
+        </div>
 
-<p><b>Minimum for Linux</b>: NVIDIA GeForce GT 1050 4GB / AMD Radeon R7 240 4GB</p>
+        <h3>Android</h3>
+        <div class="requirement-tier">
+            <span class="tier-label tier-minimum">Minimum</span>
+            <span>8GB</span>
+        </div>
 
-<p><b>Minimum for Windows</b>: NVIDIA GeForce GT 1050 4GB / AMD Radeon RX 550 4GB</p>
-
-<p><b>Recommended</b>: NVIDIA GeForce GTX 1660 6GB / AMD Radeon RX 5500 8GB (with “Force maximum clocks” enabled)</p>
-
-<p><b>Optimal</b>: NVIDIA Geforce RTX 3060 12GB / AMD Radeon RX 6700 10GB (with “Force maximum clocks” enabled)</p>
-
-<h2> Integrated Graphics</h2>
-<p>Integrated graphics will produce very low performance. A dedicated GPU will produce better results on all scenarios. This is only for listing iGPU support.</p>
-
-<p><b>Minimum for Linux</b>: Intel HD Graphics 4400 / AMD Radeon R5 Graphics</p>
-
-<p><b>Minimum for Windows</b>: Intel UHD Graphics 730 / AMD Radeon Vega 3</p>
-
-<p><b>Minimum for Android</b>: Qualcomm Adreno 605 (with Turnip drivers) / ARM Mali G57</p>
-
-<p><b>Recommended</b>: Intel Iris Xe Graphics / AMD Radeon 680M / Qualcomm Adreno 740 / ARM Mali G720</p>
-
-<h2> RAM </h2>
-<p><b>Dedicated GPU Desktop</b>: 8GB minimum, 16-32GB recommended</p>
-
-<p><b>Android</b>: 8GB minimum</p>
-
-<p><b>Laptop/iGPU Desktop</b>: 12GB minimum, 16-32GB recommended</p>
+        <h3>Laptop/iGPU Desktop</h3>
+        <div class="requirement-tier">
+            <span class="tier-label tier-minimum">Minimum</span>
+            <span>12GB</span>
+        </div>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-recommended">Recommended</span>
+            <span>16GB</span>
+        </div>
+        
+        <div class="requirement-tier">
+            <span class="tier-label tier-optimal">Optimal</span>
+            <span>32GB</span>
+        </div>
+    </div>
     </section>
 
     <div class="spacer"></div>

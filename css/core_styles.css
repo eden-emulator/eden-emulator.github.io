@@ -123,6 +123,55 @@ nav a {
     /* margin: 0; */
 }
 
+/* Compatibility section styling */
+.hero-header {
+    padding: 30px;
+    text-align: left;
+}
+
+.requirement-category {
+    margin-bottom: 30px;
+    background: rgba(36, 2, 64, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.requirement-tier {
+    display: flex;
+    margin: 15px 0;
+    align-items: center;
+}
+
+.tier-label {
+    min-width: 100px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 15px;
+    text-align: center;
+}
+
+.tier-minimum {
+    background-color: #ff4444;
+}
+
+.tier-recommended {
+    background-color: #ffbb33;
+}
+
+.tier-optimal {
+    background-color: #00C851;
+}
+
+.platform-tag {
+    display: inline-block;
+    background: #5a189a;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    margin-right: 5px;
+}
+
 .hero-text {
     display: flex;
     flex-direction: column;

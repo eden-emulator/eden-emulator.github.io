@@ -201,17 +201,14 @@
         top: 0;
         right: -100%;
         width: 60%;
-        /* Reduzido de 70% para 60% */
         height: 100%;
         background-color: #2a0a4a;
-        /* Cor roxa escura (altere para a cor desejada) */
         flex-direction: column;
         padding: 80px 20px 20px;
         gap: 15px;
         transition: right 0.3s ease;
         z-index: 999;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-        /* Sombra para destacar */
     }
 
     .nav-mobile a {
@@ -220,19 +217,78 @@
         font-size: 16px;
         text-align: left;
         color: #fff;
-        /* Cor do texto */
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        /* Divisor sutil */
         transition: background-color 0.2s;
     }
 
     .nav-mobile a:hover {
         background-color: rgba(255, 255, 255, 0.1);
-        /* Efeito hover */
     }
 
     .nav-mobile.active {
         right: 0;
     }
 
+    .hero-header {
+        padding: 20px;
+    }
+
+    .requirement-category {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .requirement-tier {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 10px 0;
+    }
+
+    .tier-label {
+        margin-right: 0;
+        margin-bottom: 5px;
+        width: 80%;
+        text-align: left;
+    }
+
+    .platform-tag {
+        display: block;
+        margin: 5px 0;
+        width: fit-content;
+    }
+
+    .hardware-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .hero-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .hero-header p {
+        font-size: 0.9rem;
+    }
+
+    .requirement-category {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .requirement-tier span:not(.tier-label) {
+        word-break: break-word;
+    }
+
+    section {
+        margin: 10px 15px;
+    }
+
+    .platform-tag {
+        font-size: 0.7em;
+        padding: 1px 6px;
+    }
 }
