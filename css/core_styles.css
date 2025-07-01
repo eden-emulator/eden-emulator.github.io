@@ -379,3 +379,25 @@ h6 {
     margin-bottom: 0px;
     margin-top: 15px;
 }
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    color: #1DA1F2;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: rgb(228, 121, 242);
+    text-decoration: underline;
+}
+
+.social-icon {
+    width: 60px;
+    height: 40px;
+}
+
