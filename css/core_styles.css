@@ -392,12 +392,12 @@ h6 {
 }
 
 .social-link:hover {
-    color: #ffffff;
+    color: rgb(228, 121, 242);
     text-decoration: underline;
 }
 
 .social-icon {
-    width: 16px;
-    height: 16px;
+    width: 60px;
+    height: 40px;
 }
 
