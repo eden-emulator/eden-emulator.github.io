@@ -37,7 +37,7 @@ function Footer() {
               <span className="text-xl font-bold text-white">EDEN EMULATOR</span>
             </Link>
             <p className="text-blue-200 text-sm mb-4">
-              The ultimate retro gaming experience for the digital generation.
+              Much inspiring quote here, or something like that.
             </p>
             <div className="flex space-x-3">
               {socialLinks.map((social, index) => (
@@ -97,8 +97,8 @@ function Footer() {
 
             <div className="flex items-center space-x-2 text-blue-200 text-sm">
               <span>Made with</span>
-              <Heart className="w-4 h-4 text-purple-400 mx-1 animate-pulse" />
-              <span>by the community</span>
+              <Heart className="w-4 h-4 text-purple-400 mr-2 animate-pulse" />
+              <span>by your mom</span>
             </div>
           </div>
 

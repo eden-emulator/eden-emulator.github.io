@@ -1,9 +1,10 @@
 import { Heart } from 'lucide-react'
 import { socialLinks, stats } from './data'
+import HeadingText from '@/components/HeadingText.tsx'
 
 function CommunityPage() {
   return (
-    <div className="py-20 bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen">
+    <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen">
       {/* Background Grid */}
       <div
         className="absolute inset-0 opacity-20"
@@ -21,16 +22,10 @@ function CommunityPage() {
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-400 via-purple-400 to-cyan-400">
-              JOIN THE COMMUNITY
-            </span>
-          </h2>
-          <p className="text-xl text-cyan-100 max-w-3xl mx-auto font-light">
-            Connect with fellow gamers in our neon-soaked digital realm
-          </p>
-        </div>
+        <HeadingText
+          title="JOIN THE COMMUNITY"
+          description="Connect with gamers, developers, and enthusiasts in the Eden Emulator community"
+        />
 
         {/* Community Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
@@ -110,7 +105,7 @@ function CommunityPage() {
             </h3>
             <p className="text-cyan-100 mb-8 max-w-2xl mx-auto font-light">
               Eden Emulator is open source and community-driven. Whether you're a developer,
-              designer, or just passionate about retro gaming, join our neon revolution.
+              designer, we can use your help!
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <button className="bg-linear-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white px-8 py-4 rounded-lg font-bold tracking-wider transition-all duration-300 shadow-lg shadow-pink-500/50">

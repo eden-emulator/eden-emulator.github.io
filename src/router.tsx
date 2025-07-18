@@ -4,6 +4,8 @@ import FeaturesPage from './pages/Features/FeaturesPage.tsx'
 import DownloadPage from './pages/Download/DownloadPage.tsx'
 import DocumentationPage from './pages/Documentation/DocumentationPage.tsx'
 import CommunityPage from './pages/Community/CommunityPage.tsx'
+import SystemRequirementsPage from './pages/SystemRequirements/SystemRequirementsPage.tsx'
+import CompatibilityReportsPage from './pages/CompatibilityReports/CompatibilityReportsPage.tsx'
 import AppLayout from './components/AppLayout'
 
 const rootRoute = createRootRoute({ component: AppLayout })
@@ -38,12 +40,26 @@ const communityRoute = createRoute({
   component: CommunityPage,
 })
 
+const systemRequirementsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/system-requirements',
+  component: SystemRequirementsPage,
+})
+
+const compatibilityReportsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/compatibility',
+  component: CompatibilityReportsPage,
+})
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   featuresRoute,
   downloadRoute,
   docsRoute,
   communityRoute,
+  systemRequirementsRoute,
+  compatibilityReportsRoute,
 ])
 
 export const router = createRouter({ routeTree })

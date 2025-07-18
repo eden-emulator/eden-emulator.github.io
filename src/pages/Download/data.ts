@@ -1,0 +1,43 @@
+import { Apple, AppWindow as Windows, Monitor, Smartphone } from 'lucide-react'
+export const platforms = [
+  {
+    name: 'WINDOWS',
+    icon: Windows,
+    version: 'v0.0.2',
+    size: '137 MB',
+    requirements: 'Windows 10/11 (64-bit)',
+    downloadUrl: 'https://github.com/eden-emulator/Releases/releases',
+    primary: true,
+    color: 'from-blue-400 to-cyan-500',
+  },
+  {
+    name: 'MACOS',
+    icon: Apple,
+    version: 'v0.0.0',
+    size: '0 MB',
+    requirements: 'SIKE',
+    downloadUrl: 'https://youtu.be/dQw4w9WgXcQ?si=fUtiLmNrE2OBBnq3',
+    primary: false,
+    color: 'from-gray-400 to-gray-600',
+  },
+  {
+    name: 'LINUX',
+    icon: Monitor,
+    version: 'v0.0.2',
+    size: '167 MB',
+    requirements: 'amd64 / armv8-a / armv9-a / Steam Deck',
+    downloadUrl: 'https://github.com/eden-emulator/Releases/releases',
+    primary: false,
+    color: 'from-orange-400 to-red-500',
+  },
+  {
+    name: 'ANDROID',
+    icon: Smartphone,
+    version: 'v0.0.2',
+    size: '47.2 MB',
+    requirements: 'Android 13.0+',
+    downloadUrl: 'https://github.com/eden-emulator/Releases/releases',
+    primary: false,
+    color: 'from-green-400 to-emerald-500',
+  },
+]

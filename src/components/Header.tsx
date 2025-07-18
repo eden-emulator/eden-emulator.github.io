@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Menu, X, Download, Github, Book, Users } from 'lucide-react'
+import { Menu, X, Download, Book, Users, Monitor, ClipboardList } from 'lucide-react'
 import edenLogo from '@/assets/logo.png'
+import { GitHubIcon } from '@/components/Icons'
 import { Link, useLocation } from '@tanstack/react-router'
 
 function Header() {
@@ -8,12 +9,18 @@ function Header() {
   const location = useLocation()
 
   const navigation = [
-    { name: 'HOME', href: '/' },
     { name: 'FEATURES', href: '/features' },
     { name: 'DOWNLOAD', href: '/download', icon: Download },
+    { name: 'REQUIREMENTS', href: '/system-requirements', icon: Monitor },
+    { name: 'COMPATIBILITY', href: '/compatibility', icon: ClipboardList },
     { name: 'DOCS', href: '/docs', icon: Book },
     { name: 'COMMUNITY', href: '/community', icon: Users },
-    { name: 'GITHUB', href: 'https://github.com/eden-emu', icon: Github, external: true },
+    {
+      name: 'GITHUB',
+      href: 'https://github.com/eden-emulator/Releases/releases',
+      icon: GitHubIcon,
+      external: true,
+    },
   ]
 
   const isActive = (href: string) => {

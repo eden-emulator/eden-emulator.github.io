@@ -1,4 +1,4 @@
-import { MessageSquare, type LucideIcon } from 'lucide-react'
+import { type LucideIcon } from 'lucide-react'
 
 import { DiscordIcon, GitHubIcon, TwitterIcon, type Icon } from '@/components/Icons'
 
@@ -28,9 +28,9 @@ export const footerLinks: Record<string, FooterLink[]> = {
   ],
   SUPPORT: [
     { name: 'Documentation', href: '/docs' },
-    { name: 'FAQ', href: '#' },
-    { name: 'Troubleshooting', href: '#' },
-    { name: 'Contact Us', href: '#' },
+    { name: 'FAQ (soon)', href: '#' },
+    { name: 'Troubleshooting (soon)', href: '#' },
+    { name: 'Contact Us', href: 'https://discord.gg/edenemu' },
   ],
   COMMUNITY: [
     { name: 'Discord', href: 'https://discord.gg/edenemu', external: true },
