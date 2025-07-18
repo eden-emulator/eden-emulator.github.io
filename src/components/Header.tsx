@@ -1,0 +1,131 @@
+import { useState } from 'react'
+import { Menu, X, Download, Github, Book, Users } from 'lucide-react'
+import edenLogo from '@/assets/logo.png'
+import { Link, useLocation } from '@tanstack/react-router'
+
+function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const location = useLocation()
+
+  const navigation = [
+    { name: 'HOME', href: '/' },
+    { name: 'FEATURES', href: '/features' },
+    { name: 'DOWNLOAD', href: '/download', icon: Download },
+    { name: 'DOCS', href: '/docs', icon: Book },
+    { name: 'COMMUNITY', href: '/community', icon: Users },
+    { name: 'GITHUB', href: 'https://github.com/eden-emu', icon: Github, external: true },
+  ]
+
+  const isActive = (href: string) => {
+    if (href === '/') return location.pathname === '/'
+    return location.pathname.startsWith(href)
+  }
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-purple-500/30">
+      <div className="absolute inset-0 bg-linear-to-r from-purple-500/10 via-blue-500/10 to-purple-500/10"></div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-3">
+            <img
+              src={edenLogo}
+              alt="Eden Emulator"
+              className="h-10 w-10"
+              style={{
+                filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))',
+              }}
+            />
+            <span className="text-xl font-bold text-white">EDEN EMULATOR</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navigation.map((item) =>
+              item.external ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center space-x-2 text-blue-300 hover:text-purple-300 transition-all duration-300 font-bold text-sm tracking-wider relative"
+                >
+                  <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/20 group-hover:to-blue-500/20 rounded-lg blur-sm transition-all duration-300"></div>
+                  <div className="relative flex items-center space-x-2">
+                    {item.icon && <item.icon className="w-4 h-4" />}
+                    <span>{item.name}</span>
+                  </div>
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`group flex items-center space-x-2 transition-all duration-300 font-bold text-sm tracking-wider relative ${
+                    isActive(item.href) ? 'text-purple-300' : 'text-blue-300 hover:text-purple-300'
+                  }`}
+                >
+                  <div
+                    className={`absolute inset-0 bg-linear-to-r from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/20 group-hover:to-blue-500/20 rounded-lg blur transition-all duration-300 ${
+                      isActive(item.href) ? 'from-purple-500/20 to-blue-500/20' : ''
+                    }`}
+                  ></div>
+                  <div className="relative flex items-center space-x-2">
+                    {item.icon && <item.icon className="w-4 h-4" />}
+                    <span>{item.name}</span>
+                  </div>
+                </Link>
+              ),
+            )}
+          </nav>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 text-blue-300 hover:text-purple-300 border border-blue-500/50 rounded-lg hover:border-purple-500/50 transition-all duration-300"
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 border-t border-purple-500/30">
+            <nav className="flex flex-col space-y-4">
+              {navigation.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 text-blue-300 hover:text-purple-300 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-purple-500/10 font-bold text-sm tracking-wider"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.icon && <item.icon className="w-4 h-4" />}
+                    <span>{item.name}</span>
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`flex items-center space-x-3 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-purple-500/10 font-bold text-sm tracking-wider ${
+                      isActive(item.href)
+                        ? 'text-purple-300 bg-purple-500/10'
+                        : 'text-blue-300 hover:text-purple-300'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.icon && <item.icon className="w-4 h-4" />}
+                    <span>{item.name}</span>
+                  </Link>
+                ),
+              )}
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  )
+}
+
+export default Header

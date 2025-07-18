@@ -1,68 +1,214 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import 'tailwindcss';
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap')
+layer(utilities);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@utility text-shadow {
+  text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+@utility text-shadow-neon {
+  text-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px currentColor;
 }
-button:hover {
-  border-color: #646cff;
+
+@utility backdrop-blur-xs {
+  backdrop-filter: blur(2px);
 }
+
+@utility neon-border {
+  border: 1px solid;
+  border-image: linear-gradient(45deg, #9333ea, #3b82f6) 1;
+  box-shadow:
+    0 0 5px rgba(147, 51, 234, 0.5),
+    inset 0 0 5px rgba(59, 130, 246, 0.2);
+}
+
+@utility neon-glow {
+  box-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px currentColor,
+    0 0 35px currentColor,
+    0 0 40px currentColor;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #000000;
+    color: #dbeafe;
+  }
+}
+
+/* Custom scrollbar with neon theme */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+  border: 1px solid #9333ea;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #9333ea, #3b82f6);
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a855f7, #60a5fa);
+  box-shadow: 0 0 15px rgba(147, 51, 234, 0.8);
+}
+
+/* Neon animations */
+@keyframes neon-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes grid-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+@keyframes pulse-neon {
+  0%,
+  100% {
+    box-shadow:
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor;
+  }
+  50% {
+    box-shadow:
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor;
+  }
+}
+
+.animate-neon-flicker {
+  animation: neon-flicker 2s infinite;
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s infinite;
+}
+
+/* Smooth transitions */
+* {
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(147, 51, 234, 0.3);
+  color: #dbeafe;
+}
+
+/* Focus styles */
 button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+a:focus {
+  outline: 2px solid #9333ea;
+  outline-offset: 2px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Retro text effect */
+.retro-text {
+  text-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px currentColor,
+    0 0 35px currentColor,
+    0 0 40px currentColor;
+  animation: neon-flicker 3s infinite alternate;
+}
+
+/* Synthwave gradient backgrounds */
+.synthwave-bg {
+  background: linear-gradient(
+    135deg,
+    #000000 0%,
+    #1e1b4b 25%,
+    #581c87 50%,
+    #1e1b4b 75%,
+    #000000 100%
+  );
+}
+
+/* Glitch effect for special elements */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
   }
-  a:hover {
-    color: #747bff;
+  20% {
+    transform: translate(-2px, 2px);
   }
-  button {
-    background-color: #f9f9f9;
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s infinite;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
   }
 }
