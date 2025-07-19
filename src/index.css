@@ -95,12 +95,16 @@
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--synthwave-hot-pink), var(--synthwave-cyan));
   border-radius: 6px;
-  box-shadow: 0 0 15px var(--synthwave-hot-pink), 0 0 30px var(--synthwave-purple);
+  box-shadow:
+    0 0 15px var(--synthwave-hot-pink),
+    0 0 30px var(--synthwave-purple);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, var(--synthwave-magenta), var(--synthwave-blue));
-  box-shadow: 0 0 20px var(--synthwave-hot-pink), 0 0 40px var(--synthwave-purple);
+  box-shadow:
+    0 0 20px var(--synthwave-hot-pink),
+    0 0 40px var(--synthwave-purple);
 }
 
 /* Neon animations */
@@ -260,27 +264,21 @@ a:focus {
 
 /* 80's Chrome Text Effect */
 .chrome-text {
-  background: linear-gradient(
-    180deg,
-    #eee 0%,
-    #999 50%,
-    #777 51%,
-    #555 100%
-  );
+  background: linear-gradient(180deg, #eee 0%, #999 50%, #777 51%, #555 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 
+  text-shadow:
     0 1px 0 #ccc,
     0 2px 0 #c9c9c9,
     0 3px 0 #bbb,
     0 4px 0 #b9b9b9,
     0 5px 0 #aaa,
-    0 6px 1px rgba(0,0,0,.1),
-    0 0 5px rgba(0,0,0,.1),
-    0 1px 3px rgba(0,0,0,.3),
-    0 3px 5px rgba(0,0,0,.2),
-    0 5px 10px rgba(0,0,0,.25);
+    0 6px 1px rgba(0, 0, 0, 0.1),
+    0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 /* Scanline Effect */
@@ -342,7 +340,7 @@ a:focus {
 
 /* Retro Grid with Perspective */
 .retro-grid {
-  background-image: 
+  background-image:
     linear-gradient(rgba(255, 0, 255, 0.3) 2px, transparent 2px),
     linear-gradient(90deg, rgba(255, 0, 255, 0.3) 2px, transparent 2px);
   background-size: 50px 50px;
@@ -380,7 +378,8 @@ a:focus {
 
 /* Outrun Sun Effect */
 @keyframes sun-pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     filter: brightness(1);
   }
@@ -407,7 +406,8 @@ a:focus {
 
 /* Subtle Animated Synthwave Background */
 @keyframes synthwave-beat {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
     transform: scaleY(1) perspective(800px) rotateX(30deg);
   }
@@ -426,7 +426,8 @@ a:focus {
 }
 
 @keyframes synthwave-pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.3;
     filter: brightness(1);
   }
@@ -475,7 +476,8 @@ a:focus {
   transform: perspective(400px) rotateX(75deg);
   transform-origin: bottom;
   opacity: 0.3;
-  filter: blur(0.5px) drop-shadow(0 0 10px var(--synthwave-hot-pink)) drop-shadow(0 0 10px var(--synthwave-cyan));
+  filter: blur(0.5px) drop-shadow(0 0 10px var(--synthwave-hot-pink))
+    drop-shadow(0 0 10px var(--synthwave-cyan));
   animation: synthwave-flow 12s linear infinite;
 }
 
@@ -486,30 +488,30 @@ a:focus {
   left: -50%;
   right: -50%;
   height: 60%;
-  background-image: 
-    repeating-linear-gradient(
-      90deg,
-      transparent 0,
-      transparent 59px,
-      var(--synthwave-purple) 59px,
-      var(--synthwave-purple) 61px,
-      transparent 61px,
-      transparent 119px,
-      var(--synthwave-blue) 119px,
-      var(--synthwave-blue) 121px,
-      transparent 121px
-    );
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 59px,
+    var(--synthwave-purple) 59px,
+    var(--synthwave-purple) 61px,
+    transparent 61px,
+    transparent 119px,
+    var(--synthwave-blue) 119px,
+    var(--synthwave-blue) 121px,
+    transparent 121px
+  );
   transform: perspective(400px) rotateX(75deg);
   transform-origin: bottom;
   opacity: 0.25;
-  filter: blur(0.5px) drop-shadow(0 0 8px var(--synthwave-purple)) drop-shadow(0 0 8px var(--synthwave-blue));
+  filter: blur(0.5px) drop-shadow(0 0 8px var(--synthwave-purple))
+    drop-shadow(0 0 8px var(--synthwave-blue));
   animation: synthwave-beat 3s ease-in-out infinite;
 }
 
 .synthwave-gradient-animated {
   position: absolute;
   inset: 0;
-  background: 
+  background:
     radial-gradient(ellipse at top, transparent 0%, rgba(179, 0, 255, 0.1) 50%, transparent 100%),
     linear-gradient(
       to bottom,
@@ -530,11 +532,12 @@ a:focus {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--synthwave-hot-pink) 20%, 
-    var(--synthwave-cyan) 50%, 
-    var(--synthwave-hot-pink) 80%, 
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--synthwave-hot-pink) 20%,
+    var(--synthwave-cyan) 50%,
+    var(--synthwave-hot-pink) 80%,
     transparent 100%
   );
   filter: blur(2px);
@@ -553,24 +556,51 @@ a:focus {
 
 /* Music visualizer bars */
 @keyframes bar-dance-1 {
-  0%, 100% { transform: scaleY(0.3); }
-  25% { transform: scaleY(0.7); }
-  50% { transform: scaleY(0.5); }
-  75% { transform: scaleY(0.6); }
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  25% {
+    transform: scaleY(0.7);
+  }
+  50% {
+    transform: scaleY(0.5);
+  }
+  75% {
+    transform: scaleY(0.6);
+  }
 }
 
 @keyframes bar-dance-2 {
-  0%, 100% { transform: scaleY(0.5); }
-  25% { transform: scaleY(0.3); }
-  50% { transform: scaleY(0.7); }
-  75% { transform: scaleY(0.4); }
+  0%,
+  100% {
+    transform: scaleY(0.5);
+  }
+  25% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(0.7);
+  }
+  75% {
+    transform: scaleY(0.4);
+  }
 }
 
 @keyframes bar-dance-3 {
-  0%, 100% { transform: scaleY(0.6); }
-  25% { transform: scaleY(0.4); }
-  50% { transform: scaleY(0.3); }
-  75% { transform: scaleY(0.7); }
+  0%,
+  100% {
+    transform: scaleY(0.6);
+  }
+  25% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(0.3);
+  }
+  75% {
+    transform: scaleY(0.7);
+  }
 }
 
 .music-bars {
@@ -590,14 +620,14 @@ a:focus {
 .music-bar {
   width: 3px;
   background: linear-gradient(
-    to top, 
-    var(--synthwave-hot-pink) 0%, 
-    var(--synthwave-purple) 50%, 
+    to top,
+    var(--synthwave-hot-pink) 0%,
+    var(--synthwave-purple) 50%,
     var(--synthwave-cyan) 100%
   );
   transform-origin: bottom;
   border-radius: 2px 2px 0 0;
-  box-shadow: 
+  box-shadow:
     0 0 5px var(--synthwave-hot-pink),
     0 0 10px var(--synthwave-purple),
     0 0 15px var(--synthwave-cyan);
@@ -607,12 +637,12 @@ a:focus {
   animation: bar-dance-1 2s ease-in-out infinite;
 }
 
-.music-bar:nth-child(3n+1) {
+.music-bar:nth-child(3n + 1) {
   animation: bar-dance-2 2s ease-in-out infinite;
   animation-delay: 0.2s;
 }
 
-.music-bar:nth-child(3n+2) {
+.music-bar:nth-child(3n + 2) {
   animation: bar-dance-3 2s ease-in-out infinite;
   animation-delay: 0.4s;
 }

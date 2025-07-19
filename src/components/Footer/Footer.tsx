@@ -53,9 +53,7 @@ function Footer() {
               />
               <span className="text-xl font-bold text-white">Eden Emulator</span>
             </Link>
-            <p className="text-blue-200 text-sm mb-4">
-              "Our actions define our legacy."
-            </p>
+            <p className="text-blue-200 text-sm mb-4">"Our actions define our legacy."</p>
             <nav aria-label="Social media links">
               <h3 className="sr-only">Follow us on social media</h3>
               <div className="flex space-x-3">

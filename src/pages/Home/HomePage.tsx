@@ -14,7 +14,7 @@ function HomePage() {
           <div className="synthwave-gradient-animated"></div>
           <div className="synthwave-horizon"></div>
           <div className="synthwave-lines"></div>
-          
+
           {/* Music Visualizer Bars */}
           <div className="music-bars">
             {[...Array(40)].map((_, i) => (
@@ -24,7 +24,7 @@ function HomePage() {
                 style={{
                   height: `${20 + Math.sin(i * 0.3) * 30}px`,
                   animationDelay: `${i * 0.05}s`,
-                  opacity: 0.6 - (Math.abs(i - 20) * 0.02)
+                  opacity: 0.6 - Math.abs(i - 20) * 0.02,
                 }}
               />
             ))}
@@ -36,7 +36,7 @@ function HomePage() {
           className="absolute top-20 left-10 w-96 h-96 rounded-full blur-3xl animate-pulse"
           style={{
             background: 'radial-gradient(circle, var(--synthwave-hot-pink) 0%, transparent 70%)',
-            opacity: 0.15
+            opacity: 0.15,
           }}
           aria-hidden="true"
         />
@@ -44,7 +44,7 @@ function HomePage() {
           className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000"
           style={{
             background: 'radial-gradient(circle, var(--synthwave-cyan) 0%, transparent 70%)',
-            opacity: 0.15
+            opacity: 0.15,
           }}
           aria-hidden="true"
         />
@@ -52,7 +52,7 @@ function HomePage() {
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-3xl"
           style={{
             background: 'radial-gradient(ellipse, var(--synthwave-purple) 0%, transparent 60%)',
-            opacity: 0.1
+            opacity: 0.1,
           }}
           aria-hidden="true"
         />
@@ -70,15 +70,45 @@ function HomePage() {
             />
           </div>
 
-          <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-            <span className="block text-white mb-2" style={{ textShadow: '0 0 20px var(--synthwave-cyan), 0 0 40px var(--synthwave-cyan)' }}>Nintendo Switch</span>
-            <span className="block text-white mt-2" style={{ textShadow: '0 0 20px var(--synthwave-hot-pink), 0 0 40px var(--synthwave-hot-pink)' }}>Emulator</span>
+          <h1
+            className="text-4xl md:text-7xl font-bold mb-6 leading-tight"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          >
+            <span
+              className="block text-white mb-2"
+              style={{
+                textShadow: '0 0 20px var(--synthwave-cyan), 0 0 40px var(--synthwave-cyan)',
+              }}
+            >
+              Nintendo Switch
+            </span>
+            <span
+              className="block text-white mt-2"
+              style={{
+                textShadow:
+                  '0 0 20px var(--synthwave-hot-pink), 0 0 40px var(--synthwave-hot-pink)',
+              }}
+            >
+              Emulator
+            </span>
           </h1>
 
-          <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-gray-200" style={{ fontFamily: 'Inter, sans-serif' }}>
-            <span className="font-bold" style={{ color: 'var(--synthwave-hot-pink)', textShadow: '0 0 10px var(--synthwave-hot-pink)' }}>Eden</span> is an experimental open-source emulator
-             for the Nintendo Switch, built with performance and stability in mind.
-            It is written in C++ with cross-platform support for Windows, Linux and Android. 
+          <p
+            className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-gray-200"
+            style={{ fontFamily: 'Inter, sans-serif' }}
+          >
+            <span
+              className="font-bold"
+              style={{
+                color: 'var(--synthwave-hot-pink)',
+                textShadow: '0 0 10px var(--synthwave-hot-pink)',
+              }}
+            >
+              Eden
+            </span>{' '}
+            is an experimental open-source emulator for the Nintendo Switch, built with performance
+            and stability in mind. It is written in C++ with cross-platform support for Windows,
+            Linux and Android.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-14 mb-12">
@@ -86,9 +116,11 @@ function HomePage() {
               to="/download"
               className="group relative text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-offset-black"
               style={{
-                background: 'linear-gradient(135deg, var(--synthwave-hot-pink), var(--synthwave-purple))',
+                background:
+                  'linear-gradient(135deg, var(--synthwave-hot-pink), var(--synthwave-purple))',
                 border: '2px solid var(--synthwave-cyan)',
-                boxShadow: '0 0 20px var(--synthwave-hot-pink), 0 0 40px var(--synthwave-purple), inset 0 0 20px rgba(255, 0, 255, 0.2)',
+                boxShadow:
+                  '0 0 20px var(--synthwave-hot-pink), 0 0 40px var(--synthwave-purple), inset 0 0 20px rgba(255, 0, 255, 0.2)',
                 fontFamily: 'Orbitron, sans-serif',
               }}
               aria-label="Download Eden Emulator"
@@ -96,7 +128,8 @@ function HomePage() {
               <div
                 className="absolute inset-0 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300"
                 style={{
-                  background: 'linear-gradient(135deg, var(--synthwave-hot-pink), var(--synthwave-purple))',
+                  background:
+                    'linear-gradient(135deg, var(--synthwave-hot-pink), var(--synthwave-purple))',
                 }}
                 aria-hidden="true"
               ></div>
@@ -151,7 +184,11 @@ function HomePage() {
               }}
               aria-label="View Eden Emulator features"
             >
-              <Zap className="w-6 h-6" style={{ color: 'var(--synthwave-cyan)' }} aria-hidden="true" />
+              <Zap
+                className="w-6 h-6"
+                style={{ color: 'var(--synthwave-cyan)' }}
+                aria-hidden="true"
+              />
               <span className="font-bold">Features</span>
             </Link>
 
@@ -166,7 +203,11 @@ function HomePage() {
               }}
               aria-label="View system requirements for Eden Emulator"
             >
-              <Cpu className="w-6 h-6" style={{ color: 'var(--synthwave-hot-pink)' }} aria-hidden="true" />
+              <Cpu
+                className="w-6 h-6"
+                style={{ color: 'var(--synthwave-hot-pink)' }}
+                aria-hidden="true"
+              />
               <span className="font-bold">System Requirements</span>
             </Link>
 
@@ -181,7 +222,11 @@ function HomePage() {
               }}
               aria-label="Download Eden Emulator"
             >
-              <Download className="w-6 h-6" style={{ color: 'var(--synthwave-yellow)' }} aria-hidden="true" />
+              <Download
+                className="w-6 h-6"
+                style={{ color: 'var(--synthwave-yellow)' }}
+                aria-hidden="true"
+              />
               <span className="font-bold">Download</span>
             </Link>
           </nav>
