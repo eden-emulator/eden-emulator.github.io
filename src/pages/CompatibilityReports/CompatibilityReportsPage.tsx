@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Loader2, Smartphone, Cpu, TrendingUp, TrendingDown, Info } from 'lucide-react'
 import type { CompatibilityReport, PaginationInfo } from './types'
 import HeadingText from '@/components/HeadingText'
@@ -17,11 +17,7 @@ function CompatibilityReportsPage() {
     total: 0,
     pages: 0,
   })
-  const [hasMore, setHasMore] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const observerRef = useRef<IntersectionObserver | null>(null)
-  const lastReportRef = useRef<HTMLDivElement | null>(null)
-  const loadingRef = useRef(false)
   const [modalState, setModalState] = useState<{
     isOpen: boolean
     gameTitle: string
@@ -34,10 +30,9 @@ function CompatibilityReportsPage() {
 
   const fetchReports = useCallback(
     async (pageNum: number) => {
-      // Validate page number and prevent duplicate requests
-      if (!pageNum || pageNum < 1 || loadingRef.current || !hasMore) return
+      // Validate page number
+      if (!pageNum || pageNum < 1 || isLoading) return
 
-      loadingRef.current = true
       setIsLoading(true)
       setError(null)
 
@@ -48,7 +43,7 @@ function CompatibilityReportsPage() {
           }),
         )
 
-        const apiUrl = import.meta.env.VITE_API_BASE_URL || '/api/emuready'
+        const apiUrl = import.meta.env.VITE_EMUREADY_API_BASE_URL || '/api/emuready'
         const response = await fetch(
           `${apiUrl}/trpc/mobile.getListings?batch=1&input=${encodedInput}`,
         )
@@ -57,9 +52,8 @@ function CompatibilityReportsPage() {
         if (data?.[0]?.result?.data?.json) {
           const { listings, pagination: paginationData } = data[0].result.data.json
 
-          setReports((prev) => (pageNum === 1 ? listings : [...prev, ...listings]))
+          setReports(listings)
           setPagination(paginationData)
-          setHasMore(pageNum < paginationData.pages)
         } else if (data?.[0]?.error) {
           console.error('API Error:', data[0].error)
           setError('Failed to load compatibility reports.')
@@ -70,47 +64,15 @@ function CompatibilityReportsPage() {
       } finally {
         setIsLoading(false)
         setIsInitialLoad(false)
-        // Add a small delay before allowing next request
-        setTimeout(() => {
-          loadingRef.current = false
-        }, 500)
       }
     },
-    [hasMore],
+    [isLoading],
   )
 
   // Initial load
   useEffect(() => {
     fetchReports(1).catch(console.error)
   }, [fetchReports])
-
-  // Setup intersection observer for infinite scroll
-  useEffect(() => {
-    if (observerRef.current) observerRef.current.disconnect()
-
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && hasMore && !isLoading && pagination.page > 0) {
-          const nextPage = pagination.page + 1
-          if (nextPage <= pagination.pages) {
-            fetchReports(nextPage)
-          }
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '100px',
-      },
-    )
-
-    if (lastReportRef.current && !isLoading) {
-      observerRef.current.observe(lastReportRef.current)
-    }
-
-    return () => {
-      if (observerRef.current) observerRef.current.disconnect()
-    }
-  }, [fetchReports, hasMore, isLoading, pagination.page, pagination.pages])
 
   const getPerformanceStyle = (rank: number) => {
     return PERFORMANCE_STYLES[rank as keyof typeof PERFORMANCE_STYLES] || DEFAULT_PERFORMANCE_STYLE
@@ -199,16 +161,12 @@ function CompatibilityReportsPage() {
         {/* Reports Grid */}
         {!isInitialLoad && (
           <div className="grid grid-cols-1 gap-8">
-            {reports.map((report, index) => {
+            {reports.map((report) => {
               const imageUrl = getGameImageUrl(report.game)
               const perfStyle = getPerformanceStyle(report.performance.rank)
 
               return (
-                <div
-                  key={report.id}
-                  ref={index === reports.length - 1 ? lastReportRef : null}
-                  className="group relative"
-                >
+                <div key={report.id} className="group relative">
                   {/* Glow Effect Behind Card */}
                   <div
                     className={cn(
@@ -382,21 +340,6 @@ function CompatibilityReportsPage() {
                 </div>
               )
             })}
-          </div>
-        )}
-
-        {/* Loading More Indicator */}
-        {!isInitialLoad && isLoading && (
-          <div className="flex items-center justify-center py-8">
-            <Loader2 className="w-8 h-8 text-purple-400 animate-spin mr-3" />
-            <p className="text-cyan-100 font-light">Loading more reports...</p>
-          </div>
-        )}
-
-        {/* No More Reports */}
-        {!hasMore && reports.length > 0 && (
-          <div className="text-center py-8">
-            <p className="text-purple-300 font-light">No more reports to load</p>
           </div>
         )}
 
