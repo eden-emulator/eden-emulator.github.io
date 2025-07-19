@@ -438,10 +438,10 @@ a:focus {
 
 @keyframes synthwave-flow {
   0% {
-    transform: translateZ(0) translateY(0);
+    transform: translateY(0);
   }
   100% {
-    transform: translateZ(200px) translateY(-100px);
+    transform: translateY(60px);
   }
 }
 
@@ -452,58 +452,253 @@ a:focus {
   perspective: 1000px;
 }
 
-/* Horizontal synthwave grid lines with glow */
-.synthwave-animated-bg::before {
-  content: '';
+/* Synthwave perspective grid */
+.synthwave-grid {
   position: absolute;
   bottom: 0;
-  left: -50%;
-  right: -50%;
+  left: 0;
+  right: 0;
   height: 60%;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent 0,
-    transparent 28px,
-    var(--synthwave-hot-pink) 28px,
-    var(--synthwave-hot-pink) 30px,
-    transparent 30px,
-    transparent 58px,
-    var(--synthwave-cyan) 58px,
-    var(--synthwave-cyan) 60px,
-    transparent 60px
-  );
-  transform: perspective(400px) rotateX(75deg);
-  transform-origin: bottom;
-  opacity: 0.3;
-  filter: blur(0.5px) drop-shadow(0 0 10px var(--synthwave-hot-pink)) drop-shadow(0 0 10px var(--synthwave-cyan));
-  animation: synthwave-flow 12s linear infinite;
+  overflow: hidden;
+  perspective: 300px;
+  perspective-origin: 50% 0%;
+  mask-image: linear-gradient(to top, black 0%, transparent 90%);
+  -webkit-mask-image: linear-gradient(to top, black 0%, transparent 90%);
 }
 
-/* Vertical synthwave grid lines */
+.synthwave-grid-inner {
+  position: absolute;
+  bottom: -100%;
+  left: -200%;
+  right: -200%;
+  height: 300%;
+  background-image: 
+    linear-gradient(var(--synthwave-hot-pink) 2px, transparent 2px),
+    linear-gradient(90deg, var(--synthwave-cyan) 2px, transparent 2px);
+  background-size: 60px 60px;
+  background-position: 50% 0;
+  transform: rotateX(80deg) translateZ(0);
+  transform-origin: 50% 0;
+  animation: 
+    grid-scroll 3s linear infinite,
+    grid-warp 2s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+/* Grid warping effect */
+@keyframes grid-warp {
+  0%, 100% {
+    transform: rotateX(80deg) translateZ(0) scale(1);
+  }
+  25% {
+    transform: rotateX(80deg) translateZ(0) scale(1.05, 0.95);
+  }
+  50% {
+    transform: rotateX(80deg) translateZ(0) scale(0.95, 1.05);
+  }
+  75% {
+    transform: rotateX(80deg) translateZ(0) scale(1.02, 0.98);
+  }
+}
+
+.synthwave-grid-inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: drop-shadow(0 0 10px var(--synthwave-hot-pink)) drop-shadow(0 0 10px var(--synthwave-cyan));
+  animation: grid-pulse 2s ease-in-out infinite;
+}
+
+@keyframes grid-scroll {
+  0% {
+    transform: 
+      rotateX(80deg) 
+      translateY(0) 
+      translateZ(0)
+      skewY(0deg);
+  }
+  25% {
+    transform: 
+      rotateX(78deg) 
+      translateY(15px) 
+      translateZ(-10px)
+      skewY(1deg);
+  }
+  50% {
+    transform: 
+      rotateX(82deg) 
+      translateY(30px) 
+      translateZ(5px)
+      skewY(-1deg);
+  }
+  75% {
+    transform: 
+      rotateX(79deg) 
+      translateY(45px) 
+      translateZ(-5px)
+      skewY(0.5deg);
+  }
+  100% {
+    transform: 
+      rotateX(80deg) 
+      translateY(60px) 
+      translateZ(0)
+      skewY(0deg);
+  }
+}
+
+/* Beat pulse effect for grid */
+@keyframes grid-pulse {
+  0%, 100% {
+    filter: brightness(1) hue-rotate(0deg);
+  }
+  25% {
+    filter: brightness(1.2) hue-rotate(10deg);
+  }
+  50% {
+    filter: brightness(0.9) hue-rotate(-10deg);
+  }
+  75% {
+    filter: brightness(1.1) hue-rotate(5deg);
+  }
+}
+
+/* Vertical perspective lines */
 .synthwave-lines {
   position: absolute;
-  bottom: 0;
-  left: -50%;
-  right: -50%;
+  bottom: 40%;
+  left: 0;
+  right: 0;
   height: 60%;
-  background-image: 
-    repeating-linear-gradient(
-      90deg,
-      transparent 0,
-      transparent 59px,
-      var(--synthwave-purple) 59px,
-      var(--synthwave-purple) 61px,
-      transparent 61px,
-      transparent 119px,
-      var(--synthwave-blue) 119px,
-      var(--synthwave-blue) 121px,
-      transparent 121px
-    );
-  transform: perspective(400px) rotateX(75deg);
-  transform-origin: bottom;
-  opacity: 0.25;
-  filter: blur(0.5px) drop-shadow(0 0 8px var(--synthwave-purple)) drop-shadow(0 0 8px var(--synthwave-blue));
-  animation: synthwave-beat 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Beat-synchronized line distortion */
+@keyframes line-wave {
+  0%, 100% {
+    transform: 
+      rotate(var(--rotation)) 
+      translateX(0) 
+      scaleY(1);
+    filter: drop-shadow(0 0 5px var(--synthwave-cyan)) brightness(1);
+  }
+  25% {
+    transform: 
+      rotate(calc(var(--rotation) + 2deg)) 
+      translateX(-5px) 
+      scaleY(1.1);
+    filter: drop-shadow(0 0 15px var(--synthwave-cyan)) brightness(1.3);
+  }
+  50% {
+    transform: 
+      rotate(calc(var(--rotation) - 2deg)) 
+      translateX(5px) 
+      scaleY(0.95);
+    filter: drop-shadow(0 0 8px var(--synthwave-cyan)) brightness(0.9);
+  }
+  75% {
+    transform: 
+      rotate(calc(var(--rotation) + 1deg)) 
+      translateX(-3px) 
+      scaleY(1.05);
+    filter: drop-shadow(0 0 12px var(--synthwave-cyan)) brightness(1.1);
+  }
+}
+
+/* Distortion wave effect */
+@keyframes line-distort {
+  0%, 100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  25% {
+    clip-path: polygon(0 0, 95% 5%, 100% 100%, 5% 95%);
+  }
+  50% {
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+  }
+  75% {
+    clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+  }
+}
+
+/* Multiple perspective lines for depth */
+.synthwave-line {
+  position: absolute;
+  bottom: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to top, 
+    var(--synthwave-cyan) 0%, 
+    var(--synthwave-purple) 30%,
+    transparent 70%
+  );
+  transform-origin: bottom center;
+  filter: drop-shadow(0 0 5px var(--synthwave-cyan));
+  animation: 
+    line-wave 2s ease-in-out infinite,
+    line-distort 4s ease-in-out infinite;
+}
+
+/* Add wave displacement to lines */
+.synthwave-line::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  animation: wave-displacement 1.5s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+@keyframes wave-displacement {
+  0%, 100% {
+    transform: translateX(0) scaleX(1);
+  }
+  50% {
+    transform: translateX(10px) scaleX(0.8);
+  }
+}
+
+.synthwave-line:nth-child(1) {
+  --rotation: 20deg;
+  left: 10%;
+  opacity: 0.6;
+  animation-delay: 0s;
+}
+
+.synthwave-line:nth-child(2) {
+  --rotation: 10deg;
+  left: 25%;
+  opacity: 0.7;
+  animation-delay: 0.2s;
+}
+
+.synthwave-line:nth-child(3) {
+  --rotation: 3deg;
+  left: 40%;
+  opacity: 0.8;
+  animation-delay: 0.4s;
+}
+
+.synthwave-line:nth-child(4) {
+  --rotation: -3deg;
+  right: 40%;
+  opacity: 0.8;
+  animation-delay: 0.6s;
+}
+
+.synthwave-line:nth-child(5) {
+  --rotation: -10deg;
+  right: 25%;
+  opacity: 0.7;
+  animation-delay: 0.8s;
+}
+
+.synthwave-line:nth-child(6) {
+  --rotation: -20deg;
+  right: 10%;
+  opacity: 0.6;
+  animation-delay: 1s;
 }
 
 .synthwave-gradient-animated {
@@ -553,54 +748,91 @@ a:focus {
 
 /* Music visualizer bars */
 @keyframes bar-dance-1 {
-  0%, 100% { transform: scaleY(0.3); }
-  25% { transform: scaleY(0.7); }
-  50% { transform: scaleY(0.5); }
-  75% { transform: scaleY(0.6); }
+  0%, 100% { 
+    transform: scaleY(0.3);
+    filter: brightness(0.8);
+  }
+  25% { 
+    transform: scaleY(1);
+    filter: brightness(1.2);
+  }
+  50% { 
+    transform: scaleY(0.6);
+    filter: brightness(1);
+  }
+  75% { 
+    transform: scaleY(0.8);
+    filter: brightness(1.1);
+  }
 }
 
 @keyframes bar-dance-2 {
-  0%, 100% { transform: scaleY(0.5); }
-  25% { transform: scaleY(0.3); }
-  50% { transform: scaleY(0.7); }
-  75% { transform: scaleY(0.4); }
+  0%, 100% { 
+    transform: scaleY(0.5);
+    filter: brightness(0.9);
+  }
+  25% { 
+    transform: scaleY(0.3);
+    filter: brightness(0.8);
+  }
+  50% { 
+    transform: scaleY(1);
+    filter: brightness(1.3);
+  }
+  75% { 
+    transform: scaleY(0.4);
+    filter: brightness(0.9);
+  }
 }
 
 @keyframes bar-dance-3 {
-  0%, 100% { transform: scaleY(0.6); }
-  25% { transform: scaleY(0.4); }
-  50% { transform: scaleY(0.3); }
-  75% { transform: scaleY(0.7); }
+  0%, 100% { 
+    transform: scaleY(0.6);
+    filter: brightness(1);
+  }
+  25% { 
+    transform: scaleY(0.4);
+    filter: brightness(0.9);
+  }
+  50% { 
+    transform: scaleY(0.3);
+    filter: brightness(0.8);
+  }
+  75% { 
+    transform: scaleY(1);
+    filter: brightness(1.2);
+  }
 }
 
 .music-bars {
   position: absolute;
-  bottom: 38%;
+  bottom: 40%;
   left: 0;
   right: 0;
-  height: 80px;
+  height: 120px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 4px;
-  perspective: 800px;
-  transform: rotateX(20deg);
+  gap: 6px;
+  z-index: 2;
 }
 
 .music-bar {
-  width: 3px;
+  width: 4px;
   background: linear-gradient(
     to top, 
     var(--synthwave-hot-pink) 0%, 
-    var(--synthwave-purple) 50%, 
-    var(--synthwave-cyan) 100%
+    var(--synthwave-purple) 40%, 
+    var(--synthwave-cyan) 70%,
+    rgba(0, 255, 255, 0) 100%
   );
   transform-origin: bottom;
   border-radius: 2px 2px 0 0;
   box-shadow: 
-    0 0 5px var(--synthwave-hot-pink),
-    0 0 10px var(--synthwave-purple),
-    0 0 15px var(--synthwave-cyan);
+    0 0 10px var(--synthwave-hot-pink),
+    0 0 20px var(--synthwave-purple),
+    0 0 30px var(--synthwave-cyan);
+  opacity: 0.9;
 }
 
 .music-bar:nth-child(3n) {
@@ -615,4 +847,27 @@ a:focus {
 .music-bar:nth-child(3n+2) {
   animation: bar-dance-3 2s ease-in-out infinite;
   animation-delay: 0.4s;
+}
+
+/* Logo 3D spin animation */
+@keyframes logo-spin-3d {
+  0% {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+  }
+  25% {
+    transform: perspective(1000px) rotateY(90deg) rotateX(10deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(180deg) rotateX(0deg);
+  }
+  75% {
+    transform: perspective(1000px) rotateY(270deg) rotateX(-10deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg) rotateX(0deg);
+  }
+}
+
+.animate-logo-spin-3d {
+  animation: logo-spin-3d 0.6s ease-in-out;
 }

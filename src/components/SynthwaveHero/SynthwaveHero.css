@@ -1,0 +1,579 @@
+.synthwave-hero-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #0a0a0a;
+  z-index: 9999;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Close button */
+.synthwave-hero-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 0, 110, 0.2);
+  border: 2px solid var(--synthwave-hot-pink);
+  border-radius: 50%;
+  color: var(--synthwave-hot-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.synthwave-hero-close:hover {
+  background: rgba(255, 0, 110, 0.4);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--synthwave-hot-pink);
+}
+
+/* Game UI */
+.synthwave-hero-ui {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 80px;
+  display: flex;
+  gap: 40px;
+  z-index: 50;
+}
+
+.synthwave-hero-score,
+.synthwave-hero-combo,
+.synthwave-hero-accuracy {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--synthwave-cyan);
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-shadow: 
+    0 0 20px var(--synthwave-cyan),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.score-label,
+.combo-label,
+.accuracy-label {
+  font-size: 14px;
+  color: var(--synthwave-cyan);
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.score-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px var(--synthwave-cyan);
+}
+
+.combo-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px var(--synthwave-hot-pink);
+  display: inline-block;
+}
+
+.multiplier {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 20px;
+  color: var(--synthwave-yellow);
+  text-shadow: 0 0 10px var(--synthwave-yellow);
+}
+
+.accuracy-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px var(--synthwave-purple);
+}
+
+/* Game track */
+.synthwave-hero-track {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 100%;
+  perspective: 800px;
+  perspective-origin: 50% 100%;
+}
+
+.track-perspective {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  transform: rotateX(45deg);
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+}
+
+/* Track lanes */
+.track-lane {
+  position: absolute;
+  bottom: 0;
+  width: 20%;
+  height: 100%;
+  border-left: 2px solid rgba(255, 0, 255, 0.3);
+  border-right: 2px solid rgba(0, 255, 255, 0.3);
+  background: linear-gradient(
+    to top,
+    rgba(255, 0, 255, 0.1) 0%,
+    transparent 50%
+  );
+  overflow: visible;
+}
+
+.track-lane:nth-child(1) { left: 0%; }
+.track-lane:nth-child(2) { left: 20%; }
+.track-lane:nth-child(3) { left: 40%; }
+.track-lane:nth-child(4) { left: 60%; }
+.track-lane:nth-child(5) { left: 80%; }
+
+/* Grid lines for depth */
+.track-lane::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 48px,
+    rgba(255, 0, 255, 0.2) 48px,
+    rgba(255, 0, 255, 0.2) 50px
+  );
+  animation: track-scroll 2s linear infinite;
+}
+
+@keyframes track-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50px); }
+}
+
+/* Game notes */
+.game-note {
+  position: absolute;
+  top: calc((100 - var(--note-position)) * 1%);
+  left: 10%;
+  right: 10%;
+  height: 30px;
+  background: var(--note-color);
+  border: 2px solid white;
+  border-radius: 5px;
+  box-shadow: 
+    0 0 20px var(--note-color),
+    0 0 40px var(--note-color),
+    inset 0 0 20px rgba(255, 255, 255, 0.5);
+  transform: translateZ(20px);
+  transition: none;
+}
+
+.note-hit {
+  animation: note-explode 0.5s ease-out forwards;
+}
+
+@keyframes note-explode {
+  0% {
+    transform: translateZ(20px) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateZ(40px) scale(1.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateZ(60px) scale(2);
+    opacity: 0;
+  }
+}
+
+/* Hit zones */
+.hit-zones {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  transform: translateZ(0) rotateX(-45deg);
+  transform-origin: bottom;
+  gap: 2px;
+}
+
+.hit-zone {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.5);
+  border: 3px solid var(--zone-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease;
+  box-shadow: 
+    0 0 10px var(--zone-color),
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.hit-zone.active {
+  background: var(--zone-color);
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 30px var(--zone-color),
+    0 0 60px var(--zone-color),
+    inset 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+.key-hint {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px currentColor;
+  opacity: 0.8;
+}
+
+.hit-zone.active .key-hint {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Timer */
+.synthwave-hero-timer {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--synthwave-yellow);
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-shadow: 
+    0 0 20px var(--synthwave-yellow),
+    inset 0 0 20px rgba(255, 235, 0, 0.1);
+}
+
+.timer-label {
+  font-size: 14px;
+  color: var(--synthwave-yellow);
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.timer-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px var(--synthwave-yellow);
+}
+
+/* Menu screens */
+.synthwave-hero-menu,
+.synthwave-hero-pause,
+.synthwave-hero-game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 100;
+}
+
+/* Eden Logo Container */
+.eden-logo-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 40px;
+}
+
+.eden-logo-bg-blur {
+  position: absolute;
+  inset: -50px;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    var(--synthwave-hot-pink) 0deg,
+    var(--synthwave-purple) 60deg,
+    var(--synthwave-cyan) 120deg,
+    var(--synthwave-yellow) 180deg,
+    var(--synthwave-sunset-orange) 240deg,
+    var(--synthwave-magenta) 300deg,
+    var(--synthwave-hot-pink) 360deg
+  );
+  filter: blur(60px);
+  opacity: 0.8;
+  animation: synthwave-rotate 10s linear infinite, pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes synthwave-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.eden-logo-game {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px var(--synthwave-hot-pink)) 
+          drop-shadow(0 0 40px var(--synthwave-cyan)) 
+          drop-shadow(0 0 60px var(--synthwave-purple));
+  animation: logo-float 6s ease-in-out infinite;
+}
+
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0) rotateY(0deg); }
+  25% { transform: translateY(-10px) rotateY(5deg); }
+  50% { transform: translateY(0) rotateY(0deg); }
+  75% { transform: translateY(-10px) rotateY(-5deg); }
+}
+
+.game-title {
+  font-size: 64px;
+  font-weight: 900;
+  background: linear-gradient(
+    135deg,
+    var(--synthwave-hot-pink) 0%,
+    var(--synthwave-cyan) 50%,
+    var(--synthwave-hot-pink) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 
+    0 0 40px var(--synthwave-hot-pink),
+    0 0 80px var(--synthwave-cyan);
+  margin-bottom: 20px;
+  animation: title-pulse 2s ease-in-out infinite;
+}
+
+@keyframes title-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.game-instructions {
+  font-size: 20px;
+  color: var(--synthwave-cyan);
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.start-button {
+  padding: 20px 60px;
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--synthwave-hot-pink), var(--synthwave-purple));
+  border: 3px solid var(--synthwave-cyan);
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  box-shadow: 
+    0 0 20px var(--synthwave-hot-pink),
+    0 0 40px var(--synthwave-purple),
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.start-button:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 30px var(--synthwave-hot-pink),
+    0 0 60px var(--synthwave-purple),
+    inset 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.synthwave-hero-pause h2 {
+  font-size: 48px;
+  color: var(--synthwave-yellow);
+  text-shadow: 0 0 30px currentColor;
+  margin-bottom: 20px;
+}
+
+.synthwave-hero-pause p {
+  font-size: 20px;
+  color: var(--synthwave-cyan);
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Game Over Screen */
+.game-over-title {
+  font-size: 72px;
+  font-weight: 900;
+  background: linear-gradient(
+    135deg,
+    var(--synthwave-hot-pink) 0%,
+    var(--synthwave-yellow) 50%,
+    var(--synthwave-hot-pink) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+  animation: title-pulse 2s ease-in-out infinite;
+}
+
+.score-breakdown {
+  background: rgba(0, 0, 0, 0.9);
+  border: 3px solid var(--synthwave-cyan);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 
+    0 0 30px var(--synthwave-cyan),
+    inset 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.final-score {
+  margin-bottom: 30px;
+}
+
+.final-score .score-label {
+  font-size: 24px;
+  color: var(--synthwave-cyan);
+  margin-bottom: 10px;
+}
+
+.final-score .score-value {
+  font-size: 64px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 
+    0 0 20px var(--synthwave-cyan),
+    0 0 40px var(--synthwave-hot-pink);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-item {
+  background: rgba(255, 0, 255, 0.1);
+  border: 2px solid var(--synthwave-purple);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--synthwave-purple);
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.performance-rating {
+  margin-top: 20px;
+}
+
+.rating-label {
+  font-size: 20px;
+  color: var(--synthwave-yellow);
+  margin-bottom: 10px;
+}
+
+.rating-value {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--synthwave-hot-pink);
+  text-shadow: 0 0 20px currentColor;
+  animation: pulse-neon 1.5s ease-in-out infinite;
+}
+
+.game-over-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.play-again-button,
+.exit-button {
+  padding: 15px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-again-button {
+  background: linear-gradient(135deg, var(--synthwave-hot-pink), var(--synthwave-purple));
+  border: 3px solid var(--synthwave-cyan);
+  color: white;
+  box-shadow: 
+    0 0 20px var(--synthwave-hot-pink),
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.play-again-button:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 30px var(--synthwave-hot-pink),
+    inset 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.exit-button {
+  background: rgba(0, 0, 0, 0.8);
+  border: 3px solid var(--synthwave-cyan);
+  color: var(--synthwave-cyan);
+  box-shadow: 
+    0 0 20px var(--synthwave-cyan),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.exit-button:hover {
+  transform: scale(1.1);
+  background: rgba(0, 255, 255, 0.2);
+}
+
+/* Mobile touch zones */
+@media (max-width: 768px) {
+  .synthwave-hero-track {
+    width: 100%;
+  }
+  
+  .hit-zones {
+    height: 120px;
+  }
+  
+  .hit-zone {
+    cursor: pointer;
+  }
+  
+  .key-hint {
+    display: none;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

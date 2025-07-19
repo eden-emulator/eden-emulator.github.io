@@ -3,8 +3,170 @@ import edenLogo from '@/assets/logo.png'
 import { Link } from '@tanstack/react-router'
 import { GitHubIcon } from '@/components/Icons'
 import SEO from '@/components/SEO'
+import { useState, useEffect, useRef, lazy, Suspense } from 'react'
+import ErrorBoundary from '@/components/ErrorBoundary'
+
+// Lazy load the game to keep initial bundle size small
+const SynthwaveHero = lazy(() => import('@/components/SynthwaveHero'))
 
 function HomePage() {
+  const [showGame, setShowGame] = useState(false)
+  const [logoRotation, setLogoRotation] = useState(0)
+  const [logoSpins, setLogoSpins] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const [lastAngle, setLastAngle] = useState(0)
+  const [velocity, setVelocity] = useState(0)
+  const logoRef = useRef<HTMLButtonElement>(null)
+  const animationRef = useRef<number>()
+  const lastSpinCheck = useRef(0)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
+  
+  // Detect touch device once on mount
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
+  }, [])
+  
+  // Handle logo click for non-touch devices
+  const handleLogoClick = () => {
+    if (!isTouchDevice) {
+      const newRotation = logoRotation + 360
+      setLogoRotation(newRotation)
+      checkSpinCount(newRotation)
+    }
+  }
+  
+  // Check spin count
+  const checkSpinCount = (rotation: number) => {
+    const totalRotations = Math.floor(Math.abs(rotation) / 360)
+    const newCompletedSpins = totalRotations - lastSpinCheck.current
+    
+    if (newCompletedSpins > 0) {
+      lastSpinCheck.current = totalRotations
+      const newTotalSpins = logoSpins + newCompletedSpins
+      setLogoSpins(newTotalSpins)
+      
+      if (newTotalSpins >= 3) {
+        setTimeout(() => {
+          setShowGame(true)
+          setLogoSpins(0)
+          lastSpinCheck.current = 0
+          setLogoRotation(0) // Reset rotation
+        }, 300)
+      }
+    }
+  }
+  
+  // Get angle from center of logo
+  const getAngleFromCenter = (clientX: number, clientY: number) => {
+    if (!logoRef.current) return 0
+    const rect = logoRef.current.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    const angle = Math.atan2(clientY - centerY, clientX - centerX) * (180 / Math.PI)
+    return angle
+  }
+  
+  // Handle drag start
+  const handleDragStart = (clientX: number, clientY: number) => {
+    if (isTouchDevice) {
+      setIsDragging(true)
+      setLastAngle(getAngleFromCenter(clientX, clientY))
+      setVelocity(0)
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
+    }
+  }
+  
+  // Handle drag move
+  const handleDragMove = (clientX: number, clientY: number) => {
+    if (isDragging && isTouchDevice) {
+      const currentAngle = getAngleFromCenter(clientX, clientY)
+      let deltaAngle = currentAngle - lastAngle
+      
+      // Handle angle wrap-around
+      if (deltaAngle > 180) deltaAngle -= 360
+      if (deltaAngle < -180) deltaAngle += 360
+      
+      const newRotation = logoRotation + deltaAngle
+      setLogoRotation(newRotation)
+      setVelocity(deltaAngle)
+      setLastAngle(currentAngle)
+      
+      checkSpinCount(newRotation)
+    }
+  }
+  
+  // Handle drag end
+  const handleDragEnd = () => {
+    if (isTouchDevice) {
+      setIsDragging(false)
+      // Continue spinning with momentum
+      const animate = () => {
+        setVelocity(prev => {
+          const newVelocity = prev * 0.95 // Friction
+          if (Math.abs(newVelocity) > 0.1) {
+            setLogoRotation(current => {
+              const newRotation = current + newVelocity
+              checkSpinCount(newRotation)
+              return newRotation
+            })
+            animationRef.current = requestAnimationFrame(animate)
+          }
+          return newVelocity
+        })
+      }
+      animationRef.current = requestAnimationFrame(animate)
+    }
+  }
+  
+  // Touch event handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0]
+    handleDragStart(touch.clientX, touch.clientY)
+  }
+  
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touch = e.touches[0]
+    handleDragMove(touch.clientX, touch.clientY)
+  }
+  
+  const handleMouseDown = (e: React.MouseEvent) => {
+    handleDragStart(e.clientX, e.clientY)
+  }
+  
+  const handleMouseMove = (e: React.MouseEvent) => {
+    handleDragMove(e.clientX, e.clientY)
+  }
+  
+  // Global mouse up handler
+  useEffect(() => {
+    const handleGlobalMouseUp = () => handleDragEnd()
+    const handleGlobalTouchEnd = () => handleDragEnd()
+    
+    window.addEventListener('mouseup', handleGlobalMouseUp)
+    window.addEventListener('touchend', handleGlobalTouchEnd)
+    
+    return () => {
+      window.removeEventListener('mouseup', handleGlobalMouseUp)
+      window.removeEventListener('touchend', handleGlobalTouchEnd)
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
+    }
+  }, [handleDragEnd])
+  
+  // Reset spin count after 5 seconds of inactivity
+  useEffect(() => {
+    if (logoSpins > 0 && logoSpins < 3) {
+      const timer = setTimeout(() => {
+        setLogoSpins(0)
+        lastSpinCheck.current = Math.floor(Math.abs(logoRotation) / 360)
+      }, 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [logoSpins, logoRotation])
+
   return (
     <>
       <SEO />
@@ -13,18 +175,32 @@ function HomePage() {
         <div className="synthwave-animated-bg" aria-hidden="true">
           <div className="synthwave-gradient-animated"></div>
           <div className="synthwave-horizon"></div>
-          <div className="synthwave-lines"></div>
+          
+          {/* Perspective Grid */}
+          <div className="synthwave-grid">
+            <div className="synthwave-grid-inner"></div>
+          </div>
+          
+          {/* Perspective Lines */}
+          <div className="synthwave-lines">
+            <div className="synthwave-line"></div>
+            <div className="synthwave-line"></div>
+            <div className="synthwave-line"></div>
+            <div className="synthwave-line"></div>
+            <div className="synthwave-line"></div>
+            <div className="synthwave-line"></div>
+          </div>
           
           {/* Music Visualizer Bars */}
           <div className="music-bars">
-            {[...Array(40)].map((_, i) => (
+            {[...Array(50)].map((_, i) => (
               <div
                 key={i}
                 className="music-bar"
                 style={{
-                  height: `${20 + Math.sin(i * 0.3) * 30}px`,
-                  animationDelay: `${i * 0.05}s`,
-                  opacity: 0.6 - (Math.abs(i - 20) * 0.02)
+                  height: `${40 + Math.sin(i * 0.2) * 40}px`,
+                  animationDelay: `${i * 0.03}s`,
+                  opacity: 0.9 - (Math.abs(i - 25) * 0.015)
                 }}
               />
             ))}
@@ -58,16 +234,42 @@ function HomePage() {
         />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <div className="mb-8">
-            <img
-              src={edenLogo}
-              alt="Eden Emulator logo"
-              className="mx-auto max-w-full h-auto max-h-40 mb-6 drop-shadow-2xl"
+          <div className="mb-8 relative">
+            <button
+              ref={logoRef}
+              onClick={handleLogoClick}
+              onMouseDown={isTouchDevice ? undefined : handleMouseDown}
+              onMouseMove={isDragging ? handleMouseMove : undefined}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              className={`mx-auto block ${isTouchDevice ? 'touch-none' : 'cursor-pointer'} select-none`}
               style={{
-                filter:
-                  'drop-shadow(0 0 30px var(--synthwave-hot-pink)) drop-shadow(0 0 60px var(--synthwave-cyan)) drop-shadow(0 0 90px var(--synthwave-purple))',
+                transform: `perspective(1000px) rotateY(${logoRotation}deg)`,
+                transformStyle: 'preserve-3d',
+                transition: isDragging ? 'none' : 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
               }}
-            />
+              aria-label="Eden logo - click or spin to interact"
+            >
+              <img
+                src={edenLogo}
+                alt="Eden Emulator logo"
+                className="max-w-full h-auto max-h-40 drop-shadow-2xl pointer-events-none"
+                style={{
+                  filter:
+                    'drop-shadow(0 0 30px var(--synthwave-hot-pink)) drop-shadow(0 0 60px var(--synthwave-cyan)) drop-shadow(0 0 90px var(--synthwave-purple))',
+                }}
+                draggable={false}
+              />
+            </button>
+            {logoSpins > 0 && logoSpins < 3 && (
+              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm" style={{ 
+                color: 'var(--synthwave-cyan)',
+                textShadow: '0 0 10px var(--synthwave-cyan)',
+                fontFamily: 'Orbitron, sans-serif'
+              }}>
+                {3 - logoSpins} more spin{3 - logoSpins !== 1 ? 's' : ''}...
+              </div>
+            )}
           </div>
 
           <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight" style={{ fontFamily: 'Orbitron, sans-serif' }}>
@@ -187,6 +389,26 @@ function HomePage() {
           </nav>
         </div>
       </section>
+      
+      {/* Synthwave Hero Game - Easter Egg */}
+      {showGame && (
+        <ErrorBoundary>
+          <Suspense 
+            fallback={
+              <div className="fixed inset-0 bg-black z-[9999] flex items-center justify-center">
+                <div className="text-white text-2xl" style={{ fontFamily: 'Orbitron, sans-serif' }}>Loading...</div>
+              </div>
+            }
+          >
+            <div className="fixed inset-0 z-[9999]">
+              <SynthwaveHero onClose={() => {
+                console.log('Closing game')
+                setShowGame(false)
+              }} />
+            </div>
+          </Suspense>
+        </ErrorBoundary>
+      )}
     </>
   )
 }
