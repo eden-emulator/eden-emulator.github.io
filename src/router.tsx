@@ -7,6 +7,7 @@ import CommunityPage from './pages/Community/CommunityPage.tsx'
 import SystemRequirementsPage from './pages/SystemRequirements/SystemRequirementsPage.tsx'
 import CompatibilityReportsPage from './pages/CompatibilityReports/CompatibilityReportsPage.tsx'
 import TeamPage from './pages/Team/TeamPage.tsx'
+import NotFoundPage from './pages/NotFound/NotFoundPage.tsx'
 import AppLayout from './components/AppLayout'
 
 const rootRoute = createRootRoute({ component: AppLayout })
@@ -70,7 +71,10 @@ const routeTree = rootRoute.addChildren([
   compatibilityReportsRoute,
 ])
 
-export const router = createRouter({ routeTree })
+export const router = createRouter({ 
+  routeTree,
+  defaultNotFoundComponent: NotFoundPage,
+})
 
 declare module '@tanstack/react-router' {
   interface Register {

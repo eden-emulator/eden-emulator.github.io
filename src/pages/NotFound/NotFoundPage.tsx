@@ -1,0 +1,66 @@
+import { Link } from '@tanstack/react-router'
+import { Home, AlertTriangle } from 'lucide-react'
+
+function NotFoundPage() {
+  return (
+    <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen flex items-center justify-center">
+      {/* Background Grid */}
+      <div
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px',
+        }}
+      />
+
+      {/* Neon Glow Effects */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+
+      <div className="relative text-center px-4">
+        <div className="mb-8">
+          <h1 className="text-[120px] md:text-[200px] font-bold leading-none">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 via-pink-400 to-cyan-400">
+              404
+            </span>
+          </h1>
+          <div className="flex justify-center mt-8">
+            <AlertTriangle className="w-16 h-16 text-yellow-400 animate-pulse" />
+          </div>
+        </div>
+
+        {/* Error Message */}
+        <h2 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-purple-400 mb-4">
+          PAGE NOT FOUND
+        </h2>
+
+        <p className="text-lg md:text-xl text-cyan-100/80 font-light mb-12 max-w-2xl mx-auto">
+          New phone, who dis?
+        </p>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            to="/"
+            className="group inline-flex items-center gap-3 bg-linear-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-4 rounded-lg font-bold tracking-wider transition-all duration-300 shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70"
+          >
+            <Home className="w-5 h-5" />
+            <span>BACK TO HOME</span>
+          </Link>
+
+          <Link
+            to="/download"
+            className="inline-flex items-center gap-3 border-2 border-cyan-400 text-cyan-300 hover:text-white px-8 py-4 rounded-lg font-bold tracking-wider transition-all duration-300 hover:bg-cyan-400/10"
+          >
+            <span>DOWNLOAD EDEN</span>
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default NotFoundPage
