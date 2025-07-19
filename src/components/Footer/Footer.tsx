@@ -51,10 +51,10 @@ function Footer() {
                 style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))' }}
                 aria-hidden="true"
               />
-              <span className="text-xl font-bold text-white">EDEN EMULATOR</span>
+              <span className="text-xl font-bold text-white">Eden Emulator</span>
             </Link>
             <p className="text-blue-200 text-sm mb-4">
-              Much inspiring quote here, or something like that.
+              "Our actions define our legacy."
             </p>
             <nav aria-label="Social media links">
               <h3 className="sr-only">Follow us on social media</h3>
@@ -121,14 +121,14 @@ function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <p className="text-blue-200 text-sm">
-                © {new Date().getFullYear()} Eden Emulator. All rights reserved.
+                © {new Date().getFullYear()} Utopia LLC. Eden Emulator. All rights reserved.
               </p>
             </div>
 
             <div className="flex items-center space-x-2 text-blue-200 text-sm">
               <span>Made with</span>
               <Heart className="w-4 h-4 text-purple-400 mr-2 animate-pulse" aria-hidden="true" />
-              <span>by your mom</span>
+              <span>by The Eden Team.</span>
             </div>
           </div>
 

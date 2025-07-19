@@ -46,7 +46,7 @@ export const stats: Stat[] = [
 
 export const socialLinks: SocialLink[] = [
   {
-    name: 'DISCORD',
+    name: 'Discord',
     icon: DiscordIcon,
     href: 'https://discord.gg/edenemu',
     description: 'Join our Discord server (15.2K+ members)',
@@ -54,7 +54,7 @@ export const socialLinks: SocialLink[] = [
     hoverColor: 'hover:from-indigo-400 hover:to-purple-500',
   },
   {
-    name: 'GITHUB',
+    name: 'Git Repository',
     icon: GitHubIcon,
     href: 'https://git.eden-emu.dev/eden-emu/eden',
     description: 'Contribute to the project and report issues',
@@ -62,7 +62,7 @@ export const socialLinks: SocialLink[] = [
     hoverColor: 'hover:from-gray-500 hover:to-gray-700',
   },
   {
-    name: 'TWITTER',
+    name: 'X (Formerly know as Twitter)',
     icon: TwitterIcon,
     description: 'Follow us for updates and announcements',
     href: 'https://x.com/edenemuofficial',

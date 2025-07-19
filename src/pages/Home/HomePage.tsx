@@ -76,9 +76,9 @@ function HomePage() {
           </h1>
 
           <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-gray-200" style={{ fontFamily: 'Inter, sans-serif' }}>
-            <span className="font-bold" style={{ color: 'var(--synthwave-hot-pink)', textShadow: '0 0 10px var(--synthwave-hot-pink)' }}>Eden</span> is an experimental, open-source Nintendo
-            Switch emulator built in C++ for Windows, Linux, macOS, and Android. It focuses on
-            performance, accuracy, and a clean user experience.
+            <span className="font-bold" style={{ color: 'var(--synthwave-hot-pink)', textShadow: '0 0 10px var(--synthwave-hot-pink)' }}>Eden</span> is an experimental open-source emulator
+             for the Nintendo Switch, built with performance and stability in mind.
+            It is written in C++ with cross-platform support for Windows, Linux and Android. 
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-14 mb-12">
@@ -102,7 +102,7 @@ function HomePage() {
               ></div>
               <div className="relative flex items-center space-x-3">
                 <Download className="w-6 h-6 group-hover:animate-bounce" aria-hidden="true" />
-                <span>DOWNLOAD NOW</span>
+                <span>DOWNLOAD</span>
               </div>
             </Link>
 
@@ -130,7 +130,7 @@ function HomePage() {
               ></div>
               <div className="relative flex items-center space-x-3">
                 <GitHubIcon className="w-6 h-6" aria-hidden="true" />
-                <span>VIEW SOURCE</span>
+                <span>SOURCE CODE</span>
               </div>
             </a>
           </div>

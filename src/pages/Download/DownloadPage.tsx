@@ -43,8 +43,8 @@ function DownloadPage() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
-            title="DOWNLOAD EDEN"
-            description="Choose your platform and pray that shit works"
+            title="Download Eden"
+            description="Choose your platform and have some fun."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
@@ -129,7 +129,7 @@ function DownloadPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                INSTALLATION GUIDE
+                Installation Guide
               </a>
               <span className="text-purple-500" aria-hidden="true">
                 •
@@ -139,7 +139,7 @@ function DownloadPage() {
                 className="text-purple-400 hover:text-blue-300 transition-colors font-bold tracking-wider focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded"
                 aria-label="View system requirements"
               >
-                SYSTEM REQUIREMENTS
+                System Requirments
               </Link>
               <span className="text-purple-500" aria-hidden="true">
                 •
@@ -151,7 +151,7 @@ function DownloadPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                TROUBLESHOOTING
+                Troubleshooting
               </a>
             </nav>
           </div>
