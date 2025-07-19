@@ -83,6 +83,7 @@ function CommunityPage() {
                     <a
                       href={link.href}
                       target="_blank"
+                      rel="noopener noreferrer"
                       aria-label={`Join ${link.name}`}
                       className="text-pink-400 hover:text-cyan-300 font-bold transition-colors duration-300 tracking-wider"
                     >
@@ -115,6 +116,7 @@ function CommunityPage() {
               <a
                 href="https://git.eden-emu.dev/eden-emu/eden"
                 target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Start Contributing on Git"
                 className="bg-linear-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white px-8 py-4 rounded-lg font-bold tracking-wider transition-all duration-300 shadow-lg shadow-pink-500/50"
               >
@@ -123,6 +125,7 @@ function CommunityPage() {
               <a
                 href="https://git.eden-emu.dev/eden-emu/eden/issues"
                 target="_blank"
+                rel="noopener noreferrer"
                 aria-label="View Issues"
                 className="border-2 border-cyan-400 text-cyan-300 hover:text-white px-8 py-4 rounded-lg font-bold tracking-wider transition-all duration-300 hover:bg-cyan-400/10"
               >
