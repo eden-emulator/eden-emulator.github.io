@@ -81,8 +81,8 @@ function CompatibilityReportsPage() {
 
   // Initial load
   useEffect(() => {
-    fetchReports(1)
-  }, [])
+    fetchReports(1).catch(console.error)
+  }, [fetchReports])
 
   // Setup intersection observer for infinite scroll
   useEffect(() => {
