@@ -14,7 +14,6 @@ function AppLayout() {
       </a>
 
       <Header />
-      <div className="h-24 md:h-34" />
       <main id="main-content" role="main">
         <Outlet />
       </main>

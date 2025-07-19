@@ -5,6 +5,7 @@ import { cn } from '@/utils/style'
 import getDynamicPlatforms from '@/pages/Download/utils/getDynamicPlatforms.ts'
 import { useMemo } from 'react'
 import SEO from '@/components/SEO'
+import PageWrapper from '@/components/PageWrapper'
 
 function DownloadPage() {
   const platformOptions = useMemo(() => getDynamicPlatforms(), [])
@@ -17,30 +18,14 @@ function DownloadPage() {
         keywords="download Eden Emulator, Eden Switch emulator download, free Switch emulator, emulator download"
         url="https://eden-emulator.github.io/download"
       />
-      <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen">
-        {/* Background Grid */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: '40px 40px',
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Neon Glow Effects */}
-        <div
-          className="absolute top-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"
-          aria-hidden="true"
-        />
-
+      <PageWrapper>
+        <div className="h-24 md:h-34" />
+        {/* Background Effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-subtle-pulse-delay-2" />
+          <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl animate-float-delay-3" />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
             title="Download Eden"
@@ -156,7 +141,7 @@ function DownloadPage() {
             </nav>
           </div>
         </div>
-      </div>
+      </PageWrapper>
     </>
   )
 }

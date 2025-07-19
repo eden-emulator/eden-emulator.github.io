@@ -1,21 +1,10 @@
 import { Link } from '@tanstack/react-router'
 import { Home, AlertTriangle } from 'lucide-react'
+import PageWrapper from '@/components/PageWrapper'
 
 function NotFoundPage() {
   return (
-    <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen flex items-center justify-center">
-      {/* Background Grid */}
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px',
-        }}
-      />
-
+    <PageWrapper className="flex items-center justify-center">
       {/* Neon Glow Effects */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
@@ -59,7 +48,7 @@ function NotFoundPage() {
           </Link>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   )
 }
 

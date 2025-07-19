@@ -9,6 +9,7 @@ import {
   ClipboardList,
   Users2,
   Sparkles,
+  Heart,
 } from 'lucide-react'
 import edenLogo from '@/assets/logo.png'
 import { GitHubIcon } from '@/components/Icons'
@@ -27,6 +28,7 @@ function Header() {
     { name: 'DOCS', href: '/docs', icon: Book },
     { name: 'COMMUNITY', href: '/community', icon: Users },
     { name: 'TEAM', href: '/team', icon: Users2 },
+    { name: 'DONATIONS', href: '/donations', icon: Heart },
     {
       name: '',
       href: 'https://github.com/eden-emulator/Releases/releases',
@@ -42,7 +44,7 @@ function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-purple-500/30">
-      <div className="absolute inset-0 bg-linear-to-r from-purple-500/10 via-blue-500/10 to-purple-500/10"></div>
+      <div className="absolute inset-0 bg-linear-to-r from-purple-500/10 via-blue-500/10 to-purple-500/10" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -72,7 +74,7 @@ function Header() {
                   rel="noopener noreferrer"
                   className="group flex items-center space-x-2 text-blue-300 hover:text-purple-300 transition-all duration-300 font-bold text-sm tracking-wider relative focus:outline-none rounded-lg"
                 >
-                  <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/20 group-hover:to-blue-500/20 rounded-lg blur-sm transition-all duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/20 group-hover:to-blue-500/20 rounded-lg blur-sm transition-all duration-300" />
                   <div className="relative flex items-center space-x-2">
                     {item.icon && <item.icon className="w-4 h-4" aria-hidden="true" />}
                     <span>{item.name}</span>

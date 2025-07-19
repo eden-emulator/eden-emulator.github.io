@@ -7,6 +7,7 @@ import getGameImageUrl from '@/pages/CompatibilityReports/utils/getGameImageUrl'
 import { EDEN_EMULATOR_ID, DEFAULT_PERFORMANCE_STYLE, PERFORMANCE_STYLES } from './data'
 import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
+import PageWrapper from '@/components/PageWrapper'
 
 function CompatibilityReportsPage() {
   const [reports, setReports] = useState<CompatibilityReport[]>([])
@@ -108,7 +109,9 @@ function CompatibilityReportsPage() {
         keywords="Eden Emulator compatibility, Switch game compatibility, game performance reports, Eden game support"
         url="https://eden-emulator.github.io/compatibility"
       />
-      <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen">
+
+      <PageWrapper>
+        <div className="h-24 md:h-34" />
         {/* Animated Grid Background */}
         <div className="absolute inset-0 opacity-30">
           <div
@@ -407,7 +410,7 @@ function CompatibilityReportsPage() {
           onConfirm={handleModalConfirm}
           gameTitle={modalState.gameTitle}
         />
-      </div>
+      </PageWrapper>
     </>
   )
 }

@@ -22,17 +22,17 @@ function Footer() {
           backgroundSize: '40px 40px',
         }}
         aria-hidden="true"
-      ></div>
+      />
 
       {/* Glow Effects */}
       <div
         className="absolute top-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
         aria-hidden="true"
-      ></div>
+      />
       <div
         className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
         aria-hidden="true"
-      ></div>
+      />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Footer Content */}

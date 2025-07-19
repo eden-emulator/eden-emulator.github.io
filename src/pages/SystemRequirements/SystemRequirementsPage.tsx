@@ -1,17 +1,28 @@
 import { Monitor, Cpu, HardDrive, Smartphone, Activity } from 'lucide-react'
 import { requirements } from './data'
 import HeadingText from '@/components/HeadingText.tsx'
+import PageWrapper from '@/components/PageWrapper'
 
 function SystemRequirementsPage() {
   return (
-    <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen">
+    <PageWrapper>
+      <div className="h-24 md:h-34" />
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-1/3 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-3xl"></div>
-      </div>
+        {/* Top section glows */}
+        <div className="absolute top-20 left-1/3 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl animate-subtle-pulse" />
+        <div className="absolute top-0 right-1/3 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-subtle-pulse-delay-2" />
 
+        {/* Middle section glows - positioned throughout the page */}
+        <div className="absolute top-[30%] left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float-delay-1" />
+        <div className="absolute top-[45%] right-1/3 w-[450px] h-[450px] bg-pink-500/10 rounded-full blur-3xl animate-subtle-pulse-delay-3" />
+        <div className="absolute top-[60%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl animate-float-slow-delay-2" />
+        <div className="absolute top-[75%] right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-subtle-pulse-delay-4" />
+
+        {/* Bottom section glows */}
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-float-delay-3" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float" />
+      </div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <HeadingText
           title="SYSTEM REQUIREMENTS"
@@ -46,7 +57,7 @@ function SystemRequirementsPage() {
                   key={index}
                   className="group relative bg-black/40 backdrop-blur-xs border border-purple-500/30 rounded-xl p-6 hover:border-cyan-400/50 transition-all duration-500"
                 >
-                  <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-pink-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-pink-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500" />
                   <div className="relative">
                     <h5 className="text-sm font-bold text-pink-400 mb-2 uppercase tracking-wider">
                       {req.level}
@@ -69,7 +80,7 @@ function SystemRequirementsPage() {
                   key={index}
                   className="group relative bg-black/40 backdrop-blur-xs border border-purple-500/30 rounded-xl p-6 hover:border-cyan-400/50 transition-all duration-500"
                 >
-                  <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-pink-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-pink-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500" />
                   <div className="relative">
                     <h5 className="text-sm font-bold text-pink-400 mb-2 uppercase tracking-wider">
                       {req.level}
@@ -111,7 +122,7 @@ function SystemRequirementsPage() {
                   key={index}
                   className="group relative bg-black/40 backdrop-blur-xs border border-cyan-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all duration-500"
                 >
-                  <div className="absolute inset-0 bg-linear-to-r from-cyan-500/0 to-blue-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-cyan-500/0 to-blue-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500" />
                   <div className="relative">
                     <h5 className="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">
                       {req.level}
@@ -137,7 +148,7 @@ function SystemRequirementsPage() {
                     key={index}
                     className="group relative bg-black/40 backdrop-blur-xs border border-cyan-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all duration-500"
                   >
-                    <div className="absolute inset-0 bg-linear-to-r from-cyan-500/0 to-blue-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-cyan-500/0 to-blue-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500" />
                     <div className="relative">
                       <h5 className="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">
                         {req.level}
@@ -153,7 +164,7 @@ function SystemRequirementsPage() {
                     key={index}
                     className="group relative bg-black/40 backdrop-blur-xs border border-cyan-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all duration-500"
                   >
-                    <div className="absolute inset-0 bg-linear-to-r from-cyan-500/0 to-blue-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-cyan-500/0 to-blue-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500" />
                     <div className="relative">
                       <h5 className="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">
                         {req.level}
@@ -178,7 +189,7 @@ function SystemRequirementsPage() {
                   key={index}
                   className="group relative bg-black/40 backdrop-blur-xs border border-purple-500/30 rounded-xl p-6 hover:border-cyan-400/50 transition-all duration-500"
                 >
-                  <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-pink-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-pink-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500" />
                   <div className="relative">
                     <h5 className="text-sm font-bold text-pink-400 mb-2 uppercase tracking-wider">
                       {req.level}
@@ -214,12 +225,12 @@ function SystemRequirementsPage() {
                 <h4 className="text-xl font-bold text-purple-300 capitalize">
                   {category === 'igpu' ? 'Laptop/iGPU Desktop' : category.replace('_', ' ')}
                 </h4>
-                {specs.map((spec, index) => (
+                {specs.map((spec) => (
                   <div
-                    key={index}
+                    key={spec.amount}
                     className="group relative bg-black/40 backdrop-blur-xs border border-pink-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all duration-500"
                   >
-                    <div className="absolute inset-0 bg-linear-to-r from-pink-500/0 to-purple-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-pink-500/0 to-purple-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500" />
                     <div className="relative">
                       <h5 className="text-sm font-bold text-pink-400 mb-2 uppercase tracking-wider">
                         {spec.level}
@@ -244,7 +255,7 @@ function SystemRequirementsPage() {
         </div>
         <div className="h-16" />
       </div>
-    </div>
+    </PageWrapper>
   )
 }
 

@@ -4,6 +4,7 @@ import HeadingText from '@/components/HeadingText'
 import { teamSections, teamStats, pastMembers } from './data'
 import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
+import PageWrapper from '@/components/PageWrapper'
 
 function TeamPage() {
   return (
@@ -14,27 +15,14 @@ function TeamPage() {
         keywords="Eden Emulator team, Eden developers, emulator contributors, open source team"
         url="https://eden-emulator.github.io/team"
       />
-      <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen">
-        {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-30">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-              linear-gradient(rgba(255, 0, 255, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)
-            `,
-              backgroundSize: '50px 50px',
-              animation: 'grid-move 20s linear infinite',
-            }}
-          />
+      <PageWrapper>
+        {/* Background Effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-subtle-pulse-delay-2" />
+          <div className="absolute top-20 left-1/4 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-float-delay-3" />
+          <div className="absolute bottom-20 right-1/3 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl animate-subtle-pulse" />
         </div>
-
-        {/* Neon Glow Effects */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-pink-500/10 rounded-full blur-3xl" />
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
             title="MEET THE TEAM"
@@ -319,7 +307,7 @@ function TeamPage() {
         </div>
 
         <div className="h-16" />
-      </div>
+      </PageWrapper>
     </>
   )
 }

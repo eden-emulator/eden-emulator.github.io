@@ -2,6 +2,7 @@ import { features } from './data'
 import HeadingText from '@/components/HeadingText.tsx'
 import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
+import PageWrapper from '@/components/PageWrapper'
 
 function FeaturesPage() {
   return (
@@ -12,11 +13,12 @@ function FeaturesPage() {
         keywords="Eden Emulator features, Switch emulator features, emulation performance, cross-platform emulator"
         url="https://eden-emulator.github.io/features"
       />
-      <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen">
+      <PageWrapper>
+        <div className="h-24 md:h-34" />
         {/* Background Effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-subtle-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-subtle-pulse-delay-2" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,7 +67,7 @@ function FeaturesPage() {
           </div>
         </div>
         <div className="h-16" />
-      </div>
+      </PageWrapper>
     </>
   )
 }
