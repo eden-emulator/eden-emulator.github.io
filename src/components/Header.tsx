@@ -45,7 +45,7 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-purple-500/30">
       <div className="absolute inset-0 bg-linear-to-r from-purple-500/10 via-blue-500/10 to-purple-500/10" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 shrink-0 focus:outline-none">
@@ -53,16 +53,14 @@ function Header() {
               src={edenLogo}
               alt="Eden Emulator"
               className="h-10 w-auto max-w-none"
-              style={{
-                filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))',
-              }}
+              style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))' }}
             />
-            <span className="hidden xl:block text-xl font-bold text-white">EDEN</span>
+            <span className="hidden 2xl:block text-xl font-bold text-white">EDEN</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav
-            className="hidden lg:flex items-center space-x-6 xl:space-x-8"
+            className="hidden xl:flex items-center space-x-6 xl:space-x-8"
             aria-label="Main navigation"
           >
             {navigation.map((item) =>
@@ -107,7 +105,7 @@ function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-blue-300 hover:text-purple-300 border border-blue-500/50 rounded-lg hover:border-purple-500/50 transition-all duration-300 focus:outline-none"
+            className="xl:hidden p-2 text-blue-300 hover:text-purple-300 border border-blue-500/50 rounded-lg hover:border-purple-500/50 transition-all duration-300 focus:outline-none"
             aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
@@ -122,7 +120,7 @@ function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-purple-500/30">
+          <div className="xl:hidden py-4 border-t border-purple-500/30">
             <nav
               id="mobile-navigation"
               className="flex flex-col space-y-4"
