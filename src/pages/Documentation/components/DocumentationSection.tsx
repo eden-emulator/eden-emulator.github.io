@@ -12,7 +12,7 @@ function DocumentationSection(props: DocumentationSectionProps) {
       <div
         className={cn(
           'absolute inset-0 bg-linear-to-r opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500',
-          props.section.color
+          props.section.color,
         )}
       />
 
@@ -21,7 +21,7 @@ function DocumentationSection(props: DocumentationSectionProps) {
           <div
             className={cn(
               'p-4 bg-linear-to-r rounded-lg mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300',
-              props.section.color
+              props.section.color,
             )}
           >
             <props.section.icon className="w-8 h-8 text-black" />
