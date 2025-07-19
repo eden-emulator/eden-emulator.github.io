@@ -46,7 +46,7 @@ function Header() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 shrink-0">
+          <Link to="/" className="flex items-center space-x-3 shrink-0 focus:outline-none">
             <img
               src={edenLogo}
               alt="Eden Emulator"
@@ -70,7 +70,7 @@ function Header() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center space-x-2 text-blue-300 hover:text-purple-300 transition-all duration-300 font-bold text-sm tracking-wider relative focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded-lg"
+                  className="group flex items-center space-x-2 text-blue-300 hover:text-purple-300 transition-all duration-300 font-bold text-sm tracking-wider relative focus:outline-none rounded-lg"
                 >
                   <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/20 group-hover:to-blue-500/20 rounded-lg blur-sm transition-all duration-300"></div>
                   <div className="relative flex items-center space-x-2">
@@ -83,7 +83,7 @@ function Header() {
                   key={item.name}
                   to={item.href}
                   className={cn(
-                    'group flex items-center space-x-2 transition-all duration-300 font-bold text-sm tracking-wider relative focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded-lg',
+                    'group flex items-center space-x-2 transition-all duration-300 font-bold text-sm tracking-wider relative focus:outline-none rounded-lg',
                     isActive(item.href) ? 'text-purple-300' : 'text-blue-300 hover:text-purple-300',
                   )}
                 >
@@ -105,7 +105,7 @@ function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-blue-300 hover:text-purple-300 border border-blue-500/50 rounded-lg hover:border-purple-500/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black"
+            className="lg:hidden p-2 text-blue-300 hover:text-purple-300 border border-blue-500/50 rounded-lg hover:border-purple-500/50 transition-all duration-300 focus:outline-none"
             aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
