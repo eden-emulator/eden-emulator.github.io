@@ -251,8 +251,7 @@
 /* Focus styles */
 button:focus,
 a:focus {
-  outline: 2px solid #9333ea;
-  outline-offset: 2px;
+  outline: none;
 }
 
 /* Retro text effect */
