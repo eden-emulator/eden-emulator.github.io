@@ -42,7 +42,7 @@ export const features = [
     icon: Palette,
     title: 'EDEN’S VEIL (BETA)',
     description:
-      'An experimental config tab for visuals—adjust shaders, frame pacing, overlays, and more (not yet polished).',
+      'An experimental config tab for advanced settings',
     color: 'from-purple-400 to-blue-500',
     glow: 'shadow-purple-500/50',
   },
