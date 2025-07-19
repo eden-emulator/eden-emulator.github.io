@@ -59,7 +59,10 @@ function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <nav
+            className="hidden lg:flex items-center space-x-6 xl:space-x-8"
+            aria-label="Main navigation"
+          >
             {navigation.map((item) =>
               item.external ? (
                 <a
@@ -67,11 +70,11 @@ function Header() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center space-x-2 text-blue-300 hover:text-purple-300 transition-all duration-300 font-bold text-sm tracking-wider relative"
+                  className="group flex items-center space-x-2 text-blue-300 hover:text-purple-300 transition-all duration-300 font-bold text-sm tracking-wider relative focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded-lg"
                 >
                   <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/20 group-hover:to-blue-500/20 rounded-lg blur-sm transition-all duration-300"></div>
                   <div className="relative flex items-center space-x-2">
-                    {item.icon && <item.icon className="w-4 h-4" />}
+                    {item.icon && <item.icon className="w-4 h-4" aria-hidden="true" />}
                     <span>{item.name}</span>
                   </div>
                 </a>
@@ -80,7 +83,7 @@ function Header() {
                   key={item.name}
                   to={item.href}
                   className={cn(
-                    'group flex items-center space-x-2 transition-all duration-300 font-bold text-sm tracking-wider relative',
+                    'group flex items-center space-x-2 transition-all duration-300 font-bold text-sm tracking-wider relative focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded-lg',
                     isActive(item.href) ? 'text-purple-300' : 'text-blue-300 hover:text-purple-300',
                   )}
                 >
@@ -91,7 +94,7 @@ function Header() {
                     )}
                   />
                   <div className="relative flex items-center space-x-2">
-                    {item.icon && <item.icon className="w-4 h-4" />}
+                    {item.icon && <item.icon className="w-4 h-4" aria-hidden="true" />}
                     <span>{item.name}</span>
                   </div>
                 </Link>
@@ -102,16 +105,27 @@ function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-blue-300 hover:text-purple-300 border border-blue-500/50 rounded-lg hover:border-purple-500/50 transition-all duration-300"
+            className="lg:hidden p-2 text-blue-300 hover:text-purple-300 border border-blue-500/50 rounded-lg hover:border-purple-500/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black"
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" aria-hidden="true" />
+            ) : (
+              <Menu className="w-6 h-6" aria-hidden="true" />
+            )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-purple-500/30">
-            <nav className="flex flex-col space-y-4">
+            <nav
+              id="mobile-navigation"
+              className="flex flex-col space-y-4"
+              aria-label="Mobile navigation"
+            >
               {navigation.map((item) =>
                 item.external ? (
                   <a
@@ -122,7 +136,7 @@ function Header() {
                     className="flex items-center space-x-3 text-blue-300 hover:text-purple-300 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-purple-500/10 font-bold text-sm tracking-wider"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item.icon && <item.icon className="w-4 h-4" />}
+                    {item.icon && <item.icon className="w-4 h-4" aria-hidden="true" />}
                     <span>{item.name}</span>
                   </a>
                 ) : (
@@ -137,7 +151,7 @@ function Header() {
                     )}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item.icon && <item.icon className="w-4 h-4" />}
+                    {item.icon && <item.icon className="w-4 h-4" aria-hidden="true" />}
                     <span>{item.name}</span>
                   </Link>
                 ),

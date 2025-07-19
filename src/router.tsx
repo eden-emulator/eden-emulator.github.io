@@ -71,7 +71,7 @@ const routeTree = rootRoute.addChildren([
   compatibilityReportsRoute,
 ])
 
-export const router = createRouter({ 
+export const router = createRouter({
   routeTree,
   defaultNotFoundComponent: NotFoundPage,
 })
