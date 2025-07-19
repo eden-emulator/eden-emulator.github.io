@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Cpu, Heart, Download, Zap } from 'lucide-react'
 import edenLogo from '@/assets/logo_neon.png'
 import { Link } from '@tanstack/react-router'
@@ -36,11 +37,11 @@ function HomePage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-14 mb-12">
             <Link
               to="/download"
-              className="group relative text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-offset-black font-orbitron btn-synthwave-primary"
+              className="group relative text-white px-10 py-4 rounded-lg font-bold text-lg transition-transform duration-200 hover:scale-105 flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-offset-black font-orbitron btn-synthwave-primary will-change-transform"
               aria-label="Download Eden Emulator"
             >
               <div
-                className="absolute inset-0 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300 btn-synthwave-primary-glow"
+                className="absolute inset-0 rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-200 btn-synthwave-primary-glow will-change-opacity"
                 aria-hidden="true"
               />
               <div className="relative flex items-center space-x-3">
@@ -53,11 +54,11 @@ function HomePage() {
               href="https://git.eden-emu.dev/eden-emu/eden"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative hover:text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-offset-black font-orbitron btn-synthwave-secondary"
+              className="group relative hover:text-white px-10 py-4 rounded-lg font-bold text-lg transition-transform duration-200 hover:scale-105 flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-offset-black font-orbitron btn-synthwave-secondary will-change-transform"
               aria-label="View Eden Emulator source code on GitLab (opens in new tab)"
             >
               <div
-                className="absolute inset-0 rounded-lg blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-300 btn-synthwave-secondary-glow"
+                className="absolute inset-0 rounded-lg blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-200 btn-synthwave-secondary-glow will-change-opacity"
                 aria-hidden="true"
               />
               <div className="relative flex items-center space-x-3">
@@ -73,7 +74,7 @@ function HomePage() {
           >
             <Link
               to="/features"
-              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-orange"
+              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-orange will-change-transform"
               aria-label="View Eden Emulator features"
             >
               <Zap className="w-6 h-6 text-synthwave-orange" aria-hidden="true" />
@@ -82,7 +83,7 @@ function HomePage() {
 
             <Link
               to="/system-requirements"
-              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-pink"
+              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-pink will-change-transform"
               aria-label="View system requirements for Eden Emulator"
             >
               <Cpu className="w-6 h-6 text-synthwave-pink" aria-hidden="true" />
@@ -91,7 +92,7 @@ function HomePage() {
 
             <Link
               to="/donations"
-              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-yellow"
+              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-yellow will-change-transform"
               aria-label="Download Eden Emulator"
             >
               <Heart className="w-6 h-6 text-synthwave-yellow" aria-hidden="true" />
@@ -104,4 +105,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default memo(HomePage)
