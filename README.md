@@ -1,69 +1,79 @@
-# React + TypeScript + Vite
+# Eden Emulator Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the official website for the [Eden Nintendo Switch Emulator](https://eden-emu.dev).  
+The site is under active development and built using modern tooling like Vite, React 19, and Tailwind CSS.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Contributing
 
-## Expanding the ESLint configuration
+We welcome pull requests for improvements, features, and fixes.  
+**Please submit all contributions in English.**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 1. Install dependencies
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Start the development server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+The site will be available at [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
+
+---
+
+## 🧰 Tech Stack
+
+- [React 19](https://react.dev)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite 7](https://vitejs.dev)
+- [Tailwind CSS V4](https://tailwindcss.com)
+- [Lucide Icons](https://lucide.dev)
+- [@tanstack/react-router v1](https://tanstack.com/router/v1)
+
+---
+
+## 📦 Scripts
+
+| Script            | Description                     |
+| ----------------- | ------------------------------- |
+| `npm run dev`     | Start dev server (with HMR)     |
+| `npm run build`   | Build site (includes typecheck) |
+| `npm run preview` | Preview production build        |
+| `npm run lint`    | Run ESLint                      |
+| `npm run types`   | Check TypeScript types          |
+| `npm run format`  | Format with Prettier            |
+
+---
+
+## 🧹 Linting
+
+This project uses ESLint and Prettier with TypeScript support.
+
+- Run `npm run lint` to check for issues.
+- Run `npm run format` to automatically fix formatting issues.
+
+---
+
+## 🙌 Credits
+
+This website was built with the help of friends who contributed to development, design, and fixes.  
+Special thanks to the **@Eden OGs** for testing and feedback.
+
+**[Eden Team](https://eden-emu.dev/team)**
+
+---
+
+## 💬 Community
+
+Join the Eden community on [Discord](https://discord.gg/edenemu)
+
+---
