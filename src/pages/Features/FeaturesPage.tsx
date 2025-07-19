@@ -1,5 +1,6 @@
 import { features } from './data'
 import HeadingText from '@/components/HeadingText.tsx'
+import { cn } from '@/utils/style'
 
 function FeaturesPage() {
   return (
@@ -28,13 +29,20 @@ function FeaturesPage() {
             >
               {/* Glow Effect */}
               <div
-                className={`absolute inset-0 bg-linear-to-r ${feature.color} opacity-0 group-hover:opacity-20 rounded-xl blur-sm transition-all duration-500`}
+                className={cn(
+                  'absolute inset-0 bg-linear-to-r opacity-0 group-hover:opacity-20 rounded-xl blur-sm transition-all duration-500',
+                  feature.color
+                )}
               />
 
               <div className="relative">
                 <div className="flex items-center mb-6">
                   <div
-                    className={`p-4 rounded-lg bg-linear-to-r ${feature.color} shadow-lg ${feature.glow} group-hover:shadow-xl transition-all duration-300`}
+                    className={cn(
+                      'p-4 rounded-lg bg-linear-to-r shadow-lg group-hover:shadow-xl transition-all duration-300',
+                      feature.color,
+                      feature.glow
+                    )}
                   >
                     <feature.icon className="w-8 h-8 text-black" />
                   </div>

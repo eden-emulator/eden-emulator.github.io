@@ -1,5 +1,6 @@
 import { ExternalLink } from 'lucide-react'
 import type { DocSection } from '../data'
+import { cn } from '@/utils/style'
 interface DocumentationSectionProps {
   section: DocSection
 }
@@ -9,13 +10,19 @@ function DocumentationSection(props: DocumentationSectionProps) {
     <div className="group relative bg-black/60 backdrop-blur-xs border border-blue-500/30 rounded-xl p-8 hover:border-purple-400/50 transition-all duration-500">
       {/* Glow Effect */}
       <div
-        className={`absolute inset-0 bg-linear-to-r ${props.section.color} opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500`}
+        className={cn(
+          'absolute inset-0 bg-linear-to-r opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500',
+          props.section.color
+        )}
       />
 
       <div className="relative">
         <div className="flex items-center mb-6">
           <div
-            className={`p-4 bg-linear-to-r ${props.section.color} rounded-lg mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300`}
+            className={cn(
+              'p-4 bg-linear-to-r rounded-lg mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300',
+              props.section.color
+            )}
           >
             <props.section.icon className="w-8 h-8 text-black" />
           </div>

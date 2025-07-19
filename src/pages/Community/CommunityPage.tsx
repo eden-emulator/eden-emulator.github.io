@@ -1,6 +1,7 @@
 import { Heart } from 'lucide-react'
 import { socialLinks, stats } from './data'
 import HeadingText from '@/components/HeadingText.tsx'
+import { cn } from '@/utils/style'
 
 function CommunityPage() {
   return (
@@ -36,13 +37,19 @@ function CommunityPage() {
             >
               {/* Glow Effect */}
               <div
-                className={`absolute inset-0 bg-linear-to-r ${stat.color} opacity-0 group-hover:opacity-20 rounded-xl blur-sm transition-all duration-500`}
+                className={cn(
+                  'absolute inset-0 bg-linear-to-r opacity-0 group-hover:opacity-20 rounded-xl blur-sm transition-all duration-500',
+                  stat.color
+                )}
               />
 
               <div className="relative">
                 <div className="flex justify-center mb-4">
                   <div
-                    className={`p-3 bg-linear-to-r ${stat.color} rounded-full shadow-lg group-hover:shadow-xl transition-all duration-300`}
+                    className={cn(
+                      'p-3 bg-linear-to-r rounded-full shadow-lg group-hover:shadow-xl transition-all duration-300',
+                      stat.color
+                    )}
                   >
                     <stat.icon className="w-6 h-6 text-black" />
                   </div>
@@ -65,12 +72,19 @@ function CommunityPage() {
             >
               {/* Glow Effect */}
               <div
-                className={`absolute inset-0 bg-linear-to-r ${link.color} opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500`}
+                className={cn(
+                  'absolute inset-0 bg-linear-to-r opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500',
+                  link.color
+                )}
               />
 
               <div className="relative flex items-start space-x-6">
                 <div
-                  className={`p-4 bg-linear-to-r ${link.color} ${link.hoverColor} rounded-lg transition-all duration-300 shadow-lg group-hover:shadow-xl`}
+                  className={cn(
+                    'p-4 bg-linear-to-r rounded-lg transition-all duration-300 shadow-lg group-hover:shadow-xl',
+                    link.color,
+                    link.hoverColor
+                  )}
                 >
                   <link.icon className="w-8 h-8 text-white" />
                 </div>

@@ -2,6 +2,7 @@ import { Heart, ExternalLink, LinkIcon } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 import edenLogo from '@/assets/logo.png'
 import { footerLinks, socialLinks } from '@/components/Footer/data.ts'
+import { cn } from '@/utils/style'
 
 function Footer() {
   return (
@@ -45,9 +46,12 @@ function Footer() {
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className={`p-3 bg-black/60 border border-blue-500/30 ${social.color} rounded-lg transition-all duration-300 hover:border-purple-400/50`}
+                  className={cn(
+                    'group p-3 bg-black/60 border border-blue-500/30 rounded-lg transition-all duration-300 hover:border-purple-400/50',
+                    social.color
+                  )}
                 >
-                  <social.icon className="w-5 h-5 text-gray-50" />
+                  <social.icon className="w-5 h-5 text-gray-50 group-hover:text-purple-300 transition-colors" />
                 </a>
               ))}
             </div>

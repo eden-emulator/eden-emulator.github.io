@@ -7,7 +7,7 @@ export function DiscordIcon(props: SVGProps<SVGSVGElement>) {
       width="16"
       height="16"
       fill="currentColor"
-      className="h-4 w-4 bg-purple-400 hover:text-purple-500 transition-colors"
+      className="h-4 w-4"
       viewBox="0 0 16 16"
       {...props}
     >

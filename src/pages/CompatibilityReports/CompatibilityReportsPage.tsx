@@ -5,6 +5,7 @@ import HeadingText from '@/components/HeadingText'
 import RedirectModal from '@/components/RedirectModal'
 import getGameImageUrl from '@/pages/CompatibilityReports/utils/getGameImageUrl'
 import { EDEN_EMULATOR_ID, DEFAULT_PERFORMANCE_STYLE, PERFORMANCE_STYLES } from './data'
+import { cn } from '@/utils/style'
 
 function CompatibilityReportsPage() {
   const [reports, setReports] = useState<CompatibilityReport[]>([])
@@ -210,7 +211,10 @@ function CompatibilityReportsPage() {
                 >
                   {/* Glow Effect Behind Card */}
                   <div
-                    className={`absolute inset-0 bg-linear-to-r ${perfStyle.glowGradient} blur-xl opacity-0 group-hover:opacity-50 transition-all duration-700 rounded-2xl`}
+                    className={cn(
+                      'absolute inset-0 bg-linear-to-r blur-xl opacity-0 group-hover:opacity-50 transition-all duration-700 rounded-2xl',
+                      perfStyle.glowGradient,
+                    )}
                   />
 
                   {/* Main Card */}
@@ -220,26 +224,23 @@ function CompatibilityReportsPage() {
                   >
                     {/* Performance Indicator Bar */}
                     <div
-                      className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${perfStyle.indicatorGradient}`}
+                      className={cn(
+                        'absolute top-0 left-0 right-0 h-1 bg-linear-to-r',
+                        perfStyle.indicatorGradient,
+                      )}
                     />
 
                     <div className="flex flex-col lg:flex-row">
                       {/* Left Section - Game Art & Performance */}
                       <div className="relative lg:w-64 bg-black/40 p-6 flex flex-col items-center justify-center border-r border-purple-500/20">
                         {/* Click Indicator */}
-                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="px-3 py-1 bg-purple-500/20 border border-purple-500/50 rounded-full">
-                            <span className="text-xs text-purple-300 font-medium">
-                              Click for details
-                            </span>
-                          </div>
-                        </div>
                         {imageUrl ? (
                           <div className="relative">
                             <div className="absolute inset-0 bg-purple-500/30 blur-2xl" />
                             <img
                               src={imageUrl}
                               alt={report.game.title}
+                              aria-label={report.game.title}
                               className="relative w-40 h-56 object-cover rounded-xl shadow-2xl"
                               loading="lazy"
                             />
@@ -252,10 +253,15 @@ function CompatibilityReportsPage() {
 
                         {/* Performance Badge */}
                         <div
-                          className={`mt-4 px-6 py-3 rounded-full backdrop-blur-sm border ${perfStyle.bgColor} ${perfStyle.borderColor} ${perfStyle.shadowColor} shadow-lg`}
+                          className={cn(
+                            'mt-4 px-6 py-3 rounded-full backdrop-blur-sm border shadow-lg',
+                            perfStyle.bgColor,
+                            perfStyle.borderColor,
+                            perfStyle.shadowColor,
+                          )}
                         >
                           <div className="flex items-center gap-3">
-                            <perfStyle.icon className={`w-5 h-5 ${perfStyle.iconColor}`} />
+                            <perfStyle.icon className={cn('w-5 h-5', perfStyle.iconColor)} />
                             <span className="font-bold uppercase tracking-wider text-sm">
                               {report.performance.label}
                             </span>
@@ -265,6 +271,14 @@ function CompatibilityReportsPage() {
 
                       {/* Right Section - Content */}
                       <div className="flex-1 p-8 space-y-6">
+                        <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="px-3 py-1 bg-purple-500/20 border border-purple-500/50 rounded-full">
+                            <span className="text-xs text-purple-300 font-medium">
+                              Click for details
+                            </span>
+                          </div>
+                        </div>
+
                         {/* Header */}
                         <div>
                           <h3 className="text-3xl font-bold mb-3">
