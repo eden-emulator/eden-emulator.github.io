@@ -12,26 +12,23 @@ function HomePage() {
         {/* Subtle Animated Synthwave Background */}
         <div className="synthwave-animated-bg" aria-hidden="true">
           <div className="synthwave-gradient-animated"></div>
+          <div className="synthwave-horizon"></div>
           <div className="synthwave-lines"></div>
           
           {/* Music Visualizer Bars */}
           <div className="music-bars">
-            {[...Array(30)].map((_, i) => (
+            {[...Array(40)].map((_, i) => (
               <div
                 key={i}
                 className="music-bar"
                 style={{
-                  height: `${30 + Math.random() * 40}px`,
-                  animationDelay: `${i * 0.05}s`
+                  height: `${20 + Math.sin(i * 0.3) * 30}px`,
+                  animationDelay: `${i * 0.05}s`,
+                  opacity: 0.6 - (Math.abs(i - 20) * 0.02)
                 }}
               />
             ))}
           </div>
-        </div>
-        
-        {/* Retro Grid Floor */}
-        <div className="absolute bottom-0 left-0 right-0 h-1/3" aria-hidden="true">
-          <div className="absolute inset-0 retro-grid opacity-20"></div>
         </div>
 
         {/* Subtle Synthwave Neon Glow Effects */}
