@@ -51,9 +51,7 @@ function CompatibilityReportsPage() {
           ? '/api/mobile/trpc'
           : import.meta.env.VITE_EMUREADY_API_BASE_URL || 'https://www.emuready.com/api/mobile/trpc'
 
-        const response = await fetch(
-          `${apiUrl}/listings.getListings?batch=1&input=${encodedInput}`,
-        )
+        const response = await fetch(`${apiUrl}/listings.getListings?batch=1&input=${encodedInput}`)
         const data = await response.json()
 
         if (data?.[0]?.result?.data?.json) {
