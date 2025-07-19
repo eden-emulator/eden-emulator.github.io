@@ -6,6 +6,7 @@ import DocumentationPage from './pages/Documentation/DocumentationPage.tsx'
 import CommunityPage from './pages/Community/CommunityPage.tsx'
 import SystemRequirementsPage from './pages/SystemRequirements/SystemRequirementsPage.tsx'
 import CompatibilityReportsPage from './pages/CompatibilityReports/CompatibilityReportsPage.tsx'
+import TeamPage from './pages/Team/TeamPage.tsx'
 import AppLayout from './components/AppLayout'
 
 const rootRoute = createRootRoute({ component: AppLayout })
@@ -52,12 +53,19 @@ const compatibilityReportsRoute = createRoute({
   component: CompatibilityReportsPage,
 })
 
+const teamRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/team',
+  component: TeamPage,
+})
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   featuresRoute,
   downloadRoute,
   docsRoute,
   communityRoute,
+  teamRoute,
   systemRequirementsRoute,
   compatibilityReportsRoute,
 ])

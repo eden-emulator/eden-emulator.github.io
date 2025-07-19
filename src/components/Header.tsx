@@ -1,22 +1,34 @@
 import { useState } from 'react'
-import { Menu, X, Download, Book, Users, Monitor, ClipboardList } from 'lucide-react'
+import {
+  Menu,
+  X,
+  Download,
+  Book,
+  Users,
+  Monitor,
+  ClipboardList,
+  Users2,
+  Sparkles,
+} from 'lucide-react'
 import edenLogo from '@/assets/logo.png'
 import { GitHubIcon } from '@/components/Icons'
 import { Link, useLocation } from '@tanstack/react-router'
+import { cn } from '@/utils/style'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
 
   const navigation = [
-    { name: 'FEATURES', href: '/features' },
+    { name: 'FEATURES', href: '/features', icon: Sparkles },
     { name: 'DOWNLOAD', href: '/download', icon: Download },
     { name: 'REQUIREMENTS', href: '/system-requirements', icon: Monitor },
     { name: 'COMPATIBILITY', href: '/compatibility', icon: ClipboardList },
     { name: 'DOCS', href: '/docs', icon: Book },
     { name: 'COMMUNITY', href: '/community', icon: Users },
+    { name: 'TEAM', href: '/team', icon: Users2 },
     {
-      name: 'GITHUB',
+      name: '',
       href: 'https://github.com/eden-emulator/Releases/releases',
       icon: GitHubIcon,
       external: true,
@@ -34,16 +46,16 @@ function Header() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 shrink-0">
             <img
               src={edenLogo}
               alt="Eden Emulator"
-              className="h-10 w-10"
+              className="h-10 w-auto max-w-none"
               style={{
                 filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))',
               }}
             />
-            <span className="text-xl font-bold text-white">EDEN EMULATOR</span>
+            <span className="hidden xl:block text-xl font-bold text-white">EDEN</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -67,15 +79,17 @@ function Header() {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`group flex items-center space-x-2 transition-all duration-300 font-bold text-sm tracking-wider relative ${
-                    isActive(item.href) ? 'text-purple-300' : 'text-blue-300 hover:text-purple-300'
-                  }`}
+                  className={cn(
+                    'group flex items-center space-x-2 transition-all duration-300 font-bold text-sm tracking-wider relative',
+                    isActive(item.href) ? 'text-purple-300' : 'text-blue-300 hover:text-purple-300',
+                  )}
                 >
                   <div
-                    className={`absolute inset-0 bg-linear-to-r from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/20 group-hover:to-blue-500/20 rounded-lg blur transition-all duration-300 ${
-                      isActive(item.href) ? 'from-purple-500/20 to-blue-500/20' : ''
-                    }`}
-                  ></div>
+                    className={cn(
+                      'absolute inset-0 bg-linear-to-r from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/20 group-hover:to-blue-500/20 rounded-lg blur transition-all duration-300',
+                      isActive(item.href) && 'from-purple-500/20 to-blue-500/20',
+                    )}
+                  />
                   <div className="relative flex items-center space-x-2">
                     {item.icon && <item.icon className="w-4 h-4" />}
                     <span>{item.name}</span>
@@ -115,11 +129,12 @@ function Header() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`flex items-center space-x-3 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-purple-500/10 font-bold text-sm tracking-wider ${
+                    className={cn(
+                      'flex items-center space-x-3 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-purple-500/10 font-bold text-sm tracking-wider',
                       isActive(item.href)
                         ? 'text-purple-300 bg-purple-500/10'
-                        : 'text-blue-300 hover:text-purple-300'
-                    }`}
+                        : 'text-blue-300 hover:text-purple-300',
+                    )}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.icon && <item.icon className="w-4 h-4" />}
