@@ -242,6 +242,7 @@ function SystemRequirementsPage() {
             </span>
           </div>
         </div>
+        <div className="h-16" />
       </div>
     </div>
   )
