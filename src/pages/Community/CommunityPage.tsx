@@ -18,8 +18,8 @@ function CommunityPage() {
       ></div>
 
       {/* Neon Glow Effects */}
-      <div className="absolute top-10 left-10 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div className="absolute top-10 left-10 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse"/>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"/>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <HeadingText
@@ -58,15 +58,15 @@ function CommunityPage() {
 
         {/* Social Links */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-          {socialLinks.map((link, index) => (
+          {socialLinks.map((link) => (
             <div
-              key={index}
+              key={link.name}
               className="group relative bg-black/60 backdrop-blur-xs border border-cyan-500/30 rounded-xl p-8 hover:border-pink-400/50 transition-all duration-500"
             >
               {/* Glow Effect */}
               <div
                 className={`absolute inset-0 bg-linear-to-r ${link.color} opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500`}
-              ></div>
+              />
 
               <div className="relative flex items-start space-x-6">
                 <div
@@ -80,10 +80,14 @@ function CommunityPage() {
                   </h3>
                   <p className="text-cyan-100 mb-4 font-light">{link.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-cyan-200 text-sm font-light">{link.members}</span>
-                    <button className="text-pink-400 hover:text-cyan-300 font-bold transition-colors duration-300 tracking-wider">
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      aria-label={`Join ${link.name}`}
+                      className="text-pink-400 hover:text-cyan-300 font-bold transition-colors duration-300 tracking-wider"
+                    >
                       JOIN NOW →
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -108,16 +112,27 @@ function CommunityPage() {
               designer, we can use your help!
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="bg-linear-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white px-8 py-4 rounded-lg font-bold tracking-wider transition-all duration-300 shadow-lg shadow-pink-500/50">
+              <a
+                href="https://git.eden-emu.dev/eden-emu/eden"
+                target="_blank"
+                aria-label="Start Contributing on Git"
+                className="bg-linear-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white px-8 py-4 rounded-lg font-bold tracking-wider transition-all duration-300 shadow-lg shadow-pink-500/50"
+              >
                 START CONTRIBUTING
-              </button>
-              <button className="border-2 border-cyan-400 text-cyan-300 hover:text-white px-8 py-4 rounded-lg font-bold tracking-wider transition-all duration-300 hover:bg-cyan-400/10">
+              </a>
+              <a
+                href="https://git.eden-emu.dev/eden-emu/eden/issues"
+                target="_blank"
+                aria-label="View Issues"
+                className="border-2 border-cyan-400 text-cyan-300 hover:text-white px-8 py-4 rounded-lg font-bold tracking-wider transition-all duration-300 hover:bg-cyan-400/10"
+              >
                 VIEW ISSUES
-              </button>
+              </a>
             </div>
           </div>
         </div>
       </div>
+      <div className="h-16" />
     </div>
   )
 }
