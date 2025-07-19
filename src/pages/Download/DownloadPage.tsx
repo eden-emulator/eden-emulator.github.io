@@ -1,9 +1,13 @@
 import { Download } from 'lucide-react'
-import { platforms } from '@/pages/Download/data.ts'
 import { Link } from '@tanstack/react-router'
 import HeadingText from '@/components/HeadingText.tsx'
+import { cn } from '@/utils/style'
+import getDynamicPlatforms from '@/pages/Download/utils/getDynamicPlatforms.ts'
+import { useMemo } from 'react'
 
 function DownloadPage() {
+  const platformOptions = useMemo(() => getDynamicPlatforms(), [])
+
   return (
     <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen">
       {/* Background Grid */}
@@ -29,14 +33,15 @@ function DownloadPage() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {platforms.map((platform, index) => (
+          {platformOptions.map((platform) => (
             <div
-              key={index}
-              className={`relative group bg-black/60 backdrop-blur-xs border rounded-xl p-6 transition-all duration-500 hover:transform hover:scale-105 ${
+              key={platform.platform}
+              className={cn(
+                'relative group bg-black/60 backdrop-blur-xs border rounded-xl p-6 transition-all duration-500 hover:transform hover:scale-105',
                 platform.primary
                   ? 'border-purple-400 shadow-lg shadow-purple-500/50'
-                  : 'border-blue-500/30 hover:border-purple-400/50'
-              }`}
+                  : 'border-blue-500/30 hover:border-purple-400/50',
+              )}
             >
               {platform.primary && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -48,13 +53,19 @@ function DownloadPage() {
 
               {/* Glow Effect */}
               <div
-                className={`absolute inset-0 bg-linear-to-r ${platform.color} opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500`}
+                className={cn(
+                  'absolute inset-0 bg-linear-to-r opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500',
+                  platform.color,
+                )}
               />
 
               <div className="relative text-center">
                 <div className="flex justify-center mb-6">
                   <div
-                    className={`p-4 bg-linear-to-r ${platform.color} rounded-full shadow-lg group-hover:shadow-xl transition-all duration-300`}
+                    className={cn(
+                      'p-4 bg-linear-to-r rounded-full shadow-lg group-hover:shadow-xl transition-all duration-300',
+                      platform.color,
+                    )}
                   >
                     <platform.icon className="w-8 h-8 text-black" />
                   </div>
@@ -72,11 +83,12 @@ function DownloadPage() {
 
                 <button
                   onClick={() => window.open(platform.downloadUrl, '_blank')}
-                  className={`w-full py-3 px-4 rounded-lg font-bold transition-all duration-300 flex items-center justify-center space-x-2 tracking-wider ${
+                  className={cn(
+                    'w-full py-3 px-4 rounded-lg font-bold transition-all duration-300 flex items-center justify-center space-x-2 tracking-wider',
                     platform.primary
                       ? 'bg-linear-to-r from-purple-500 to-blue-600 hover:from-purple-400 hover:to-blue-500 text-white shadow-lg shadow-purple-500/50'
-                      : 'border-2 border-blue-400 text-blue-300 hover:bg-blue-400/10 hover:text-white'
-                  }`}
+                      : 'border-2 border-blue-400 text-blue-300 hover:bg-blue-400/10 hover:text-white',
+                  )}
                 >
                   <Download className="w-5 h-5" />
                   <span>DOWNLOAD</span>
