@@ -1,5 +1,5 @@
-import { MessageSquare, Users, type LucideIcon } from 'lucide-react'
-import { DiscordIcon, GitHubIcon, TwitterIcon, type Icon } from '@/components/Icons'
+import { MessageSquare, GitGraph, type LucideIcon, Download } from 'lucide-react'
+import { DiscordIcon, TwitterIcon, type Icon, GitHubIcon } from '@/components/Icons'
 
 interface Stat {
   label: string
@@ -18,15 +18,30 @@ interface SocialLink {
 }
 
 export const stats: Stat[] = [
-  { label: 'ACTIVE USERS', value: '50K+', icon: Users, color: 'from-blue-400 to-cyan-500' },
-  { label: 'GITHUB STARS', value: '12.5K', icon: GitHubIcon, color: 'from-gray-400 to-gray-600' },
+  {
+    label: 'DOWNLOADS',
+    value: '420,069+',
+    icon: Download,
+    color: 'from-blue-400 to-cyan-500',
+  },
+  {
+    label: 'ACTIVELY MAINTAINED',
+    value: '27,472+ COMMITS',
+    icon: GitGraph,
+    color: 'from-yellow-400 to-orange-500',
+  },
   {
     label: 'DISCORD MEMBERS',
-    value: '8.2K',
+    value: '15.2K+',
     icon: DiscordIcon,
     color: 'from-indigo-400 to-purple-500',
   },
-  { label: 'FORUM POSTS', value: '25K+', icon: MessageSquare, color: 'from-pink-400 to-red-500' },
+  {
+    label: 'COMPATIBILITY REPORTS',
+    value: '200+',
+    icon: MessageSquare,
+    color: 'from-pink-400 to-red-500',
+  },
 ]
 
 export const socialLinks: SocialLink[] = [
@@ -41,7 +56,7 @@ export const socialLinks: SocialLink[] = [
   {
     name: 'GITHUB',
     icon: GitHubIcon,
-    href: 'https://git.eden-emu.dev/eden-emu/eden/releases',
+    href: 'https://git.eden-emu.dev/eden-emu/eden',
     description: 'Contribute to the project and report issues',
     color: 'from-gray-600 to-gray-800',
     hoverColor: 'hover:from-gray-500 hover:to-gray-700',
@@ -55,7 +70,7 @@ export const socialLinks: SocialLink[] = [
     hoverColor: 'hover:from-blue-400 hover:to-cyan-500',
   },
   {
-    name: 'EMUREADY',
+    name: 'EMUREADY x EDEN',
     icon: MessageSquare,
     href: 'https://forums.emuready.com',
     description: 'Community-driven platform for emulation compatibility reports.',
