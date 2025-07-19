@@ -3,14 +3,14 @@ import { Zap, Shield, Gamepad2, Monitor, Cpu, Palette } from 'lucide-react'
 export const features = [
   {
     icon: Zap,
-    title: 'LIGHTNING SPEED',
+    title: 'Lightning Speed',
     description: 'Eden is written in C++ with a focus on performance.',
     color: 'from-yellow-400 to-orange-500',
     glow: 'shadow-yellow-500/50',
   },
   {
     icon: Shield,
-    title: 'OPEN & AUDITABLE',
+    title: 'Open & Auditable',
     description:
       'No telemetry, no trackers, no nonsense. The entire codebase is open for inspection.',
     color: 'from-green-400 to-emerald-500',
@@ -18,21 +18,21 @@ export const features = [
   },
   {
     icon: Gamepad2,
-    title: 'CONTROLLER SUPPORT',
-    description: 'Plug in and play with support for Xbox, DualShock, and other common controllers.',
+    title: 'Controller Support',
+    description: 'Plug n play with support for Xbox, DualShock, and other common controllers.',
     color: 'from-blue-400 to-blue-500',
     glow: 'shadow-blue-500/50',
   },
   {
     icon: Monitor,
-    title: 'MULTI-PLATFORM',
-    description: 'Available on Windows, macOS, Linux, and Android.',
+    title: 'Multi-platform',
+    description: 'Available on Windows, Linux and Android.',
     color: 'from-purple-400 to-purple-500',
     glow: 'shadow-purple-500/50',
   },
   {
     icon: Cpu,
-    title: 'SMART EMULATION',
+    title: 'Smart Emulation',
     description:
       'Accuracy where it matters, performance where it counts. No overkill for the sake of it.',
     color: 'from-red-400 to-pink-500',
