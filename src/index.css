@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import 'tailwindcss';
 
 /*
@@ -60,30 +62,45 @@
 
   body {
     font-family: 'Inter', sans-serif;
-    background: #000000;
-    color: #dbeafe;
+    background: #0a0a0a;
+    color: #f0f0ff;
+  }
+
+  /* 80's Synthwave Color Variables */
+  :root {
+    --synthwave-pink: #ff006e;
+    --synthwave-hot-pink: #ff10f0;
+    --synthwave-purple: #b300ff;
+    --synthwave-dark-purple: #6b00cf;
+    --synthwave-blue: #00d9ff;
+    --synthwave-cyan: #00ffff;
+    --synthwave-sunset-orange: #ff6700;
+    --synthwave-sunset-pink: #ff0080;
+    --synthwave-yellow: #ffeb00;
+    --synthwave-magenta: #ff00ff;
   }
 }
 
-/* Custom scrollbar with neon theme */
+/* Custom scrollbar with retro synthwave theme */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
-  border: 1px solid #9333ea;
+  background: #0a0a0a;
+  border: 1px solid var(--synthwave-hot-pink);
+  box-shadow: inset 0 0 5px rgba(255, 0, 255, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #9333ea, #3b82f6);
+  background: linear-gradient(180deg, var(--synthwave-hot-pink), var(--synthwave-cyan));
   border-radius: 6px;
-  box-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+  box-shadow: 0 0 15px var(--synthwave-hot-pink), 0 0 30px var(--synthwave-purple);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #a855f7, #60a5fa);
-  box-shadow: 0 0 15px rgba(147, 51, 234, 0.8);
+  background: linear-gradient(180deg, var(--synthwave-magenta), var(--synthwave-blue));
+  box-shadow: 0 0 20px var(--synthwave-hot-pink), 0 0 40px var(--synthwave-purple);
 }
 
 /* Neon animations */
@@ -167,12 +184,36 @@ a:focus {
 /* Synthwave gradient backgrounds */
 .synthwave-bg {
   background: linear-gradient(
+    180deg,
+    #0a0a0a 0%,
+    #1a0033 20%,
+    #330066 40%,
+    #4d0099 60%,
+    #1a0033 80%,
+    #0a0a0a 100%
+  );
+}
+
+.synthwave-sunset {
+  background: linear-gradient(
+    180deg,
+    #120458 0%,
+    #4e0d5f 20%,
+    #891652 40%,
+    #c91f47 60%,
+    #ff6b35 80%,
+    #ffeb00 100%
+  );
+}
+
+.synthwave-miami {
+  background: linear-gradient(
     135deg,
-    #000000 0%,
-    #1e1b4b 25%,
-    #581c87 50%,
-    #1e1b4b 75%,
-    #000000 100%
+    var(--synthwave-dark-purple) 0%,
+    var(--synthwave-hot-pink) 25%,
+    var(--synthwave-cyan) 50%,
+    var(--synthwave-hot-pink) 75%,
+    var(--synthwave-dark-purple) 100%
   );
 }
 
@@ -180,21 +221,27 @@ a:focus {
 @keyframes glitch {
   0% {
     transform: translate(0);
+    filter: hue-rotate(0deg);
   }
   20% {
     transform: translate(-2px, 2px);
+    filter: hue-rotate(90deg) saturate(1.5);
   }
   40% {
     transform: translate(-2px, -2px);
+    filter: hue-rotate(180deg) saturate(2);
   }
   60% {
     transform: translate(2px, 2px);
+    filter: hue-rotate(270deg) saturate(1.5);
   }
   80% {
     transform: translate(2px, -2px);
+    filter: hue-rotate(360deg) saturate(1);
   }
   100% {
     transform: translate(0);
+    filter: hue-rotate(0deg);
   }
 }
 
@@ -209,4 +256,300 @@ a:focus {
   100% {
     transform: translate(50px, 50px);
   }
+}
+
+/* 80's Chrome Text Effect */
+.chrome-text {
+  background: linear-gradient(
+    180deg,
+    #eee 0%,
+    #999 50%,
+    #777 51%,
+    #555 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 
+    0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25);
+}
+
+/* Scanline Effect */
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 10px;
+  }
+}
+
+.scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 0, 255, 0.03) 2px,
+    rgba(255, 0, 255, 0.03) 4px
+  );
+  animation: scanlines 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* VHS Tracking Effect */
+@keyframes vhs-tracking {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+.vhs-effect {
+  position: relative;
+}
+
+.vhs-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 2px,
+    transparent 5px,
+    rgba(0, 0, 0, 0.1) 6px,
+    transparent 7px
+  );
+  animation: vhs-tracking 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Retro Grid with Perspective */
+.retro-grid {
+  background-image: 
+    linear-gradient(rgba(255, 0, 255, 0.3) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 0, 255, 0.3) 2px, transparent 2px);
+  background-size: 50px 50px;
+  background-position: -1px -1px;
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: center center;
+}
+
+/* Neon Text Variants */
+.neon-pink {
+  color: var(--synthwave-hot-pink);
+  text-shadow:
+    0 0 10px var(--synthwave-hot-pink),
+    0 0 20px var(--synthwave-hot-pink),
+    0 0 30px var(--synthwave-hot-pink),
+    0 0 40px var(--synthwave-purple),
+    0 0 70px var(--synthwave-purple),
+    0 0 80px var(--synthwave-purple),
+    0 0 100px var(--synthwave-purple),
+    0 0 150px var(--synthwave-purple);
+}
+
+.neon-cyan {
+  color: var(--synthwave-cyan);
+  text-shadow:
+    0 0 10px var(--synthwave-cyan),
+    0 0 20px var(--synthwave-cyan),
+    0 0 30px var(--synthwave-cyan),
+    0 0 40px var(--synthwave-blue),
+    0 0 70px var(--synthwave-blue),
+    0 0 80px var(--synthwave-blue),
+    0 0 100px var(--synthwave-blue),
+    0 0 150px var(--synthwave-blue);
+}
+
+/* Outrun Sun Effect */
+@keyframes sun-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+}
+
+.outrun-sun {
+  background: linear-gradient(
+    180deg,
+    var(--synthwave-yellow) 0%,
+    var(--synthwave-sunset-orange) 50%,
+    var(--synthwave-sunset-pink) 100%
+  );
+  border-radius: 50%;
+  box-shadow:
+    0 0 60px var(--synthwave-sunset-orange),
+    0 0 100px var(--synthwave-sunset-pink),
+    0 0 140px var(--synthwave-hot-pink);
+  animation: sun-pulse 4s ease-in-out infinite;
+}
+
+/* Subtle Animated Synthwave Background */
+@keyframes synthwave-beat {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scaleY(1);
+  }
+  25% {
+    opacity: 0.25;
+    transform: scaleY(1.05);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scaleY(0.98);
+  }
+  75% {
+    opacity: 0.3;
+    transform: scaleY(1.02);
+  }
+}
+
+@keyframes synthwave-pulse {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes synthwave-flow {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100px);
+  }
+}
+
+.synthwave-animated-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.synthwave-animated-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    rgba(255, 0, 255, 0.03) 1px,
+    transparent 2px,
+    transparent 48px,
+    rgba(0, 255, 255, 0.03) 49px,
+    transparent 50px
+  );
+  animation: synthwave-flow 8s linear infinite;
+}
+
+.synthwave-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 49px,
+      rgba(255, 0, 255, 0.1) 50px,
+      rgba(255, 0, 255, 0.1) 51px,
+      transparent 52px,
+      transparent 99px,
+      rgba(0, 255, 255, 0.1) 100px,
+      rgba(0, 255, 255, 0.1) 101px,
+      transparent 102px
+    );
+  animation: synthwave-beat 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.synthwave-gradient-animated {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(179, 0, 255, 0.05) 20%,
+    rgba(255, 0, 110, 0.05) 40%,
+    rgba(0, 217, 255, 0.05) 60%,
+    transparent 100%
+  );
+  animation: synthwave-pulse 4s ease-in-out infinite;
+}
+
+/* Music visualizer bars */
+@keyframes bar-dance-1 {
+  0%, 100% { transform: scaleY(0.3); }
+  25% { transform: scaleY(0.7); }
+  50% { transform: scaleY(0.5); }
+  75% { transform: scaleY(0.6); }
+}
+
+@keyframes bar-dance-2 {
+  0%, 100% { transform: scaleY(0.5); }
+  25% { transform: scaleY(0.3); }
+  50% { transform: scaleY(0.7); }
+  75% { transform: scaleY(0.4); }
+}
+
+@keyframes bar-dance-3 {
+  0%, 100% { transform: scaleY(0.6); }
+  25% { transform: scaleY(0.4); }
+  50% { transform: scaleY(0.3); }
+  75% { transform: scaleY(0.7); }
+}
+
+.music-bars {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  opacity: 0.08;
+}
+
+.music-bar {
+  width: 2px;
+  background: linear-gradient(to top, var(--synthwave-hot-pink), var(--synthwave-cyan));
+  transform-origin: bottom;
+}
+
+.music-bar:nth-child(3n) {
+  animation: bar-dance-1 2s ease-in-out infinite;
+}
+
+.music-bar:nth-child(3n+1) {
+  animation: bar-dance-2 2s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.music-bar:nth-child(3n+2) {
+  animation: bar-dance-3 2s ease-in-out infinite;
+  animation-delay: 0.4s;
 }
