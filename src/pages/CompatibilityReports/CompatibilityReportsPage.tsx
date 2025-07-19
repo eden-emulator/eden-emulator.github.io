@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { Loader2, Smartphone, Cpu, TrendingUp, TrendingDown, Info } from 'lucide-react'
 import type { CompatibilityReport, PaginationInfo } from './types'
 import HeadingText from '@/components/HeadingText'
@@ -20,6 +20,7 @@ function CompatibilityReportsPage() {
     pages: 0,
   })
   const [error, setError] = useState<string | null>(null)
+  const hasInitialized = useRef(false)
   const [modalState, setModalState] = useState<{
     isOpen: boolean
     gameTitle: string
@@ -47,11 +48,11 @@ function CompatibilityReportsPage() {
 
         // In development, use the Vite proxy to avoid CORS. In production, use direct API URL
         const apiUrl = import.meta.env.DEV
-          ? '/api/emuready'
-          : import.meta.env.VITE_EMUREADY_API_BASE_URL || 'https://www.emuready.com/api'
+          ? '/api/mobile/trpc'
+          : import.meta.env.VITE_EMUREADY_API_BASE_URL || 'https://www.emuready.com/api/mobile/trpc'
 
         const response = await fetch(
-          `${apiUrl}/trpc/mobile.getListings?batch=1&input=${encodedInput}`,
+          `${apiUrl}/listings.getListings?batch=1&input=${encodedInput}`,
         )
         const data = await response.json()
 
@@ -77,6 +78,8 @@ function CompatibilityReportsPage() {
 
   // Initial load
   useEffect(() => {
+    if (hasInitialized.current) return
+    hasInitialized.current = true
     fetchReports(1).catch(console.error)
   }, [fetchReports])
 
