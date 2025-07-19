@@ -9,7 +9,7 @@ function HomePage() {
   return (
     <>
       <SEO />
-      <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
+      <section className="relative bg-black overflow-hidden py-12 sm:py-16 lg:py-20 xl:min-h-screen xl:flex xl:items-center xl:justify-center">
         <SynthWaveBackground />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
