@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && cp CNAME dist/ && cp dist/index.html dist/404.html",
     "lint": "eslint .",
     "format": "prettier --write .",
     "types": "tsc -b --noEmit",
