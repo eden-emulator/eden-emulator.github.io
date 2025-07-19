@@ -90,7 +90,7 @@ function HomePage() {
             </Link>
 
             <Link
-              to="/download"
+              to="/donations"
               className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-yellow"
               aria-label="Download Eden Emulator"
             >
