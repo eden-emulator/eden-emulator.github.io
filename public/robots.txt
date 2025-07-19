@@ -1,0 +1,9 @@
+# Eden Emulator robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://eden-emulator.github.io/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1

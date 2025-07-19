@@ -1,0 +1,36 @@
+
+# old website
+old/
+
+# Node.js dependencies
+node_modules/
+
+# Lock files
+package-lock.json
+
+# Documentation files
+/docs
+
+# Temporary files
+/temp
+
+# Configuration files
+.eslintignore
+.prettierignore
+
+# IDE and editor directories
+.idea/
+.vscode/
+.claude/
+.cursor/
+
+# Build directories and cache
+.cache/
+dist/
+build/
+
+# Logs
+logs/
+
+# Other ignored files
+.DS_Store
