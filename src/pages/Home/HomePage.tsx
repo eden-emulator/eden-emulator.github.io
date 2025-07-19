@@ -1,4 +1,4 @@
-import { Download, Star, Zap } from 'lucide-react'
+import { Cpu, Download, Zap } from 'lucide-react'
 import edenLogo from '@/assets/logo.png'
 import { Link } from '@tanstack/react-router'
 import { GitHubIcon } from '@/components/Icons'
@@ -23,9 +23,9 @@ function HomePage() {
       </div>
 
       {/* Neon Glow Effects */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"/>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"/>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-500/10 rounded-full blur-3xl"/>
+      <div className="absolute top-20 left-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-500/10 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
         <div className="mb-8">
@@ -46,12 +46,12 @@ function HomePage() {
         </h1>
 
         <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Experience the golden age of gaming with cutting-edge emulation technology.
-          <span className="text-purple-300"> Eden Emulator </span>
-          brings your favorite classics into the digital future.
+          <span className="text-purple-300">Eden</span> is an experimental, open-source Nintendo
+          Switch emulator built in C++ for Windows, Linux, macOs, and Android. It focuses on
+          performance, accuracy, and a clean user experience.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-14 mb-12">
           <Link
             to="/download"
             className="group relative bg-linear-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/50 border border-purple-400/50 flex items-center space-x-3"
@@ -78,18 +78,30 @@ function HomePage() {
         </div>
 
         <div className="flex flex-wrap justify-center items-center gap-8 text-blue-200">
-          <div className="flex items-center space-x-3 bg-black/30 backdrop-blur-xs border border-purple-500/30 rounded-full px-6 py-3">
-            <Star className="w-6 h-6 text-yellow-400 animate-pulse" />
-            <span className="font-bold">4.8★ RATING</span>
-          </div>
-          <div className="flex items-center space-x-3 bg-black/30 backdrop-blur-xs border border-blue-500/30 rounded-full px-6 py-3">
-            <Download className="w-6 h-6 text-green-400 animate-pulse" />
-            <span className="font-bold">1M+ DOWNLOADS</span>
-          </div>
-          <div className="flex items-center space-x-3 bg-black/30 backdrop-blur-xs border border-purple-500/30 rounded-full px-6 py-3">
-            <Zap className="w-6 h-6 text-purple-400 animate-pulse" />
-            <span className="font-bold">500+ GAMES</span>
-          </div>
+
+          <Link
+            to="/features"
+            className="flex items-center space-x-3 bg-black/30 backdrop-blur-xs border border-blue-500/30 rounded-full px-6 py-3 hover:bg-blue-500/10 transition-colors"
+          >
+            <Zap className="w-6 h-6 text-blue-400" />
+            <span className="font-bold">Features</span>
+          </Link>
+
+          <Link
+            to="/system-requirements"
+            className="flex items-center space-x-3 bg-black/30 backdrop-blur-xs border border-purple-500/30 rounded-full px-6 py-3 hover:bg-purple-500/10 transition-colors"
+          >
+            <Cpu className="w-6 h-6 text-purple-400" />
+            <span className="font-bold">System Requirements</span>
+          </Link>
+
+          <Link
+            to="/download"
+            className="flex items-center space-x-3 bg-black/30 backdrop-blur-xs border border-green-500/30 rounded-full px-6 py-3 hover:bg-green-500/10 transition-colors"
+          >
+            <Download className="w-6 h-6 text-green-400" />
+            <span className="font-bold">Download</span>
+          </Link>
         </div>
       </div>
     </section>
