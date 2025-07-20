@@ -46,10 +46,10 @@ function CompatibilityReportsPage() {
           }),
         )
 
-        // In development, use the Vite proxy to avoid CORS. In production, use direct API URL
-        const apiUrl = import.meta.env.DEV
-          ? '/api/mobile/trpc'
-          : import.meta.env.VITE_EMUREADY_API_BASE_URL || 'https://www.emuready.com/api/mobile/trpc'
+        // Use environment variable if set, otherwise fallback based on dev/prod
+        const apiUrl =
+          import.meta.env.VITE_EMUREADY_API_BASE_URL ||
+          (import.meta.env.DEV ? '/api/mobile/trpc' : 'https://www.emuready.com/api/mobile/trpc')
 
         const response = await fetch(`${apiUrl}/listings.getListings?batch=1&input=${encodedInput}`)
         const data = await response.json()
