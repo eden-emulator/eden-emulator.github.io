@@ -4,7 +4,7 @@ import edenLogo from '@/assets/logo_neon.png'
 import { Link } from '@tanstack/react-router'
 import { GitHubIcon } from '@/components/Icons'
 import SEO from '@/components/SEO'
-import SynthWaveBackground from '@/pages/Home/components/SynthWaveBackground.tsx'
+import SynthWaveBackground from '@/pages/Home/components/SynthWaveBackground'
 
 function HomePage() {
   return (

@@ -9,8 +9,8 @@ interface UseIntersectionObserverOptions {
 export const useIntersectionObserver = (options: UseIntersectionObserverOptions = {}) => {
   const { threshold = 0.1, rootMargin = '0px', pauseAnimationsWhenHidden = true } = options
 
-  const [isIntersecting, setIsIntersecting] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
+  const [isIntersecting, setIsIntersecting] = useState(true)
+  const [isVisible, setIsVisible] = useState(true)
   const targetRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

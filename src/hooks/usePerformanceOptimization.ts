@@ -30,9 +30,11 @@ export const usePerformanceOptimization = (): PerformanceCapabilities => {
       const deviceMemory = (navigator as any).deviceMemory
       const hardwareConcurrency = navigator.hardwareConcurrency
 
-      // Determine if we should use reduced animations
+      // Determine if we should use reduced animations intelligently
       const lowEndDevice = deviceMemory ? deviceMemory <= 4 : false
-      const shouldUseReducedAnimations = prefersReducedMotion || isMobile || lowEndDevice
+      const lowEndCPU = hardwareConcurrency ? hardwareConcurrency <= 4 : false
+      const shouldUseReducedAnimations =
+        prefersReducedMotion || (isMobile && (lowEndDevice || lowEndCPU))
 
       setCapabilities({
         isMobile,

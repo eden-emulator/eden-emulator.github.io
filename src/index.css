@@ -865,6 +865,47 @@ a:focus {
   }
 }
 
+/* Advanced Performance Optimizations */
+
+/* Force GPU acceleration for smooth animations */
+.gpu-accelerated {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  contain: layout style;
+}
+
+/* Contain layout and paint for better performance */
+.performance-contain {
+  contain: layout style paint;
+}
+
+/* Optimize style recalculation performance */
+.music-bar {
+  contain: layout style;
+  isolation: isolate;
+}
+
+.synthwave-animated-bg {
+  contain: layout style paint;
+}
+
+/* Reduce composite layer creation */
+[class*='animate-'] {
+  contain: layout;
+}
+
+/* Lazy blur - start with no blur, add it when visible */
+.lazy-blur {
+  filter: none !important;
+  transition: filter 0.3s ease-out;
+}
+
+.lazy-blur.blur-loaded {
+  filter: var(--blur-amount, blur(8px));
+}
+
 /* Mobile performance optimizations */
 @media (max-width: 768px) {
   .blur-xl {
@@ -878,5 +919,18 @@ a:focus {
   /* Reduce composite layers on mobile */
   [class*='animate-'] {
     will-change: auto;
+  }
+
+  /* Force hardware acceleration on mobile for smooth scrolling */
+  .synthwave-animated-bg,
+  .music-bars,
+  [class*='animate-'] {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  /* Optimize background gradients on mobile */
+  .synthwave-gradient-animated {
+    background-attachment: scroll !important;
   }
 }

@@ -1,15 +1,16 @@
 import { memo, useMemo } from 'react'
-import { usePerformanceOptimization } from '../hooks/usePerformanceOptimization'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { usePerformanceOptimization } from '../hooks/usePerformanceOptimization'
 
 function MusicBars() {
-  const { shouldUseReducedAnimations, isMobile } = usePerformanceOptimization()
   const { targetRef, isVisible } = useIntersectionObserver({
     threshold: 0.1,
     pauseAnimationsWhenHidden: true,
   })
+  const { isMobile, prefersReducedMotion } = usePerformanceOptimization()
 
-  const barCount = shouldUseReducedAnimations ? (isMobile ? 12 : 15) : 25
+  // Smart bar count: reduce on mobile for better performance, but still show effects
+  const barCount = isMobile ? 18 : 25
 
   const bars = useMemo(
     () =>
@@ -24,12 +25,12 @@ function MusicBars() {
   return (
     <div
       ref={targetRef}
-      className={`music-bars ${shouldUseReducedAnimations ? 'reduced-motion' : ''}`}
+      className={`music-bars gpu-accelerated performance-contain ${prefersReducedMotion ? 'reduced-motion' : ''}`}
     >
       {bars.map((bar, i) => (
         <div
           key={i}
-          className={`music-bar will-change-transform ${!isVisible ? 'animations-paused' : ''}`}
+          className={`music-bar gpu-accelerated ${!isVisible ? 'animations-paused' : ''}`}
           style={{
             height: `${bar.height}px`,
             animationDelay: `${bar.delay}s`,
