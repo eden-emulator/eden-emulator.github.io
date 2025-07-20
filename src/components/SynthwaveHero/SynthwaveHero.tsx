@@ -25,7 +25,7 @@ interface GameState {
 
 const LANES = 5
 const NOTE_SPEED = 0.8 // Units per frame (slower for testing)
-const HIT_WINDOW = 8 // Position tolerance for hitting notes  
+const HIT_WINDOW = 8 // Position tolerance for hitting notes
 const HIT_ZONE_POSITION = 90 // Where notes should be hit (90% from top = 10% from bottom)
 const LANE_KEYS = ['a', 's', 'd', 'f', 'g'] // Keyboard controls
 const LANE_COLORS = [
@@ -33,12 +33,12 @@ const LANE_COLORS = [
   'var(--synthwave-yellow)',
   'var(--synthwave-cyan)',
   'var(--synthwave-purple)',
-  'var(--synthwave-sunset-orange)'
+  'var(--synthwave-sunset-orange)',
 ]
 
 export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
   console.log('SynthwaveHero component mounted')
-  
+
   const [gameState, setGameState] = useState<GameState>({
     isPlaying: false,
     isPaused: false,
@@ -48,23 +48,23 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
     multiplier: 1,
     accuracy: 100,
     totalNotes: 0,
-    hitNotes: 0
+    hitNotes: 0,
   })
-  
+
   const [notes, setNotes] = useState<Note[]>([])
   const [activeLanes, setActiveLanes] = useState<boolean[]>(new Array(LANES).fill(false))
   const [gameEnded, setGameEnded] = useState(false)
   const [timeLeft, setTimeLeft] = useState(60) // 60 second game
   const [isTouchDevice, setIsTouchDevice] = useState(false)
-  const gameLoopRef = useRef<number>()
+  const gameLoopRef = useRef<number>(null)
   const noteIdRef = useRef(0)
-  const gameTimerRef = useRef<number>()
-  
+  const gameTimerRef = useRef<number>(null)
+
   // Detect touch device
   useEffect(() => {
     setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
   }, [])
-  
+
   // Debug component lifecycle
   useEffect(() => {
     console.log('SynthwaveHero mounted')
@@ -81,65 +81,69 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
       lane,
       position: 100, // Start from far away (top)
       hit: false,
-      missed: false
+      missed: false,
     }
-    setNotes(prev => [...prev, newNote])
-    setGameState(prev => ({ ...prev, totalNotes: prev.totalNotes + 1 }))
+    setNotes((prev) => [...prev, newNote])
+    setGameState((prev) => ({ ...prev, totalNotes: prev.totalNotes + 1 }))
   }, [])
 
   // Handle key press
-  const handleKeyPress = useCallback((lane: number) => {
-    if (!gameState.isPlaying || gameState.isPaused) return
+  const handleKeyPress = useCallback(
+    (lane: number) => {
+      if (!gameState.isPlaying || gameState.isPaused) return
 
-    // Visual feedback
-    setActiveLanes(prev => {
-      const newLanes = [...prev]
-      newLanes[lane] = true
-      return newLanes
-    })
-
-    // Check for hit
-    const hitNote = notes.find(
-      note => note.lane === lane && 
-      note.position >= (HIT_ZONE_POSITION - HIT_WINDOW) && 
-      note.position <= (HIT_ZONE_POSITION + HIT_WINDOW) &&
-      !note.hit && 
-      !note.missed
-    )
-
-    if (hitNote) {
-      // Hit!
-      setNotes(prev => prev.map(note => 
-        note.id === hitNote.id ? { ...note, hit: true } : note
-      ))
-      
-      setGameState(prev => ({
-        ...prev,
-        score: prev.score + (100 * prev.multiplier),
-        combo: prev.combo + 1,
-        maxCombo: Math.max(prev.maxCombo, prev.combo + 1),
-        multiplier: Math.min(4, Math.floor((prev.combo + 1) / 10) + 1),
-        hitNotes: prev.hitNotes + 1,
-        accuracy: ((prev.hitNotes + 1) / prev.totalNotes) * 100
-      }))
-    } else {
-      // Miss - break combo
-      setGameState(prev => ({
-        ...prev,
-        combo: 0,
-        multiplier: 1
-      }))
-    }
-
-    // Release key visual
-    setTimeout(() => {
-      setActiveLanes(prev => {
+      // Visual feedback
+      setActiveLanes((prev) => {
         const newLanes = [...prev]
-        newLanes[lane] = false
+        newLanes[lane] = true
         return newLanes
       })
-    }, 100)
-  }, [notes, gameState.isPlaying, gameState.isPaused])
+
+      // Check for hit
+      const hitNote = notes.find(
+        (note) =>
+          note.lane === lane &&
+          note.position >= HIT_ZONE_POSITION - HIT_WINDOW &&
+          note.position <= HIT_ZONE_POSITION + HIT_WINDOW &&
+          !note.hit &&
+          !note.missed,
+      )
+
+      if (hitNote) {
+        // Hit!
+        setNotes((prev) =>
+          prev.map((note) => (note.id === hitNote.id ? { ...note, hit: true } : note)),
+        )
+
+        setGameState((prev) => ({
+          ...prev,
+          score: prev.score + 100 * prev.multiplier,
+          combo: prev.combo + 1,
+          maxCombo: Math.max(prev.maxCombo, prev.combo + 1),
+          multiplier: Math.min(4, Math.floor((prev.combo + 1) / 10) + 1),
+          hitNotes: prev.hitNotes + 1,
+          accuracy: ((prev.hitNotes + 1) / prev.totalNotes) * 100,
+        }))
+      } else {
+        // Miss - break combo
+        setGameState((prev) => ({
+          ...prev,
+          combo: 0,
+          multiplier: 1,
+        }))
+      }
+
+      // Release key visual
+      setTimeout(() => {
+        setActiveLanes((prev) => {
+          const newLanes = [...prev]
+          newLanes[lane] = false
+          return newLanes
+        })
+      }, 100)
+    },
+    [notes, gameState.isPlaying, gameState.isPaused],
+  )
 
   // Keyboard controls
   useEffect(() => {
@@ -148,7 +152,7 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
       if (laneIndex !== -1) {
         handleKeyPress(laneIndex)
       } else if (e.key === 'Escape') {
-        setGameState(prev => ({ ...prev, isPaused: !prev.isPaused }))
+        setGameState((prev) => ({ ...prev, isPaused: !prev.isPaused }))
       }
     }
 
@@ -172,34 +176,34 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
     const gameLoop = (timestamp: number) => {
       if (!isActive) return
       // Move notes towards player (decrease position)
-      setNotes(prev => {
+      setNotes((prev) => {
         const missedNotes: string[] = []
-        
+
         const updatedNotes = prev
-          .map(note => ({
+          .map((note) => ({
             ...note,
-            position: note.position - NOTE_SPEED
+            position: note.position - NOTE_SPEED,
           }))
-          .filter(note => {
+          .filter((note) => {
             // Check if note passed the hit zone without being hit
-            if (note.position < (HIT_ZONE_POSITION - HIT_WINDOW) && !note.hit && !note.missed) {
+            if (note.position < HIT_ZONE_POSITION - HIT_WINDOW && !note.hit && !note.missed) {
               missedNotes.push(note.id)
               return false
             }
             // Keep notes that are still visible
             return note.position >= -10
           })
-        
+
         // Update stats for missed notes
         if (missedNotes.length > 0) {
-          setGameState(prev => ({
+          setGameState((prev) => ({
             ...prev,
             combo: 0,
             multiplier: 1,
-            accuracy: prev.totalNotes > 0 ? (prev.hitNotes / prev.totalNotes) * 100 : 100
+            accuracy: prev.totalNotes > 0 ? (prev.hitNotes / prev.totalNotes) * 100 : 100,
           }))
         }
-        
+
         return updatedNotes
       })
 
@@ -226,7 +230,7 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
   useEffect(() => {
     if (gameState.isPlaying && !gameState.isPaused && !gameEnded) {
       gameTimerRef.current = window.setInterval(() => {
-        setTimeLeft(prev => {
+        setTimeLeft((prev) => {
           if (prev <= 1) {
             endGame()
             return 0
@@ -257,7 +261,7 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
       multiplier: 1,
       accuracy: 100,
       totalNotes: 0,
-      hitNotes: 0
+      hitNotes: 0,
     })
     setNotes([])
     setTimeLeft(60)
@@ -266,7 +270,7 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
   }
 
   const endGame = () => {
-    setGameState(prev => ({ ...prev, isPlaying: false }))
+    setGameState((prev) => ({ ...prev, isPlaying: false }))
     setGameEnded(true)
   }
 
@@ -276,12 +280,28 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="synthwave-hero-container">
-      {/* Close button */}
-      <button 
-        onClick={onClose}
-        className="synthwave-hero-close"
-        aria-label="Close game"
+      {/* DEBUG INFO */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '100px',
+          left: '20px',
+          color: 'white',
+          background: 'black',
+          padding: '10px',
+          zIndex: 1000,
+          fontSize: '14px',
+        }}
       >
+        DEBUG: isPlaying={gameState.isPlaying.toString()}, gameEnded={gameEnded.toString()}
+        <br />
+        Notes: {notes.length}
+        <br />
+        Should show start: {(!gameState.isPlaying && !gameEnded).toString()}
+      </div>
+
+      {/* Close button */}
+      <button onClick={onClose} className="synthwave-hero-close" aria-label="Close game">
         <X />
       </button>
 
@@ -291,7 +311,7 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
           <div className="score-label">SCORE</div>
           <div className="score-value">{gameState.score.toLocaleString()}</div>
         </div>
-        
+
         <div className="synthwave-hero-combo">
           <div className="combo-label">COMBO</div>
           <div className="combo-value">{gameState.combo}</div>
@@ -302,7 +322,7 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
           <div className="accuracy-label">ACCURACY</div>
           <div className="accuracy-value">{gameState.accuracy.toFixed(1)}%</div>
         </div>
-        
+
         {gameState.isPlaying && (
           <div className="synthwave-hero-timer">
             <div className="timer-label">TIME</div>
@@ -319,15 +339,17 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
             <div key={lane} className="track-lane">
               {/* Notes */}
               {notes
-                .filter(note => note.lane === lane)
-                .map(note => (
+                .filter((note) => note.lane === lane)
+                .map((note) => (
                   <div
                     key={note.id}
                     className={`game-note ${note.hit ? 'note-hit' : ''}`}
-                    style={{
-                      '--note-position': `${note.position}%`,
-                      '--note-color': LANE_COLORS[lane]
-                    } as React.CSSProperties}
+                    style={
+                      {
+                        '--note-position': `${note.position}%`,
+                        '--note-color': LANE_COLORS[lane],
+                      } as React.CSSProperties
+                    }
                   />
                 ))}
             </div>
@@ -360,15 +382,13 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
         <div className="synthwave-hero-menu">
           <div className="eden-logo-container">
             <div className="eden-logo-bg-blur"></div>
-            <img 
-              src={edenLogo} 
-              alt="Eden Logo" 
-              className="eden-logo-game"
-            />
+            <img src={edenLogo} alt="Eden Logo" className="eden-logo-game" />
           </div>
           <h2 className="game-title">SYNTHWAVE HERO</h2>
           <p className="game-instructions">
-            {isTouchDevice ? 'Tap the lanes to hit the notes!' : 'Press A, S, D, F, G to hit the notes!'}
+            {isTouchDevice
+              ? 'Tap the lanes to hit the notes!'
+              : 'Press A, S, D, F, G to hit the notes!'}
           </p>
           <button onClick={startGame} className="start-button">
             START GAME
@@ -388,46 +408,51 @@ export default function SynthwaveHero({ onClose }: { onClose: () => void }) {
       {gameEnded && (
         <div className="synthwave-hero-game-over">
           <h2 className="game-over-title">GAME OVER</h2>
-          
+
           <div className="score-breakdown">
             <div className="final-score">
               <div className="score-label">FINAL SCORE</div>
               <div className="score-value">{gameState.score.toLocaleString()}</div>
             </div>
-            
+
             <div className="stats-grid">
               <div className="stat-item">
                 <div className="stat-label">NOTES HIT</div>
                 <div className="stat-value">{gameState.hitNotes}</div>
               </div>
-              
+
               <div className="stat-item">
                 <div className="stat-label">NOTES MISSED</div>
                 <div className="stat-value">{gameState.totalNotes - gameState.hitNotes}</div>
               </div>
-              
+
               <div className="stat-item">
                 <div className="stat-label">ACCURACY</div>
                 <div className="stat-value">{gameState.accuracy.toFixed(1)}%</div>
               </div>
-              
+
               <div className="stat-item">
                 <div className="stat-label">MAX COMBO</div>
                 <div className="stat-value">{gameState.maxCombo}</div>
               </div>
             </div>
-            
+
             <div className="performance-rating">
               <div className="rating-label">PERFORMANCE</div>
               <div className="rating-value">
-                {gameState.accuracy >= 95 ? 'PERFECT!' :
-                 gameState.accuracy >= 85 ? 'EXCELLENT!' :
-                 gameState.accuracy >= 70 ? 'GOOD!' :
-                 gameState.accuracy >= 50 ? 'OK' : 'NEEDS PRACTICE'}
+                {gameState.accuracy >= 95
+                  ? 'PERFECT!'
+                  : gameState.accuracy >= 85
+                    ? 'EXCELLENT!'
+                    : gameState.accuracy >= 70
+                      ? 'GOOD!'
+                      : gameState.accuracy >= 50
+                        ? 'OK'
+                        : 'NEEDS PRACTICE'}
               </div>
             </div>
           </div>
-          
+
           <div className="game-over-buttons">
             <button onClick={startGame} className="play-again-button">
               PLAY AGAIN

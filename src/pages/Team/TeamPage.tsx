@@ -1,9 +1,11 @@
+import { memo } from 'react'
 import { Globe, Heart } from 'lucide-react'
 import { GitHubIcon, TwitterIcon, DiscordIcon } from '@/components/Icons'
 import HeadingText from '@/components/HeadingText'
 import { teamSections, teamStats, pastMembers } from './data'
 import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
+import PageWrapper from '@/components/PageWrapper'
 
 function TeamPage() {
   return (
@@ -14,27 +16,14 @@ function TeamPage() {
         keywords="Eden Emulator team, Eden developers, emulator contributors, open source team"
         url="https://eden-emulator.github.io/team"
       />
-      <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen">
-        {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-30">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-              linear-gradient(rgba(255, 0, 255, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)
-            `,
-              backgroundSize: '50px 50px',
-              animation: 'grid-move 20s linear infinite',
-            }}
-          />
+      <PageWrapper>
+        {/* Background Effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-1/4 w-80 h-80 bg-purple-500/8 rounded-full blur-xl animate-float will-change-transform" />
+          <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-blue-500/8 rounded-full blur-xl animate-subtle-pulse-delay-2 will-change-transform" />
+          <div className="absolute top-20 left-1/4 w-60 h-60 bg-pink-500/8 rounded-full blur-xl animate-float-delay-3 will-change-transform" />
+          <div className="absolute bottom-20 right-1/3 w-80 h-80 bg-cyan-500/8 rounded-full blur-xl animate-subtle-pulse will-change-transform" />
         </div>
-
-        {/* Neon Glow Effects */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-pink-500/10 rounded-full blur-3xl" />
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
             title="MEET THE TEAM"
@@ -46,9 +35,9 @@ function TeamPage() {
             {teamStats.map((stat, index) => (
               <div
                 key={index}
-                className="group relative bg-black/60 backdrop-blur-xs border border-purple-500/30 rounded-xl p-6 text-center hover:border-cyan-400/50 transition-all duration-500"
+                className="group relative bg-black/60 backdrop-blur-xs border border-purple-500/30 rounded-xl p-6 text-center hover:border-cyan-400/50 transition-colors duration-300"
               >
-                <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-pink-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500" />
+                <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-pink-500/0 opacity-0 group-hover:opacity-8 rounded-xl blur-sm transition-opacity duration-300 will-change-opacity" />
                 <div className="relative">
                   <div className="text-3xl font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-purple-400 mb-1">
                     {stat.value}
@@ -319,9 +308,9 @@ function TeamPage() {
         </div>
 
         <div className="h-16" />
-      </div>
+      </PageWrapper>
     </>
   )
 }
 
-export default TeamPage
+export default memo(TeamPage)

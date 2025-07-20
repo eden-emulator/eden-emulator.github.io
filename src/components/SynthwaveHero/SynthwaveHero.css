@@ -107,6 +107,8 @@
   height: 100%;
   perspective: 800px;
   perspective-origin: 50% 100%;
+  border: 3px solid lime; /* DEBUG: green border to see track area */
+  background: rgba(0, 255, 0, 0.1); /* DEBUG: slight green tint */
 }
 
 .track-perspective {
@@ -283,6 +285,9 @@
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 100;
+  background: rgba(255, 0, 0, 0.5); /* DEBUG: red background to see if it renders */
+  padding: 20px;
+  border: 5px solid yellow; /* DEBUG: yellow border */
 }
 
 /* Eden Logo Container */

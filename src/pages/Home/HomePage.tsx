@@ -1,9 +1,10 @@
-import { Cpu, Download, Zap } from 'lucide-react'
-import edenLogo from '@/assets/logo.png'
+import { memo, useState, useEffect, useRef, useCallback, lazy, Suspense } from 'react'
+import { Cpu, Heart, Download, Zap } from 'lucide-react'
+import edenLogo from '@/assets/logo_neon.png'
 import { Link } from '@tanstack/react-router'
 import { GitHubIcon } from '@/components/Icons'
 import SEO from '@/components/SEO'
-import { useState, useEffect, useRef, lazy, Suspense } from 'react'
+import SynthWaveBackground from '@/pages/Home/components/SynthWaveBackground.tsx'
 import ErrorBoundary from '@/components/ErrorBoundary'
 
 // Lazy load the game to keep initial bundle size small
@@ -15,9 +16,9 @@ function HomePage() {
   const [logoSpins, setLogoSpins] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
   const [lastAngle, setLastAngle] = useState(0)
-  const [velocity, setVelocity] = useState(0)
+  const velocityRef = useRef(0)
   const logoRef = useRef<HTMLButtonElement>(null)
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number | undefined>(undefined)
   const lastSpinCheck = useRef(0)
   const [isTouchDevice, setIsTouchDevice] = useState(false)
   
@@ -36,7 +37,7 @@ function HomePage() {
   }
   
   // Check spin count
-  const checkSpinCount = (rotation: number) => {
+  const checkSpinCount = useCallback((rotation: number) => {
     const totalRotations = Math.floor(Math.abs(rotation) / 360)
     const newCompletedSpins = totalRotations - lastSpinCheck.current
     
@@ -54,7 +55,7 @@ function HomePage() {
         }, 300)
       }
     }
-  }
+  }, [logoSpins])
   
   // Get angle from center of logo
   const getAngleFromCenter = (clientX: number, clientY: number) => {
@@ -71,7 +72,7 @@ function HomePage() {
     if (isTouchDevice) {
       setIsDragging(true)
       setLastAngle(getAngleFromCenter(clientX, clientY))
-      setVelocity(0)
+      velocityRef.current = 0
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
       }
@@ -90,7 +91,7 @@ function HomePage() {
       
       const newRotation = logoRotation + deltaAngle
       setLogoRotation(newRotation)
-      setVelocity(deltaAngle)
+      velocityRef.current = deltaAngle
       setLastAngle(currentAngle)
       
       checkSpinCount(newRotation)
@@ -98,27 +99,26 @@ function HomePage() {
   }
   
   // Handle drag end
-  const handleDragEnd = () => {
+  const handleDragEnd = useCallback(() => {
     if (isTouchDevice) {
       setIsDragging(false)
       // Continue spinning with momentum
       const animate = () => {
-        setVelocity(prev => {
-          const newVelocity = prev * 0.95 // Friction
-          if (Math.abs(newVelocity) > 0.1) {
-            setLogoRotation(current => {
-              const newRotation = current + newVelocity
-              checkSpinCount(newRotation)
-              return newRotation
-            })
-            animationRef.current = requestAnimationFrame(animate)
-          }
-          return newVelocity
-        })
+        const newVelocity = velocityRef.current * 0.95 // Friction
+        velocityRef.current = newVelocity
+        
+        if (Math.abs(newVelocity) > 0.1) {
+          setLogoRotation(current => {
+            const newRotation = current + newVelocity
+            checkSpinCount(newRotation)
+            return newRotation
+          })
+          animationRef.current = requestAnimationFrame(animate)
+        }
       }
       animationRef.current = requestAnimationFrame(animate)
     }
-  }
+  }, [isTouchDevice, checkSpinCount])
   
   // Touch event handlers
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -170,68 +170,8 @@ function HomePage() {
   return (
     <>
       <SEO />
-      <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
-        {/* Subtle Animated Synthwave Background */}
-        <div className="synthwave-animated-bg" aria-hidden="true">
-          <div className="synthwave-gradient-animated"></div>
-          <div className="synthwave-horizon"></div>
-          
-          {/* Perspective Grid */}
-          <div className="synthwave-grid">
-            <div className="synthwave-grid-inner"></div>
-          </div>
-          
-          {/* Perspective Lines */}
-          <div className="synthwave-lines">
-            <div className="synthwave-line"></div>
-            <div className="synthwave-line"></div>
-            <div className="synthwave-line"></div>
-            <div className="synthwave-line"></div>
-            <div className="synthwave-line"></div>
-            <div className="synthwave-line"></div>
-          </div>
-          
-          {/* Music Visualizer Bars */}
-          <div className="music-bars">
-            {[...Array(50)].map((_, i) => (
-              <div
-                key={i}
-                className="music-bar"
-                style={{
-                  height: `${40 + Math.sin(i * 0.2) * 40}px`,
-                  animationDelay: `${i * 0.03}s`,
-                  opacity: 0.9 - (Math.abs(i - 25) * 0.015)
-                }}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Subtle Synthwave Neon Glow Effects */}
-        <div
-          className="absolute top-20 left-10 w-96 h-96 rounded-full blur-3xl animate-pulse"
-          style={{
-            background: 'radial-gradient(circle, var(--synthwave-hot-pink) 0%, transparent 70%)',
-            opacity: 0.15
-          }}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000"
-          style={{
-            background: 'radial-gradient(circle, var(--synthwave-cyan) 0%, transparent 70%)',
-            opacity: 0.15
-          }}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-3xl"
-          style={{
-            background: 'radial-gradient(ellipse, var(--synthwave-purple) 0%, transparent 60%)',
-            opacity: 0.1
-          }}
-          aria-hidden="true"
-        />
+      <section className="relative bg-black overflow-hidden py-12 sm:py-16 lg:py-20 xl:min-h-screen xl:flex xl:items-center xl:justify-center">
+        <SynthWaveBackground />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <div className="mb-8 relative">
@@ -253,16 +193,12 @@ function HomePage() {
               <img
                 src={edenLogo}
                 alt="Eden Emulator logo"
-                className="max-w-full h-auto max-h-40 drop-shadow-2xl pointer-events-none"
-                style={{
-                  filter:
-                    'drop-shadow(0 0 30px var(--synthwave-hot-pink)) drop-shadow(0 0 60px var(--synthwave-cyan)) drop-shadow(0 0 90px var(--synthwave-purple))',
-                }}
+                className="max-w-full h-auto max-h-60 mb-6 drop-shadow-2xl synthwave-logo-glow pointer-events-none"
                 draggable={false}
               />
             </button>
             {logoSpins > 0 && logoSpins < 3 && (
-              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm" style={{ 
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-sm" style={{ 
                 color: 'var(--synthwave-cyan)',
                 textShadow: '0 0 10px var(--synthwave-cyan)',
                 fontFamily: 'Orbitron, sans-serif'
@@ -272,39 +208,31 @@ function HomePage() {
             )}
           </div>
 
-          <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-            <span className="block text-white mb-2" style={{ textShadow: '0 0 20px var(--synthwave-cyan), 0 0 40px var(--synthwave-cyan)' }}>Nintendo Switch</span>
-            <span className="block text-white mt-2" style={{ textShadow: '0 0 20px var(--synthwave-hot-pink), 0 0 40px var(--synthwave-hot-pink)' }}>Emulator</span>
+          <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight font-orbitron">
+            <span className="block text-white mb-2 text-shadow-cyan">Nintendo Switch</span>
+            <span className="block text-white mt-2 text-shadow-pink">Emulator</span>
           </h1>
 
-          <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-gray-200" style={{ fontFamily: 'Inter, sans-serif' }}>
-            <span className="font-bold" style={{ color: 'var(--synthwave-hot-pink)', textShadow: '0 0 10px var(--synthwave-hot-pink)' }}>Eden</span> is an experimental, open-source Nintendo
-            Switch emulator built in C++ for Windows, Linux, macOS, and Android. It focuses on
-            performance, accuracy, and a clean user experience.
+          <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-gray-200 font-sans">
+            <span className="font-bold text-synthwave-pink text-shadow-pink-sm">Eden</span> is an
+            experimental open-source emulator for the Nintendo Switch, built with performance and
+            stability in mind. It is written in C++ with cross-platform support for Windows, Linux
+            and Android.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-14 mb-12">
             <Link
               to="/download"
-              className="group relative text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-offset-black"
-              style={{
-                background: 'linear-gradient(135deg, var(--synthwave-hot-pink), var(--synthwave-purple))',
-                border: '2px solid var(--synthwave-cyan)',
-                boxShadow: '0 0 20px var(--synthwave-hot-pink), 0 0 40px var(--synthwave-purple), inset 0 0 20px rgba(255, 0, 255, 0.2)',
-                fontFamily: 'Orbitron, sans-serif',
-              }}
+              className="group relative text-white px-10 py-4 rounded-lg font-bold text-lg transition-transform duration-200 hover:scale-105 flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-offset-black font-orbitron btn-synthwave-primary will-change-transform"
               aria-label="Download Eden Emulator"
             >
               <div
-                className="absolute inset-0 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  background: 'linear-gradient(135deg, var(--synthwave-hot-pink), var(--synthwave-purple))',
-                }}
+                className="absolute inset-0 rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-200 btn-synthwave-primary-glow will-change-opacity"
                 aria-hidden="true"
-              ></div>
+              />
               <div className="relative flex items-center space-x-3">
                 <Download className="w-6 h-6 group-hover:animate-bounce" aria-hidden="true" />
-                <span>DOWNLOAD NOW</span>
+                <span>DOWNLOAD</span>
               </div>
             </Link>
 
@@ -312,79 +240,49 @@ function HomePage() {
               href="https://git.eden-emu.dev/eden-emu/eden"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative hover:text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-offset-black"
-              style={{
-                border: '2px solid var(--synthwave-cyan)',
-                color: 'var(--synthwave-cyan)',
-                backgroundColor: 'rgba(0, 255, 255, 0.1)',
-                boxShadow: '0 0 15px var(--synthwave-cyan), inset 0 0 15px rgba(0, 255, 255, 0.1)',
-                fontFamily: 'Orbitron, sans-serif',
-              }}
+              className="group relative hover:text-white px-10 py-4 rounded-lg font-bold text-lg transition-transform duration-200 hover:scale-105 flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-offset-black font-orbitron btn-synthwave-secondary will-change-transform"
               aria-label="View Eden Emulator source code on GitLab (opens in new tab)"
             >
               <div
-                className="absolute inset-0 rounded-lg blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  border: '2px solid var(--synthwave-cyan)',
-                  boxShadow: '0 0 20px var(--synthwave-cyan)',
-                }}
+                className="absolute inset-0 rounded-lg blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-200 btn-synthwave-secondary-glow will-change-opacity"
                 aria-hidden="true"
-              ></div>
+              />
               <div className="relative flex items-center space-x-3">
                 <GitHubIcon className="w-6 h-6" aria-hidden="true" />
-                <span>VIEW SOURCE</span>
+                <span>SOURCE CODE</span>
               </div>
             </a>
           </div>
 
           <nav
-            className="flex flex-wrap justify-center items-center gap-8"
+            className="flex flex-wrap justify-center items-center gap-8 text-synthwave-cyan"
             aria-label="Quick links"
-            style={{ color: 'var(--synthwave-cyan)' }}
           >
             <Link
               to="/features"
-              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black"
-              style={{
-                background: 'rgba(0, 255, 255, 0.1)',
-                border: '2px solid var(--synthwave-cyan)',
-                boxShadow: '0 0 10px var(--synthwave-cyan)',
-                fontFamily: 'Audiowide, sans-serif',
-              }}
+              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-orange will-change-transform"
               aria-label="View Eden Emulator features"
             >
-              <Zap className="w-6 h-6" style={{ color: 'var(--synthwave-cyan)' }} aria-hidden="true" />
+              <Zap className="w-6 h-6 text-synthwave-orange" aria-hidden="true" />
               <span className="font-bold">Features</span>
             </Link>
 
             <Link
               to="/system-requirements"
-              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black"
-              style={{
-                background: 'rgba(255, 0, 255, 0.1)',
-                border: '2px solid var(--synthwave-hot-pink)',
-                boxShadow: '0 0 10px var(--synthwave-hot-pink)',
-                fontFamily: 'Audiowide, sans-serif',
-              }}
+              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-pink will-change-transform"
               aria-label="View system requirements for Eden Emulator"
             >
-              <Cpu className="w-6 h-6" style={{ color: 'var(--synthwave-hot-pink)' }} aria-hidden="true" />
+              <Cpu className="w-6 h-6 text-synthwave-pink" aria-hidden="true" />
               <span className="font-bold">System Requirements</span>
             </Link>
 
             <Link
-              to="/download"
-              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black"
-              style={{
-                background: 'rgba(255, 235, 0, 0.1)',
-                border: '2px solid var(--synthwave-yellow)',
-                boxShadow: '0 0 10px var(--synthwave-yellow)',
-                fontFamily: 'Audiowide, sans-serif',
-              }}
+              to="/donations"
+              className="flex items-center space-x-3 backdrop-blur-xs rounded-full px-6 py-3 transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-yellow will-change-transform"
               aria-label="Download Eden Emulator"
             >
-              <Download className="w-6 h-6" style={{ color: 'var(--synthwave-yellow)' }} aria-hidden="true" />
-              <span className="font-bold">Download</span>
+              <Heart className="w-6 h-6 text-synthwave-yellow" aria-hidden="true" />
+              <span className="font-bold">Donations</span>
             </Link>
           </nav>
         </div>
@@ -413,4 +311,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default memo(HomePage)
