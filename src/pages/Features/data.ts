@@ -41,7 +41,8 @@ export const features = [
   {
     icon: Palette,
     title: 'EDEN’S VEIL',
-    description: 'An all new experimental config tab for advanced settings and ultimate customisation.',
+    description:
+      'An all new experimental config tab for advanced settings and ultimate customisation.',
     color: 'from-purple-400 to-blue-500',
     glow: 'shadow-purple-500/50',
   },

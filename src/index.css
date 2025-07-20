@@ -826,3 +826,57 @@ a:focus {
 .text-synthwave-orange {
   color: var(--synthwave-sunset-orange);
 }
+
+/* Performance Optimization Classes */
+
+/* Pause animations when element is not visible */
+.animations-paused,
+.animations-paused * {
+  animation-play-state: paused !important;
+}
+
+/* Reduced motion support */
+.reduced-motion {
+  animation-duration: 0.01s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01s !important;
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01s !important;
+  }
+
+  .music-bar {
+    animation: none !important;
+  }
+
+  .synthwave-animated-bg * {
+    animation: none !important;
+  }
+
+  [class*='animate-'] {
+    animation: none !important;
+  }
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  .blur-xl {
+    filter: blur(8px) !important;
+  }
+
+  .blur-lg {
+    filter: blur(6px) !important;
+  }
+
+  /* Reduce composite layers on mobile */
+  [class*='animate-'] {
+    will-change: auto;
+  }
+}
