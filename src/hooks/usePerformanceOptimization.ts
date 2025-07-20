@@ -8,6 +8,10 @@ interface PerformanceCapabilities {
   hardwareConcurrency?: number
 }
 
+function hasDeviceMemory(navigator: Navigator): navigator is Navigator & { deviceMemory: number } {
+  return 'deviceMemory' in navigator
+}
+
 export const usePerformanceOptimization = (): PerformanceCapabilities => {
   const [capabilities, setCapabilities] = useState<PerformanceCapabilities>({
     isMobile: false,
@@ -26,8 +30,8 @@ export const usePerformanceOptimization = (): PerformanceCapabilities => {
           navigator.userAgent,
         ) || window.innerWidth <= 768
 
-      // Get device memory (if available)
-      const deviceMemory = (navigator as any).deviceMemory
+      // Get device memory (if available) - Navigator DeviceMemory API
+      const deviceMemory = hasDeviceMemory(navigator) ? navigator.deviceMemory : undefined
       const hardwareConcurrency = navigator.hardwareConcurrency
 
       // Determine if we should use reduced animations intelligently
