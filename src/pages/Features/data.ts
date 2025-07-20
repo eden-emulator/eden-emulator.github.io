@@ -32,7 +32,7 @@ export const features = [
   },
   {
     icon: Cpu,
-    title: 'Smart Emulation',
+    title: 'Accurate Emulation',
     description:
       'Accuracy where it matters, performance where it counts. No overkill for the sake of it.',
     color: 'from-red-400 to-pink-500',
@@ -40,8 +40,8 @@ export const features = [
   },
   {
     icon: Palette,
-    title: 'EDEN’S VEIL (BETA)',
-    description: 'An experimental config tab for advanced settings',
+    title: 'EDEN’S VEIL',
+    description: 'An all new experimental config tab for advanced settings and ultimate customisation.',
     color: 'from-purple-400 to-blue-500',
     glow: 'shadow-purple-500/50',
   },
