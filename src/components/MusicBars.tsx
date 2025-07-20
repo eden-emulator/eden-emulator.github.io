@@ -9,8 +9,8 @@ function MusicBars() {
   })
   const { isMobile, prefersReducedMotion } = usePerformanceOptimization()
 
-  // Smart bar count: reduce on mobile for better performance, but still show effects
-  const barCount = isMobile ? 18 : 25
+  // Aggressive mobile optimization: drastically reduce bar count
+  const barCount = isMobile ? 8 : 25
 
   const bars = useMemo(
     () =>

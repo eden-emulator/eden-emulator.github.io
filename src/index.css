@@ -906,31 +906,46 @@ a:focus {
   filter: var(--blur-amount, blur(8px));
 }
 
-/* Mobile performance optimizations */
+/* Aggressive mobile performance optimizations */
 @media (max-width: 768px) {
-  .blur-xl {
-    filter: blur(8px) !important;
+  /* Disable all blur effects on mobile - major GPU saver */
+  .blur-xl,
+  .blur-lg,
+  .blur-md,
+  .blur-sm {
+    filter: none !important;
   }
 
-  .blur-lg {
-    filter: blur(6px) !important;
-  }
-
-  /* Reduce composite layers on mobile */
+  /* Disable all animations on mobile to save GPU */
   [class*='animate-'] {
-    will-change: auto;
+    animation: none !important;
+    will-change: auto !important;
   }
 
-  /* Force hardware acceleration on mobile for smooth scrolling */
-  .synthwave-animated-bg,
-  .music-bars,
-  [class*='animate-'] {
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
+  /* Simplify music bar animations on mobile */
+  .music-bar {
+    animation: none !important;
   }
 
-  /* Optimize background gradients on mobile */
+  /* Remove 3D transforms that cause GPU load */
+  .music-bars {
+    transform: none !important;
+    perspective: none !important;
+  }
+
+  /* Disable complex gradients */
   .synthwave-gradient-animated {
-    background-attachment: scroll !important;
+    display: none !important;
+  }
+
+  /* Remove all box-shadows on mobile */
+  .music-bar {
+    box-shadow: none !important;
+  }
+
+  /* Disable perspective transforms */
+  .synthwave-animated-bg::before,
+  .synthwave-lines {
+    display: none !important;
   }
 }
