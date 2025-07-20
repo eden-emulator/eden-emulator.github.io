@@ -949,3 +949,61 @@ a:focus {
     display: none !important;
   }
 }
+
+/* Firefox-specific optimizations - Firefox has poor animation performance */
+@-moz-document url-prefix() {
+  /* Disable heavy animations in Firefox */
+  [class*='animate-'] {
+    animation-duration: 0.1s !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  /* Simplify transforms in Firefox */
+  .music-bars {
+    transform: none !important;
+    perspective: none !important;
+  }
+
+  /* Disable blur effects in Firefox for better performance */
+  .blur-xl,
+  .blur-lg {
+    filter: blur(4px) !important;
+  }
+
+  /* Remove complex gradients in Firefox */
+  .synthwave-gradient-animated {
+    opacity: 0.3 !important;
+  }
+}
+
+/* Safari-specific optimizations */
+@supports (-webkit-appearance: none) and (not (appearance: none)) {
+  /* Older Safari versions - disable heavy effects */
+  .blur-xl {
+    filter: blur(8px) !important;
+  }
+
+  /* Optimize webkit transforms */
+  .gpu-accelerated {
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+  }
+}
+
+/* iOS-specific optimizations */
+@supports (-webkit-touch-callout: none) {
+  /* iOS devices - very conservative approach */
+  [class*='animate-'] {
+    animation: none !important;
+  }
+
+  .blur-xl,
+  .blur-lg,
+  .blur-md {
+    filter: none !important;
+  }
+
+  .music-bar {
+    box-shadow: none !important;
+  }
+}

@@ -7,10 +7,19 @@ function MusicBars() {
     threshold: 0.1,
     pauseAnimationsWhenHidden: true,
   })
-  const { isMobile, prefersReducedMotion } = usePerformanceOptimization()
+  const { isMobile, prefersReducedMotion, shouldDisableAllAnimations, browser } =
+    usePerformanceOptimization()
 
-  // Aggressive mobile optimization: drastically reduce bar count
-  const barCount = isMobile ? 8 : 25
+  // Browser and performance aware bar count
+  const getBarCount = () => {
+    if (shouldDisableAllAnimations) return 0 // No bars for very poor performance
+    if (browser.isFirefox && isMobile) return 3 // Firefox mobile struggles
+    if (browser.isFirefox) return 12 // Firefox desktop reduced
+    if (isMobile) return 6 // General mobile reduction
+    return 25 // Full desktop experience
+  }
+
+  const barCount = getBarCount()
 
   const bars = useMemo(
     () =>
@@ -22,15 +31,20 @@ function MusicBars() {
     [barCount],
   )
 
+  // Don't render anything if no bars should be shown
+  if (barCount === 0) {
+    return null
+  }
+
   return (
     <div
       ref={targetRef}
-      className={`music-bars gpu-accelerated performance-contain ${prefersReducedMotion ? 'reduced-motion' : ''}`}
+      className={`music-bars ${shouldDisableAllAnimations ? '' : 'gpu-accelerated'} performance-contain ${prefersReducedMotion ? 'reduced-motion' : ''}`}
     >
       {bars.map((bar, i) => (
         <div
           key={i}
-          className={`music-bar gpu-accelerated ${!isVisible ? 'animations-paused' : ''}`}
+          className={`music-bar ${shouldDisableAllAnimations ? '' : 'gpu-accelerated'} ${!isVisible ? 'animations-paused' : ''}`}
           style={{
             height: `${bar.height}px`,
             animationDelay: `${bar.delay}s`,

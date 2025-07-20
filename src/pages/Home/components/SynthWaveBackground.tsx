@@ -8,12 +8,13 @@ function SynthWaveBackground() {
     threshold: 0.1,
     pauseAnimationsWhenHidden: true,
   })
-  const { isMobile, prefersReducedMotion } = usePerformanceOptimization()
+  const { isMobile, prefersReducedMotion, shouldDisableAllAnimations, browser } =
+    usePerformanceOptimization()
 
   return (
     <div ref={targetRef} className="absolute inset-0 performance-contain">
-      {/* Subtle Animated Synthwave Background - Mobile gets minimal version */}
-      {!isMobile && (
+      {/* Background - Browser and performance aware */}
+      {!shouldDisableAllAnimations && !isMobile && (
         <div
           className={`synthwave-animated-bg ${!isVisible ? 'animations-paused' : ''} ${prefersReducedMotion ? 'reduced-motion' : ''}`}
           aria-hidden="true"
@@ -23,13 +24,25 @@ function SynthWaveBackground() {
           <div className="synthwave-lines" />
         </div>
       )}
-      
-      {/* Mobile: Just gradient, no 3D perspective grid */}
-      {isMobile && (
+
+      {/* Reduced version for Firefox or low-performance scenarios */}
+      {!shouldDisableAllAnimations && isMobile && !browser.isFirefox && (
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(255,0,110,0.02) 50%, rgba(0,0,0,0.3) 100%)',
+            background:
+              'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(255,0,110,0.02) 50%, rgba(0,0,0,0.3) 100%)',
+          }}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Ultra-minimal version for problematic browsers */}
+      {(shouldDisableAllAnimations || browser.isFirefox) && (
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'rgba(16, 4, 88, 0.3)',
           }}
           aria-hidden="true"
         />
@@ -40,9 +53,10 @@ function SynthWaveBackground() {
         <MusicBars />
       </div>
 
-      {/* Optimized Synthwave Neon Glow Effects - Aggressive mobile optimization */}
-      {!isMobile && (
+      {/* Glow Effects - Completely browser and performance aware */}
+      {!shouldDisableAllAnimations && !isMobile && browser.isChrome && (
         <>
+          {/* Full effects only for Chrome desktop */}
           <div
             className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-xl ${prefersReducedMotion ? '' : 'animate-subtle-pulse-neon'} gpu-accelerated ${!isVisible ? 'animations-paused' : ''}`}
             style={{
@@ -70,29 +84,31 @@ function SynthWaveBackground() {
         </>
       )}
 
-      {/* Mobile: Single subtle glow effect only */}
-      {isMobile && (
+      {/* Reduced effects for non-Chrome desktop browsers */}
+      {!shouldDisableAllAnimations && !isMobile && !browser.isChrome && (
         <div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full"
           style={{
             background: 'radial-gradient(circle, var(--synthwave-purple) 0%, transparent 80%)',
-            opacity: 0.04,
-          }}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Desktop: Additional large background glow */}
-      {!isMobile && (
-        <div
-          className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-xl gpu-accelerated ${!isVisible ? 'animations-paused' : ''}`}
-          style={{
-            background: 'radial-gradient(ellipse, var(--synthwave-purple) 0%, transparent 60%)',
             opacity: 0.08,
           }}
           aria-hidden="true"
         />
       )}
+
+      {/* Mobile: Minimal glow only for good browsers */}
+      {!shouldDisableAllAnimations &&
+        isMobile &&
+        (browser.isChrome || (browser.isSafari && browser.version >= 15)) && (
+          <div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full"
+            style={{
+              background: 'radial-gradient(circle, var(--synthwave-purple) 0%, transparent 80%)',
+              opacity: 0.03,
+            }}
+            aria-hidden="true"
+          />
+        )}
     </div>
   )
 }
