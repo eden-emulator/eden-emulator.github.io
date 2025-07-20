@@ -1,9 +1,9 @@
+import { memo, useMemo } from 'react'
 import { Download } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 import HeadingText from '@/components/HeadingText.tsx'
 import { cn } from '@/utils/style'
 import getDynamicPlatforms from '@/pages/Download/utils/getDynamicPlatforms.ts'
-import { useMemo } from 'react'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
 
@@ -22,9 +22,9 @@ function DownloadPage() {
         <div className="h-24 md:h-34" />
         {/* Background Effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-subtle-pulse-delay-2" />
-          <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl animate-float-delay-3" />
+          <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/8 rounded-full blur-xl animate-float will-change-transform" />
+          <div className="absolute bottom-0 right-1/3 w-60 h-60 bg-pink-500/8 rounded-full blur-xl animate-subtle-pulse-delay-2 will-change-transform" />
+          <div className="absolute top-20 right-1/4 w-80 h-80 bg-blue-500/8 rounded-full blur-xl animate-float-delay-3 will-change-transform" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
@@ -37,7 +37,7 @@ function DownloadPage() {
               <article
                 key={platform.platform}
                 className={cn(
-                  'relative group bg-black/60 backdrop-blur-xs border rounded-xl p-6 transition-all duration-500 hover:transform hover:scale-105',
+                  'relative group bg-black/60 backdrop-blur-xs border rounded-xl p-6 transition-transform duration-300 hover:scale-105 will-change-transform',
                   platform.primary
                     ? 'border-purple-400 shadow-lg shadow-purple-500/50'
                     : 'border-blue-500/30 hover:border-purple-400/50',
@@ -55,7 +55,7 @@ function DownloadPage() {
                 {/* Glow Effect */}
                 <div
                   className={cn(
-                    'absolute inset-0 bg-linear-to-r opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500',
+                    'absolute inset-0 bg-linear-to-r opacity-0 group-hover:opacity-8 rounded-xl blur-sm transition-opacity duration-300 will-change-opacity',
                     platform.color,
                   )}
                   aria-hidden="true"
@@ -86,7 +86,7 @@ function DownloadPage() {
                   <button
                     onClick={() => window.open(platform.downloadUrl, '_blank')}
                     className={cn(
-                      'w-full py-3 px-4 rounded-lg font-bold transition-all duration-300 flex items-center justify-center space-x-2 tracking-wider focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black',
+                      'w-full py-3 px-4 rounded-lg font-bold transition-colors duration-200 flex items-center justify-center space-x-2 tracking-wider focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black',
                       platform.primary
                         ? 'bg-linear-to-r from-purple-500 to-blue-600 hover:from-purple-400 hover:to-blue-500 text-white shadow-lg shadow-purple-500/50'
                         : 'border-2 border-blue-400 text-blue-300 hover:bg-blue-400/10 hover:text-white',
@@ -146,4 +146,4 @@ function DownloadPage() {
   )
 }
 
-export default DownloadPage
+export default memo(DownloadPage)

@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Link } from '@tanstack/react-router'
 import { Home, AlertTriangle } from 'lucide-react'
 import PageWrapper from '@/components/PageWrapper'
@@ -6,8 +7,8 @@ function NotFoundPage() {
   return (
     <PageWrapper className="flex items-center justify-center">
       {/* Neon Glow Effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/15 rounded-full blur-xl animate-pulse will-change-transform" />
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-cyan-500/15 rounded-full blur-xl animate-pulse delay-1000 will-change-transform" />
 
       <div className="relative text-center px-4">
         <div className="mb-8">
@@ -52,4 +53,4 @@ function NotFoundPage() {
   )
 }
 
-export default NotFoundPage
+export default memo(NotFoundPage)

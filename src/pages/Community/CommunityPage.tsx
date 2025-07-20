@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Heart } from 'lucide-react'
 import { socialLinks, stats } from './data'
 import HeadingText from '@/components/HeadingText.tsx'
@@ -18,11 +19,10 @@ function CommunityPage() {
         <div className="h-24 md:h-34" />
         {/* Background Effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/3 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-subtle-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl animate-float-delay-3" />
-          <div className="absolute top-20 right-1/3 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-subtle-pulse-delay-2" />
-          <div className="absolute bottom-20 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-3xl animate-subtle-pulse-delay-2" />
+          <div className="absolute top-0 left-1/3 w-72 h-72 bg-pink-500/8 rounded-full blur-xl animate-subtle-pulse will-change-transform" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan-500/8 rounded-full blur-xl animate-float-delay-3 will-change-transform" />
+          <div className="absolute top-20 right-1/3 w-60 h-60 bg-purple-500/8 rounded-full blur-xl animate-subtle-pulse-delay-2 will-change-transform" />
+          <div className="absolute bottom-20 left-1/4 w-72 h-72 bg-blue-500/8 rounded-full blur-xl animate-float will-change-transform" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
@@ -37,7 +37,7 @@ function CommunityPage() {
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="group relative text-center bg-black/60 backdrop-blur-xs border border-cyan-500/30 rounded-xl p-6 hover:border-pink-400/50 transition-all duration-500"
+                  className="group relative text-center bg-black/60 backdrop-blur-xs border border-cyan-500/30 rounded-xl p-6 hover:border-pink-400/50 transition-colors duration-300"
                 >
                   {/* Glow Effect */}
                   <div
@@ -176,4 +176,4 @@ function CommunityPage() {
   )
 }
 
-export default CommunityPage
+export default memo(CommunityPage)

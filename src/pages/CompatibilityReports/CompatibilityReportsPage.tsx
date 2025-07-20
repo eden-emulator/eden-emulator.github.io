@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef, memo } from 'react'
 import { Loader2, Smartphone, Cpu, TrendingUp, TrendingDown, Info } from 'lucide-react'
 import type { CompatibilityReport, PaginationInfo } from './types'
 import HeadingText from '@/components/HeadingText'
@@ -416,4 +416,4 @@ function CompatibilityReportsPage() {
   )
 }
 
-export default CompatibilityReportsPage
+export default memo(CompatibilityReportsPage)
