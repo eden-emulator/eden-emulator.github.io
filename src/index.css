@@ -34,7 +34,8 @@
 }
 
 @utility backdrop-blur-xs {
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
+  will-change: backdrop-filter;
 }
 
 @utility neon-border {
@@ -58,6 +59,23 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+  
+  /* Force GPU acceleration for better scroll performance */
+  body {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Simple performance mode - disables backdrop-filter for users with performance issues */
+  .no-backdrop-filter .backdrop-blur-xs,
+  .no-backdrop-filter .backdrop-blur-sm,
+  .no-backdrop-filter .backdrop-blur-md,
+  .no-backdrop-filter .backdrop-blur-lg,
+  .no-backdrop-filter .backdrop-blur-xl {
+    backdrop-filter: none !important;
+    background-color: rgba(0, 0, 0, 0.95);
   }
 
   body {

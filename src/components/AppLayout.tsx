@@ -1,8 +1,24 @@
 import { Outlet } from '@tanstack/react-router'
+import { useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer/Footer.tsx'
+import { useScrollPerformance } from '@/hooks/useScrollPerformance'
+import { useBackdropFilterSupport } from '@/hooks/useBackdropFilterSupport'
 
 function AppLayout() {
+  // Enable scroll performance optimizations
+  useScrollPerformance()
+  
+  // Check backdrop-filter support
+  const { isSupported } = useBackdropFilterSupport()
+  
+  useEffect(() => {
+    if (!isSupported) {
+      document.body.classList.add('no-backdrop-filter')
+    } else {
+      document.body.classList.remove('no-backdrop-filter')
+    }
+  }, [isSupported])
   return (
     <div className="min-h-screen bg-black">
       {/* Skip Navigation Link */}

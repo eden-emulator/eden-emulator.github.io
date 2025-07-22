@@ -66,6 +66,19 @@ export const useScrollPerformance = () => {
       window.removeEventListener('scroll', scrollHandler)
     }
   }, [throttledScrollHandler])
+  
+  // Add/remove scrolling class to body
+  useEffect(() => {
+    if (scrollState.isScrolling) {
+      document.body.classList.add('is-scrolling')
+    } else {
+      document.body.classList.remove('is-scrolling')
+    }
+    
+    return () => {
+      document.body.classList.remove('is-scrolling')
+    }
+  }, [scrollState.isScrolling])
 
   return scrollState
 }
