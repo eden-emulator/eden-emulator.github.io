@@ -96,7 +96,6 @@ export const usePerformanceOptimization = (): PerformanceCapabilities => {
       const firefoxMobile = browser.isFirefox && isMobile // Firefox mobile has poor animation performance
       const oldSafari = browser.isSafari && browser.version < 15 // Older Safari struggles with transforms
       const androidFirefox = browser.isFirefox && browser.isAndroid // Android Firefox is particularly slow
-      const iosOldVersion = browser.isIOS && browser.version < 15 // Older iOS versions
 
       // Determine performance levels
       const lowEndDevice = deviceMemory ? deviceMemory <= 4 : false

@@ -9,7 +9,7 @@ import SynthWaveBackground from '@/pages/Home/components/SynthWaveBackground'
 import { usePerformanceOptimization } from '@/hooks/usePerformanceOptimization'
 
 function HomePage() {
-  const { isMobile, shouldUseReducedAnimations, shouldDisableAllAnimations, browser } =
+  const { shouldUseReducedAnimations, shouldDisableAllAnimations, browser } =
     usePerformanceOptimization()
 
   // Adjust blur based on browser and performance
