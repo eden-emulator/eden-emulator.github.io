@@ -714,6 +714,7 @@ a:focus {
     0 0 5px var(--synthwave-hot-pink),
     0 0 10px var(--synthwave-purple),
     0 0 15px var(--synthwave-cyan);
+  animation: musicBarPulse 1s ease-in-out infinite;
 }
 
 .music-bar:nth-child(3n) {
@@ -767,6 +768,8 @@ a:focus {
     0 0 20px var(--synthwave-hot-pink),
     0 0 40px var(--synthwave-purple),
     inset 0 0 20px rgba(255, 0, 255, 0.2);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .btn-synthwave-primary-glow {
@@ -780,10 +783,17 @@ a:focus {
   box-shadow:
     0 0 15px var(--synthwave-cyan),
     inset 0 0 15px rgba(0, 255, 255, 0.1);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.btn-synthwave-secondary:hover {
+  color: var(--synthwave-cyan);
+  background-color: rgba(0, 255, 255, 0.15);
 }
 
 .btn-synthwave-secondary-glow {
-  border: 2px solid var(--synthwave-cyan);
+  background: var(--synthwave-cyan);
   box-shadow: 0 0 20px var(--synthwave-cyan);
 }
 
@@ -791,24 +801,32 @@ a:focus {
   background: rgba(0, 255, 255, 0.1);
   border: 2px solid var(--synthwave-cyan);
   box-shadow: 0 0 10px var(--synthwave-cyan);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .link-synthwave-pink {
   background: rgba(255, 0, 255, 0.1);
   border: 2px solid var(--synthwave-hot-pink);
   box-shadow: 0 0 10px var(--synthwave-hot-pink);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .link-synthwave-yellow {
   background: rgba(255, 235, 0, 0.1);
   border: 2px solid var(--synthwave-yellow);
   box-shadow: 0 0 10px var(--synthwave-yellow);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .link-synthwave-orange {
   background: rgba(255, 235, 0, 0.1);
   border: 2px solid var(--synthwave-sunset-orange);
   box-shadow: 0 0 10px var(--synthwave-sunset-orange);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .text-synthwave-pink {
@@ -906,47 +924,117 @@ a:focus {
   filter: var(--blur-amount, blur(8px));
 }
 
-/* Aggressive mobile performance optimizations */
+/* Optimized mobile performance - animations are simplified, not removed */
 @media (max-width: 768px) {
-  /* Disable all blur effects on mobile - major GPU saver */
-  .blur-xl,
-  .blur-lg,
+  /* Reduce blur intensity on mobile for better performance */
+  .blur-xl {
+    filter: blur(8px) !important;
+  }
+  .blur-lg {
+    filter: blur(6px) !important;
+  }
   .blur-md,
   .blur-sm {
-    filter: none !important;
+    filter: blur(4px) !important;
   }
 
-  /* Disable all animations on mobile to save GPU */
+  /* Optimize animations for mobile - use GPU-accelerated properties only */
   [class*='animate-'] {
-    animation: none !important;
-    will-change: auto !important;
+    animation-duration: 2s !important; /* Slower animations = less GPU load */
+    animation-timing-function: linear !important;
   }
 
-  /* Simplify music bar animations on mobile */
+  /* Optimize synthwave logo glow for mobile */
+  .synthwave-logo-glow {
+    filter: drop-shadow(0 0 20px rgba(255, 0, 204, 0.6)) !important;
+    animation: synthwave-glow-mobile 3s ease-in-out infinite;
+  }
+
+  /* Optimize button glows for mobile */
+  .btn-synthwave-primary-glow,
+  .btn-synthwave-secondary-glow {
+    filter: blur(8px) !important;
+  }
+
+  /* Optimize text shadows for mobile */
+  .text-shadow-cyan {
+    text-shadow:
+      0 0 15px rgba(0, 255, 255, 0.6),
+      0 0 30px rgba(0, 255, 255, 0.3) !important;
+  }
+  .text-shadow-pink {
+    text-shadow:
+      0 0 15px rgba(255, 0, 204, 0.6),
+      0 0 30px rgba(255, 0, 204, 0.3) !important;
+  }
+
+  /* Optimize music bar animations on mobile */
   .music-bar {
-    animation: none !important;
+    animation-name: musicBarPulse !important;
+    animation-timing-function: ease-in-out !important;
+    animation-iteration-count: infinite !important;
+    /* animation-delay and animation-duration set via inline styles */
+    box-shadow: 0 0 5px currentColor !important;
+    width: 4px !important; /* Slightly wider on mobile for visibility */
   }
 
-  /* Remove 3D transforms that cause GPU load */
+  /* Optimize music bars container for mobile */
   .music-bars {
-    transform: none !important;
+    transform: none !important; /* Remove 3D transform on mobile */
     perspective: none !important;
+    height: 60px !important; /* Shorter on mobile */
+    gap: 3px !important; /* Tighter spacing */
+    justify-content: center !important;
+    align-items: flex-end !important;
   }
 
-  /* Disable complex gradients */
-  .synthwave-gradient-animated {
-    display: none !important;
-  }
-
-  /* Remove all box-shadows on mobile */
-  .music-bar {
-    box-shadow: none !important;
-  }
-
-  /* Disable perspective transforms */
+  /* Optimize synthwave background for mobile */
   .synthwave-animated-bg::before,
   .synthwave-lines {
-    display: none !important;
+    opacity: 0.6 !important;
+    animation-duration: 30s !important; /* Much slower animation */
+  }
+
+  /* Show simplified gradient animation */
+  .synthwave-gradient-animated {
+    opacity: 0.7 !important;
+    animation: synthwave-gradient-mobile 10s ease-in-out infinite !important;
+  }
+}
+
+/* Mobile-optimized animations */
+@keyframes synthwave-glow-mobile {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 20px rgba(255, 0, 204, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(255, 0, 204, 0.8));
+  }
+}
+
+@keyframes musicBarPulse {
+  0% {
+    transform: scaleY(0.3);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0.3);
+    opacity: 0.6;
+  }
+}
+
+@keyframes synthwave-gradient-mobile {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
@@ -992,9 +1080,12 @@ a:focus {
 
 /* iOS-specific optimizations */
 @supports (-webkit-touch-callout: none) {
-  /* iOS devices - very conservative approach */
+  /* iOS devices - optimize animations instead of disabling */
   [class*='animate-'] {
-    animation: none !important;
+    -webkit-animation-fill-mode: both !important;
+    animation-fill-mode: both !important;
+    -webkit-transform: translateZ(0); /* Force GPU acceleration */
+    transform: translateZ(0);
   }
 
   .blur-xl,

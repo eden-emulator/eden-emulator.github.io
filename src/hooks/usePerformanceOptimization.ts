@@ -102,21 +102,19 @@ export const usePerformanceOptimization = (): PerformanceCapabilities => {
       const lowEndDevice = deviceMemory ? deviceMemory <= 4 : false
       const lowEndCPU = hardwareConcurrency ? hardwareConcurrency <= 4 : false
 
-      // Aggressive conditions for disabling ALL animations
+      // Only disable ALL animations for truly problematic scenarios
       const shouldDisableAllAnimations =
         prefersReducedMotion ||
-        firefoxMobile ||
-        androidFirefox ||
-        oldSafari ||
-        iosOldVersion ||
-        (isMobile && lowEndDevice && lowEndCPU)
+        (androidFirefox && lowEndDevice) || // Only Android Firefox on low-end devices
+        (oldSafari && lowEndDevice) || // Only old Safari on low-end devices
+        (isMobile && lowEndDevice && lowEndCPU && deviceMemory && deviceMemory <= 2) // Only very low-end devices
 
-      // Conditions for reduced animations (but not disabled)
+      // Use optimized animations for mobile (simpler, GPU-accelerated)
       const shouldUseReducedAnimations =
         shouldDisableAllAnimations ||
-        isMobile ||
-        browser.isFirefox || // Firefox generally has poorer animation performance
-        (deviceMemory && deviceMemory <= 6)
+        firefoxMobile || // Firefox mobile gets reduced animations
+        (isMobile && (lowEndDevice || lowEndCPU)) || // Mobile with limited resources
+        (deviceMemory && deviceMemory <= 4) // Low memory devices
 
       setCapabilities({
         isMobile,

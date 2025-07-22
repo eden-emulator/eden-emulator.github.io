@@ -11,7 +11,7 @@ import {
   Sparkles,
   Heart,
 } from 'lucide-react'
-import edenLogo from '@/assets/logo.png'
+import edenLogo from '@/assets/eden_logo.png'
 import { GitHubIcon } from '@/components/Icons'
 import { Link, useLocation } from '@tanstack/react-router'
 import { cn } from '@/utils/style'
