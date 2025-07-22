@@ -768,8 +768,12 @@ a:focus {
     0 0 20px var(--synthwave-hot-pink),
     0 0 40px var(--synthwave-purple),
     inset 0 0 20px rgba(255, 0, 255, 0.2);
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   will-change: transform;
+}
+
+.btn-synthwave-primary:hover {
+  transform: scale(1.05);
 }
 
 .btn-synthwave-primary-glow {
@@ -783,17 +787,19 @@ a:focus {
   box-shadow:
     0 0 15px var(--synthwave-cyan),
     inset 0 0 15px rgba(0, 255, 255, 0.1);
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   will-change: transform;
 }
 
 .btn-synthwave-secondary:hover {
+  transform: scale(1.05);
   color: var(--synthwave-cyan);
   background-color: rgba(0, 255, 255, 0.15);
 }
 
 .btn-synthwave-secondary-glow {
-  background: var(--synthwave-cyan);
+  background: transparent;
+  border: 2px solid var(--synthwave-cyan);
   box-shadow: 0 0 20px var(--synthwave-cyan);
 }
 
@@ -801,32 +807,48 @@ a:focus {
   background: rgba(0, 255, 255, 0.1);
   border: 2px solid var(--synthwave-cyan);
   box-shadow: 0 0 10px var(--synthwave-cyan);
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   will-change: transform;
+}
+
+.link-synthwave-cyan:hover {
+  transform: scale(1.05);
 }
 
 .link-synthwave-pink {
   background: rgba(255, 0, 255, 0.1);
   border: 2px solid var(--synthwave-hot-pink);
   box-shadow: 0 0 10px var(--synthwave-hot-pink);
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   will-change: transform;
+}
+
+.link-synthwave-pink:hover {
+  transform: scale(1.05);
 }
 
 .link-synthwave-yellow {
   background: rgba(255, 235, 0, 0.1);
   border: 2px solid var(--synthwave-yellow);
   box-shadow: 0 0 10px var(--synthwave-yellow);
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   will-change: transform;
+}
+
+.link-synthwave-yellow:hover {
+  transform: scale(1.05);
 }
 
 .link-synthwave-orange {
   background: rgba(255, 235, 0, 0.1);
   border: 2px solid var(--synthwave-sunset-orange);
   box-shadow: 0 0 10px var(--synthwave-sunset-orange);
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   will-change: transform;
+}
+
+.link-synthwave-orange:hover {
+  transform: scale(1.05);
 }
 
 .text-synthwave-pink {

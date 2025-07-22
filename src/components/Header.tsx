@@ -119,21 +119,34 @@ function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="xl:hidden py-4 border-t border-purple-500/30">
+        <div
+          className={`xl:hidden overflow-hidden transition-all duration-200 ease-out transform ${
+            isMenuOpen ? 'max-h-[600px] translate-y-0' : 'max-h-0 -translate-y-2'
+          }`}
+        >
+          <div
+            className={`py-4 border-t border-purple-500/30 transition-all duration-200 ${
+              isMenuOpen ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
             <nav
               id="mobile-navigation"
-              className="flex flex-col space-y-4"
+              className="flex flex-col space-y-2"
               aria-label="Mobile navigation"
             >
-              {navigation.map((item) =>
+              {navigation.map((item, index) =>
                 item.external ? (
                   <a
                     key={item.name}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-3 text-blue-300 hover:text-purple-300 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-purple-500/10 font-bold text-sm tracking-wider"
+                    className={`flex items-center space-x-3 text-blue-300 hover:text-purple-300 transition-all duration-200 px-4 py-2 rounded-lg hover:bg-purple-500/10 font-bold text-sm tracking-wider transform ${
+                      isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
+                    }`}
+                    style={{
+                      transitionDelay: isMenuOpen ? `${index * 30}ms` : '0ms',
+                    }}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.icon && <item.icon className="w-4 h-4" aria-hidden="true" />}
@@ -144,11 +157,16 @@ function Header() {
                     key={item.name}
                     to={item.href}
                     className={cn(
-                      'flex items-center space-x-3 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-purple-500/10 font-bold text-sm tracking-wider',
+                      `flex items-center space-x-3 transition-all duration-200 px-4 py-2 rounded-lg hover:bg-purple-500/10 font-bold text-sm tracking-wider transform ${
+                        isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
+                      }`,
                       isActive(item.href)
                         ? 'text-purple-300 bg-purple-500/10'
                         : 'text-blue-300 hover:text-purple-300',
                     )}
+                    style={{
+                      transitionDelay: isMenuOpen ? `${index * 30}ms` : '0ms',
+                    }}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.icon && <item.icon className="w-4 h-4" aria-hidden="true" />}
@@ -158,7 +176,7 @@ function Header() {
               )}
             </nav>
           </div>
-        )}
+        </div>
       </div>
     </header>
   )
