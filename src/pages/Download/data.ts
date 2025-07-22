@@ -35,7 +35,7 @@ export const platforms: Platform[] = [
     version: ': Coming Soon™',
     size: '138 MB',
     requirements: 'Apple Silicon',
-    downloadUrl: '/old/pages/Game.html',
+    downloadUrl: '/noscript/pages/Game.html',
     primary: false,
     color: 'from-gray-400 to-gray-600',
   },

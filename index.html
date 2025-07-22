@@ -66,6 +66,58 @@
     </script>
   </head>
   <body>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=/noscript/index.html" />
+      <style>
+        body {
+          background-color: #000;
+          color: #fff;
+          font-family:
+            -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+            'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          margin: 0;
+          text-align: center;
+        }
+        .noscript-message {
+          max-width: 600px;
+          padding: 2rem;
+        }
+        .noscript-message h1 {
+          color: #a855f7;
+          margin-bottom: 1rem;
+        }
+        .noscript-message p {
+          color: #e0e0e0;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+        }
+        .noscript-message a {
+          color: #3b82f6;
+          text-decoration: none;
+          border-bottom: 1px solid #3b82f6;
+          transition: color 0.2s;
+        }
+        .noscript-message a:hover {
+          color: #60a5fa;
+          border-bottom-color: #60a5fa;
+        }
+      </style>
+      <div class="noscript-message">
+        <h1>JavaScript Required</h1>
+        <p>
+          Eden website requires JavaScript to provide the best experience. You are being redirected
+          to our classic website.
+        </p>
+        <p>
+          If you are not redirected automatically,
+          <a href="/noscript/index.html">click here to continue</a>.
+        </p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
