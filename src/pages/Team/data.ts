@@ -35,7 +35,7 @@ export interface TeamSection {
 export const teamSections: TeamSection[] = [
   {
     title: 'DEVELOPERS',
-    description: 'The core team building Eden Emulator',
+    description: 'The core team building Eden',
     members: [
       {
         name: 'Camille LaVey',

@@ -9,9 +9,9 @@ function FeaturesPage() {
   return (
     <>
       <SEO
-        title="Eden Emulator Features - High Performance Switch Emulation"
-        description="Explore Eden Emulator's features: high performance emulation, cross-platform support, clean interface, and active development. Experience Switch games on your device."
-        keywords="Eden Emulator features, Switch emulator features, emulation performance, cross-platform emulator"
+        title="Eden Features - High Performance Switch Emulation"
+        description="Explore Eden's features: high performance emulation, cross-platform support, clean interface, and active development. Experience Switch games on your device."
+        keywords="Eden features, Switch emulator features, emulation performance, cross-platform emulator"
         url="https://eden-emulator.github.io/features"
       />
       <PageWrapper>
@@ -24,7 +24,7 @@ function FeaturesPage() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
-            title="Eden Emulator"
+            title="Eden"
             description="Written in C++ with cross-platform support for Windows, Linux and Android."
           />
 

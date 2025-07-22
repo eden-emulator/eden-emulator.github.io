@@ -1,4 +1,4 @@
-# Eden Emulator Website
+# Eden Website
 
 This is the official website for the [Eden Nintendo Switch Emulator](https://eden-emu.dev).  
 The site is under active development and built using modern tooling like Vite, React 19, and Tailwind CSS.

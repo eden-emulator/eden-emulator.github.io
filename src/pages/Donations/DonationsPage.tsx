@@ -9,9 +9,9 @@ function DonationsPage() {
   return (
     <>
       <SEO
-        title="Support Eden Emulator - Donations"
-        description="Support the development of Eden Emulator. Your donations help us maintain servers, improve performance, and keep the project free for everyone."
-        keywords="Eden Emulator donations, support Eden, emulator donations, open source support"
+        title="Support Eden - Donations"
+        description="Support the development of Eden. Your donations help us maintain servers, improve performance, and keep the project free for everyone."
+        keywords="Eden donations, support Eden, emulator donations, open source support"
         url="https://eden-emulator.github.io/donations"
       />
       <PageWrapper>
@@ -27,7 +27,7 @@ function DonationsPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
             title="SUPPORT EDEN"
-            description="Help us keep Eden Emulator free and open source for everyone"
+            description="Help us keep Eden free and open source for everyone"
           />
 
           {/* General Donation Section */}
@@ -40,7 +40,7 @@ function DonationsPage() {
               </div>
 
               <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-cyan-400 mb-4">
-                Support Eden Emulator
+                Support Eden
               </h2>
 
               <p className="text-cyan-100/80 text-lg mb-8 max-w-2xl mx-auto">
@@ -149,9 +149,8 @@ function DonationsPage() {
               </h3>
 
               <p className="text-lg text-cyan-100/90 font-light max-w-2xl mx-auto">
-                Your support helps us maintain servers, improve performance, and keep Eden Emulator
-                free and open source for everyone. Every donation, no matter the size, makes a
-                difference.
+                Your support helps us maintain servers, improve performance, and keep Eden free and
+                open source for everyone. Every donation, no matter the size, makes a difference.
               </p>
             </div>
           </div>

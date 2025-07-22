@@ -1,4 +1,4 @@
-# Eden Emulator robots.txt
+# Eden robots.txt
 User-agent: *
 Allow: /
 

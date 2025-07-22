@@ -51,7 +51,7 @@ function Header() {
           <Link to="/" className="flex items-center space-x-3 shrink-0 focus:outline-none">
             <img
               src={edenLogo}
-              alt="Eden Emulator"
+              alt="Eden"
               className="h-10 w-auto max-w-none"
               style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))' }}
             />

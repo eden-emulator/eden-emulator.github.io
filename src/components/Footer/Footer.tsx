@@ -42,16 +42,16 @@ function Footer() {
             <Link
               to="/"
               className="flex items-center space-x-3 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded-lg"
-              aria-label="Eden Emulator - Return to home page"
+              aria-label="Eden - Return to home page"
             >
               <img
                 src={edenLogo}
-                alt="Eden Emulator Logo"
+                alt="Eden Logo"
                 className="h-10 w-10"
                 style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))' }}
                 aria-hidden="true"
               />
-              <span className="text-xl font-bold text-white">Eden Emulator</span>
+              <span className="text-xl font-bold text-white">Eden</span>
             </Link>
             <p className="text-blue-200 text-sm mb-4">"Our actions define our legacy."</p>
             <nav aria-label="Social media links">
@@ -119,7 +119,7 @@ function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <p className="text-blue-200 text-sm">
-                © {new Date().getFullYear()} Utopia LLC. Eden Emulator. All rights reserved.
+                © {new Date().getFullYear()} Utopia LLC. Eden. All rights reserved.
               </p>
             </div>
 
@@ -132,8 +132,8 @@ function Footer() {
 
           <div className="mt-4 text-center">
             <p className="text-blue-300/60 text-xs">
-              Eden Emulator is not affiliated with any game console manufacturer. All trademarks are
-              property of their respective owners.
+              Eden is not affiliated with any game console manufacturer. All trademarks are property
+              of their respective owners.
             </p>
           </div>
         </div>

@@ -21,7 +21,7 @@ function DocumentationPage() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <HeadingText
           title="DOCUMENTATION"
-          description="Everything you need to know about using Eden Emulator, from setup to advanced features."
+          description="Everything you need to know about using Eden, from setup to advanced features."
         />
 
         {SHOW_DOCUMENTATION ? (
@@ -46,7 +46,7 @@ function DocumentationPage() {
             <div className="relative">
               <h3 className="text-3xl font-bold text-white mb-4 tracking-wider">NEED MORE HELP?</h3>
               <p className="text-blue-100 mb-8">
-                Join our community for help and discussions about Eden Emulator.
+                Join our community for help and discussions about Eden.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a

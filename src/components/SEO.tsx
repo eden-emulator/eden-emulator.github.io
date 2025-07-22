@@ -9,9 +9,9 @@ interface SEOProps {
 }
 
 function SEO({
-  title = 'Eden Emulator - Open Source Nintendo Switch Emulator',
+  title = 'Eden - Open Source Nintendo Switch Emulator',
   description = 'Eden is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind. It is written in C++ with cross-platform support for Windows, Linux and Android. ',
-  keywords = 'Eden Emulator, Nintendo Switch emulator, Switch emulator, open source emulator, gaming emulator',
+  keywords = 'Eden, Nintendo Switch emulator, Switch emulator, open source emulator, gaming emulator',
   image = '/og-image.png',
   url = 'https://eden-emulator.github.io/',
 }: SEOProps) {

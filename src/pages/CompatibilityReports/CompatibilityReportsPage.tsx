@@ -105,9 +105,9 @@ function CompatibilityReportsPage() {
   return (
     <>
       <SEO
-        title="Eden Emulator Game Compatibility - Performance Reports"
-        description="Check game compatibility for Eden Emulator. Browse real-world performance reports from the community for Nintendo Switch games."
-        keywords="Eden Emulator compatibility, Switch game compatibility, game performance reports, Eden game support"
+        title="Eden Game Compatibility - Performance Reports"
+        description="Check game compatibility for Eden. Browse real-world performance reports from the community for Nintendo Switch games."
+        keywords="Eden compatibility, Switch game compatibility, game performance reports, Eden game support"
         url="https://eden-emulator.github.io/compatibility"
       />
 
@@ -374,7 +374,7 @@ function CompatibilityReportsPage() {
                   No Reports Found
                 </h3>
                 <p className="text-lg text-cyan-100/70 font-light">
-                  Be the first to test Eden Emulator and share your results!
+                  Be the first to test Eden and share your results!
                 </p>
               </div>
             </div>

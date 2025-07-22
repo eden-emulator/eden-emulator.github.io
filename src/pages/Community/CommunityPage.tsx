@@ -10,9 +10,9 @@ function CommunityPage() {
   return (
     <>
       <SEO
-        title="Eden Emulator Community - Join Discord, GitHub & More"
-        description="Join the Eden Emulator community. Connect with thousands of gamers and developers on Discord, contribute on GitHub, and help improve the emulator."
-        keywords="Eden Emulator community, Switch emulator Discord, Eden GitHub, emulator community"
+        title="Eden Community - Join Discord, GitHub & More"
+        description="Join the Eden community. Connect with thousands of gamers and developers on Discord, contribute on GitHub, and help improve the emulator."
+        keywords="Eden community, Switch emulator Discord, Eden GitHub, emulator community"
         url="https://eden-emulator.github.io/community"
       />
       <PageWrapper>
@@ -27,7 +27,7 @@ function CommunityPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
             title="JOIN THE COMMUNITY"
-            description="Connect with gamers, developers, and enthusiasts in the Eden Emulator community"
+            description="Connect with gamers, developers, and enthusiasts in the Eden community"
           />
 
           {/* Community Stats */}
@@ -109,7 +109,7 @@ function CommunityPage() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`Join Eden Emulator on ${link.name} (opens in new tab)`}
+                          aria-label={`Join Eden on ${link.name} (opens in new tab)`}
                           className="text-pink-400 hover:text-cyan-300 font-bold transition-colors duration-300 tracking-wider focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-black rounded px-2 py-1"
                         >
                           JOIN NOW →
@@ -144,8 +144,8 @@ function CommunityPage() {
                 HELP MAKE EDEN BETTER
               </h3>
               <p className="text-cyan-100 mb-8 max-w-2xl mx-auto font-light">
-                Eden Emulator is open source and community-driven. Whether you're a developer,
-                designer, we can use your help!
+                Eden is open source and community-driven. Whether you're a developer, designer, we
+                can use your help!
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a

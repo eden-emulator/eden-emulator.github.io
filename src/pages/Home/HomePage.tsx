@@ -34,7 +34,7 @@ function HomePage() {
               <source srcSet={edenLogoWebP} type="image/webp" />
               <img
                 src={edenLogoPNG}
-                alt="Eden Emulator logo"
+                alt="Eden logo"
                 className="mx-auto max-w-full h-auto max-h-60 mb-6 drop-shadow-2xl synthwave-logo-glow"
               />
             </picture>
@@ -56,7 +56,7 @@ function HomePage() {
             <Link
               to="/download"
               className={`group relative text-white px-10 py-4 rounded-lg font-bold text-lg transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-offset-black font-orbitron btn-synthwave-primary ${!shouldDisableAllAnimations ? 'will-change-transform' : ''}`}
-              aria-label="Download Eden Emulator"
+              aria-label="Download Eden"
             >
               <div
                 className={`absolute inset-0 rounded-lg ${getBlurAmount()} opacity-75 group-hover:opacity-100 transition-opacity ${transitionDuration} btn-synthwave-primary-glow ${!shouldDisableAllAnimations ? 'will-change-opacity' : ''}`}
@@ -73,7 +73,7 @@ function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               className={`group relative px-10 py-4 rounded-lg font-bold text-lg transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-offset-black font-orbitron btn-synthwave-secondary ${!shouldDisableAllAnimations ? 'will-change-transform' : ''}`}
-              aria-label="View Eden Emulator source code on GitLab (opens in new tab)"
+              aria-label="View Eden source code on GitLab (opens in new tab)"
             >
               <div
                 className={`absolute inset-0 rounded-lg ${getBlurAmount()} opacity-50 group-hover:opacity-100 transition-opacity ${transitionDuration} btn-synthwave-secondary-glow ${!shouldDisableAllAnimations ? 'will-change-opacity' : ''}`}
@@ -93,7 +93,7 @@ function HomePage() {
             <Link
               to="/features"
               className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-full px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-orange ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-orange`}
-              aria-label="View Eden Emulator features"
+              aria-label="View Eden features"
             >
               <Zap className="w-6 h-6" aria-hidden="true" />
               <span className="font-bold">Features</span>
@@ -102,7 +102,7 @@ function HomePage() {
             <Link
               to="/system-requirements"
               className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-full px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-pink ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-pink`}
-              aria-label="View system requirements for Eden Emulator"
+              aria-label="View system requirements for Eden"
             >
               <Cpu className="w-6 h-6" aria-hidden="true" />
               <span className="font-bold">System Requirements</span>
@@ -111,7 +111,7 @@ function HomePage() {
             <Link
               to="/donations"
               className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-full px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-yellow ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-yellow`}
-              aria-label="Download Eden Emulator"
+              aria-label="Download Eden"
             >
               <Heart className="w-6 h-6" aria-hidden="true" />
               <span className="font-bold">Donations</span>

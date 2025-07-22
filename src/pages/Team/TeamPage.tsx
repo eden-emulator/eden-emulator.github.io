@@ -11,9 +11,9 @@ function TeamPage() {
   return (
     <>
       <SEO
-        title="Eden Emulator Team - Meet the Developers"
-        description="Meet the passionate developers and contributors behind Eden Emulator. Learn about our team members and how you can contribute to the project."
-        keywords="Eden Emulator team, Eden developers, emulator contributors, open source team"
+        title="Eden Team - Meet the Developers"
+        description="Meet the passionate developers and contributors behind Eden. Learn about our team members and how you can contribute to the project."
+        keywords="Eden team, Eden developers, emulator contributors, open source team"
         url="https://eden-emulator.github.io/team"
       />
       <PageWrapper>
@@ -27,7 +27,7 @@ function TeamPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
             title="MEET THE TEAM"
-            description="The passionate developers and contributors behind Eden Emulator"
+            description="The passionate developers and contributors behind Eden"
           />
 
           {/* Team Stats */}
@@ -120,7 +120,7 @@ function TeamPage() {
                         {/* Bio */}
                         <p className="text-cyan-100/90 font-light mb-6 leading-relaxed flex-1">
                           {member.bio ||
-                            `Contributing to Eden Emulator with expertise in ${member.specialties[0]?.toLowerCase() || 'development'}.`}
+                            `Contributing to Eden with expertise in ${member.specialties[0]?.toLowerCase() || 'development'}.`}
                         </p>
 
                         {/* Specialties */}
@@ -201,7 +201,7 @@ function TeamPage() {
                   PAST MEMBERS
                 </h3>
                 <p className="text-lg text-gray-400/80 font-light max-w-2xl mx-auto">
-                  Former contributors who helped shape Eden Emulator
+                  Former contributors who helped shape Eden
                 </p>
               </div>
 
@@ -287,7 +287,7 @@ function TeamPage() {
                 <a
                   href="https://discord.gg/edenemu"
                   target="_blank"
-                  aria-label="Join Eden Emulator Discord"
+                  aria-label="Join Eden Discord"
                   rel="noopener noreferrer"
                   className="px-8 py-4 bg-linear-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white rounded-lg font-bold tracking-wider transition-all duration-300 shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70"
                 >
@@ -296,7 +296,7 @@ function TeamPage() {
                 <a
                   href="https://git.eden-emu.dev/eden-emu/eden/"
                   target="_blank"
-                  aria-label="Contribute to Eden Emulator"
+                  aria-label="Contribute to Eden"
                   rel="noopener noreferrer"
                   className="px-8 py-4 border-2 border-cyan-400 text-cyan-300 hover:text-white rounded-lg font-bold tracking-wider transition-all duration-300 hover:bg-cyan-400/10"
                 >

@@ -13,9 +13,9 @@ function DownloadPage() {
   return (
     <>
       <SEO
-        title="Download Eden Emulator - Windows, Linux, macOS & Android"
-        description="Download the latest version of Eden Emulator for your platform. Available for Windows, Linux, macOS, and Android with regular updates and improvements."
-        keywords="download Eden Emulator, Eden Switch emulator download, free Switch emulator, emulator download"
+        title="Download Eden - Windows, Linux, macOS & Android"
+        description="Download the latest version of Eden for your platform. Available for Windows, Linux, macOS, and Android with regular updates and improvements."
+        keywords="download Eden, Eden Switch emulator download, free Switch emulator, emulator download"
         url="https://eden-emulator.github.io/download"
       />
       <PageWrapper>
@@ -91,7 +91,7 @@ function DownloadPage() {
                         ? 'bg-linear-to-r from-purple-500 to-blue-600 hover:from-purple-400 hover:to-blue-500 text-white shadow-lg shadow-purple-500/50'
                         : 'border-2 border-blue-400 text-blue-300 hover:bg-blue-400/10 hover:text-white',
                     )}
-                    aria-label={`Download Eden Emulator for ${platform.name} (${platform.version}, ${platform.size}) - opens in new tab`}
+                    aria-label={`Download Eden for ${platform.name} (${platform.version}, ${platform.size}) - opens in new tab`}
                   >
                     <Download className="w-5 h-5" aria-hidden="true" />
                     <span>DOWNLOAD</span>
