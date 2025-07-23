@@ -106,8 +106,7 @@ export const teamSections: TeamSection[] = [
       {
         name: 'Gamer64',
         role: 'Frontend and Vulkan',
-        avatar:
-          'https://cdn.discordapp.com/avatars/593911161226002442/39f31d2b045922931aee3135278f730b.webp?size=1024',
+        avatar: 'https://avatars.githubusercontent.com/u/76565986?v=4', // https://cdn.discordapp.com/avatars/593911161226002442/39f31d2b045922931aee3135278f730b.webp?size=1024
         specialties: ['Frontend', 'Vulkan', 'Graphics'],
         icon: Code2,
         color: 'from-green-500 to-emerald-500',
