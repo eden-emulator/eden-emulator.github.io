@@ -60,14 +60,14 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   /* Force GPU acceleration for better scroll performance */
   body {
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000px;
   }
-  
+
   /* Simple performance mode - disables backdrop-filter for users with performance issues */
   .no-backdrop-filter .backdrop-blur-xs,
   .no-backdrop-filter .backdrop-blur-sm,

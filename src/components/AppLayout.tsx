@@ -8,10 +8,10 @@ import { useBackdropFilterSupport } from '@/hooks/useBackdropFilterSupport'
 function AppLayout() {
   // Enable scroll performance optimizations
   useScrollPerformance()
-  
+
   // Check backdrop-filter support
   const { isSupported } = useBackdropFilterSupport()
-  
+
   useEffect(() => {
     if (!isSupported) {
       document.body.classList.add('no-backdrop-filter')

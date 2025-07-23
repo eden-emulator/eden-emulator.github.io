@@ -30,25 +30,25 @@ export const useBackdropFilterSupport = () => {
       pointer-events: none;
       z-index: 99999;
     `
-    
+
     document.body.appendChild(testElement)
-    
+
     let frameCount = 0
-    let startTime = performance.now()
-    
+    const startTime = performance.now()
+
     const measurePerformance = () => {
       frameCount++
-      
+
       if (performance.now() - startTime >= 1000) {
         // If we get less than 50fps with backdrop-filter, disable it
         const fps = frameCount
         const shouldEnable = fps >= 50
-        
+
         setIsSupported(shouldEnable)
         localStorage.setItem(STORAGE_KEY, String(shouldEnable))
-        
+
         document.body.removeChild(testElement)
-        
+
         if (!shouldEnable) {
           console.log(`Backdrop-filter disabled due to low performance (${fps} FPS)`)
         }
@@ -56,7 +56,7 @@ export const useBackdropFilterSupport = () => {
         requestAnimationFrame(measurePerformance)
       }
     }
-    
+
     requestAnimationFrame(measurePerformance)
   }, [])
 
