@@ -550,6 +550,7 @@ a:focus {
   inset: 0;
   overflow: hidden;
   perspective: 1000px;
+  filter: brightness(0.5);
 }
 
 /* Horizontal synthwave grid lines with glow */
