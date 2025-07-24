@@ -92,7 +92,7 @@ function HomePage() {
           >
             <Link
               to="/features"
-              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-full px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-orange ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-orange`}
+              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-lg px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-orange ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-orange`}
               aria-label="View Eden features"
             >
               <Zap className="w-6 h-6" aria-hidden="true" />
@@ -101,7 +101,7 @@ function HomePage() {
 
             <Link
               to="/system-requirements"
-              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-full px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-pink ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-pink`}
+              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-lg px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-pink ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-pink`}
               aria-label="View system requirements for Eden"
             >
               <Cpu className="w-6 h-6" aria-hidden="true" />
@@ -110,7 +110,7 @@ function HomePage() {
 
             <Link
               to="/donations"
-              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-full px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-yellow ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-yellow`}
+              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-lg px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-yellow ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-yellow`}
               aria-label="Download Eden"
             >
               <Heart className="w-6 h-6" aria-hidden="true" />
