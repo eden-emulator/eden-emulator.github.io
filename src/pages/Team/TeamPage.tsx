@@ -17,6 +17,7 @@ function TeamPage() {
         url="https://eden-emulator.github.io/team"
       />
       <PageWrapper>
+        <div className="h-24 md:h-34" />
         {/* Background Effects */}
         <div className="absolute inset-0">
           <div className="absolute top-0 right-1/4 w-80 h-80 bg-purple-500/8 rounded-full blur-xl animate-float will-change-transform" />
