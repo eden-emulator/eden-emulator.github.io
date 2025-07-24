@@ -538,10 +538,10 @@ a:focus {
 
 @keyframes synthwave-flow {
   0% {
-    transform: translateZ(0) translateY(0);
+    transform: translateY(0%);
   }
   100% {
-    transform: translateZ(200px) translateY(-100px);
+    transform: translateY(-64px);
   }
 }
 
@@ -556,27 +556,24 @@ a:focus {
 .synthwave-animated-bg::before {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: -50%;
-  right: -50%;
-  height: 60%;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent 0,
-    transparent 28px,
-    var(--synthwave-hot-pink) 28px,
-    var(--synthwave-hot-pink) 30px,
-    transparent 30px,
-    transparent 58px,
-    var(--synthwave-cyan) 58px,
-    var(--synthwave-cyan) 60px,
-    transparent 60px
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--synthwave-hot-pink) 0px,
+    var(--synthwave-hot-pink) 2px,
+    transparent 2px,
+    transparent 32px,
+    var(--synthwave-cyan) 32px,
+    var(--synthwave-cyan) 34px,
+    transparent 34px,
+    transparent 64px
   );
-  transform: perspective(400px) rotateX(75deg);
-  transform-origin: bottom;
   opacity: 0.3;
-  filter: blur(0.5px) drop-shadow(0 0 10px var(--synthwave-hot-pink))
-    drop-shadow(0 0 10px var(--synthwave-cyan));
+  filter: blur(0.5px) drop-shadow(0 0 6px var(--synthwave-hot-pink))
+      drop-shadow(0 0 6px var(--synthwave-cyan));
   animation: synthwave-flow 12s linear infinite;
 }
 
