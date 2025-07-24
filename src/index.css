@@ -599,6 +599,11 @@ a:focus {
     var(--synthwave-blue) 121px,
     transparent 121px
   );
+
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 90%, transparent 100%);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+
   transform: perspective(400px) rotateX(75deg);
   transform-origin: bottom;
   opacity: 0.25;
