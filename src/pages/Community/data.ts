@@ -1,5 +1,5 @@
-import { MessageSquare, GitGraph, type LucideIcon, Download } from 'lucide-react'
-import { DiscordIcon, TwitterIcon, type Icon, GitHubIcon } from '@/components/Icons'
+import { MessageSquare, GitGraph, CloudDownload, type LucideIcon } from 'lucide-react'
+import { DiscordIcon, TwitterIcon, GitIcon, type Icon } from '@/components/Icons'
 
 interface Stat {
   label: string
@@ -21,7 +21,7 @@ export const stats: Stat[] = [
   {
     label: 'DOWNLOADS',
     value: '420,069+',
-    icon: Download,
+    icon: CloudDownload,
     color: 'from-blue-400 to-cyan-500',
   },
   {
@@ -55,7 +55,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: 'Git Repository',
-    icon: GitHubIcon,
+    icon: GitIcon,
     href: 'https://git.eden-emu.dev/eden-emu/eden',
     description: 'Contribute to the project and report issues',
     color: 'from-gray-600 to-gray-800',
@@ -72,7 +72,7 @@ export const socialLinks: SocialLink[] = [
   {
     name: 'EMUREADY x EDEN',
     icon: MessageSquare,
-    href: 'https://forums.emuready.com',
+    href: 'https://www.emuready.com/listings?emulatorIds=43bfc023-ec22-422d-8324-048a8ec9f28f',
     description: 'Community-driven platform for emulation compatibility reports.',
     color: 'from-purple-500 to-pink-600',
     hoverColor: 'hover:from-purple-400 hover:to-pink-500',
