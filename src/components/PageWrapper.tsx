@@ -6,7 +6,7 @@ interface PageWrapperProps extends PropsWithChildren {
   className?: string
 }
 
-export default function PageWrapper(props: PageWrapperProps) {
+function PageWrapper(props: PageWrapperProps) {
   return (
     <div
       className={cn(
@@ -19,3 +19,5 @@ export default function PageWrapper(props: PageWrapperProps) {
     </div>
   )
 }
+
+export default PageWrapper

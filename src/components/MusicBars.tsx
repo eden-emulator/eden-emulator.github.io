@@ -32,9 +32,7 @@ function MusicBars() {
   )
 
   // Don't render anything if no bars should be shown
-  if (barCount === 0) {
-    return null
-  }
+  if (barCount === 0) return null
 
   return (
     <div
