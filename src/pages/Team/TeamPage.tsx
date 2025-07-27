@@ -81,38 +81,38 @@ function TeamPage() {
 
                       <div className="p-8 flex-1 flex flex-col">
                         {/* Avatar/Icon Section */}
-                        <div className="flex items-center gap-4 mb-6">
+                        <div className="flex items-start gap-4 mb-6">
                           {member.avatar ? (
-                            <div className="w-20 h-20 rounded-xl border-2 border-purple-500/30 shadow-lg overflow-hidden bg-black/40 flex items-center justify-center">
+                            <div className="w-20 h-20 flex-shrink-0 rounded-xl border-2 border-purple-500/30 shadow-lg overflow-hidden bg-black/40">
                               <img
                                 src={member.avatar}
                                 alt={member.name}
-                                className="w-full h-full object-contain"
+                                className="w-full h-full object-cover"
                               />
                             </div>
                           ) : (
                             <div
                               className={cn(
-                                'w-20 h-20 rounded-xl bg-linear-to-r opacity-20 border-2 border-purple-500/30',
+                                'w-20 h-20 flex-shrink-0 rounded-xl bg-linear-to-r opacity-20 border-2 border-purple-500/30',
                                 member.color,
                               )}
                             />
                           )}
-                          <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-1">
-                              <h4 className="text-xl font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-300 to-purple-300">
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-start gap-3 mb-1">
+                              <h4 className="text-xl font-bold text-transparent bg-clip-text bg-linear-to-r from-cyan-300 to-purple-300 break-all flex-1 min-w-0">
                                 {member.name}
                               </h4>
                               <div
                                 className={cn(
-                                  'p-2 rounded-lg bg-linear-to-r shadow-md',
+                                  'p-2 rounded-lg bg-linear-to-r shadow-md flex-shrink-0',
                                   member.color,
                                 )}
                               >
                                 <member.icon className="w-4 h-4 text-black" />
                               </div>
                             </div>
-                            <p className="text-pink-400 font-semibold text-sm uppercase tracking-wider">
+                            <p className="text-pink-400 font-semibold text-sm uppercase tracking-wider break-words">
                               {member.role}
                             </p>
                           </div>

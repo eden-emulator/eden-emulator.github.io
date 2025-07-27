@@ -574,7 +574,7 @@ a:focus {
   );
   opacity: 0.3;
   filter: blur(0.5px) drop-shadow(0 0 6px var(--synthwave-hot-pink))
-      drop-shadow(0 0 6px var(--synthwave-cyan));
+    drop-shadow(0 0 6px var(--synthwave-cyan));
   animation: synthwave-flow 12s linear infinite;
 }
 
