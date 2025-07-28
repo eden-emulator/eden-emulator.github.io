@@ -20,7 +20,7 @@ function DocumentationPage() {
       </div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <HeadingText
-          title="DOCUMENTATION"
+          title="Documentation"
           description="Everything you need to know about using Eden, from setup to advanced features."
         />
 
