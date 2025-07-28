@@ -130,7 +130,7 @@ function CompatibilityReportsPage() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
-            title="GAME COMPATIBILITY"
+            title="Game Compatibility"
             description="Real-world performance reports from the Eden community"
           />
 

@@ -196,7 +196,7 @@ export const teamSections: TeamSection[] = [
         role: 'Graphic Designer',
         avatar:
           'https://i.ibb.co/5hLVqQQW/755d80ac15759b03bbf1ae188f2f8f6b4671a5025228f5f53151231b34494f37.png',
-        specialties: ['Logo Design', 'Branding', 'Graphics', 'Mod'],
+        specialties: ['Logo Design', 'Branding', 'Graphics', 'Admin'],
         icon: Palette,
         color: 'from-pink-500 to-purple-500',
         socials: {
@@ -208,7 +208,7 @@ export const teamSections: TeamSection[] = [
         role: 'Main Web Designer',
         avatar:
           'https://cdn.discordapp.com/avatars/707876199329824798/8ee1442551c6031f6de11c12c9bf282e.png?size=1024',
-        specialties: ['Web Design', 'Frontend', 'UX', 'Mod'],
+        specialties: ['Web Design', 'Frontend', 'UX', 'Admin'],
         icon: Users,
         color: 'from-cyan-500 to-teal-500',
         socials: {

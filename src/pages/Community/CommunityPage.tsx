@@ -26,7 +26,7 @@ function CommunityPage() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
-            title="JOIN THE COMMUNITY"
+            title="Join The Community"
             description="Connect with gamers, developers, and enthusiasts in the Eden community"
           />
 
