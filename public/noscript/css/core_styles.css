@@ -58,9 +58,9 @@ header, section, footer {
     border-color: rgb(228, 121, 242);
     border-width: 2px;
 
-    -webkit-box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
-    -moz-box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
-    box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
+    -webkit-box-shadow: 0 0 10px 5px rgb(228, 121, 242);
+    -moz-box-shadow: 0 0 10px 5px rgb(228, 121, 242);
+    box-shadow: 0 0 10px 5px rgb(228, 121, 242);
 }
 
 a:link {
@@ -329,9 +329,9 @@ nav a {
     /* border-color: rgb(228, 121, 242); */
     border-width: 0;
 
-    -webkit-box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
-    -moz-box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
-    box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
+    -webkit-box-shadow: 0 0 10px 5px rgb(228, 121, 242);
+    -moz-box-shadow: 0 0 10px 5px rgb(228, 121, 242);
+    box-shadow: 0 0 10px 5px rgb(228, 121, 242);
 }
 
 .dev-card a {
@@ -373,11 +373,11 @@ nav a {
 /* FOOTER CONTENT */
 /* ------------ */
 .spacer {
-    margin: 15px 30px 0px;
+    margin: 15px 30px 0;
 }
 
 h6 {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     margin-top: 15px;
 }
 
