@@ -1,8 +1,10 @@
 import { Apple, AppWindow as Windows, type LucideIcon, Monitor, Smartphone } from 'lucide-react'
 import type { PlatformType } from '@/utils/getCurrentPlatform.ts'
 
-const DOWNLOAD_VERSION = 'v0.0.3-rc1' as const
-const DOWNLOAD_URL = 'https://github.com/eden-emulator/Releases/releases/tag/v0.0.3-rc1' as const
+const DOWNLOAD_VERSION = import.meta.env.VITE_DOWNLOAD_VERSION || 'v0.0.3-rc1'
+const DOWNLOAD_URL =
+  import.meta.env.VITE_DOWNLOAD_URL ||
+  'https://github.com/eden-emulator/Releases/releases/tag/v0.0.3-rc1'
 
 interface Platform {
   name: string
