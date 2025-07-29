@@ -35,7 +35,9 @@ jobs:
       - name: Build project
         run: npm run build
         env:
-          VITE_EMUREADY_API_BASE_URL: https://www.emuready.com/api
+          VITE_EMUREADY_API_BASE_URL: ${{ VITE_EMUREADY_API_BASE_URL }}
+          VITE_DOWNLOAD_VERSION: ${{ secrets.VITE_DOWNLOAD_VERSION }}
+          VITE_DOWNLOAD_URL: ${{ secrets.VITE_DOWNLOAD_URL }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
