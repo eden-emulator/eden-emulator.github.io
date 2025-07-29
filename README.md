@@ -20,7 +20,13 @@ We welcome pull requests for improvements, features, and fixes.
 npm install
 ```
 
-### 2. Start the development server
+### 2. Copy env
+
+```bash
+cp .env.example .env
+```
+
+### 3. Start the development server
 
 ```bash
 npm run dev
