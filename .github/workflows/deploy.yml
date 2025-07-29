@@ -35,7 +35,7 @@ jobs:
       - name: Build project
         run: npm run build
         env:
-          VITE_EMUREADY_API_BASE_URL: ${{ VITE_EMUREADY_API_BASE_URL }}
+          VITE_EMUREADY_API_BASE_URL: ${{ secrets.VITE_EMUREADY_API_BASE_URL }}
           VITE_DOWNLOAD_VERSION: ${{ secrets.VITE_DOWNLOAD_VERSION }}
           VITE_DOWNLOAD_URL: ${{ secrets.VITE_DOWNLOAD_URL }}
 
