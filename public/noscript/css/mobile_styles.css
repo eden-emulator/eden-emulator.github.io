@@ -1,295 +1,294 @@
 @media screen and (max-width: 768px) {
-  body {
-    /* display: block; */
-    text-align: center;
-  }
+    body {
+        /* display: block; */
+        text-align: center;
+    }
 
-  /* Old static header */
-  /* header {
-        flex-direction: column;
-        padding: 10px 5px;
+    /* Old static header */
+    /* header {
+          flex-direction: column;
+          padding: 10px 5px;
+          margin: 20px 20px 15px;
+          gap: 10px;
+      } */
+    /* New hotness hamburger menu */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
         margin: 20px 20px 15px;
+    }
+
+    section {
+        margin: 15px 20px;
+    }
+
+    p {
+        margin: 15px 0;
+    }
+
+    nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    nav a {
+        width: 100%;
+        padding: 8px 0;
+        white-space: normal;
+        font-size: 14px;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        padding: 15px;
+        /* margin: 5px; */
+        /* margin: 10px 30px; */
+        margin: 15px 20px;
+        /* border-radius: 8px; */
+        text-align: center;
+    }
+
+    .hero-text,
+    .hero-image {
+        width: 100%;
+        min-width: unset;
+        padding: 10px 0;
+        text-align: center;
+        margin: 0;
+    }
+
+    .hero-text h1 {
+        margin-top: 0.5rem;
+    }
+
+    .hero-image img {
+        min-width: 80%;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .carousel-caption {
+        min-width: 80%;
+        width: 80%;
+        left: 10%;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 15px;
+    }
+
+    .button {
+        width: 80%;
+        padding: 12px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .info {
+        flex-direction: column;
+        padding: 15px;
+        /* margin: 5px; */
+        /* margin: 10px 30px; */
+        margin: 15px 20px;
         gap: 10px;
-    } */
+        /* border-radius: 8px; */
+    }
 
-  /* New hotness hamburger menu */
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    margin: 20px 20px 15px;
-  }
+    .card {
+        width: 100%;
+        max-width: 100%;
+        min-width: unset;
+        margin: 0;
+        padding: 15px;
+        box-sizing: border-box;
+    }
 
-  section {
-    margin: 15px 20px;
-  }
+    .dev-group {
+        padding: 15px;
+    }
 
-  p {
-    margin: 15px 0;
-  }
+    .dev-group h2 {
+        margin-bottom: 15px;
+    }
 
-  nav {
-    flex-direction: column;
-    width: 100%;
-    gap: 5px;
-  }
+    .dev-list {
+        gap: 15px;
+    }
 
-  nav a {
-    width: 100%;
-    padding: 8px 0;
-    white-space: normal;
-    font-size: 14px;
-  }
+    .dev-card {
+        /* dev page cards */
+        /* width: 97px; */
+        width: 36%;
+    }
 
-  .hero {
-    flex-direction: column-reverse;
-    padding: 15px;
-    /* margin: 5px; */
-    /* margin: 10px 30px; */
-    margin: 15px 20px;
-    /* border-radius: 8px; */
-    text-align: center;
-  }
+    .dev-card p {
+        /* inline-size: 97px; */
+        inline-size: 100%;
+        overflow-wrap: break-word;
+    }
 
-  .hero-text,
-  .hero-image {
-    width: 100%;
-    min-width: unset;
-    padding: 10px 0;
-    text-align: center;
-    margin: 0;
-  }
+    .dev-card .icon {
+        margin: 0;
+    }
 
-  .hero-text h1 {
-    margin-top: 0.5rem;
-  }
+    footer {
+        /* margin: 5px; */
+        /* margin: 10px 20px 20px; */
+        margin: auto 20px 15px;
+        padding: 10px;
+        /* border-radius: 8px; */
+    }
 
-  .hero-image img {
-    min-width: 80%;
-    width: 80%;
-    margin: 0 auto;
-  }
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1000;
+    }
 
-  .carousel-caption {
-    min-width: 80%;
-    width: 80%;
-    left: 10%;
-  }
+    .hamburger-box {
+        width: 30px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+    }
 
-  .buttons {
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 15px;
-  }
+    .hamburger-inner {
+        display: block;
+        top: 50%;
+        margin-top: -2px;
+    }
 
-  .button {
-    width: 80%;
-    padding: 12px;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 4px;
+        position: absolute;
+        transition: transform 0.15s ease;
+    }
 
-  .info {
-    flex-direction: column;
-    padding: 15px;
-    /* margin: 5px; */
-    /* margin: 10px 30px; */
-    margin: 15px 20px;
-    gap: 10px;
-    /* border-radius: 8px; */
-  }
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        content: '';
+        display: block;
+    }
 
-  .card {
-    width: 100%;
-    max-width: 100%;
-    min-width: unset;
-    margin: 0;
-    padding: 15px;
-    box-sizing: border-box;
-  }
+    .hamburger-inner::before {
+        top: -10px;
+    }
 
-  .dev-group {
-    padding: 15px;
-  }
+    .hamburger-inner::after {
+        bottom: -10px;
+    }
 
-  .dev-group h2 {
-    margin-bottom: 15px;
-  }
+    .nav-mobile {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100%;
+        background-color: #2a0a4a;
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        gap: 15px;
+        transition: right 0.3s ease;
+        z-index: 999;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
 
-  .dev-list {
-    gap: 15px;
-  }
+    .nav-mobile a {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 16px;
+        text-align: left;
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: background-color 0.2s;
+    }
 
-  .dev-card {
-    /* dev page cards */
-    /* width: 97px; */
-    width: 36%;
-  }
+    .nav-mobile a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
 
-  .dev-card p {
-    /* inline-size: 97px; */
-    inline-size: 100%;
-    overflow-wrap: break-word;
-  }
+    .nav-mobile.active {
+        right: 0;
+    }
 
-  .dev-card .icon {
-    margin: 0;
-  }
+    .hero-header {
+        padding: 20px;
+    }
 
-  footer {
-    /* margin: 5px; */
-    /* margin: 10px 20px 20px; */
-    margin: auto 20px 15px;
-    padding: 10px;
-    /* border-radius: 8px; */
-  }
+    .requirement-category {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
 
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1000;
-  }
+    .requirement-tier {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 10px 0;
+    }
 
-  .hamburger-box {
-    width: 30px;
-    height: 24px;
-    display: inline-block;
-    position: relative;
-  }
+    .tier-label {
+        margin-right: 0;
+        margin-bottom: 5px;
+        width: 80%;
+        text-align: left;
+    }
 
-  .hamburger-inner {
-    display: block;
-    top: 50%;
-    margin-top: -2px;
-  }
+    .platform-tag {
+        display: block;
+        margin: 5px 0;
+        width: fit-content;
+    }
 
-  .hamburger-inner,
-  .hamburger-inner::before,
-  .hamburger-inner::after {
-    width: 30px;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 4px;
-    position: absolute;
-    transition: transform 0.15s ease;
-  }
+    .hardware-icon {
+        width: 20px;
+        height: 20px;
+    }
 
-  .hamburger-inner::before,
-  .hamburger-inner::after {
-    content: '';
-    display: block;
-  }
+    .hero-header h1 {
+        font-size: 1.5rem;
+    }
 
-  .hamburger-inner::before {
-    top: -10px;
-  }
+    .hero-header h2 {
+        font-size: 1.2rem;
+    }
 
-  .hamburger-inner::after {
-    bottom: -10px;
-  }
+    .hero-header p {
+        font-size: 0.9rem;
+    }
 
-  .nav-mobile {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 60%;
-    height: 100%;
-    background-color: #2a0a4a;
-    flex-direction: column;
-    padding: 80px 20px 20px;
-    gap: 15px;
-    transition: right 0.3s ease;
-    z-index: 999;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-  }
+    .requirement-category {
+        display: flex;
+        flex-direction: column;
+    }
 
-  .nav-mobile a {
-    width: 100%;
-    padding: 12px 0;
-    font-size: 16px;
-    text-align: left;
-    color: #fff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background-color 0.2s;
-  }
+    .requirement-tier span:not(.tier-label) {
+        word-break: break-word;
+    }
 
-  .nav-mobile a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+    section {
+        margin: 10px 15px;
+    }
 
-  .nav-mobile.active {
-    right: 0;
-  }
-
-  .hero-header {
-    padding: 20px;
-  }
-
-  .requirement-category {
-    padding: 15px;
-    margin-bottom: 20px;
-  }
-
-  .requirement-tier {
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 10px 0;
-  }
-
-  .tier-label {
-    margin-right: 0;
-    margin-bottom: 5px;
-    width: 80%;
-    text-align: left;
-  }
-
-  .platform-tag {
-    display: block;
-    margin: 5px 0;
-    width: fit-content;
-  }
-
-  .hardware-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .hero-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero-header h2 {
-    font-size: 1.2rem;
-  }
-
-  .hero-header p {
-    font-size: 0.9rem;
-  }
-
-  .requirement-category {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .requirement-tier span:not(.tier-label) {
-    word-break: break-word;
-  }
-
-  section {
-    margin: 10px 15px;
-  }
-
-  .platform-tag {
-    font-size: 0.7em;
-    padding: 1px 6px;
-  }
+    .platform-tag {
+        font-size: 0.7em;
+        padding: 1px 6px;
+    }
 }
