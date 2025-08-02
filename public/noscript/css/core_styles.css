@@ -12,7 +12,7 @@ html {
     background-size: cover;
 }
 
-body { /* main area */
+body {   /* main area */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -58,9 +58,9 @@ header, section, footer {
     border-color: rgb(228, 121, 242);
     border-width: 2px;
 
-    -webkit-box-shadow: 0 0 10px 5px rgb(228, 121, 242);
-    -moz-box-shadow: 0 0 10px 5px rgb(228, 121, 242);
-    box-shadow: 0 0 10px 5px rgb(228, 121, 242);
+    -webkit-box-shadow:0px 0px 10px 5px rgb(228, 121, 242);
+    -moz-box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
+    box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
 }
 
 a:link {
@@ -99,11 +99,11 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .hamburger {
-    display: none;
+        display: none;
 }
 
 /* ------------ */
@@ -177,7 +177,7 @@ nav a {
     flex-direction: column;
     flex: 1;
     text-align: left;
-    /*     padding: 20px; */
+/*     padding: 20px; */
     min-width: 285px;
     margin-right: 15px;
     height: 230px;
@@ -234,7 +234,7 @@ nav a {
     margin-top: auto;
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: 15px;    
 }
 
 .button {
@@ -317,21 +317,20 @@ nav a {
     flex-direction: column;
     align-items: center;
 }
-
 /* .dev-card p {
     inline-size: 150px;
     overflow-wrap: break-word;
 } */
 
-.dev-list > :hover {
+.dev-list>:hover{
     border-radius: 10px;
     /* border-style: solid; */
     /* border-color: rgb(228, 121, 242); */
     border-width: 0;
 
-    -webkit-box-shadow: 0 0 10px 5px rgb(228, 121, 242);
-    -moz-box-shadow: 0 0 10px 5px rgb(228, 121, 242);
-    box-shadow: 0 0 10px 5px rgb(228, 121, 242);
+    -webkit-box-shadow:0px 0px 10px 5px rgb(228, 121, 242);
+    -moz-box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
+    box-shadow: 0px 0px 10px 5px rgb(228, 121, 242);
 }
 
 .dev-card a {
@@ -373,11 +372,11 @@ nav a {
 /* FOOTER CONTENT */
 /* ------------ */
 .spacer {
-    margin: 15px 30px 0;
+    margin: 15px 30px 0px;
 }
 
 h6 {
-    margin-bottom: 0;
+    margin-bottom: 0px;
     margin-top: 15px;
 }
 

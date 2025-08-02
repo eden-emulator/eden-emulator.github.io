@@ -9,21 +9,23 @@ header > nav > a:hover {
     color: white;
 }
 
+
+
 /* Feles base tweaks */
 
 a:link {
-    color: rgb(50, 100, 238);
+    color: rgb(50, 100, 238)
 }
 
 a:visited {
-    color: rgb(135, 76, 139);
+    color: rgb(135, 76, 139)
 }
 
 a:hover {
-    color: rgb(75, 150, 238);
+    color: rgb(75, 150, 238)
 }
 
-header {
+header{
     margin: 20px 20px 10px;
 }
 

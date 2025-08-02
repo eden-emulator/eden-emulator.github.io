@@ -1,5 +1,4 @@
-body {
-    /* main area */
+body {   /* main area */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -11,8 +10,7 @@ body {
     min-height: 100vh;
 }
 
-header {
-    /* header bit with page links and log */
+header { /* header bit with page links and log */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -107,8 +105,7 @@ nav a {
     margin-bottom: 10px;
 }
 
-html,
-body {
+html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -149,8 +146,7 @@ body {
     gap: 20px;
 }
 
-.dev-card {
-    /* dev page cards */
+.dev-card { /* dev page cards */
     background: #1e1e1e;
     padding: 15px;
     border-radius: 10px;
@@ -172,6 +168,7 @@ body {
     height: 40px;
     margin-top: 10px;
 }
+
 
 /* moblie things*/
 @media (max-width: 768px) {

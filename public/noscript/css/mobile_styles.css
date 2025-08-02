@@ -6,11 +6,12 @@
 
     /* Old static header */
     /* header {
-          flex-direction: column;
-          padding: 10px 5px;
-          margin: 20px 20px 15px;
-          gap: 10px;
-      } */
+        flex-direction: column;
+        padding: 10px 5px;
+        margin: 20px 20px 15px;
+        gap: 10px;
+    } */
+
     /* New hotness hamburger menu */
     header {
         flex-direction: row;
@@ -120,8 +121,7 @@
         gap: 15px;
     }
 
-    .dev-card {
-        /* dev page cards */
+    .dev-card { /* dev page cards */
         /* width: 97px; */
         width: 36%;
     }
@@ -130,7 +130,7 @@
         /* inline-size: 97px; */
         inline-size: 100%;
         overflow-wrap: break-word;
-    }
+     }
 
     .dev-card .icon {
         margin: 0;
@@ -184,7 +184,7 @@
 
     .hamburger-inner::before,
     .hamburger-inner::after {
-        content: '';
+        content: "";
         display: block;
     }
 
