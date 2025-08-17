@@ -8,12 +8,14 @@ interface SEOProps {
   url?: string
 }
 
+const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+
 function SEO({
   title = 'Eden - Open Source Nintendo Switch Emulator',
   description = 'Eden is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind. It is written in C++ with cross-platform support for Windows, Linux and Android. ',
   keywords = 'Eden, Nintendo Switch emulator, Switch emulator, open source emulator, gaming emulator',
   image = '/og-image.png',
-  url = 'https://eden-emulator.github.io/',
+  url = APP_URL,
 }: SEOProps) {
   useEffect(() => {
     // Update document title

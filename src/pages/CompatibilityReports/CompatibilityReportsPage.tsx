@@ -8,6 +8,8 @@ import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
 import ReportCard from './components/ReportCard'
 
+const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+
 function CompatibilityReportsPage() {
   const [reports, setReports] = useState<CompatibilityReport[]>([])
   const [isLoading, setIsLoading] = useState(false)
@@ -103,7 +105,7 @@ function CompatibilityReportsPage() {
         title="Eden Game Compatibility - Performance Reports"
         description="Check game compatibility for Eden. Browse real-world performance reports from the community for Nintendo Switch games, powered by EmuReady."
         keywords="Eden compatibility, Switch game compatibility, game performance reports, Eden game support, EmuReady"
-        url="https://eden-emulator.github.io/compatibility"
+        url={`${APP_URL}/compatibility`}
       />
 
       <PageWrapper>

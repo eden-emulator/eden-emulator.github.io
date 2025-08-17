@@ -7,16 +7,18 @@ import getDynamicPlatforms from '@/pages/Download/utils/getDynamicPlatforms.ts'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
 
+const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+
 function DownloadPage() {
   const platformOptions = useMemo(() => getDynamicPlatforms(), [])
 
   return (
     <>
       <SEO
-        title="Download Eden - Windows, Linux, macOS & Android"
-        description="Download the latest version of Eden for your platform. Available for Windows, Linux, macOS, and Android with regular updates and improvements."
+        title="Download Eden - Windows, Linux, macOS, FreeBSD, Solaris, OpenBSD, and Android"
+        description="Download the latest version of Eden for your platform. Available for Windows, Linux, macOS, FreeBSD, Solaris, OpenBSD, and Android with regular updates and improvements."
         keywords="download Eden, Eden Switch emulator download, free Switch emulator, emulator download"
-        url="https://eden-emulator.github.io/download"
+        url={`${APP_URL}/download`}
       />
       <PageWrapper>
         <div className="h-24 md:h-34" />
