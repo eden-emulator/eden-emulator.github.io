@@ -5,6 +5,8 @@ import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
 
+const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+
 function FeaturesPage() {
   return (
     <>
@@ -12,7 +14,7 @@ function FeaturesPage() {
         title="Eden Features - High Performance Switch Emulation"
         description="Explore Eden's features: high performance emulation, cross-platform support, clean interface, and active development. Experience Switch games on your device."
         keywords="Eden features, Switch emulator features, emulation performance, cross-platform emulator"
-        url="https://eden-emulator.github.io/features"
+        url={`${APP_URL}/features`}
       />
       <PageWrapper>
         <div className="h-24 md:h-34" />

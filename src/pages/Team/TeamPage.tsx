@@ -7,6 +7,8 @@ import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
 
+const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+
 function TeamPage() {
   return (
     <>
@@ -14,7 +16,7 @@ function TeamPage() {
         title="Eden Team - Meet the Developers"
         description="Meet the passionate developers and contributors behind Eden. Learn about our team members and how you can contribute to the project."
         keywords="Eden team, Eden developers, emulator contributors, open source team"
-        url="https://eden-emulator.github.io/team"
+        url={`${APP_URL}/team`}
       />
       <PageWrapper>
         <div className="h-24 md:h-34" />

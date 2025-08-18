@@ -24,7 +24,8 @@ function HomePage() {
 
   return (
     <>
-      <SEO />
+      <SEO keywords="Eden community, Switch emulator Discord, Eden GitHub, emulator community, Windows, Linux, FreeBSD, Solaris, OpenBSD, Android" />
+
       <section className="relative bg-black overflow-hidden py-12 sm:py-16 lg:py-20 xl:min-h-screen xl:flex xl:items-center xl:justify-center">
         <SynthWaveBackground />
 
@@ -48,8 +49,8 @@ function HomePage() {
           <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-gray-200 font-sans">
             <span className="font-bold text-synthwave-pink text-shadow-pink-sm">Eden</span> is an
             experimental open-source emulator for the Nintendo Switch, built with performance and
-            stability in mind. It is written in C++ with cross-platform support for Windows, Linux
-            and Android.
+            stability in mind. It is written in C++ with cross-platform support for Windows, Linux,
+            FreeBSD, Solaris, OpenBSD, and Android.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-14 mb-12">
