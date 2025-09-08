@@ -26,19 +26,19 @@ export const stats: Stat[] = [
   },
   {
     label: 'ACTIVELY MAINTAINED',
-    value: '27,592+ COMMITS',
+    value: '27,680+ COMMITS',
     icon: GitGraph,
     color: 'from-yellow-400 to-orange-500',
   },
   {
     label: 'DISCORD MEMBERS',
-    value: '18.3K+',
+    value: '21.8K+',
     icon: DiscordIcon,
     color: 'from-indigo-400 to-purple-500',
   },
   {
     label: 'COMPATIBILITY REPORTS',
-    value: '400+',
+    value: '839+',
     icon: MessageSquare,
     color: 'from-pink-400 to-red-500',
   },
