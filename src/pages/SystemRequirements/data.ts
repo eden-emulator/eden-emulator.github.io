@@ -3,15 +3,29 @@ export const requirements = {
     desktop: [
       {
         level: 'Minimum',
-        specs: 'Intel Core i5-4430 / AMD Ryzen 3 1200 / Qualcomm Snapdragon 460',
+        specs: 'Intel Core i5-4430 / AMD Ryzen 3 1200',
       },
       {
         level: 'Recommended',
-        specs: 'Intel Core i5-11400 / AMD Ryzen 5 3600 / Qualcomm Snapdragon 865',
+        specs: 'Intel Core i5-11400 / AMD Ryzen 5 3600 / Snapdragon X Plus',
       },
       {
         level: 'Optimal',
-        specs: 'Intel Core i9-13900K / AMD Ryzen 7 7800X3D / Qualcomm Snapdragon 8 Gen 2',
+        specs: 'Intel Core i9-13900K / AMD Ryzen 7 7800X3D / Snapdragon X Elite',
+      },
+    ],
+    android: [
+      {
+        level: 'Minimum',
+        specs: 'Snapdragon 865 / Tensor G1 / Exynos 2200 / Dimensity 8200',
+      },
+      {
+        level: 'Recommended',
+        specs: 'Snapdragon 8 Gen 1 / Tensor G4 / Exynos 2400 / Dimensity 8400',
+      },
+      {
+        level: 'Optimal',
+        specs: 'Snapdragon 8 Gen 3 / Snapdragon G3 Gen 3 / Tensor G5 / Exynos 2400-12 / Dimensity 9400',
       },
     ],
     laptop: [
@@ -46,37 +60,37 @@ export const requirements = {
         note: 'AMD GPUs: Enable "Force maximum clocks"',
       },
     ],
-    integrated: {
-      windows: [
-        {
-          level: 'Minimum',
-          specs: 'Intel UHD Graphics 730 / AMD Radeon Vega 3',
-        },
-        {
-          level: 'Recommended',
-          specs: 'Intel Iris Xe Graphics / AMD Radeon 680M',
-        },
-      ],
-      linux: [
-        {
-          level: 'Minimum',
-          specs: 'Intel HD Graphics 4400 / AMD Radeon R5 Graphics',
-        },
-        {
-          level: 'Recommended',
-          specs: 'Intel Iris Xe Graphics / AMD Radeon 680M',
-        },
-      ],
-    },
-    android: [
+    integrated: [
       {
-        level: 'Minimum for Android',
-        specs: 'Qualcomm Adreno 605 (with Turnip drivers) / ARM Mali G57',
+        level: 'Minimum For Windows',
+        specs: 'Intel UHD Graphics 730 / AMD Radeon Vega 3',
+      },
+      {
+        level: 'Minimum For Linux',
+        specs: 'Intel HD Graphics 4400 / AMD Radeon R5 Graphics',
       },
       {
         level: 'Recommended',
-        specs: 'Qualcomm Adreno 740 / ARM Mali G720',
+        specs: 'Intel Iris Xe Graphics / AMD Radeon 680M',
       },
+      {
+        level: 'Optimal',
+        specs: 'Latest Intel Graphics / AMD Radeon 8060S'
+      }
+    ],
+    android: [
+      {
+        level: 'Minimum Recommended',
+        specs: 'Qualcomm Adreno 650 (with Legacy build) / ARM Mali G78',
+      },
+      {
+        level: 'Recommended',
+        specs: 'Qualcomm Adreno 740 / ARM Mali G715',
+      },
+      {
+        level: 'Optimal',
+        specs: 'Qualcomm Adreno A32/750 / ARM Immortalis G925 / Xclipse 950 / PowerVR DXT-48'
+      }
     ],
   },
   ram: {

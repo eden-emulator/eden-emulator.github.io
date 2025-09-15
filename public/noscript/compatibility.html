@@ -57,17 +57,37 @@
 
         <div class="requirement-tier">
             <span class="tier-label tier-minimum">Minimum</span>
-            <span>Intel Core i5-4430 / AMD Ryzen 3 1200 / Qualcomm Snapdragon 460</span>
+            <span>Intel Core i5-4430 / AMD Ryzen 3 1200</span>
         </div>
 
         <div class="requirement-tier">
             <span class="tier-label tier-recommended">Recommended</span>
-            <span>Intel Core i5-11400 / AMD Ryzen 5 3600 / Qualcomm Snapdragon 865</span>
+            <span>Intel Core i5-11400 / AMD Ryzen 5 3600 / Snapdragon X Plus</span>
         </div>
 
         <div class="requirement-tier">
             <span class="tier-label tier-optimal">Optimal</span>
-            <span>Intel Core i9-13900K / AMD Ryzen 7 7800X3D / Qualcomm Snapdragon 8 Gen 2</span>
+            <span>Intel Core i9-13900K / AMD Ryzen 7 7800X3D / Snapdragon X Elite</span>
+        </div>
+    </div>
+
+    <div class="requirement-category">
+        <h2>SoC (Android)</h2>
+        <p>Using a cooler is always recommended. Similarly-specced SoCs should usually work.</p>
+
+        <div class="requirement-tier">
+            <span class="tier-label tier-minimum">Minimum</span>
+            <span>Snapdragon 865 / Tensor G1 / Exynos 2200 / Dimensity 8200</span>
+        </div>
+
+        <div class="requirement-tier">
+            <span class="tier-label tier-recommended">Recommended</span>
+            <span>Snapdragon 8 Gen 1 / Tensor G4 / Exynos 2400 / Dimensity 8400</span>
+        </div>
+
+        <div class="requirement-tier">
+            <span class="tier-label tier-optimal">Optimal</span>
+            <span>Snapdragon 8 Gen 3 / Snapdragon G3 Gen 3 / Tensor G5 / Exynos 2400-12 / Dimensity 9400</span>
         </div>
     </div>
 
@@ -115,20 +135,13 @@
         <h2>Integrated Graphics</h2>
         <p>Integrated graphics will produce very low performance. A dedicated GPU will produce better results on all scenarios. This is only for listing iGPU support.</p>
 
-        <h3>Windows</h3>
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum</span>
+            <span class="tier-label tier-minimum">Minimum For Windows</span>
             <span>Intel UHD Graphics 730 / AMD Radeon Vega 3</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-recommended">Recommended</span>
-            <span>Intel Iris Xe Graphics / AMD Radeon 680M</span>
-        </div>
-
-        <h3>Linux</h3>
-        <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum</span>
+            <span class="tier-label tier-minimum">Minimum For Linux</span>
             <span>Intel HD Graphics 4400 / AMD Radeon R5 Graphics</span>
         </div>
 
@@ -137,15 +150,26 @@
             <span>Intel Iris Xe Graphics / AMD Radeon 680M</span>
         </div>
 
-        <h3>Android</h3>
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum for Android</span>
-            <span>Qualcomm Adreno 605 (with Turnip drivers) / ARM Mali G57</span>
+            <span class="tier-label tier-optimal">Recommended</span>
+            <span>Latest Intel Graphics / AMD Radeon 8060S</span>
+        </div>
+
+        <h3>Android</h3>
+        <p>Must support Vulkan 1.1+. Note that most PowerVR and Xclipse GPUs are unsupported except for the very newest.</p>
+        <div class="requirement-tier">
+            <span class="tier-label tier-minimum">Minimum Recommended</span>
+            <span>Qualcomm Adreno 650 (with Legacy build) / ARM Mali G78</span>
         </div>
 
         <div class="requirement-tier">
             <span class="tier-label tier-recommended">Recommended</span>
-            <span>Qualcomm Adreno 740 / ARM Mali G720</span>
+            <span>Qualcomm Adreno 740 / ARM Mali G715</span>
+        </div>
+
+        <div class="requirement-tier">
+            <span class="tier-label tier-optimal">Optimal</span>
+            <span>Qualcomm Adreno A32/750 / ARM Immortalis G925 / Xclipse 950 / PowerVR DXT-48</span>
         </div>
     </div>
 

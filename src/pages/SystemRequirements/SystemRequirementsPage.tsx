@@ -79,8 +79,31 @@ function SystemRequirementsPage() {
                 ))}
               </div>
 
-              {/* Laptop CPU */}
+              {/* Android SoC */}
               <div className="space-y-6">
+                <h4 className="text-xl font-bold text-cyan-300 mb-4">Android SoC</h4>
+                <p className="text-cyan-100/80 text-sm mb-4 font-light h-10">
+                  Using a cooler is always recommended. Similarly-specced SoCs should usually work.
+                </p>
+                {requirements.cpu.android.map((req, index) => (
+                  <div
+                    key={index}
+                    className="group relative bg-black/40 backdrop-blur-xs border border-purple-500/30 rounded-xl p-6 hover:border-cyan-400/50 transition-all duration-500"
+                  >
+                    <div className="absolute inset-0 bg-linear-to-r from-purple-500/0 to-pink-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500" />
+                    <div className="relative">
+                      <h5 className="text-sm font-bold text-pink-400 mb-2 uppercase tracking-wider">
+                        {req.level}
+                      </h5>
+                      <p className="text-cyan-100 font-light">{req.specs}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+              {/* Laptop CPU */}
+              <div className="mt-8">
                 <h4 className="text-xl font-bold text-cyan-300 mb-4">Laptop CPU</h4>
                 <p className="text-cyan-100/80 text-sm mb-4 font-light h-10">
                   Mobile and Laptop CPUs generally need to be far newer to effectively run Eden due
@@ -153,11 +176,10 @@ function SystemRequirementsPage() {
                 <h4 className="text-xl font-bold text-cyan-300 mb-4">Integrated Graphics</h4>
                 <p className="text-cyan-100/80 text-sm mb-4 font-light h-10">
                   Integrated graphics will produce very low performance. A dedicated GPU will
-                  produce better results on all scenarios. This is only for listing iGPU support.
+                  produce better results in all scenarios.
                 </p>
                 <div className="space-y-4">
-                  <h5 className="text-lg font-semibold text-purple-300">Windows</h5>
-                  {requirements.graphics.integrated.windows.map((req, index) => (
+                  {requirements.graphics.integrated.map((req, index) => (
                     <div
                       key={index}
                       className="group relative bg-black/40 backdrop-blur-xs border border-cyan-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all duration-500"
@@ -171,33 +193,20 @@ function SystemRequirementsPage() {
                       </div>
                     </div>
                   ))}
-
-                  <h5 className="text-lg font-semibold text-purple-300 pt-4">Linux</h5>
-                  {requirements.graphics.integrated.linux.map((req, index) => (
-                    <div
-                      key={index}
-                      className="group relative bg-black/40 backdrop-blur-xs border border-cyan-500/30 rounded-xl p-6 hover:border-purple-400/50 transition-all duration-500"
-                    >
-                      <div className="absolute inset-0 bg-linear-to-r from-cyan-500/0 to-blue-500/0 opacity-0 group-hover:opacity-10 rounded-xl blur-sm transition-all duration-500" />
-                      <div className="relative">
-                        <h5 className="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">
-                          {req.level}
-                        </h5>
-                        <p className="text-cyan-100 font-light">{req.specs}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
 
             {/* Android Graphics */}
-            <div className="mt-8">
+            <div className="space-y-6">
               <h4 className="text-xl font-bold text-cyan-300 mb-4">
                 <Smartphone className="inline-block w-5 h-5 mr-2" />
                 Android Graphics
               </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <p className="text-cyan-100/80 text-sm mb-4 font-light h-10">
+                  Must support Vulkan 1.1+. Note that most PowerVR and Xclipse GPUs are unsupported except
+                  for the very newest.
+                </p>
+                <div className="space-y-6">
                 {requirements.graphics.android.map((req, index) => (
                   <div
                     key={index}
@@ -217,7 +226,7 @@ function SystemRequirementsPage() {
           </div>
 
           {/* RAM Requirements */}
-          <div className="mb-16">
+          <div className="mt-16">
             <div className="flex items-center mb-8">
               <div className="p-3 rounded-lg bg-linear-to-r from-pink-500 to-purple-500 shadow-lg shadow-pink-500/25">
                 <HardDrive className="w-6 h-6 text-black" />
