@@ -1,83 +1,83 @@
 @media screen and (max-width: 768px) {
-    body {
-        display: block;
-        text-align: center;
-    }
+  body {
+    display: block;
+    text-align: center;
+  }
 
-    header {
-        flex-direction: column;
-        padding: 10px 5px;
-        margin: 5px;
-        border-radius: 8px;
-        gap: 10px;
-    }
+  header {
+    flex-direction: column;
+    padding: 10px 5px;
+    margin: 5px;
+    border-radius: 8px;
+    gap: 10px;
+  }
 
-    nav {
-        flex-direction: column;
-        width: 100%;
-        gap: 5px;
-    }
+  nav {
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+  }
 
-    nav a {
-        width: 100%;
-        padding: 8px 0;
-        white-space: normal;
-        font-size: 14px;
-    }
+  nav a {
+    width: 100%;
+    padding: 8px 0;
+    white-space: normal;
+    font-size: 14px;
+  }
 
-    .hero {
-        flex-direction: column-reverse;
-        padding: 15px;
-        margin: 5px;
-        border-radius: 8px;
-        text-align: center;
-    }
+  .hero {
+    flex-direction: column-reverse;
+    padding: 15px;
+    margin: 5px;
+    border-radius: 8px;
+    text-align: center;
+  }
 
-    .hero-text,
-    .hero-image {
-        width: 100%;
-        min-width: unset;
-        padding: 10px 0;
-        text-align: center;
-    }
+  .hero-text,
+  .hero-image {
+    width: 100%;
+    min-width: unset;
+    padding: 10px 0;
+    text-align: center;
+  }
 
-    .hero-image img {
-        max-width: 80%;
-        margin: 0 auto;
-    }
+  .hero-image img {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 
-    .buttons {
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 15px;
-    }
+  .buttons {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+  }
 
-    .button {
-        width: 100%;
-        padding: 12px;
-        box-sizing: border-box;
-    }
+  .button {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+  }
 
-    .info {
-        flex-direction: column;
-        padding: 15px;
-        margin: 5px;
-        gap: 10px;
-        border-radius: 8px;
-    }
+  .info {
+    flex-direction: column;
+    padding: 15px;
+    margin: 5px;
+    gap: 10px;
+    border-radius: 8px;
+  }
 
-    .card {
-        width: 100%;
-        max-width: 100%;
-        min-width: unset;
-        margin: 0;
-        padding: 15px;
-        box-sizing: border-box;
-    }
+  .card {
+    width: 100%;
+    max-width: 100%;
+    min-width: unset;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+  }
 
-    footer {
-        margin: 5px;
-        padding: 10px;
-        border-radius: 8px;
-    }
+  footer {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 8px;
+  }
 }
