@@ -1,230 +1,272 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en_gb">
-<head>
-    <meta property="og:title" content="Eden - Compatibility">
-    <meta property="og:description" content="This shows you what games are compatible with the Eden Emulator.">
-    <meta property="og:image" content="../logofavicon2.png">
-    <meta property="og:url" content="https://eden-emu.dev">
-    <meta property="og:type" content="website">
-    <meta charset="UTF-8">
-    <meta name="color-scheme" content="dark">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta property="og:title" content="Eden - Compatibility" />
+    <meta
+      property="og:description"
+      content="This shows you what games are compatible with the Eden Emulator."
+    />
+    <meta property="og:image" content="../logofavicon2.png" />
+    <meta property="og:url" content="https://eden-emu.dev" />
+    <meta property="og:type" content="website" />
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eden - Compatibility</title>
     <!-- Preconnect external asset urls -->
     <!-- Preload important assets -->
-    <link rel="preload" as="style" href="css/core_styles.css?202505100039">
-    <link rel="preload" as="style" href="css/mobile_styles.css?202505100039">
-    <link rel="preload" as="image" href="favicon.ico?202505100214">
-    <link rel="preload" as="image" href="icon.svg?202505100214">
-    <link rel="preload" as="image" href="img/bg1.jpg">
+    <link rel="preload" as="style" href="css/core_styles.css?202505100039" />
+    <link rel="preload" as="style" href="css/mobile_styles.css?202505100039" />
+    <link rel="preload" as="image" href="favicon.ico?202505100214" />
+    <link rel="preload" as="image" href="icon.svg?202505100214" />
+    <link rel="preload" as="image" href="img/bg1.jpg" />
     <!-- Favicon chaos -->
-    <link rel="manifest" href="manifest.webmanifest?202505100214"> <!-- Android devices -->
-    <link rel="icon" href="favicon.ico?202505100214" sizes="32x32"> <!-- Older browsers -->
-    <link rel="icon" href="icon.svg?202505100214" type="image/svg+xml"> <!-- Modern Browsers -->
-    <link rel="apple-touch-icon" href="apple-touch-icon.png?202505100214"> <!-- Apple devices -->
+    <link rel="manifest" href="manifest.webmanifest?202505100214" />
+    <!-- Android devices -->
+    <link rel="icon" href="favicon.ico?202505100214" sizes="32x32" />
+    <!-- Older browsers -->
+    <link rel="icon" href="icon.svg?202505100214" type="image/svg+xml" />
+    <!-- Modern Browsers -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?202505100214" />
+    <!-- Apple devices -->
     <!-- Eden -->
-    <link rel="stylesheet" type="text/css" href="css/core_styles.css?202505100039">
-    <link rel="stylesheet" type="text/css" href="css/mobile_styles.css?202505100039" media="screen and (max-width: 768px)">
-</head>
+    <link rel="stylesheet" type="text/css" href="css/core_styles.css?202505100039" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/mobile_styles.css?202505100039"
+      media="screen and (max-width: 768px)"
+    />
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="logo">
-            <a href="index.html"><img src="img/logofavicon2.png" alt="Eden" width="75" height="75"></a>
-        </div>
-        <button class="hamburger" aria-label="Menu">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button>
-        <nav class="nav-mobile">
-            <a href="blog.html">Blog</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="https://git.eden-emu.dev/eden-emu/eden/releases">Download</a>
-            <a href="compatibility.html">Compatibility</a>
-            <a href="devs.html">Developers</a>
-            <a href="donations.html">Donations</a>
-            <a href="https://discord.gg/edenemu">Join Our Discord</a>
-        </nav>
+      <div class="logo">
+        <a href="index.html"
+          ><img src="img/logofavicon2.png" alt="Eden" width="75" height="75"
+        /></a>
+      </div>
+      <button class="hamburger" aria-label="Menu">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+      <nav class="nav-mobile">
+        <a href="blog.html">Blog</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="https://git.eden-emu.dev/eden-emu/eden/releases">Download</a>
+        <a href="compatibility.html">Compatibility</a>
+        <a href="devs.html">Developers</a>
+        <a href="donations.html">Donations</a>
+        <a href="https://discord.gg/edenemu">Join Our Discord</a>
+      </nav>
     </header>
 
     <section class="hero-header">
-    <h1>System Requirements</h1>
+      <h1>System Requirements</h1>
 
-    <div class="requirement-category">
+      <div class="requirement-category">
         <h2>CPU</h2>
-        <p>Any amd64 CPU with support for the FMA instruction set, or an ARM64-v8a or newer CPU. 6 threads or more are recommended.</p>
+        <p>
+          Any amd64 CPU with support for the FMA instruction set, or an ARM64-v8a or newer CPU. 6
+          threads or more are recommended.
+        </p>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum</span>
-            <span>Intel Core i5-4430 / AMD Ryzen 3 1200</span>
+          <span class="tier-label tier-minimum">Minimum</span>
+          <span>Intel Core i5-4430 / AMD Ryzen 3 1200</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-recommended">Recommended</span>
-            <span>Intel Core i5-11400 / AMD Ryzen 5 3600 / Snapdragon X Plus</span>
+          <span class="tier-label tier-recommended">Recommended</span>
+          <span>Intel Core i5-11400 / AMD Ryzen 5 3600 / Snapdragon X Plus</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-optimal">Optimal</span>
-            <span>Intel Core i9-13900K / AMD Ryzen 7 7800X3D / Snapdragon X Elite</span>
+          <span class="tier-label tier-optimal">Optimal</span>
+          <span>Intel Core i9-13900K / AMD Ryzen 7 7800X3D / Snapdragon X Elite</span>
         </div>
-    </div>
+      </div>
 
-    <div class="requirement-category">
+      <div class="requirement-category">
         <h2>SoC (Android)</h2>
         <p>Using a cooler is always recommended. Similarly-specced SoCs should usually work.</p>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum</span>
-            <span>Snapdragon 865 / Tensor G1 / Exynos 2200 / Dimensity 8200</span>
+          <span class="tier-label tier-minimum">Minimum</span>
+          <span>Snapdragon 865 / Tensor G1 / Exynos 2200 / Dimensity 8200</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-recommended">Recommended</span>
-            <span>Snapdragon 8 Gen 1 / Tensor G4 / Exynos 2400 / Dimensity 8400</span>
+          <span class="tier-label tier-recommended">Recommended</span>
+          <span>Snapdragon 8 Gen 1 / Tensor G4 / Exynos 2400 / Dimensity 8400</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-optimal">Optimal</span>
-            <span>Snapdragon 8 Gen 3 / Snapdragon G3 Gen 3 / Tensor G5 / Exynos 2400-12 / Dimensity 9400</span>
+          <span class="tier-label tier-optimal">Optimal</span>
+          <span
+            >Snapdragon 8 Gen 3 / Snapdragon G3 Gen 3 / Tensor G5 / Exynos 2400-12 / Dimensity
+            9400</span
+          >
         </div>
-    </div>
+      </div>
 
-    <div class="requirement-category">
+      <div class="requirement-category">
         <h2>Laptop CPU</h2>
-        <p>Mobile and Laptop CPUs generally need to be far newer to effectively run Eden due to their thermal throttling and lower power draw.</p>
+        <p>
+          Mobile and Laptop CPUs generally need to be far newer to effectively run Eden due to their
+          thermal throttling and lower power draw.
+        </p>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-recommended">Recommended</span>
-            <span>Intel Core i5-13420H / AMD Ryzen 7 5700U</span>
+          <span class="tier-label tier-recommended">Recommended</span>
+          <span>Intel Core i5-13420H / AMD Ryzen 7 5700U</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-optimal">Optimal</span>
-            <span>Intel Core Ultra 7 265H / AMD Ryzen AI 9 HX 370</span>
+          <span class="tier-label tier-optimal">Optimal</span>
+          <span>Intel Core Ultra 7 265H / AMD Ryzen AI 9 HX 370</span>
         </div>
-    </div>
+      </div>
 
-    <div class="requirement-category">
+      <div class="requirement-category">
         <h2>Dedicated Graphics</h2>
-        <p>OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-float support and VP9 decoding support are recommended.</p>
+        <p>
+          OpenGL 4.6 or Vulkan 1.1 compatible hardware and drivers are mandatory. Half-float support
+          and VP9 decoding support are recommended.
+        </p>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum for Linux</span>
-            <span>NVIDIA GeForce GT 1050 4GB / AMD Radeon R7 240 4GB</span>
+          <span class="tier-label tier-minimum">Minimum for Linux</span>
+          <span>NVIDIA GeForce GT 1050 4GB / AMD Radeon R7 240 4GB</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum for Windows</span>
-            <span>NVIDIA GeForce GT 1050 4GB / AMD Radeon RX 550 4GB</span>
+          <span class="tier-label tier-minimum">Minimum for Windows</span>
+          <span>NVIDIA GeForce GT 1050 4GB / AMD Radeon RX 550 4GB</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-recommended">Recommended</span>
-            <span>NVIDIA GeForce GTX 1660 6GB / AMD Radeon RX 5500 8GB (with “Force maximum clocks” enabled)</span>
+          <span class="tier-label tier-recommended">Recommended</span>
+          <span
+            >NVIDIA GeForce GTX 1660 6GB / AMD Radeon RX 5500 8GB (with “Force maximum clocks”
+            enabled)</span
+          >
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-optimal">Optimal</span>
-            <span>NVIDIA Geforce RTX 3060 12GB / AMD Radeon RX 6700 10GB (with “Force maximum clocks” enabled)</span>
+          <span class="tier-label tier-optimal">Optimal</span>
+          <span
+            >NVIDIA Geforce RTX 3060 12GB / AMD Radeon RX 6700 10GB (with “Force maximum clocks”
+            enabled)</span
+          >
         </div>
-    </div>
+      </div>
 
-    <div class="requirement-category">
+      <div class="requirement-category">
         <h2>Integrated Graphics</h2>
-        <p>Integrated graphics will produce very low performance. A dedicated GPU will produce better results on all scenarios. This is only for listing iGPU support.</p>
+        <p>
+          Integrated graphics will produce very low performance. A dedicated GPU will produce better
+          results on all scenarios. This is only for listing iGPU support.
+        </p>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum For Windows</span>
-            <span>Intel UHD Graphics 730 / AMD Radeon Vega 3</span>
+          <span class="tier-label tier-minimum">Minimum For Windows</span>
+          <span>Intel UHD Graphics 730 / AMD Radeon Vega 3</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum For Linux</span>
-            <span>Intel HD Graphics 4400 / AMD Radeon R5 Graphics</span>
+          <span class="tier-label tier-minimum">Minimum For Linux</span>
+          <span>Intel HD Graphics 4400 / AMD Radeon R5 Graphics</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-recommended">Recommended</span>
-            <span>Intel Iris Xe Graphics / AMD Radeon 680M</span>
+          <span class="tier-label tier-recommended">Recommended</span>
+          <span>Intel Iris Xe Graphics / AMD Radeon 680M</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-optimal">Recommended</span>
-            <span>Latest Intel Graphics / AMD Radeon 8060S</span>
+          <span class="tier-label tier-optimal">Recommended</span>
+          <span>Latest Intel Graphics / AMD Radeon 8060S</span>
         </div>
 
         <h3>Android</h3>
-        <p>Must support Vulkan 1.1+. Note that most PowerVR and Xclipse GPUs are unsupported except for the very newest.</p>
+        <p>
+          Must support Vulkan 1.1+. Note that most PowerVR and Xclipse GPUs are unsupported except
+          for the very newest.
+        </p>
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum Recommended</span>
-            <span>Qualcomm Adreno 650 (with Legacy build) / ARM Mali G78</span>
+          <span class="tier-label tier-minimum">Minimum Recommended</span>
+          <span>Qualcomm Adreno 650 (with Legacy build) / ARM Mali G78</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-recommended">Recommended</span>
-            <span>Qualcomm Adreno 740 / ARM Mali G715</span>
+          <span class="tier-label tier-recommended">Recommended</span>
+          <span>Qualcomm Adreno 740 / ARM Mali G715</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-optimal">Optimal</span>
-            <span>Qualcomm Adreno A32/750 / ARM Immortalis G925 / Xclipse 950 / PowerVR DXT-48</span>
+          <span class="tier-label tier-optimal">Optimal</span>
+          <span>Qualcomm Adreno A32/750 / ARM Immortalis G925 / Xclipse 950 / PowerVR DXT-48</span>
         </div>
-    </div>
+      </div>
 
-        <div class="requirement-category">
+      <div class="requirement-category">
         <h2>RAM</h2>
-        <p>Since an integrated GPU uses system RAM as its video memory (VRAM), our memory requirement in this configuration is higher. Highest possible frequency is strongly recommended.</p>
+        <p>
+          Since an integrated GPU uses system RAM as its video memory (VRAM), our memory requirement
+          in this configuration is higher. Highest possible frequency is strongly recommended.
+        </p>
 
         <h3>Dedicated GPU Desktop</h3>
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum</span>
-            <span>8GB</span>
+          <span class="tier-label tier-minimum">Minimum</span>
+          <span>8GB</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-recommended">Recommended</span>
-            <span>16GB</span>
+          <span class="tier-label tier-recommended">Recommended</span>
+          <span>16GB</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-optimal">Optimal</span>
-            <span>32GB</span>
+          <span class="tier-label tier-optimal">Optimal</span>
+          <span>32GB</span>
         </div>
 
         <h3>Android</h3>
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum</span>
-            <span>8GB</span>
+          <span class="tier-label tier-minimum">Minimum</span>
+          <span>8GB</span>
         </div>
 
         <h3>Laptop/iGPU Desktop</h3>
         <div class="requirement-tier">
-            <span class="tier-label tier-minimum">Minimum</span>
-            <span>12GB</span>
+          <span class="tier-label tier-minimum">Minimum</span>
+          <span>12GB</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-recommended">Recommended</span>
-            <span>16GB</span>
+          <span class="tier-label tier-recommended">Recommended</span>
+          <span>16GB</span>
         </div>
 
         <div class="requirement-tier">
-            <span class="tier-label tier-optimal">Optimal</span>
-            <span>32GB</span>
+          <span class="tier-label tier-optimal">Optimal</span>
+          <span>32GB</span>
         </div>
-    </div>
+      </div>
     </section>
 
     <div class="spacer"></div>
-        <footer>
-        <a href="devs.html">Eden Emulator, Developed by The Eden Team</a>
-        <h6>Website Made by Bix, Refined by Feles</h6>
-        <a href="https://x.com/edenemuofficial" class="social-link">
-    <img src="img/twitter.png" alt="X logo" class="social-icon">
-    Follow us on X</a>
+    <footer>
+      <a href="devs.html">Eden Emulator, Developed by The Eden Team</a>
+      <h6>Website Made by Bix, Refined by Feles</h6>
+      <a href="https://x.com/edenemuofficial" class="social-link">
+        <img src="img/twitter.png" alt="X logo" class="social-icon" />
+        Follow us on X</a
+      >
     </footer>
     <script src="js/mobile-navbar.js"></script>
-</body>
+  </body>
 </html>
