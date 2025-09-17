@@ -25,7 +25,8 @@ export const requirements = {
       },
       {
         level: 'Optimal',
-        specs: 'Snapdragon 8 Gen 3 / Snapdragon G3 Gen 3 / Tensor G5 / Exynos 2400-12 / Dimensity 9400',
+        specs:
+          'Snapdragon 8 Gen 3 / Snapdragon G3 Gen 3 / Tensor G5 / Exynos 2400-12 / Dimensity 9400',
       },
     ],
     laptop: [
@@ -75,8 +76,8 @@ export const requirements = {
       },
       {
         level: 'Optimal',
-        specs: 'Latest Intel Graphics / AMD Radeon 8060S'
-      }
+        specs: 'Latest Intel Graphics / AMD Radeon 8060S',
+      },
     ],
     android: [
       {
@@ -89,8 +90,8 @@ export const requirements = {
       },
       {
         level: 'Optimal',
-        specs: 'Qualcomm Adreno A32/750 / ARM Immortalis G925 / Xclipse 950 / PowerVR DXT-48'
-      }
+        specs: 'Qualcomm Adreno A32/750 / ARM Immortalis G925 / Xclipse 950 / PowerVR DXT-48',
+      },
     ],
   },
   ram: {
@@ -99,7 +100,11 @@ export const requirements = {
       { level: 'Recommended', amount: '16GB' },
       { level: 'Optimal', amount: '32GB' },
     ],
-    android: [{ level: 'Minimum', amount: '8GB' }],
+    android: [
+      { level: 'Minimum', amount: '8GB' },
+      { level: 'Recommended', amount: '12GB' },
+      { level: 'Optimal', amount: '16GB' },
+    ],
     igpu: [
       { level: 'Minimum', amount: '12GB' },
       { level: 'Recommended', amount: '16GB' },
