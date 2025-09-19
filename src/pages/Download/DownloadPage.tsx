@@ -6,6 +6,7 @@ import { cn } from '@/utils/style'
 import getDynamicPlatforms from '@/pages/Download/utils/getDynamicPlatforms.ts'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
+import playstoreBadge from '@/assets/playstore_badge.png'
 
 const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
 
@@ -84,20 +85,37 @@ function DownloadPage() {
                     <p>{platform.size}</p>
                     <p className="text-xs text-blue-300 h-10">{platform.requirements}</p>
                   </div>
-
-                  <button
-                    onClick={() => window.open(platform.downloadUrl, '_blank')}
-                    className={cn(
-                      'w-full py-3 px-4 rounded-lg font-bold transition-colors duration-200 flex items-center justify-center space-x-2 tracking-wider focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black',
-                      platform.primary
-                        ? 'bg-linear-to-r from-purple-500 to-blue-600 hover:from-purple-400 hover:to-blue-500 text-white shadow-lg shadow-purple-500/50'
-                        : 'border-2 border-blue-400 text-blue-300 hover:bg-blue-400/10 hover:text-white',
+                  <div className="mt-auto">
+                    {platform.name === 'ANDROID' ? (
+                      <a
+                        href={platform.downloadUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Get Eden on Google Play - opens in new tab`}
+                        className="inline-block transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded-lg"
+                      >
+                        <img
+                          src={playstoreBadge}
+                          alt="Get it on Google Play"
+                          className="w-full h-[48px]"
+                        />
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => window.open(platform.downloadUrl, '_blank')}
+                        className={cn(
+                          'w-full py-3 px-4 rounded-lg font-bold transition-colors duration-200 flex items-center justify-center space-x-2 tracking-wider focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black',
+                          platform.primary
+                            ? 'bg-linear-to-r from-purple-500 to-blue-600 hover:from-purple-400 hover:to-blue-500 text-white shadow-lg shadow-purple-500/50'
+                            : 'border-2 border-blue-400 text-blue-300 hover:bg-blue-400/10 hover:text-white',
+                        )}
+                        aria-label={`Download Eden for ${platform.name} (${platform.version}, ${platform.size}) - opens in new tab`}
+                      >
+                        <Download className="w-5 h-5" aria-hidden="true" />
+                        <span>DOWNLOAD</span>
+                      </button>
                     )}
-                    aria-label={`Download Eden for ${platform.name} (${platform.version}, ${platform.size}) - opens in new tab`}
-                  >
-                    <Download className="w-5 h-5" aria-hidden="true" />
-                    <span>DOWNLOAD</span>
-                  </button>
+                  </div>
                 </div>
               </article>
             ))}
