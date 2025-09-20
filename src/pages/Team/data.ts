@@ -134,11 +134,11 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
-        name: 'Serah',
-        role: '',
+        name: 'SDK-Chan',
+        role: 'Low-Level and Vulkan',
         avatar:
           'https://cdn.discordapp.com/avatars/1351901569897201766/c7ab8b50deab53259b6d9131efa338c2.png?size=1024',
-        specialties: ['JIT Compilation', 'Low-Level', 'Optimization'],
+        specialties: ['Nvidia Driver', 'Low-Level', 'Vulkan'],
         icon: Cpu,
         color: 'from-pink-500 to-purple-600',
         socials: {
