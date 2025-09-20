@@ -6,7 +6,6 @@ import {
   Palette,
   Users,
   BookOpen,
-  Heart,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -70,6 +69,7 @@ export const teamSections: TeamSection[] = [
         icon: Cpu,
         color: 'from-violet-500 to-purple-600',
         socials: {
+      },
           github: 'MrPurple666',
         },
       },
@@ -82,6 +82,7 @@ export const teamSections: TeamSection[] = [
         icon: Code2,
         color: 'from-cyan-500 to-blue-500',
         socials: {
+      },
           github: 'pavelbarabanov',
         },
       },
@@ -117,7 +118,8 @@ export const teamSections: TeamSection[] = [
         avatar: 'https://avatars.githubusercontent.com/u/76565986?v=4', // https://cdn.discordapp.com/avatars/593911161226002442/39f31d2b045922931aee3135278f730b.webp?size=1024
         specialties: ['Frontend', 'Vulkan', 'Graphics'],
         icon: Code2,
-        color: 'from-green-500 to-emerald-500',
+        color: 'from-gre
+      },en-500 to-emerald-500',
         socials: {
           github: 'Gamer64ytb',
         },
@@ -169,6 +171,7 @@ export const teamSections: TeamSection[] = [
         socials: {},
       },
       {
+      },
         name: 'MaranBr',
         role: 'Applets, HLE, Services, CI/Build Systems',
         avatar:
@@ -232,6 +235,7 @@ export const teamSections: TeamSection[] = [
         icon: BookOpen,
         color: 'from-indigo-500 to-purple-500',
         socials: {
+      },
           github: 'FelesNoctis',
         },
       },
@@ -302,7 +306,7 @@ export const teamSections: TeamSection[] = [
         avatar:
           'https://cdn.discordapp.com/guilds/1367654015269339267/users/848058656792248341/avatars/a_2e2deb2b4afa6b07a004f1720f8f6d43.webp?size=128',
         specialties: ['TBC', '', '', ''],
-        icon: Palette,
+        icon: Palette,https://github.com/eden-emulator/eden-emulator.github.io/pull/23
         color: 'from-pink-500 to-purple-500',
         socials: {
           github: '----',
@@ -322,7 +326,7 @@ export const teamSections: TeamSection[] = [
       },   
     ],
   },
-  /*{
+  /*{https://github.com/eden-emulator/eden-emulator.github.io/pull/23
     title: 'DESIGN & SUPPORT',
     description: "The creative minds behind Eden's visual identity and community",
     members: [
