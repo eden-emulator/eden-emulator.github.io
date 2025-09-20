@@ -69,7 +69,6 @@ export const teamSections: TeamSection[] = [
         icon: Cpu,
         color: 'from-violet-500 to-purple-600',
         socials: {
-      },
           github: 'MrPurple666',
         },
       },
@@ -82,7 +81,6 @@ export const teamSections: TeamSection[] = [
         icon: Code2,
         color: 'from-cyan-500 to-blue-500',
         socials: {
-      },
           github: 'pavelbarabanov',
         },
       },
@@ -115,11 +113,10 @@ export const teamSections: TeamSection[] = [
       {
         name: 'Gamer64',
         role: 'Frontend and Vulkan',
-        avatar: 'https://avatars.githubusercontent.com/u/76565986?v=4', // https://cdn.discordapp.com/avatars/593911161226002442/39f31d2b045922931aee3135278f730b.webp?size=1024
+        avatar: 'https://avatars.githubusercontent.com/u/76565986?v=4',
         specialties: ['Frontend', 'Vulkan', 'Graphics'],
         icon: Code2,
-        color: 'from-gre
-      },en-500 to-emerald-500',
+        color: 'from-green-500 to-emerald-500',
         socials: {
           github: 'Gamer64ytb',
         },
@@ -159,7 +156,7 @@ export const teamSections: TeamSection[] = [
         socials: {
           github: 'Lizzie841',
         },
-      }, 
+      },
       {
         name: 'Aleksandr Popovich',
         role: 'Android, GPU, UI',
@@ -171,7 +168,6 @@ export const teamSections: TeamSection[] = [
         socials: {},
       },
       {
-      },
         name: 'MaranBr',
         role: 'Applets, HLE, Services, CI/Build Systems',
         avatar:
@@ -235,7 +231,6 @@ export const teamSections: TeamSection[] = [
         icon: BookOpen,
         color: 'from-indigo-500 to-purple-500',
         socials: {
-      },
           github: 'FelesNoctis',
         },
       },
@@ -288,7 +283,7 @@ export const teamSections: TeamSection[] = [
           github: '----',
         },
       },
-            {
+      {
         name: 'Shinemegumi',
         role: 'Project Management',
         avatar:
@@ -306,7 +301,7 @@ export const teamSections: TeamSection[] = [
         avatar:
           'https://cdn.discordapp.com/guilds/1367654015269339267/users/848058656792248341/avatars/a_2e2deb2b4afa6b07a004f1720f8f6d43.webp?size=128',
         specialties: ['TBC', '', '', ''],
-        icon: Palette,https://github.com/eden-emulator/eden-emulator.github.io/pull/23
+        icon: Palette,
         color: 'from-pink-500 to-purple-500',
         socials: {
           github: '----',
@@ -323,39 +318,9 @@ export const teamSections: TeamSection[] = [
         socials: {
           github: '----',
         },
-      },   
+      },
     ],
   },
-  /*{https://github.com/eden-emulator/eden-emulator.github.io/pull/23
-    title: 'DESIGN & SUPPORT',
-    description: "The creative minds behind Eden's visual identity and community",
-    members: [
-      {
-        name: 'Gonaxd',
-        role: 'Blog Designer',
-        avatar:
-          'https://cdn.discordapp.com/avatars/945361056937701466/1121fabd05c1a4434e80a4190e9e0b8d.webp?size=1024',
-        specialties: ['Blog Design', 'Content Creation'],
-        icon: BookOpen,
-        color: 'from-green-500 to-teal-500',
-        socials: {
-          github: 'PenguinGona',
-        },
-      },
-      {
-        name: 'Nevergonna',
-        role: 'Professional Gambling Addict',
-        avatar:
-          'https://cdn.discordapp.com/avatars/726799377535991828/3a5eb51a6013aa30520790e35779dad2.png?size=1024',
-        specialties: ['Community Support', 'Testing', 'Memes'],
-        icon: Heart,
-        color: 'from-yellow-500 to-pink-500',
-        socials: {
-          discord: '726799377535991828',
-        },
-      },
-    ],
-  }, */
 ]
 
 export interface PastMember {
@@ -384,7 +349,6 @@ export const pastMembers: PastMember[] = [
   },
 ]
 
-// Calculate stats
 const activeMembers = teamSections.reduce((total, section) => total + section.members.length, 0)
 const totalContributors = activeMembers + pastMembers.length
 const uniqueSpecialties = new Set(
