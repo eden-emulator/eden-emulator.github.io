@@ -50,6 +50,18 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
+        name: 'crueter',
+        role: 'UI, UI Design, Vulkan, CI/Infrastructure Management',
+        avatar:
+          'https://cdn.discordapp.com/avatars/1278113100310249553/19ecafb68da801d3634448cb2c5e35a5.png?size=1024',
+        specialties: ['UI/UX', 'Vulkan', 'CI/CD', 'Infrastructure'],
+        icon: Palette,
+        color: 'from-pink-500 to-red-500',
+        socials: {
+          github: 'crueter',
+        },
+      },
+      {
         name: 'Mr. Purple',
         role: 'Drivers and Low-Level',
         avatar:
@@ -74,18 +86,6 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
-        name: 'crueter',
-        role: 'UI, UI Design, Vulkan, CI/Infrastructure Management',
-        avatar:
-          'https://cdn.discordapp.com/avatars/1278113100310249553/19ecafb68da801d3634448cb2c5e35a5.png?size=1024',
-        specialties: ['UI/UX', 'Vulkan', 'CI/CD', 'Infrastructure'],
-        icon: Palette,
-        color: 'from-pink-500 to-red-500',
-        socials: {
-          github: 'crueter',
-        },
-      },
-      {
         name: 'JRaichu',
         role: 'Vulkan and Services',
         avatar:
@@ -97,12 +97,20 @@ export const teamSections: TeamSection[] = [
           github: 'JPikachu',
         },
       },
-    ],
-  },
-  {
-    title: 'CONTRIBUTORS',
-    description: "Talented developers contributing to Eden's success",
-    members: [
+      {
+        name: 'Bix',
+        role: 'Main Web Designer',
+        avatar:
+          'https://cdn.discordapp.com/avatars/707876199329824798/8ee1442551c6031f6de11c12c9bf282e.png?size=1024',
+        specialties: ['Web Design', 'Frontend', 'UX', 'Admin'],
+        icon: Users,
+        color: 'from-cyan-500 to-teal-500',
+        socials: {
+          github: 'Bixbr',
+          twitter: 'Bixbrit',
+          website: 'https://bixed.xyz/',
+        },
+      },
       {
         name: 'Gamer64',
         role: 'Frontend and Vulkan',
@@ -112,28 +120,6 @@ export const teamSections: TeamSection[] = [
         color: 'from-green-500 to-emerald-500',
         socials: {
           github: 'Gamer64ytb',
-        },
-      },
-      {
-        name: 'Aleksandr Popovich',
-        role: 'Android, GPU, UI',
-        avatar:
-          'https://cdn.discordapp.com/avatars/1369128214211072122/f47d6f7ef323cc7f90c3c49372e86b6f.png?size=1024',
-        specialties: ['Android', 'GPU', 'UI'],
-        icon: Wrench,
-        color: 'from-indigo-500 to-blue-600',
-        socials: {},
-      },
-      {
-        name: 'MaranBr',
-        role: 'Applets, HLE, Services, CI/Build Systems',
-        avatar:
-          'https://cdn.discordapp.com/avatars/844269232836575294/b55a24dffb204bf3a0e30ba4d060311f.png?size=1024',
-        specialties: ['Applets', 'HLE', 'Services', 'CI/CD'],
-        icon: Code2,
-        color: 'from-teal-500 to-cyan-600',
-        socials: {
-          github: 'MaranBr',
         },
       },
       {
@@ -149,15 +135,49 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
-        name: 'allisonbzk',
-        role: 'Android',
+        name: 'Serah',
+        role: '',
         avatar:
-          'https://cdn.discordapp.com/avatars/268281915348353024/a006f9d671720a7bfabc4f32e7573e56.webp?size=1024',
-        specialties: ['Android', 'Mobile Development'],
-        icon: Wrench,
-        color: 'from-orange-500 to-red-500',
+          'https://cdn.discordapp.com/avatars/1351901569897201766/c7ab8b50deab53259b6d9131efa338c2.png?size=1024',
+        specialties: ['JIT Compilation', 'Low-Level', 'Optimization'],
+        icon: Cpu,
+        color: 'from-pink-500 to-purple-600',
         socials: {
-          github: 'allisonbzk',
+          github: 'sdkchan',
+        },
+      },
+      {
+        name: 'WildCard',
+        role: 'Drivers and Android',
+        avatar:
+          'https://cdn.discordapp.com/avatars/472042778340229151/0fe62ff4a5135c0ef9add65057d94867.png?size=1024',
+        specialties: ['Driver Support', 'Vulkan', 'Device Support'],
+        icon: Cpu,
+        color: 'from-pink-500 to-purple-600',
+        socials: {
+          github: 'Lizzie841',
+        },
+      }, 
+      {
+        name: 'Aleksandr Popovich',
+        role: 'Android, GPU, UI',
+        avatar:
+          'https://cdn.discordapp.com/avatars/1369128214211072122/f47d6f7ef323cc7f90c3c49372e86b6f.png?size=1024',
+        specialties: ['Android', 'GPU', 'UI'],
+        icon: Wrench,
+        color: 'from-indigo-500 to-blue-600',
+        socials: {},
+      },
+      {
+        name: 'MaranBr',
+        role: 'Applets, HLE, Services, CI/Build Systems',
+        avatar:
+          'https://cdn.discordapp.com/avatars/844269232836575294/f9a71750e5e801ae4ed54bc959f5e7c8.png?size=1024',
+        specialties: ['Applets', 'HLE', 'Services', 'CI/CD'],
+        icon: Code2,
+        color: 'from-teal-500 to-cyan-600',
+        socials: {
+          github: 'MaranBr',
         },
       },
       {
@@ -169,6 +189,18 @@ export const teamSections: TeamSection[] = [
         color: 'from-purple-500 to-indigo-600',
         socials: {
           github: 'Maufeat',
+        },
+      },
+      {
+        name: 'allisonbzk',
+        role: 'Android',
+        avatar:
+          'https://cdn.discordapp.com/avatars/268281915348353024/a006f9d671720a7bfabc4f32e7573e56.webp?size=1024',
+        specialties: ['Android', 'Mobile Development'],
+        icon: Wrench,
+        color: 'from-orange-500 to-red-500',
+        socials: {
+          github: 'allisonbzk',
         },
       },
       {
@@ -188,9 +220,21 @@ export const teamSections: TeamSection[] = [
     ],
   },
   {
-    title: 'DESIGN & SUPPORT',
-    description: "The creative minds behind Eden's visual identity and community",
+    title: 'CONTRIBUTORS',
+    description: "Talented developers contributing to Eden's success",
     members: [
+      {
+        name: 'Feles Noctis',
+        role: 'Asst. Web Designer & Compatibility',
+        avatar:
+          'https://cdn.discordapp.com/avatars/95971386161393664/525e8d82e60881768d7ea40d6ef2bc31.png?size=1024',
+        specialties: ['Web Design', 'Compatibility Testing'],
+        icon: BookOpen,
+        color: 'from-indigo-500 to-purple-500',
+        socials: {
+          github: 'FelesNoctis',
+        },
+      },
       {
         name: 'Antabaka',
         role: 'Graphic Designer',
@@ -204,31 +248,84 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
-        name: 'Bix',
-        role: 'Main Web Designer',
+        name: 'Calchan',
+        role: 'Android',
         avatar:
-          'https://cdn.discordapp.com/avatars/707876199329824798/8ee1442551c6031f6de11c12c9bf282e.png?size=1024',
-        specialties: ['Web Design', 'Frontend', 'UX', 'Admin'],
-        icon: Users,
-        color: 'from-cyan-500 to-teal-500',
+          'https://cdn.discordapp.com/avatars/616445066466033678/669b2ba778abc6a93836bd3710594ce3.png?size=1024',
+        specialties: ['', '', '', ''],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
         socials: {
-          github: 'Bixbr',
-          twitter: 'Bixbrit',
-          website: 'https://bixed.xyz/',
+          github: 'AntaBaka02',
         },
       },
       {
-        name: 'Feles Noctis',
-        role: 'Asst. Web Designer & Compatibility',
+        name: 'Nyx',
+        role: 'Frontend',
         avatar:
-          'https://cdn.discordapp.com/avatars/95971386161393664/525e8d82e60881768d7ea40d6ef2bc31.png?size=1024',
-        specialties: ['Web Design', 'Compatibility Testing'],
-        icon: BookOpen,
-        color: 'from-indigo-500 to-purple-500',
+          'https://cdn.discordapp.com/avatars/1401954229010042912/334c7668bd56146c205f20b00398d478.png?size=1024',
+        specialties: ['', '', '', ''],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
         socials: {
-          github: 'FelesNoctis',
+          github: 'nixynx',
+          website: 'https://innix.space/',
         },
       },
+      {
+        name: 'John',
+        role: 'Testing & Building',
+        avatar:
+          'https://cdn.discordapp.com/avatars/351946283835195392/cfe81d9cd77134abe11c06b023747543.png?size=1024',
+        specialties: ['', '', '', ''],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: '----',
+        },
+      },
+            {
+        name: 'Shinemegumi',
+        role: 'Project Management',
+        avatar:
+          'https://cdn.discordapp.com/avatars/160084856058019841/0a9cabe6d122996ebc1504432f99bc4b.png?size=1024',
+        specialties: ['Management', '', '', ''],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: '----',
+        },
+      },
+      {
+        name: 'Glitxh',
+        role: 'TBC',
+        avatar:
+          'https://cdn.discordapp.com/guilds/1367654015269339267/users/848058656792248341/avatars/a_2e2deb2b4afa6b07a004f1720f8f6d43.webp?size=128',
+        specialties: ['TBC', '', '', ''],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: '----',
+        },
+      },
+      {
+        name: 'DraVee',
+        role: 'Building & Linux',
+        avatar:
+          'https://cdn.discordapp.com/avatars/464275051307335700/20748ae06642cb7ee24bc0fbc6db2532.webp?size=512',
+        specialties: ['', '', '', ''],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: '----',
+        },
+      },   
+    ],
+  },
+  /*{
+    title: 'DESIGN & SUPPORT',
+    description: "The creative minds behind Eden's visual identity and community",
+    members: [
       {
         name: 'Gonaxd',
         role: 'Blog Designer',
@@ -254,7 +351,7 @@ export const teamSections: TeamSection[] = [
         },
       },
     ],
-  },
+  }, */
 ]
 
 export interface PastMember {
