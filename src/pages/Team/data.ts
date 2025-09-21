@@ -76,7 +76,7 @@ export const teamSections: TeamSection[] = [
       {
         name: 'crueter',
         role: 'UI/UX Dev/Design, CI, Infrastructure, Build Systems',
-        bio: 'Claims to be a UI developer, rewrites entire build system instead',
+        bio: 'Claims to be a UI developer, rewrote the entire build system instead',
         avatar:
           'https://cdn.discordapp.com/avatars/1278113100310249553/19ecafb68da801d3634448cb2c5e35a5.png?size=1024',
         specialties: ['UI/UX', 'CI/CD', 'Infrastructure', 'CMake'],
