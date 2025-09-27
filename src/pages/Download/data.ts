@@ -4,9 +4,6 @@ import type { PlatformType } from '@/utils/getCurrentPlatform.ts'
 const DOWNLOAD_VERSION = import.meta.env.VITE_DOWNLOAD_VERSION || 'v0.0.3'
 const DOWNLOAD_URL =
   import.meta.env.VITE_DOWNLOAD_URL || 'https://github.com/eden-emulator/Releases/releases/'
-const PLAYSTORE_URL =
-  import.meta.env.VITE_PLAYSTORE_URL ||
-  'https://play.google.com/store/apps/details?id=dev.eden.eden_emulator'
 
 interface Platform {
   name: string
@@ -61,7 +58,7 @@ export const platforms: Platform[] = [
     version: DOWNLOAD_VERSION,
     size: '47.2 MB',
     requirements: 'Android 13.0+',
-    downloadUrl: PLAYSTORE_URL,
+    downloadUrl: DOWNLOAD_URL,
     primary: false,
     color: 'from-green-400 to-emerald-500',
   },
