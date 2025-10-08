@@ -1,9 +1,9 @@
 import { memo, useMemo } from 'react'
 import { Download } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
-import HeadingText from '@/components/HeadingText.tsx'
+import HeadingText from '@/components/HeadingText'
 import { cn } from '@/utils/style'
-import getDynamicPlatforms from '@/pages/Download/utils/getDynamicPlatforms.ts'
+import getDynamicPlatforms from '@/pages/Download/utils/getDynamicPlatforms'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
 

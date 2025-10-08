@@ -1,5 +1,5 @@
 import { Apple, AppWindow as Windows, type LucideIcon, Monitor, Smartphone } from 'lucide-react'
-import type { PlatformType } from '@/utils/getCurrentPlatform.ts'
+import type { PlatformType } from '@/utils/getCurrentPlatform'
 
 const DOWNLOAD_VERSION = import.meta.env.VITE_DOWNLOAD_VERSION || 'v0.0.3'
 const DOWNLOAD_URL =

@@ -1,7 +1,7 @@
 import { Heart, ExternalLink, LinkIcon } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 import edenLogo from '@/assets/eden_logo.png'
-import { footerLinks, socialLinks } from '@/components/Footer/data.ts'
+import { footerLinks, socialLinks } from '@/components/Footer/data'
 import { cn } from '@/utils/style'
 
 function Footer() {

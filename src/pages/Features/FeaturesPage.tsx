@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { features } from './data'
-import HeadingText from '@/components/HeadingText.tsx'
+import HeadingText from '@/components/HeadingText'
 import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'

@@ -1,7 +1,7 @@
 import { memo } from 'react'
-import HeadingText from '@/components/HeadingText.tsx'
-import { docSections } from '@/pages/Documentation/data.ts'
-import DocumentationSection from '@/pages/Documentation/components/DocumentationSection.tsx'
+import HeadingText from '@/components/HeadingText'
+import { docSections } from '@/pages/Documentation/data'
+import DocumentationSection from '@/pages/Documentation/components/DocumentationSection'
 import PageWrapper from '@/components/PageWrapper'
 
 const SHOW_DOCUMENTATION = false

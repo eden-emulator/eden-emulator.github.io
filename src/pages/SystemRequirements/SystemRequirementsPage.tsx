@@ -1,6 +1,6 @@
 import { Monitor, Cpu, HardDrive, Smartphone, Activity } from 'lucide-react'
 import { requirements } from './data'
-import HeadingText from '@/components/HeadingText.tsx'
+import HeadingText from '@/components/HeadingText'
 import PageWrapper from '@/components/PageWrapper'
 import SEO from '@/components/SEO'
 

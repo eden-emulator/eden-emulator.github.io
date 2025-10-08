@@ -1,4 +1,4 @@
-import type { CompatibilityReport } from '@/pages/CompatibilityReports/types.ts'
+import type { CompatibilityReport } from '@/pages/CompatibilityReports/types'
 
 function getGameImageUrl(game: CompatibilityReport['game']) {
   if (game.imageUrl) return game.imageUrl
