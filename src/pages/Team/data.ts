@@ -6,7 +6,6 @@ import {
   Palette,
   Users,
   BookOpen,
-  Heart,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -50,6 +49,19 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
+        name: 'crueter',
+        role: 'UI/UX Dev/Design, CI, Infrastructure, Build Systems',
+        bio: 'Claims to be a UI developer, rewrote the entire build system instead',
+        avatar:
+          'https://cdn.discordapp.com/avatars/1278113100310249553/19ecafb68da801d3634448cb2c5e35a5.png?size=1024',
+        specialties: ['UI/UX', 'CI/CD', 'Infrastructure', 'CMake'],
+        icon: Palette,
+        color: 'from-pink-500 to-red-500',
+        socials: {
+          github: 'crueter',
+        },
+      },
+      {
         name: 'Mr. Purple',
         role: 'Drivers and Low-Level',
         avatar:
@@ -74,19 +86,6 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
-        name: 'crueter',
-        role: 'UI/UX Dev/Design, CI, Infrastructure, Build Systems',
-        bio: 'Claims to be a UI developer, rewrote the entire build system instead',
-        avatar:
-          'https://cdn.discordapp.com/avatars/1278113100310249553/19ecafb68da801d3634448cb2c5e35a5.png?size=1024',
-        specialties: ['UI/UX', 'CI/CD', 'Infrastructure', 'CMake'],
-        icon: Palette,
-        color: 'from-pink-500 to-red-500',
-        socials: {
-          github: 'crueter',
-        },
-      },
-      {
         name: 'JRaichu',
         role: 'Vulkan and Services',
         avatar:
@@ -98,21 +97,66 @@ export const teamSections: TeamSection[] = [
           github: 'JPikachu',
         },
       },
-    ],
-  },
-  {
-    title: 'CONTRIBUTORS',
-    description: "Talented developers contributing to Eden's success",
-    members: [
+      {
+        name: 'Bix',
+        role: 'Main Web Designer',
+        bio: 'Good Soldiers follow orders',
+        avatar:
+          'https://cdn.discordapp.com/avatars/707876199329824798/8ee1442551c6031f6de11c12c9bf282e.png?size=1024',
+        specialties: ['Web Design', 'Frontend', 'UX', 'Admin'],
+        icon: Users,
+        color: 'from-cyan-500 to-teal-500',
+        socials: {
+          github: 'Bixbr',
+          twitter: 'Bixbrit',
+          website: 'https://bixed.xyz/',
+        },
+      },
       {
         name: 'Gamer64',
         role: 'Frontend and Vulkan',
-        avatar: 'https://avatars.githubusercontent.com/u/76565986?v=4', // https://cdn.discordapp.com/avatars/593911161226002442/39f31d2b045922931aee3135278f730b.webp?size=1024
+        avatar: 'https://avatars.githubusercontent.com/u/76565986?v=4',
         specialties: ['Frontend', 'Vulkan', 'Graphics'],
         icon: Code2,
         color: 'from-green-500 to-emerald-500',
         socials: {
           github: 'Gamer64ytb',
+        },
+      },
+      {
+        name: 'Lizzie841',
+        role: 'JIT and Low-Level',
+        avatar:
+          'https://cdn.discordapp.com/avatars/1221517882022694992/661db1d22085e607415795d9a6ddd909.webp?size=1024',
+        specialties: ['JIT Compilation', 'Low-Level', 'Optimization'],
+        icon: Cpu,
+        color: 'from-pink-500 to-purple-600',
+        socials: {
+          github: 'Lizzie841',
+        },
+      },
+      {
+        name: 'SDK-Chan',
+        role: 'Low-Level and Vulkan',
+        avatar:
+          'https://cdn.discordapp.com/avatars/1351901569897201766/c8ebcac73de3de04fa6c608be3277778.png?size=1024',
+        specialties: ['Nvidia Driver', 'Low-Level', 'Vulkan'],
+        icon: Cpu,
+        color: 'from-pink-500 to-purple-600',
+        socials: {
+          github: 'sdkchan',
+        },
+      },
+      {
+        name: 'WildCard',
+        role: 'Drivers and Android',
+        avatar:
+          'https://cdn.discordapp.com/avatars/472042778340229151/0fe62ff4a5135c0ef9add65057d94867.png?size=1024',
+        specialties: ['Driver Support', 'Vulkan', 'Device Support'],
+        icon: Cpu,
+        color: 'from-pink-500 to-purple-600',
+        socials: {
+          github: 'Lizzie841',
         },
       },
       {
@@ -138,15 +182,14 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
-        name: 'Lizzie841',
-        role: 'JIT and Low-Level',
-        avatar:
-          'https://cdn.discordapp.com/avatars/1221517882022694992/661db1d22085e607415795d9a6ddd909.webp?size=1024',
-        specialties: ['JIT Compilation', 'Low-Level', 'Optimization'],
-        icon: Cpu,
-        color: 'from-pink-500 to-purple-600',
+        name: 'Maufeat',
+        role: 'Applets, HLE and Services',
+        avatar: 'https://avatars.githubusercontent.com/u/3602392',
+        specialties: ['Applets', 'HLE', 'Services'],
+        icon: Code2,
+        color: 'from-purple-500 to-indigo-600',
         socials: {
-          github: 'Lizzie841',
+          github: 'Maufeat',
         },
       },
       {
@@ -159,17 +202,6 @@ export const teamSections: TeamSection[] = [
         color: 'from-orange-500 to-red-500',
         socials: {
           github: 'allisonbzk',
-        },
-      },
-      {
-        name: 'Maufeat',
-        role: 'Applets, HLE and Services',
-        avatar: 'https://avatars.githubusercontent.com/u/3602392',
-        specialties: ['Applets', 'HLE', 'Services'],
-        icon: Code2,
-        color: 'from-purple-500 to-indigo-600',
-        socials: {
-          github: 'Maufeat',
         },
       },
       {
@@ -189,35 +221,9 @@ export const teamSections: TeamSection[] = [
     ],
   },
   {
-    title: 'DESIGN & SUPPORT',
-    description: "The creative minds behind Eden's visual identity and community",
+    title: 'CONTRIBUTORS',
+    description: "Talented developers contributing to Eden's success",
     members: [
-      {
-        name: 'Antabaka',
-        role: 'Graphic Designer',
-        avatar:
-          'https://i.ibb.co/5hLVqQQW/755d80ac15759b03bbf1ae188f2f8f6b4671a5025228f5f53151231b34494f37.png',
-        specialties: ['Logo Design', 'Branding', 'Graphics', 'Admin'],
-        icon: Palette,
-        color: 'from-pink-500 to-purple-500',
-        socials: {
-          github: 'AntaBaka02',
-        },
-      },
-      {
-        name: 'Bix',
-        role: 'Main Web Designer',
-        avatar:
-          'https://cdn.discordapp.com/avatars/707876199329824798/8ee1442551c6031f6de11c12c9bf282e.png?size=1024',
-        specialties: ['Web Design', 'Frontend', 'UX', 'Admin'],
-        icon: Users,
-        color: 'from-cyan-500 to-teal-500',
-        socials: {
-          github: 'Bixbr',
-          twitter: 'Bixbrit',
-          website: 'https://bixed.xyz/',
-        },
-      },
       {
         name: 'Feles Noctis',
         role: 'Asst. Web Designer & Compatibility',
@@ -231,27 +237,89 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
-        name: 'Gonaxd',
-        role: 'Blog Designer',
+        name: 'Antabaka',
+        role: 'Graphic Designer',
         avatar:
-          'https://cdn.discordapp.com/avatars/945361056937701466/1121fabd05c1a4434e80a4190e9e0b8d.webp?size=1024',
-        specialties: ['Blog Design', 'Content Creation'],
-        icon: BookOpen,
-        color: 'from-green-500 to-teal-500',
+          'https://i.ibb.co/5hLVqQQW/755d80ac15759b03bbf1ae188f2f8f6b4671a5025228f5f53151231b34494f37.png',
+        specialties: ['Logo Design', 'Branding', 'Graphics', 'Admin'],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
         socials: {
-          github: 'PenguinGona',
+          github: 'AntaBaka02',
         },
       },
       {
-        name: 'Nevergonna',
-        role: 'Professional Gambling Addict',
+        name: 'Calchan',
+        role: 'Android',
         avatar:
-          'https://cdn.discordapp.com/avatars/726799377535991828/3a5eb51a6013aa30520790e35779dad2.png?size=1024',
-        specialties: ['Community Support', 'Testing', 'Memes'],
-        icon: Heart,
-        color: 'from-yellow-500 to-pink-500',
+          'https://cdn.discordapp.com/avatars/616445066466033678/669b2ba778abc6a93836bd3710594ce3.png?size=1024',
+        specialties: ['TBC', '', '', ''],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
         socials: {
-          discord: '726799377535991828',
+          github: 'AntaBaka02',
+        },
+      },
+      {
+        name: 'Nyx',
+        role: 'Frontend',
+        avatar:
+          'https://cdn.discordapp.com/avatars/1401954229010042912/dc1a14f95e7e6ec69f52577198c07ee1.png?size=1024',
+        specialties: ['Frontend', '', '', ''],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: 'nixynx',
+          website: 'https://innix.space/',
+        },
+      },
+      {
+        name: 'John',
+        role: 'Testing & Building',
+        avatar:
+          'https://cdn.discordapp.com/avatars/351946283835195392/cfe81d9cd77134abe11c06b023747543.png?size=1024',
+        specialties: ['Testing', 'Building'],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: 'JohnQ89',
+        },
+      },
+      {
+        name: 'Shinemegumi',
+        role: 'Project Management',
+        avatar:
+          'https://cdn.discordapp.com/avatars/160084856058019841/0a9cabe6d122996ebc1504432f99bc4b.png?size=1024',
+        specialties: ['Management', '', '', ''],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: '----',
+        },
+      },
+      {
+        name: 'Glitxh',
+        role: 'Community',
+        avatar:
+          'https://cdn.discordapp.com/guilds/1367654015269339267/users/848058656792248341/avatars/a_2e2deb2b4afa6b07a004f1720f8f6d43.webp?size=128',
+        specialties: ['TBC', '', '', ''],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: '----',
+        },
+      },
+      {
+        name: 'DraVee',
+        role: 'Building & Linux',
+        bio: 'Breaking and fixing things for fun also part of translating Eden to Brazilian Portuguese',
+        avatar:
+          'https://cdn.discordapp.com/avatars/464275051307335700/20748ae06642cb7ee24bc0fbc6db2532.webp?size=512',
+        specialties: ['CI', 'Scripts', 'Kasane Teto Fan'],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: 'caio99br',
         },
       },
     ],
@@ -284,7 +352,6 @@ export const pastMembers: PastMember[] = [
   },
 ]
 
-// Calculate stats
 const activeMembers = teamSections.reduce((total, section) => total + section.members.length, 0)
 const totalContributors = activeMembers + pastMembers.length
 const uniqueSpecialties = new Set(
