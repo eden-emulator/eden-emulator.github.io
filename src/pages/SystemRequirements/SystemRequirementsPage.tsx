@@ -19,7 +19,7 @@ function SystemRequirementsPage() {
       <PageWrapper>
         <div className="h-24 md:h-34" />
         {/* Background Effects */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" aria-hidden="true">
           {/* Top section glows */}
           <div className="absolute top-20 left-1/3 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl animate-subtle-pulse" />
           <div className="absolute top-0 right-1/3 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-subtle-pulse-delay-2" />

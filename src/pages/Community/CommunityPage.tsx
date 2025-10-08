@@ -20,7 +20,7 @@ function CommunityPage() {
       <PageWrapper>
         <div className="h-24 md:h-34" />
         {/* Background Effects */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" aria-hidden="true">
           <div className="absolute top-0 left-1/3 w-72 h-72 bg-pink-500/8 rounded-full blur-xl animate-subtle-pulse will-change-transform" />
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan-500/8 rounded-full blur-xl animate-float-delay-3 will-change-transform" />
           <div className="absolute top-20 right-1/3 w-60 h-60 bg-purple-500/8 rounded-full blur-xl animate-subtle-pulse-delay-2 will-change-transform" />
