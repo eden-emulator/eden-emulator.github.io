@@ -100,6 +100,7 @@ export const teamSections: TeamSection[] = [
       {
         name: 'Bix',
         role: 'Main Web Designer',
+        bio: 'Good Soldiers follow orders'
         avatar:
           'https://cdn.discordapp.com/avatars/707876199329824798/8ee1442551c6031f6de11c12c9bf282e.png?size=1024',
         specialties: ['Web Design', 'Frontend', 'UX', 'Admin'],
@@ -138,7 +139,7 @@ export const teamSections: TeamSection[] = [
         name: 'SDK-Chan',
         role: 'Low-Level and Vulkan',
         avatar:
-          'https://cdn.discordapp.com/avatars/1351901569897201766/c7ab8b50deab53259b6d9131efa338c2.png?size=1024',
+          'https://cdn.discordapp.com/avatars/1351901569897201766/c8ebcac73de3de04fa6c608be3277778.png?size=1024',
         specialties: ['Nvidia Driver', 'Low-Level', 'Vulkan'],
         icon: Cpu,
         color: 'from-pink-500 to-purple-600',
@@ -252,7 +253,7 @@ export const teamSections: TeamSection[] = [
         role: 'Android',
         avatar:
           'https://cdn.discordapp.com/avatars/616445066466033678/669b2ba778abc6a93836bd3710594ce3.png?size=1024',
-        specialties: ['', '', '', ''],
+        specialties: ['TBC', '', '', ''],
         icon: Palette,
         color: 'from-pink-500 to-purple-500',
         socials: {
@@ -263,8 +264,8 @@ export const teamSections: TeamSection[] = [
         name: 'Nyx',
         role: 'Frontend',
         avatar:
-          'https://cdn.discordapp.com/avatars/1401954229010042912/334c7668bd56146c205f20b00398d478.png?size=1024',
-        specialties: ['', '', '', ''],
+          'https://cdn.discordapp.com/avatars/1401954229010042912/dc1a14f95e7e6ec69f52577198c07ee1.png?size=1024',
+        specialties: ['Frontend', '', '', ''],
         icon: Palette,
         color: 'from-pink-500 to-purple-500',
         socials: {
@@ -277,11 +278,11 @@ export const teamSections: TeamSection[] = [
         role: 'Testing & Building',
         avatar:
           'https://cdn.discordapp.com/avatars/351946283835195392/cfe81d9cd77134abe11c06b023747543.png?size=1024',
-        specialties: ['', '', '', ''],
+        specialties: ['Testing', 'Building'],
         icon: Palette,
         color: 'from-pink-500 to-purple-500',
         socials: {
-          github: '----',
+          github: 'JohnQ89',
         },
       },
       {
@@ -298,7 +299,7 @@ export const teamSections: TeamSection[] = [
       },
       {
         name: 'Glitxh',
-        role: 'TBC',
+        role: 'Community',
         avatar:
           'https://cdn.discordapp.com/guilds/1367654015269339267/users/848058656792248341/avatars/a_2e2deb2b4afa6b07a004f1720f8f6d43.webp?size=128',
         specialties: ['TBC', '', '', ''],
@@ -311,13 +312,14 @@ export const teamSections: TeamSection[] = [
       {
         name: 'DraVee',
         role: 'Building & Linux',
+        bio: 'Breaking and fixing things for fun also part of translating Eden to Brazilian Portuguese',
         avatar:
           'https://cdn.discordapp.com/avatars/464275051307335700/20748ae06642cb7ee24bc0fbc6db2532.webp?size=512',
-        specialties: ['', '', '', ''],
+        specialties: ['CI', 'Scripts', 'kansane Teto'],
         icon: Palette,
         color: 'from-pink-500 to-purple-500',
         socials: {
-          github: '----',
+          github: 'caio99br',
         },
       },
     ],
