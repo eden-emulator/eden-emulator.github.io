@@ -129,7 +129,7 @@ export const teamSections: TeamSection[] = [
         name: 'MaranBr',
         role: 'Applets, HLE, Services, CI/Build Systems',
         avatar:
-          'https://cdn.discordapp.com/avatars/844269232836575294/b55a24dffb204bf3a0e30ba4d060311f.png?size=1024',
+          'https://cdn.discordapp.com/avatars/844269232836575294/f9a71750e5e801ae4ed54bc959f5e7c8.png?size=1024',
         specialties: ['Applets', 'HLE', 'Services', 'CI/CD'],
         icon: Code2,
         color: 'from-teal-500 to-cyan-600',
