@@ -126,7 +126,7 @@ function DownloadPage() {
                 className="text-purple-400 hover:text-blue-300 transition-colors font-bold tracking-wider focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded"
                 aria-label="View system requirements"
               >
-                System Requirments
+                System Requirements
               </Link>
               <span className="text-purple-500" aria-hidden="true">
                 •
