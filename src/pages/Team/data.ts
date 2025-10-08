@@ -315,7 +315,7 @@ export const teamSections: TeamSection[] = [
         bio: 'Breaking and fixing things for fun also part of translating Eden to Brazilian Portuguese',
         avatar:
           'https://cdn.discordapp.com/avatars/464275051307335700/20748ae06642cb7ee24bc0fbc6db2532.webp?size=512',
-        specialties: ['CI', 'Scripts', 'kansane Teto'],
+        specialties: ['CI', 'Scripts', 'Kasane Teto Fan'],
         icon: Palette,
         color: 'from-pink-500 to-purple-500',
         socials: {
