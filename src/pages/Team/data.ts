@@ -100,7 +100,7 @@ export const teamSections: TeamSection[] = [
       {
         name: 'Bix',
         role: 'Main Web Designer',
-        bio: 'Good Soldiers follow orders'
+        bio: 'Good Soldiers follow orders',
         avatar:
           'https://cdn.discordapp.com/avatars/707876199329824798/8ee1442551c6031f6de11c12c9bf282e.png?size=1024',
         specialties: ['Web Design', 'Frontend', 'UX', 'Admin'],
