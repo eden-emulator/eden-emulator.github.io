@@ -3,8 +3,7 @@ import { requirements } from './data'
 import HeadingText from '@/components/HeadingText'
 import PageWrapper from '@/components/PageWrapper'
 import SEO from '@/components/SEO'
-
-const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+import env from '@/utils/env'
 
 function SystemRequirementsPage() {
   return (
@@ -13,7 +12,7 @@ function SystemRequirementsPage() {
         title="Eden System Requirements - OS, CPU, GPU, RAM Specs"
         description="Discover the system requirements for running Eden emulator. Check CPU, GPU, RAM and OS specs for optimal performance on Windows, Linux, macOS, FreeBSD, Solaris, OpenBSD, and Android devices."
         keywords="Eden system requirements, Switch emulator requirements, CPU GPU RAM specs, Eden emulator specs"
-        url={`${APP_URL}/system-requirements`}
+        url={`${env().APP_URL}/system-requirements`}
       />
 
       <PageWrapper>

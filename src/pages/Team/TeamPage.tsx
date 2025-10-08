@@ -6,8 +6,7 @@ import { teamSections, teamStats, pastMembers } from './data'
 import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
-
-const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+import env from '@/utils/env'
 
 function TeamPage() {
   return (
@@ -16,12 +15,12 @@ function TeamPage() {
         title="Eden Team - Meet the Developers"
         description="Meet the passionate developers and contributors behind Eden. Learn about our team members and how you can contribute to the project."
         keywords="Eden team, Eden developers, emulator contributors, open source team"
-        url={`${APP_URL}/team`}
+        url={`${env().APP_URL}/team`}
       />
       <PageWrapper>
         <div className="h-24 md:h-34" />
         {/* Background Effects */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" aria-hidden="true">
           <div className="absolute top-0 right-1/4 w-80 h-80 bg-purple-500/8 rounded-full blur-xl animate-float will-change-transform" />
           <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-blue-500/8 rounded-full blur-xl animate-subtle-pulse-delay-2 will-change-transform" />
           <div className="absolute top-20 left-1/4 w-60 h-60 bg-pink-500/8 rounded-full blur-xl animate-float-delay-3 will-change-transform" />

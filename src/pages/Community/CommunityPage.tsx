@@ -5,8 +5,7 @@ import HeadingText from '@/components/HeadingText'
 import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
-
-const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+import env from '@/utils/env'
 
 function CommunityPage() {
   return (
@@ -15,7 +14,7 @@ function CommunityPage() {
         title="Eden Community - Join Discord, GitHub & More"
         description="Join the Eden community. Connect with thousands of gamers and developers on Discord, contribute on GitHub, and help improve the emulator."
         keywords="Eden community, Switch emulator Discord, Eden GitHub, emulator community"
-        url={`${APP_URL}/community`}
+        url={`${env().APP_URL}/community`}
       />
       <PageWrapper>
         <div className="h-24 md:h-34" />

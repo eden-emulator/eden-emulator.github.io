@@ -4,8 +4,7 @@ import HeadingText from '@/components/HeadingText'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
 import { donations } from './data'
-
-const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+import env from '@/utils/env'
 
 function DonationsPage() {
   return (
@@ -14,7 +13,7 @@ function DonationsPage() {
         title="Support Eden - Donations"
         description="Support the development of Eden. Your donations help us maintain servers, improve performance, and keep the project free for everyone."
         keywords="Eden donations, support Eden, emulator donations, open source support"
-        url={`${APP_URL}/donations`}
+        url={`${env().APP_URL}/donations`}
       />
       <PageWrapper>
         <div className="h-24 md:h-34" />

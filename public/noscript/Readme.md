@@ -6,4 +6,4 @@ Also, this site was NOT solo made by myself, my friends helped me with developme
 
 Also, I would like to thank the @Eden ogs for testing.
 
-Join us on discord! https://discord.gg/QFWtSENh
+Join us on discord! https://discord.gg/4RtpRVWXcy
