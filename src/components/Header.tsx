@@ -11,7 +11,8 @@ import {
   Sparkles,
   Heart,
 } from 'lucide-react'
-import edenLogo from '@/assets/eden_logo.png'
+import edenLogoPNG from '@/assets/eden_logo.png'
+import edenLogoWebP from '@/assets/eden_logo.webp'
 import { GitHubIcon } from '@/components/Icons'
 import { Link, useLocation } from '@tanstack/react-router'
 import { cn } from '@/utils/style'
@@ -49,12 +50,15 @@ function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 shrink-0 focus:outline-none">
-            <img
-              src={edenLogo}
-              alt="Eden"
-              className="h-10 w-auto max-w-none"
-              style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))' }}
-            />
+            <picture>
+              <source srcSet={edenLogoWebP} type="image/webp" />
+              <img
+                src={edenLogoPNG}
+                alt="Eden"
+                className="h-10 w-auto max-w-none"
+                style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))' }}
+              />
+            </picture>
             <span className="hidden 2xl:block text-xl font-bold text-white">EDEN</span>
           </Link>
 

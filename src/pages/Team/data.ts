@@ -214,7 +214,7 @@ export const teamSections: TeamSection[] = [
         socials: {
           github: 'Producdevity',
           twitter: 'Producdevity',
-          website: 'https://emuready.com',
+          website: 'https://www.emuready.com',
         },
       },
     ],

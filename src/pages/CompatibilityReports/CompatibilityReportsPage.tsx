@@ -7,8 +7,13 @@ import { EDEN_EMULATOR_ID } from './data'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
 import ReportCard from './components/ReportCard'
+import env from '@/utils/env'
 
-const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+interface ModalState {
+  isOpen: boolean
+  gameTitle: string
+  listingId: string
+}
 
 function CompatibilityReportsPage() {
   const [reports, setReports] = useState<CompatibilityReport[]>([])
@@ -22,11 +27,7 @@ function CompatibilityReportsPage() {
   })
   const [error, setError] = useState<string | null>(null)
   const hasInitialized = useRef(false)
-  const [modalState, setModalState] = useState<{
-    isOpen: boolean
-    gameTitle: string
-    listingId: string
-  }>({
+  const [modalState, setModalState] = useState<ModalState>({
     isOpen: false,
     gameTitle: '',
     listingId: '',
@@ -47,12 +48,9 @@ function CompatibilityReportsPage() {
           }),
         )
 
-        // Use environment variable if set, otherwise fallback based on dev/prod
-        const apiUrl =
-          import.meta.env.VITE_EMUREADY_API_BASE_URL ||
-          (import.meta.env.DEV ? '/api/mobile/trpc' : 'https://www.emuready.com/api/mobile/trpc')
-
-        const response = await fetch(`${apiUrl}/listings.get?batch=1&input=${encodedInput}`)
+        const response = await fetch(
+          `${env().EMUREADY_API_BASE_URL}/listings.get?batch=1&input=${encodedInput}`,
+        )
         const data = await response.json()
 
         if (data?.[0]?.result?.data?.json) {
@@ -83,11 +81,7 @@ function CompatibilityReportsPage() {
   }, [fetchReports])
 
   const handleReportClick = (report: CompatibilityReport) => {
-    setModalState({
-      isOpen: true,
-      gameTitle: report.game.title,
-      listingId: report.id,
-    })
+    setModalState({ isOpen: true, gameTitle: report.game.title, listingId: report.id })
   }
 
   const handleModalClose = () => {
@@ -105,13 +99,13 @@ function CompatibilityReportsPage() {
         title="Eden Game Compatibility - Performance Reports"
         description="Check game compatibility for Eden. Browse real-world performance reports from the community for Nintendo Switch games, powered by EmuReady."
         keywords="Eden compatibility, Switch game compatibility, game performance reports, Eden game support, EmuReady"
-        url={`${APP_URL}/compatibility`}
+        url={`${env().APP_URL}/compatibility`}
       />
 
       <PageWrapper>
         <div className="h-24 md:h-34" />
         {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 opacity-30" aria-hidden="true">
           <div
             className="absolute inset-0"
             style={{
@@ -126,9 +120,18 @@ function CompatibilityReportsPage() {
         </div>
 
         {/* Neon Glow Effects */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-1/3 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-pink-500/10 rounded-full blur-3xl" />
+        <div
+          className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute bottom-20 right-1/3 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-pink-500/10 rounded-full blur-3xl"
+          aria-hidden="true"
+        />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText

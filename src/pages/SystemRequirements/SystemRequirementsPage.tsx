@@ -1,10 +1,9 @@
 import { Monitor, Cpu, HardDrive, Smartphone, Activity } from 'lucide-react'
 import { requirements } from './data'
-import HeadingText from '@/components/HeadingText.tsx'
+import HeadingText from '@/components/HeadingText'
 import PageWrapper from '@/components/PageWrapper'
 import SEO from '@/components/SEO'
-
-const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+import env from '@/utils/env'
 
 function SystemRequirementsPage() {
   return (
@@ -13,13 +12,13 @@ function SystemRequirementsPage() {
         title="Eden System Requirements - OS, CPU, GPU, RAM Specs"
         description="Discover the system requirements for running Eden emulator. Check CPU, GPU, RAM and OS specs for optimal performance on Windows, Linux, macOS, FreeBSD, Solaris, OpenBSD, and Android devices."
         keywords="Eden system requirements, Switch emulator requirements, CPU GPU RAM specs, Eden emulator specs"
-        url={`${APP_URL}/system-requirements`}
+        url={`${env().APP_URL}/system-requirements`}
       />
 
       <PageWrapper>
         <div className="h-24 md:h-34" />
         {/* Background Effects */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" aria-hidden="true">
           {/* Top section glows */}
           <div className="absolute top-20 left-1/3 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl animate-subtle-pulse" />
           <div className="absolute top-0 right-1/3 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-subtle-pulse-delay-2" />

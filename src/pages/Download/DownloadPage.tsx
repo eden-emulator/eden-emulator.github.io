@@ -1,14 +1,12 @@
 import { memo, useMemo } from 'react'
 import { Download } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
-import HeadingText from '@/components/HeadingText.tsx'
+import HeadingText from '@/components/HeadingText'
 import { cn } from '@/utils/style'
-import getDynamicPlatforms from '@/pages/Download/utils/getDynamicPlatforms.ts'
+import getDynamicPlatforms from '@/pages/Download/utils/getDynamicPlatforms'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
-import playstoreBadge from '@/assets/playstore_badge.png'
-
-const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+import env from '@/utils/env'
 
 function DownloadPage() {
   const platformOptions = useMemo(() => getDynamicPlatforms(), [])
@@ -19,12 +17,12 @@ function DownloadPage() {
         title="Download Eden - Windows, Linux, macOS, FreeBSD, Solaris, OpenBSD, and Android"
         description="Download the latest version of Eden for your platform. Available for Windows, Linux, macOS, FreeBSD, Solaris, OpenBSD, and Android with regular updates and improvements."
         keywords="download Eden, Eden Switch emulator download, free Switch emulator, emulator download"
-        url={`${APP_URL}/download`}
+        url={`${env().APP_URL}/download`}
       />
       <PageWrapper>
         <div className="h-24 md:h-34" />
         {/* Background Effects */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" aria-hidden="true">
           <div className="absolute top-0 left-1/4 w-72 h-72 bg-purple-500/8 rounded-full blur-xl animate-float will-change-transform" />
           <div className="absolute bottom-0 right-1/3 w-60 h-60 bg-pink-500/8 rounded-full blur-xl animate-subtle-pulse-delay-2 will-change-transform" />
           <div className="absolute top-20 right-1/4 w-80 h-80 bg-blue-500/8 rounded-full blur-xl animate-float-delay-3 will-change-transform" />
@@ -85,37 +83,20 @@ function DownloadPage() {
                     <p>{platform.size}</p>
                     <p className="text-xs text-blue-300 h-10">{platform.requirements}</p>
                   </div>
-                  <div className="mt-auto">
-                    {platform.name === 'ANDROID' ? (
-                      <a
-                        href={platform.downloadUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Get Eden on Google Play - opens in new tab`}
-                        className="inline-block transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded-lg"
-                      >
-                        <img
-                          src={playstoreBadge}
-                          alt="Get it on Google Play"
-                          className="w-full h-[48px]"
-                        />
-                      </a>
-                    ) : (
-                      <button
-                        onClick={() => window.open(platform.downloadUrl, '_blank')}
-                        className={cn(
-                          'w-full py-3 px-4 rounded-lg font-bold transition-colors duration-200 flex items-center justify-center space-x-2 tracking-wider focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black',
-                          platform.primary
-                            ? 'bg-linear-to-r from-purple-500 to-blue-600 hover:from-purple-400 hover:to-blue-500 text-white shadow-lg shadow-purple-500/50'
-                            : 'border-2 border-blue-400 text-blue-300 hover:bg-blue-400/10 hover:text-white',
-                        )}
-                        aria-label={`Download Eden for ${platform.name} (${platform.version}, ${platform.size}) - opens in new tab`}
-                      >
-                        <Download className="w-5 h-5" aria-hidden="true" />
-                        <span>DOWNLOAD</span>
-                      </button>
+
+                  <button
+                    onClick={() => window.open(platform.downloadUrl, '_blank')}
+                    className={cn(
+                      'w-full py-3 px-4 rounded-lg font-bold transition-colors duration-200 flex items-center justify-center space-x-2 tracking-wider focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black',
+                      platform.primary
+                        ? 'bg-linear-to-r from-purple-500 to-blue-600 hover:from-purple-400 hover:to-blue-500 text-white shadow-lg shadow-purple-500/50'
+                        : 'border-2 border-blue-400 text-blue-300 hover:bg-blue-400/10 hover:text-white',
                     )}
-                  </div>
+                    aria-label={`Download Eden for ${platform.name} (${platform.version}, ${platform.size}) - opens in new tab`}
+                  >
+                    <Download className="w-5 h-5" aria-hidden="true" />
+                    <span>DOWNLOAD</span>
+                  </button>
                 </div>
               </article>
             ))}
@@ -144,7 +125,7 @@ function DownloadPage() {
                 className="text-purple-400 hover:text-blue-300 transition-colors font-bold tracking-wider focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded"
                 aria-label="View system requirements"
               >
-                System Requirments
+                System Requirements
               </Link>
               <span className="text-purple-500" aria-hidden="true">
                 •

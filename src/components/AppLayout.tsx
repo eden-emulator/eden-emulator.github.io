@@ -1,7 +1,7 @@
 import { Outlet } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import Header from './Header'
-import Footer from './Footer/Footer.tsx'
+import Footer from './Footer/Footer'
 import { useScrollPerformance } from '@/hooks/useScrollPerformance'
 import { useBackdropFilterSupport } from '@/hooks/useBackdropFilterSupport'
 

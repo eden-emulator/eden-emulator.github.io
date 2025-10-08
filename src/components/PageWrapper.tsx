@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from 'react'
 import BackgroundEffect from './BackgroundEffect'
-import { cn } from '@/utils/style.ts'
+import { cn } from '@/utils/style'
 
 interface PageWrapperProps extends PropsWithChildren {
   className?: string

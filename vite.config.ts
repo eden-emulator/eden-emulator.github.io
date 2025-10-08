@@ -22,10 +22,9 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api/emuready': {
+      '/api/mobile/trpc': {
         target: 'https://www.emuready.com',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/emuready/, '/api'),
       },
     },
   },

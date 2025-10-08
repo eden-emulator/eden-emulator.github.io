@@ -1,4 +1,4 @@
-import { platforms } from '@/pages/Download/data.ts'
+import { platforms } from '@/pages/Download/data'
 import getCurrentPlatform from '@/utils/getCurrentPlatform'
 
 function getDynamicPlatforms() {

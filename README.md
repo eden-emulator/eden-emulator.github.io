@@ -80,6 +80,6 @@ Special thanks to the **@Eden OGs** for testing and feedback.
 
 ## 💬 Community
 
-Join the Eden community on [Discord](https://discord.gg/edenemu)
+Join the Eden community on [Discord](https://discord.gg/4RtpRVWXcy)
 
 ---

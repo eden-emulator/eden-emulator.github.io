@@ -1,11 +1,10 @@
 import { memo } from 'react'
 import { features } from './data'
-import HeadingText from '@/components/HeadingText.tsx'
+import HeadingText from '@/components/HeadingText'
 import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
-
-const APP_URL = import.meta.env.VITE_APP_URL || 'https://eden-emu.dev'
+import env from '@/utils/env'
 
 function FeaturesPage() {
   return (
@@ -14,7 +13,7 @@ function FeaturesPage() {
         title="Eden Features - High Performance Switch Emulation"
         description="Explore Eden's features: high performance emulation, cross-platform support, clean interface, and active development. Experience Switch games on your device."
         keywords="Eden features, Switch emulator features, emulation performance, cross-platform emulator"
-        url={`${APP_URL}/features`}
+        url={`${env().APP_URL}/features`}
       />
       <PageWrapper>
         <div className="h-24 md:h-34" />
