@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Eden Snake</title>
+    <title>Eden Games</title>
     <style>
       html, body {
         height: 100%;
@@ -20,15 +20,43 @@
         margin-bottom: 10px;
       }
 
-      #score {
+      #score, #highscore {
         font-size: 18px;
         margin: 5px;
-        color: #ff40c3;
       }
+
+      #score { color: #ff40c3; }
+      #highscore { color: #975BEC; }
 
       canvas {
         border: 2px solid #975BEC;
         background: #111;
+        margin-top: 10px;
+      }
+
+      #controls {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+      }
+
+      button {
+        cursor: pointer;
+        background: #111;
+        border: 2px solid #975BEC;
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 14px;
+      }
+
+      button:hover {
+        border-color: #ff40c3;
+        color: #ff40c3;
+      }
+
+      button.active {
+        border-color: #ff40c3;
+        color: #ff40c3;
       }
 
       #gameover {
@@ -52,15 +80,23 @@
         font-size: 16px;
         cursor: pointer;
       }
+
       #restart:hover {
         background: #ff40c3;
       }
     </style>
   </head>
   <body>
-    <h1>Eden Emulator Snake</h1>
+    <h1>Eden Games</h1>
     <div id="score">Score: 0</div>
+    <div id="highscore">High Score: 0</div>
     <canvas width="400" height="400" id="game"></canvas>
+
+    <div id="controls">
+      <button id="snakeBtn" class="active">Play Snake</button>
+      <button id="pongBtn">Play Pong</button>
+      <button id="hardmode">Hard Mode: OFF</button>
+    </div>
 
     <div id="gameover">
       <h2>Game Over!</h2>
@@ -69,132 +105,347 @@
     </div>
 
     <script>
-      var canvas = document.getElementById('game');
-      var context = canvas.getContext('2d');
-      var scoreEl = document.getElementById('score');
-      var gameOverEl = document.getElementById('gameover');
-      var finalScoreEl = document.getElementById('finalscore');
-      var restartBtn = document.getElementById('restart');
+      const canvas = document.getElementById('game');
+      const ctx = canvas.getContext('2d');
+      const scoreEl = document.getElementById('score');
+      const highScoreEl = document.getElementById('highscore');
+      const gameOverEl = document.getElementById('gameover');
+      const finalScoreEl = document.getElementById('finalscore');
+      const restartBtn = document.getElementById('restart');
+      const hardModeBtn = document.getElementById('hardmode');
+      const snakeBtn = document.getElementById('snakeBtn');
+      const pongBtn = document.getElementById('pongBtn');
 
-      var grid = 16;
-      var count = 0;
-      var speed = 4;
-      var score = 0;
+      let currentGame = 'snake';
+      let hardMode = false;
+      let paused = false;
 
-      var snake = {
-        x: 160,
-        y: 160,
-        dx: grid,
-        dy: 0,
+      const MS_PER_UPDATE = 1000 / 60;
+      let lastTime = performance.now();
+      let accumulator = 0;
+
+      const GRID = 16;
+      const CELLS = canvas.width / GRID;
+
+      function randomCell() {
+        return Math.floor(Math.random() * CELLS) * GRID;
+      }
+
+      function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+      const snake = {
+        x: 160, y: 160,
+        dx: GRID, dy: 0,
         cells: [],
         maxCells: 4,
+        tickSpeed: 8,
+        tickCounter: 0
+      };
+      let apples = [];
+      let score = 0;
+      let highScore = Number(localStorage.getItem('edenGamesHighScore') || 0);
+
+      const pong = {
+        paddleW: 10,
+        paddleH: 60,
+        leftY: 170,
+        rightY: 170,
+        ballX: 200,
+        ballY: 200,
+        ballDX: 4,
+        ballDY: 3,
+        playerScore: 0,
+        aiScore: 0,
+        playerSpeed: 6,
+        aiSpeed: 3
       };
 
-      var apples = [
-        { x: 320, y: 320 },
-        { x: 80, y: 80 },
-      ];
+      scoreEl.textContent = 'Score: 0';
+      highScoreEl.textContent = 'High Score: ' + highScore;
 
-      function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min)) * grid;
-      }
-
-      function resetGame() {
-        snake.x = 160;
-        snake.y = 160;
+      function initSnake() {
+        snake.x = 160; snake.y = 160;
+        snake.dx = GRID; snake.dy = 0;
         snake.cells = [];
         snake.maxCells = 4;
-        snake.dx = grid;
-        snake.dy = 0;
+        snake.tickSpeed = 8;
+        snake.tickCounter = 0;
         score = 0;
-        speed = 4;
-        scoreEl.textContent = "Score: " + score;
-        apples.forEach(function (apple) {
-          apple.x = getRandomInt(0, 25);
-          apple.y = getRandomInt(0, 25);
+        apples = [
+          { x: randomCell(), y: randomCell() },
+          { x: randomCell(), y: randomCell() }
+        ];
+        apples.forEach(a => {
+          if (a.x === snake.x && a.y === snake.y) {
+            a.x = randomCell(); a.y = randomCell();
+          }
         });
+        scoreEl.textContent = 'Score: ' + score;
         gameOverEl.style.display = 'none';
-        requestAnimationFrame(loop);
       }
 
-      function loop() {
-        requestAnimationFrame(loop);
+      function initPong() {
+        pong.leftY = pong.rightY = (canvas.height - pong.paddleH) / 2;
+        pong.ballX = canvas.width / 2;
+        pong.ballY = canvas.height / 2;
+        const dirX = Math.random() > 0.5 ? 1 : -1;
+        const dirY = Math.random() > 0.5 ? 1 : -1;
+        pong.ballDX = 4 * dirX;
+        pong.ballDY = 3 * dirY;
+        pong.playerScore = 0;
+        pong.aiScore = 0;
+        scoreEl.textContent = 'Score: 0';
+        highScoreEl.textContent = 'Opponent: 0';
+        gameOverEl.style.display = 'none';
+      }
 
-        if (++count < speed) return;
-        count = 0;
-        context.clearRect(0, 0, canvas.width, canvas.height);
+      initSnake();
 
-        // draw grid background
-        context.strokeStyle = '#222';
-        for (let i = 0; i < canvas.width; i += grid) {
-          context.beginPath();
-          context.moveTo(i, 0);
-          context.lineTo(i, canvas.height);
-          context.stroke();
+      function update(dt) {
+        if (paused) return;
+
+        if (currentGame === 'snake') updateSnake(dt);
+        else updatePong(dt);
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = '#222';
+        for (let i = 0; i < canvas.width; i += GRID) {
+          ctx.beginPath();
+          ctx.moveTo(i, 0);
+          ctx.lineTo(i, canvas.height);
+          ctx.stroke();
         }
-        for (let j = 0; j < canvas.height; j += grid) {
-          context.beginPath();
-          context.moveTo(0, j);
-          context.lineTo(canvas.width, j);
-          context.stroke();
+        for (let j = 0; j < canvas.height; j += GRID) {
+          ctx.beginPath();
+          ctx.moveTo(0, j);
+          ctx.lineTo(canvas.width, j);
+          ctx.stroke();
         }
+
+        if (currentGame === 'snake') drawSnake();
+        else drawPong();
+      }
+
+      function updateSnake(dt) {
+        snake.tickCounter += dt * 0.06;
+        if (snake.tickCounter < snake.tickSpeed) return;
+        snake.tickCounter = 0;
 
         snake.x += snake.dx;
         snake.y += snake.dy;
 
-        if (snake.x < 0) snake.x = canvas.width - grid;
-        else if (snake.x >= canvas.width) snake.x = 0;
-        if (snake.y < 0) snake.y = canvas.height - grid;
-        else if (snake.y >= canvas.height) snake.y = 0;
+        if (hardMode) {
+          if (snake.x < 0 || snake.x >= canvas.width || snake.y < 0 || snake.y >= canvas.height) {
+            snakeGameOver();
+            return;
+          }
+        } else {
+          if (snake.x < 0) snake.x = canvas.width - GRID;
+          else if (snake.x >= canvas.width) snake.x = 0;
+          if (snake.y < 0) snake.y = canvas.height - GRID;
+          else if (snake.y >= canvas.height) snake.y = 0;
+        }
 
         snake.cells.unshift({ x: snake.x, y: snake.y });
-        if (snake.cells.length > snake.maxCells) snake.cells.pop();
+        while (snake.cells.length > snake.maxCells) snake.cells.pop();
 
-        // draw apples
-        context.fillStyle = '#ff40c3';
-        apples.forEach(function (apple) {
-          context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
-        });
-
-        // draw snake
-        context.fillStyle = '#975BEC';
-        snake.cells.forEach(function (cell, index) {
-          context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
-
-          apples.forEach(function (apple) {
-            if (cell.x === apple.x && cell.y === apple.y) {
-              snake.maxCells++;
-              score++;
-              scoreEl.textContent = "Score: " + score;
-
-              // speed up slightly every 5 points
-              if (score % 5 === 0 && speed > 2) speed--;
-
-              apple.x = getRandomInt(0, 25);
-              apple.y = getRandomInt(0, 25);
-            }
-          });
-
-          for (var i = index + 1; i < snake.cells.length; i++) {
-            if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-              finalScoreEl.textContent = score;
-              gameOverEl.style.display = 'block';
-              return; // stop loop on game over
+        for (let i = 0; i < apples.length; i++) {
+          const a = apples[i];
+          if (snake.x === a.x && snake.y === a.y) {
+            snake.maxCells++;
+            score++;
+            scoreEl.textContent = 'Score: ' + score;
+            snake.tickSpeed = Math.max(3, snake.tickSpeed - 0.5);
+            relocateApple(i);
+            if (score % 10 === 0 && apples.length < 5) {
+              spawnApple();
             }
           }
+        }
+
+        for (let i = 1; i < snake.cells.length; i++) {
+          if (snake.cells[i].x === snake.x && snake.cells[i].y === snake.y) {
+            snakeGameOver();
+            return;
+          }
+        }
+      }
+
+      function drawSnake() {
+        ctx.fillStyle = '#ff40c3';
+        apples.forEach(a => ctx.fillRect(a.x, a.y, GRID - 1, GRID - 1));
+
+        ctx.fillStyle = '#975BEC';
+        snake.cells.forEach((cell) => {
+          ctx.fillRect(cell.x, cell.y, GRID - 1, GRID - 1);
         });
       }
 
-      document.addEventListener('keydown', function (e) {
-        if (e.which === 37 && snake.dx === 0) { snake.dx = -grid; snake.dy = 0; }
-        else if (e.which === 38 && snake.dy === 0) { snake.dy = -grid; snake.dx = 0; }
-        else if (e.which === 39 && snake.dx === 0) { snake.dx = grid; snake.dy = 0; }
-        else if (e.which === 40 && snake.dy === 0) { snake.dy = grid; snake.dx = 0; }
+      function relocateApple(index) {
+        let tries = 0;
+        do {
+          apples[index].x = randomCell();
+          apples[index].y = randomCell();
+          tries++;
+          if (tries > 200) break;
+        } while (snake.cells.some(c => c.x === apples[index].x && c.y === apples[index].y));
+      }
+
+      function spawnApple() {
+        const newApple = { x: randomCell(), y: randomCell() };
+        let tries = 0;
+        while ((snake.cells.some(c => c.x === newApple.x && c.y === newApple.y) ||
+               apples.some(a => a.x === newApple.x && a.y === newApple.y)) && tries < 200) {
+          newApple.x = randomCell();
+          newApple.y = randomCell();
+          tries++;
+        }
+        apples.push(newApple);
+      }
+
+      function snakeGameOver() {
+        paused = false;
+        finalScoreEl.textContent = String(score);
+        gameOverEl.style.display = 'block';
+        if (score > highScore) {
+          highScore = score;
+          localStorage.setItem('edenGamesHighScore', String(highScore));
+          highScoreEl.textContent = 'High Score: ' + highScore;
+        }
+      }
+
+      function updatePong(dt) {
+        pong.ballX += pong.ballDX * (dt / 16.67);
+        pong.ballY += pong.ballDY * (dt / 16.67);
+
+        if (pong.ballY <= 0) {
+          pong.ballY = 0; pong.ballDY *= -1;
+        } else if (pong.ballY >= canvas.height) {
+          pong.ballY = canvas.height; pong.ballDY *= -1;
+        }
+
+        if (pong.ballX - 6 <= 10 + pong.paddleW && pong.ballX - 6 >= 10) {
+          if (pong.ballY >= pong.leftY && pong.ballY <= pong.leftY + pong.paddleH) {
+            pong.ballX = 10 + pong.paddleW + 6;
+            pong.ballDX *= -1.05;
+            const hit = (pong.ballY - (pong.leftY + pong.paddleH / 2)) / (pong.paddleH / 2);
+            pong.ballDY += hit * 1.2;
+          }
+        }
+
+        if (pong.ballX + 6 >= canvas.width - 20 && pong.ballX + 6 <= canvas.width - 20 + pong.paddleW) {
+          if (pong.ballY >= pong.rightY && pong.ballY <= pong.rightY + pong.paddleH) {
+            pong.ballX = canvas.width - 20 - 6;
+            pong.ballDX *= -1.05;
+            const hit = (pong.ballY - (pong.rightY + pong.paddleH / 2)) / (pong.paddleH / 2);
+            pong.ballDY += hit * 1.2;
+          }
+        }
+
+        if (pong.ballX < -50) { pong.aiScore++; resetBall(true); }
+        if (pong.ballX > canvas.width + 50) { pong.playerScore++; resetBall(false); }
+
+        if (pong.rightY + pong.paddleH / 2 < pong.ballY - 6) pong.rightY += pong.aiSpeed;
+        else if (pong.rightY + pong.paddleH / 2 > pong.ballY + 6) pong.rightY -= pong.aiSpeed;
+        pong.rightY = clamp(pong.rightY, 0, canvas.height - pong.paddleH);
+
+        pong.leftY = clamp(pong.leftY, 0, canvas.height - pong.paddleH);
+
+        scoreEl.textContent = 'Score: ' + pong.playerScore;
+        highScoreEl.textContent = 'Opponent: ' + pong.aiScore;
+      }
+
+      function drawPong() {
+        ctx.fillStyle = '#975BEC';
+        ctx.fillRect(10, pong.leftY, pong.paddleW, pong.paddleH);
+        ctx.fillRect(canvas.width - 20, pong.rightY, pong.paddleW, pong.paddleH);
+
+        ctx.fillStyle = '#ff40c3';
+        ctx.beginPath();
+        ctx.arc(pong.ballX, pong.ballY, 6, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      function resetBall(toPlayer) {
+        pong.ballX = canvas.width / 2;
+        pong.ballY = canvas.height / 2;
+        const dirX = toPlayer ? -1 : 1;
+        const dirY = Math.random() > 0.5 ? 1 : -1;
+        pong.ballDX = 4 * dirX;
+        pong.ballDY = 3 * dirY;
+      }
+
+      function mainLoop(now) {
+        const frameTime = now - lastTime;
+        lastTime = now;
+        accumulator += frameTime;
+
+        if (accumulator > 1000) accumulator = 1000;
+
+        while (accumulator >= MS_PER_UPDATE) {
+          update(MS_PER_UPDATE);
+          accumulator -= MS_PER_UPDATE;
+        }
+
+        draw();
+        requestAnimationFrame(mainLoop);
+      }
+
+      requestAnimationFrame(mainLoop);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === 'p') {
+          paused = !paused;
+          return;
+        }
+        if (e.key === 'Escape') {
+          gameOverEl.style.display = 'none';
+          paused = false;
+          return;
+        }
+
+        if (currentGame === 'snake') {
+          if (e.key === 'ArrowLeft' && snake.dx === 0) { snake.dx = -GRID; snake.dy = 0; }
+          else if (e.key === 'ArrowUp' && snake.dy === 0) { snake.dy = -GRID; snake.dx = 0; }
+          else if (e.key === 'ArrowRight' && snake.dx === 0) { snake.dx = GRID; snake.dy = 0; }
+          else if (e.key === 'ArrowDown' && snake.dy === 0) { snake.dy = GRID; snake.dx = 0; }
+        } else if (currentGame === 'pong') {
+          if (e.key.toLowerCase() === 'w') pong.leftY -= pong.playerSpeed * 6;
+          else if (e.key.toLowerCase() === 's') pong.leftY += pong.playerSpeed * 6;
+        }
       });
 
-      restartBtn.addEventListener('click', resetGame);
+      hardModeBtn.addEventListener('click', () => {
+        hardMode = !hardMode;
+        hardModeBtn.textContent = 'Hard Mode: ' + (hardMode ? 'ON' : 'OFF');
+        hardModeBtn.classList.toggle('active', hardMode);
+      });
 
-      requestAnimationFrame(loop);
+      snakeBtn.addEventListener('click', () => {
+        if (currentGame === 'snake') return;
+        currentGame = 'snake';
+        snakeBtn.classList.add('active');
+        pongBtn.classList.remove('active');
+        initSnake();
+      });
+
+      pongBtn.addEventListener('click', () => {
+        if (currentGame === 'pong') return;
+        currentGame = 'pong';
+        pongBtn.classList.add('active');
+        snakeBtn.classList.remove('active');
+        initPong();
+      });
+
+      restartBtn.addEventListener('click', () => {
+        if (currentGame === 'snake') initSnake();
+        else initPong();
+        paused = false;
+      });
+
+      document.addEventListener('selectstart', e => e.preventDefault());
     </script>
   </body>
 </html>
