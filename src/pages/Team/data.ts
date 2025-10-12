@@ -91,7 +91,7 @@ export const teamSections: TeamSection[] = [
         avatar:
           'https://cdn.discordapp.com/avatars/1329598497519046828/60d5c7b793316118daba76dced66580e.png?size=1024',
         specialties: ['Vulkan', 'Graphics', 'Services'],
-        icon: Palette,
+        icon: Code2,
         color: 'from-yellow-500 to-orange-500',
         socials: {
           github: 'JPikachu',
@@ -253,11 +253,11 @@ export const teamSections: TeamSection[] = [
         role: 'Android',
         avatar:
           'https://cdn.discordapp.com/avatars/616445066466033678/669b2ba778abc6a93836bd3710594ce3.png?size=1024',
-        specialties: ['TBC', '', '', ''],
-        icon: Palette,
+        specialties: ['Android'],
+        icon: Cpu,
         color: 'from-pink-500 to-purple-500',
         socials: {
-          github: 'AntaBaka02',
+          github: 'tbc',
         },
       },
       {
@@ -265,12 +265,24 @@ export const teamSections: TeamSection[] = [
         role: 'Frontend',
         avatar:
           'https://cdn.discordapp.com/avatars/1401954229010042912/dc1a14f95e7e6ec69f52577198c07ee1.png?size=1024',
-        specialties: ['Frontend', '', '', ''],
-        icon: Palette,
+        specialties: ['Frontend'],
+        icon: Code2,
         color: 'from-pink-500 to-purple-500',
         socials: {
           github: 'nixynx',
           website: 'https://innix.space/',
+        },
+      },
+            {
+        name: 'Alyx',
+        role: 'Backend',
+        avatar:
+          'https://cdn.discordapp.com/avatars/1190791785237200957/d21b58de396367a2dd6369f3c24fd4ac.png?size=1024',
+        specialties: ['Backend'],
+        icon: Code2,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: 'tbc',
         },
       },
       {
@@ -279,7 +291,7 @@ export const teamSections: TeamSection[] = [
         avatar:
           'https://cdn.discordapp.com/avatars/351946283835195392/cfe81d9cd77134abe11c06b023747543.png?size=1024',
         specialties: ['Testing', 'Building'],
-        icon: Palette,
+        icon: Cpu,
         color: 'from-pink-500 to-purple-500',
         socials: {
           github: 'JohnQ89',
@@ -290,23 +302,23 @@ export const teamSections: TeamSection[] = [
         role: 'Project Management',
         avatar:
           'https://cdn.discordapp.com/avatars/160084856058019841/0a9cabe6d122996ebc1504432f99bc4b.png?size=1024',
-        specialties: ['Management', '', '', ''],
-        icon: Palette,
+        specialties: ['Management'],
+        icon: Shield,
         color: 'from-pink-500 to-purple-500',
         socials: {
-          github: '----',
+          github: 'Shinmegumi',
         },
       },
       {
         name: 'Glitxh',
         role: 'Community',
         avatar:
-          'https://cdn.discordapp.com/guilds/1367654015269339267/users/848058656792248341/avatars/a_2e2deb2b4afa6b07a004f1720f8f6d43.webp?size=128',
-        specialties: ['TBC', '', '', ''],
+          'https://i.ibb.co/PsnmV40F/Eden-glitxhhh-avatar.gif',
+        specialties: ['Community'],
         icon: Palette,
         color: 'from-pink-500 to-purple-500',
         socials: {
-          github: '----',
+          github: 'Glitxhhh',
         },
       },
       {
