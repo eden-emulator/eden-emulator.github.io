@@ -311,10 +311,10 @@ export const teamSections: TeamSection[] = [
       },
       {
         name: 'Glitxh',
-        role: 'Community',
+        role: 'Community Management',
         avatar:
           'https://i.ibb.co/PsnmV40F/Eden-glitxhhh-avatar.gif',
-        specialties: ['Community'],
+        specialties: ['Community Management'],
         icon: Palette,
         color: 'from-pink-500 to-purple-500',
         socials: {
