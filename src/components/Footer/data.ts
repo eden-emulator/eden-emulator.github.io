@@ -1,6 +1,6 @@
 import { type LucideIcon } from 'lucide-react'
 
-import { DiscordIcon, GitHubIcon, TwitterIcon, type Icon } from '@/components/Icons'
+import { DiscordIcon, GitHubIcon, TwitterIcon, StoatIcon, type Icon } from '@/components/Icons'
 
 interface FooterLink {
   name: string
@@ -57,6 +57,12 @@ export const socialLinks: SocialLink[] = [
     icon: TwitterIcon,
     href: 'https://x.com/edenemuofficial',
     label: 'Twitter',
+    color: 'hover:text-blue-400',
+  },
+  {
+    icon: StoatIcon,
+    href: 'https://rvlt.gg/qKgFEAbH',
+    label: 'Stoat',
     color: 'hover:text-blue-400',
   },
 ]

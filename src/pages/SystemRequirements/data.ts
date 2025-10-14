@@ -32,7 +32,7 @@ export const requirements = {
     laptop: [
       {
         level: 'Minimum',
-        specs: 'Intel Core i5-8256U / AMD Ryzen 3 2300U',
+        specs: 'Intel Core i5-8265U / AMD Ryzen 3 2300U',
       },
       {
         level: 'Recommended',
@@ -68,7 +68,7 @@ export const requirements = {
     integrated: [
       {
         level: 'Minimum For Windows',
-        specs: 'Intel UHD Graphics 730 / AMD Radeon Vega 3',
+        specs: 'Intel UHD Graphics 630 / AMD Radeon Vega 3',
       },
       {
         level: 'Minimum For Linux',
