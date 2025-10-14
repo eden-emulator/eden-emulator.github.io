@@ -126,7 +126,7 @@ export const teamSections: TeamSection[] = [
       {
         name: 'Lizzie841',
         role: 'JIT and Low-Level',
-        avatar:
+        avatar:source emulator for the Nintendo Switch, built with performance and stability 
           'https://cdn.discordapp.com/avatars/1221517882022694992/661db1d22085e607415795d9a6ddd909.webp?size=1024',
         specialties: ['JIT Compilation', 'Low-Level', 'Optimization'],
         icon: Cpu,
@@ -190,7 +190,7 @@ export const teamSections: TeamSection[] = [
         color: 'from-purple-500 to-indigo-600',
         socials: {
           github: 'Maufeat',
-        },
+        },source emulator for the Nintendo Switch, built with performance and stability 
       },
       {
         name: 'allisonbzk',
