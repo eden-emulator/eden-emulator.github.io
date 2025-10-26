@@ -7,7 +7,6 @@ import {
   Users,
   Monitor,
   ClipboardList,
-  Users2,
   Sparkles,
   Heart,
 } from 'lucide-react'
@@ -28,7 +27,6 @@ function Header() {
     { name: 'COMPATIBILITY', href: '/compatibility', icon: ClipboardList },
     { name: 'DOCS', href: '/docs', icon: Book },
     { name: 'COMMUNITY', href: '/community', icon: Users },
-    { name: 'TEAM', href: '/team', icon: Users2 },
     { name: 'DONATIONS', href: '/donations', icon: Heart },
     {
       name: '',

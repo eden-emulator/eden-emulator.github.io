@@ -6,7 +6,6 @@ import DocumentationPage from './pages/Documentation/DocumentationPage'
 import CommunityPage from './pages/Community/CommunityPage'
 import SystemRequirementsPage from './pages/SystemRequirements/SystemRequirementsPage'
 import CompatibilityReportsPage from './pages/CompatibilityReports/CompatibilityReportsPage'
-import TeamPage from './pages/Team/TeamPage'
 import DonationsPage from './pages/Donations/DonationsPage'
 import NotFoundPage from './pages/NotFound/NotFoundPage'
 import AppLayout from './components/AppLayout'
@@ -55,12 +54,6 @@ const compatibilityReportsRoute = createRoute({
   component: CompatibilityReportsPage,
 })
 
-const teamRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/team',
-  component: TeamPage,
-})
-
 const donationsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/donations',
@@ -73,7 +66,6 @@ const routeTree = rootRoute.addChildren([
   downloadRoute,
   docsRoute,
   communityRoute,
-  teamRoute,
   donationsRoute,
   systemRequirementsRoute,
   compatibilityReportsRoute,

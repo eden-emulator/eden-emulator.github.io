@@ -7,7 +7,7 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
+
   <!-- Features Page -->
   <url>
     <loc>https://eden-emulator.github.io/features</loc>
@@ -15,7 +15,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <!-- Download Page -->
   <url>
     <loc>https://eden-emulator.github.io/download</loc>
@@ -23,7 +23,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <!-- System Requirements Page -->
   <url>
     <loc>https://eden-emulator.github.io/system-requirements</loc>
@@ -31,7 +31,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <!-- Compatibility Reports Page -->
   <url>
     <loc>https://eden-emulator.github.io/compatibility</loc>
@@ -39,7 +39,7 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <!-- Documentation Page -->
   <url>
     <loc>https://eden-emulator.github.io/docs</loc>
@@ -47,7 +47,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <!-- Community Page -->
   <url>
     <loc>https://eden-emulator.github.io/community</loc>
@@ -55,12 +55,4 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  
-  <!-- Team Page -->
-  <url>
-    <loc>https://eden-emulator.github.io/team</loc>
-    <lastmod>2025-01-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-</urlset>
+  </urlset>

@@ -40,34 +40,6 @@
       href="css/mobile_styles.css?202505131513"
       media="screen and (max-width: 768px)"
     />
-    <!-- Preload Flickity pkgs for carousel -->
-    <link rel="preload" as="script" href="https://unpkg.com/flickity@3/dist/flickity.pkgd.min.js" />
-    <link rel="preload" as="script" href="https://unpkg.com/flickity-fade@2/flickity-fade.js" />
-    <link rel="preload" as="image" href="img/carousel/zelda.jpg" />
-    <link rel="preload" as="image" href="img/carousel/mario.jpg" />
-    <link rel="preload" as="image" href="img/carousel/splatoon.jpg" />
-    <link rel="preload" as="image" href="img/carousel/pkmn.jpg" />
-    <link rel="preload" as="image" href="img/carousel/mkart.jpg" />
-    <link rel="preload" as="image" href="img/carousel/monkey.jpg" />
-    <!-- Flickity pkgs for carousel -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://unpkg.com/flickity@3/dist/flickity.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://unpkg.com/flickity-fade@2/flickity-fade.css"
-    />
-    <script src="https://unpkg.com/flickity@3/dist/flickity.pkgd.min.js"></script>
-    <script>
-      // Overwrite stopPlayer method, we don't want it
-      Flickity.prototype.stopPlayer = function () {
-        //this.player.stop();
-      }
-    </script>
-    <script src="https://unpkg.com/flickity-fade@2/flickity-fade.js"></script>
   </head>
 
   <body>
@@ -87,7 +59,6 @@
         <a href="privacy.html">Privacy</a>
         <a href="https://github.com/eden-emulator/Releases/releases">Download</a>
         <a href="compatibility.html">Compatibility</a>
-        <a href="devs.html">Developers</a>
         <a href="donations.html">Donations</a>
         <a href="https://discord.gg/edenemu">Join Our Discord</a>
       </nav>
@@ -154,7 +125,7 @@
 
     <div class="spacer"></div>
     <footer>
-      <a href="devs.html">Eden Emulator, Developed by The Eden Team</a>
+      Eden
       <h6>Website Made by Bix, Refined by Feles</h6>
       <a href="https://x.com/edenemuofficial" class="social-link">
         <img src="img/twitter.png" alt="X logo" class="social-icon" />
