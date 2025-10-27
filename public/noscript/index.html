@@ -14,24 +14,6 @@
     <meta name="color-scheme" content="dark" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eden - Nintendo Switch Emulator</title>
-    <!-- Preconnect external asset urls -->
-    <link rel="preconnect" href="https://unpkg.com" />
-    <!-- Preload important assets -->
-    <link rel="preload" as="style" href="css/core_styles.css?202505131513" />
-    <link rel="preload" as="style" href="css/mobile_styles.css?202505131513" />
-    <link rel="preload" as="image" href="img/logofavicon2.png" />
-    <link rel="preload" as="image" href="img/bg1.jpg" />
-    <link rel="prefetch" as="image" href="favicon.ico?202505100214" />
-    <link rel="prefetch" as="image" href="icon.svg?202505100214" />
-    <!-- Favicon chaos -->
-    <!-- Android devices -->
-    <link rel="manifest" href="manifest.webmanifest?202505100214" />
-    <!-- Older browsers -->
-    <link rel="icon" href="favicon.ico?202505100214" sizes="32x32" />
-    <!-- Modern Browsers -->
-    <link rel="icon" href="icon.svg?202505100214" type="image/svg+xml" />
-    <!-- Apple devices -->
-    <link rel="apple-touch-icon" href="apple-touch-icon.png?202505100214" />
     <!-- Eden -->
     <link rel="stylesheet" type="text/css" href="css/core_styles.css?202505131513" />
     <link
@@ -40,33 +22,6 @@
       href="css/mobile_styles.css?202505131513"
       media="screen and (max-width: 768px)"
     />
-    <!-- Preload Flickity pkgs for carousel -->
-    <link rel="preload" as="script" href="https://unpkg.com/flickity@3/dist/flickity.pkgd.min.js" />
-    <link rel="preload" as="script" href="https://unpkg.com/flickity-fade@2/flickity-fade.js" />
-    <link rel="preload" as="image" href="img/carousel/zelda.jpg" />
-    <link rel="preload" as="image" href="img/carousel/mario.jpg" />
-    <link rel="preload" as="image" href="img/carousel/splatoon.jpg" />
-    <link rel="preload" as="image" href="img/carousel/pkmn.jpg" />
-    <link rel="preload" as="image" href="img/carousel/mkart.jpg" />
-    <link rel="preload" as="image" href="img/carousel/monkey.jpg" />
-    <!-- Flickity pkgs for carousel -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://unpkg.com/flickity@3/dist/flickity.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://unpkg.com/flickity-fade@2/flickity-fade.css"
-    />
-    <script src="https://unpkg.com/flickity@3/dist/flickity.pkgd.min.js"></script>
-    <script>
-      // Overwrite stopPlayer method, we don't want it
-      Flickity.prototype.stopPlayer = function () {
-        //this.player.stop();
-      }
-    </script>
     <script src="https://unpkg.com/flickity-fade@2/flickity-fade.js"></script>
   </head>
 
@@ -77,10 +32,6 @@
           ><img src="img/logofavicon2.png" alt="Eden" width="75" height="75"
         /></a>
       </div>
-      <button class="hamburger" aria-label="Menu">
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
       </button>
       <nav class="nav-mobile">
         <a href="blog.html">Blog</a>
@@ -116,27 +67,7 @@
         </div>
       </div>
       <div class="hero-image">
-        <!-- <img src="img/eden_landscape.png" alt="image of emu"> -->
-        <!-- <img src="img/jojo-galaxy.gif" alt="image of emu"> -->
-        <div class="main-carousel">
-          <div class="carousel-cell">
-            <img src="img/carousel/zelda.jpg" alt="Legend of Zelda: Tears of the Kingdom" />
-          </div>
-          <div class="carousel-cell">
-            <img src="img/carousel/mario.jpg" alt="Super Mario Odyssey" />
-          </div>
-          <div class="carousel-cell"><img src="img/carousel/splatoon.jpg" alt="Splatoon 3" /></div>
-          <div class="carousel-cell"><img src="img/carousel/pkmn.jpg" alt="Pokémon: Violet" /></div>
-          <div class="carousel-cell">
-            <img src="img/carousel/mkart.jpg" alt="Mario Kart 8 Deluxe" />
-          </div>
-          <div class="carousel-cell">
-            <img src="img/carousel/monkey.jpg" alt="Donkey Kong Country Returns HD" />
-          </div>
-        </div>
-        <p class="carousel-caption">
-          <span class="carousel-caption-txt">Legend of Zelda: Tears of the Kingdom</span>
-        </p>
+      <img src="img/carousel/monkey.jpg" alt="Donkey Kong Country Returns HD" />
       </div>
     </section>
 
@@ -147,8 +78,8 @@
       </div>
       <div class="card">
         <h3>Updates</h3>
-        <p>0.0.3 - Soon™</p>
-        <p>0.0.2 - May 12 2025</p>
+        <p>0.0.4 - Soon™</p>
+        <p>0.0.3 - Sep 7 2025</p>
       </div>
     </section>
 
@@ -162,30 +93,5 @@
       >
     </footer>
 
-    <!-- Flickity DOM -->
-    <script>
-      // Config for carousel
-      var elem = document.querySelector('.main-carousel')
-      var flkty = new Flickity(elem, {
-        // options
-        autoPlay: 4000, // 4ms
-        cellSelector: '.carousel-cell',
-        contain: true,
-        draggable: false,
-        fade: true,
-        pageDots: false,
-        pauseAutoPlayOnHover: false,
-        prevNextButtons: false,
-        selectedAttraction: 0.0075, // fade speed, smaller value takes longer
-      })
-      // Caption for carousel
-      var caption = document.querySelector('.carousel-caption-txt')
-      flkty.on('select', function () {
-        // set image caption using img's alt
-        caption.textContent = flkty.selectedElement.childNodes[0].alt
-      })
-    </script>
-
-    <script src="js/mobile-navbar.js"></script>
   </body>
 </html>

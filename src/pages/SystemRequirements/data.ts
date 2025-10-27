@@ -68,7 +68,7 @@ export const requirements = {
     integrated: [
       {
         level: 'Minimum For Windows',
-        specs: 'Intel UHD Graphics 630 / AMD Radeon Vega 3',
+        specs: 'Intel UHD Graphics 620 / AMD Radeon Vega 3',
       },
       {
         level: 'Minimum For Linux',

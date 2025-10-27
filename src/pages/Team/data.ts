@@ -49,19 +49,6 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
-        name: 'crueter',
-        role: 'UI/UX Dev/Design, CI, Infrastructure, Build Systems',
-        bio: 'Claims to be a UI developer, rewrote the entire build system instead',
-        avatar:
-          'https://cdn.discordapp.com/avatars/1278113100310249553/19ecafb68da801d3634448cb2c5e35a5.png?size=1024',
-        specialties: ['UI/UX', 'CI/CD', 'Infrastructure', 'CMake'],
-        icon: Palette,
-        color: 'from-pink-500 to-red-500',
-        socials: {
-          github: 'crueter',
-        },
-      },
-      {
         name: 'Mr. Purple',
         role: 'Drivers and Low-Level',
         avatar:
@@ -121,18 +108,6 @@ export const teamSections: TeamSection[] = [
         color: 'from-green-500 to-emerald-500',
         socials: {
           github: 'Gamer64ytb',
-        },
-      },
-      {
-        name: 'Lizzie841',
-        role: 'JIT and Low-Level',
-        avatar:
-          'https://cdn.discordapp.com/avatars/1221517882022694992/661db1d22085e607415795d9a6ddd909.webp?size=1024',
-        specialties: ['JIT Compilation', 'Low-Level', 'Optimization'],
-        icon: Cpu,
-        color: 'from-pink-500 to-purple-600',
-        socials: {
-          github: 'Lizzie841',
         },
       },
       {
@@ -261,19 +236,6 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
-        name: 'Nyx',
-        role: 'Frontend',
-        avatar:
-          'https://cdn.discordapp.com/avatars/1401954229010042912/dc1a14f95e7e6ec69f52577198c07ee1.png?size=1024',
-        specialties: ['Frontend'],
-        icon: Code2,
-        color: 'from-pink-500 to-purple-500',
-        socials: {
-          github: 'nixynx',
-          website: 'https://innix.space/',
-        },
-      },
-            {
         name: 'Alyx',
         role: 'Backend',
         avatar:
@@ -338,7 +300,7 @@ export const teamSections: TeamSection[] = [
   },
 ]
 
-export interface PastMember {
+/* export interface PastMember {
   name: string
   role: string
   avatar?: string
@@ -362,10 +324,10 @@ export const pastMembers: PastMember[] = [
       github: '#',
     },
   },
-]
+] */
 
 const activeMembers = teamSections.reduce((total, section) => total + section.members.length, 0)
-const totalContributors = activeMembers + pastMembers.length
+const totalContributors = activeMembers
 const uniqueSpecialties = new Set(
   teamSections.flatMap((section) => section.members.flatMap((member) => member.specialties)),
 ).size
