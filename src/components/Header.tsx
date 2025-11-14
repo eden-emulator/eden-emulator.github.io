@@ -10,6 +10,7 @@ import {
   Users2,
   Sparkles,
   Heart,
+  FileText,
 } from 'lucide-react'
 import edenLogoPNG from '@/assets/eden_logo.png'
 import edenLogoWebP from '@/assets/eden_logo.webp'
@@ -23,6 +24,7 @@ function Header() {
 
   const navigation = [
     { name: 'FEATURES', href: '/features', icon: Sparkles },
+    { name: 'BLOG', href: '/blog', icon: FileText },
     { name: 'DOWNLOAD', href: '/download', icon: Download },
     { name: 'REQUIREMENTS', href: '/system-requirements', icon: Monitor },
     { name: 'COMPATIBILITY', href: '/compatibility', icon: ClipboardList },

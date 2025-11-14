@@ -10,6 +10,11 @@ import TeamPage from './pages/Team/TeamPage'
 import DonationsPage from './pages/Donations/DonationsPage'
 import NotFoundPage from './pages/NotFound/NotFoundPage'
 import AppLayout from './components/AppLayout'
+import BlogLayout from './pages/Blog/BlogLayout'
+import BlogList from './pages/Blog/BlogList'
+import BlogPost from './pages/Blog/BlogPost'
+import { loadBlogIndex } from './utils/blogLoader'
+import type { BlogIndex } from './types/blog'
 
 const rootRoute = createRootRoute({ component: AppLayout })
 
@@ -67,6 +72,36 @@ const donationsRoute = createRoute({
   component: DonationsPage,
 })
 
+const blogLayoutRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/blog',
+  component: BlogLayout,
+  loader: async (): Promise<{ blogIndex: BlogIndex }> => {
+    const blogIndex = await loadBlogIndex()
+    return { blogIndex }
+  },
+})
+
+const blogIndexRoute = createRoute({
+  getParentRoute: () => blogLayoutRoute,
+  path: '/',
+  component: () => {
+    const { blogIndex } = blogLayoutRoute.useLoaderData()
+    return <BlogList blogIndex={blogIndex} />
+  },
+})
+
+const blogPostRoute = createRoute({
+  getParentRoute: () => blogLayoutRoute,
+  path: '/$slug',
+  component: () => {
+    const { blogIndex } = blogLayoutRoute.useLoaderData()
+    return <BlogPost blogIndex={blogIndex} />
+  },
+})
+
+const blogRouteTree = blogLayoutRoute.addChildren([blogIndexRoute, blogPostRoute])
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   featuresRoute,
@@ -77,6 +112,7 @@ const routeTree = rootRoute.addChildren([
   donationsRoute,
   systemRequirementsRoute,
   compatibilityReportsRoute,
+  blogRouteTree,
 ])
 
 export const router = createRouter({
