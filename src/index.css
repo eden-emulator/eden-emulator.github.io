@@ -1136,3 +1136,276 @@ a:focus {
     box-shadow: none !important;
   }
 }
+
+/* Blog Post Content Styles - Synthwave Edition */
+@layer base {
+  .blog-content {
+    @apply text-gray-100 leading-loose text-lg;
+  }
+
+  /* Headings with neon underlines */
+  .blog-content h2 {
+    @apply text-4xl font-bold mt-16 mb-8 text-white relative pb-4;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .blog-content h2::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-20 h-1 rounded-full;
+    background: linear-gradient(90deg, #ff00cc, #00ffff);
+    box-shadow: 0 0 10px rgba(255, 0, 204, 0.5);
+  }
+
+  .blog-content h3 {
+    @apply text-3xl font-bold mt-12 mb-6;
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .blog-content h4 {
+    @apply text-2xl font-semibold mt-8 mb-4;
+    color: #ff00cc;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .blog-content p {
+    @apply my-7 text-gray-100;
+  }
+
+  /* Cyberpunk links */
+  .blog-content a {
+    @apply no-underline transition-all;
+    color: #00ffff;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+  }
+
+  .blog-content a:hover {
+    @apply border-b-2;
+    color: #ffffff;
+    border-bottom-color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+
+  .blog-content .heading-link {
+    @apply no-underline border-none;
+    color: inherit;
+  }
+
+  .blog-content .heading-link:hover {
+    color: #00ffff;
+  }
+
+  /* Lists with better spacing */
+  .blog-content ul,
+  .blog-content ol {
+    @apply my-8 pl-10 space-y-3 text-gray-200;
+  }
+
+  .blog-content ul {
+    @apply list-none;
+  }
+
+  .blog-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .blog-content ul li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: #00ffff;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  .blog-content ol {
+    @apply list-decimal;
+  }
+
+  .blog-content li {
+    @apply my-3 leading-relaxed;
+  }
+
+  /* Cyberpunk blockquotes */
+  .blog-content blockquote {
+    @apply my-10 px-8 py-6 rounded-r-xl relative italic;
+    border-left: 4px solid #ff00cc;
+    background: linear-gradient(90deg, rgba(255, 0, 204, 0.1), rgba(0, 217, 255, 0.05));
+    color: #e8e8e8;
+  }
+
+  .blog-content blockquote::before {
+    content: '"';
+    position: absolute;
+    left: 0.5rem;
+    top: -0.5rem;
+    font-size: 4rem;
+    color: #ff00cc;
+    opacity: 0.3;
+    font-family: Georgia, serif;
+  }
+
+  .blog-content blockquote p {
+    @apply my-3;
+  }
+
+  /* Inline code */
+  .blog-content code {
+    @apply px-2 py-1 rounded text-sm;
+    background: rgba(255, 0, 255, 0.15);
+    color: #ff00cc;
+    border: 1px solid rgba(255, 0, 204, 0.3);
+    font-family: 'Fira Code', 'Consolas', monospace;
+  }
+
+  /* Code blocks - Terminal style */
+  .blog-content pre {
+    @apply my-10 p-8 rounded-xl overflow-x-auto relative;
+    background: #0a0a0a;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    box-shadow:
+      0 0 20px rgba(0, 255, 255, 0.2),
+      inset 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .blog-content pre::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffff, transparent);
+  }
+
+  .blog-content pre code {
+    @apply bg-transparent p-0 text-base leading-loose border-none;
+    color: #e0e0e0;
+  }
+
+  /* Tables - Data grid */
+  .blog-content table {
+    @apply w-full my-10 overflow-hidden rounded-xl;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 2px solid rgba(255, 0, 255, 0.3);
+  }
+
+  .blog-content table th,
+  .blog-content table td {
+    @apply px-6 py-4 text-left;
+    border-bottom: 1px solid rgba(255, 0, 255, 0.2);
+  }
+
+  .blog-content table th {
+    @apply font-bold text-white uppercase tracking-wider text-sm;
+    background: linear-gradient(135deg, rgba(255, 0, 204, 0.2), rgba(0, 217, 255, 0.2));
+    border-bottom: 2px solid rgba(0, 255, 255, 0.5);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .blog-content table tr:nth-child(even) {
+    background: rgba(255, 0, 255, 0.05);
+  }
+
+  .blog-content table tr:hover {
+    background: rgba(0, 255, 255, 0.1);
+  }
+
+  /* Images */
+  .blog-content img {
+    @apply max-w-full h-auto rounded-xl my-10 block;
+    border: 2px solid rgba(255, 0, 255, 0.3);
+    box-shadow: 0 0 30px rgba(255, 0, 204, 0.2);
+  }
+
+  /* Horizontal rules */
+  .blog-content hr {
+    @apply border-none my-16;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff00cc, #00ffff, #ff00cc, transparent);
+  }
+
+  /* Syntax highlighting - using same colors as noscript version */
+  .blog-content .hljs {
+    @apply bg-transparent;
+  }
+
+  .blog-content .hljs-comment,
+  .blog-content .hljs-quote {
+    @apply text-gray-500 italic;
+  }
+
+  .blog-content .hljs-keyword,
+  .blog-content .hljs-selector-tag,
+  .blog-content .hljs-subst {
+    @apply text-pink-400;
+  }
+
+  .blog-content .hljs-number,
+  .blog-content .hljs-literal,
+  .blog-content .hljs-variable,
+  .blog-content .hljs-template-variable,
+  .blog-content .hljs-tag .hljs-attr {
+    @apply text-orange-400;
+  }
+
+  .blog-content .hljs-string,
+  .blog-content .hljs-doctag {
+    @apply text-green-400;
+  }
+
+  .blog-content .hljs-title,
+  .blog-content .hljs-section,
+  .blog-content .hljs-selector-id {
+    @apply text-yellow-400 font-bold;
+  }
+
+  .blog-content .hljs-type,
+  .blog-content .hljs-class .hljs-title {
+    @apply text-blue-400;
+  }
+
+  .blog-content .hljs-tag,
+  .blog-content .hljs-name,
+  .blog-content .hljs-attribute {
+    @apply text-cyan-400;
+  }
+
+  .blog-content .hljs-regexp,
+  .blog-content .hljs-link {
+    @apply text-purple-400;
+  }
+
+  .blog-content .hljs-symbol,
+  .blog-content .hljs-bullet {
+    @apply text-red-400;
+  }
+
+  .blog-content .hljs-built_in,
+  .blog-content .hljs-builtin-name {
+    @apply text-indigo-400;
+  }
+
+  .blog-content .hljs-meta {
+    @apply text-gray-400;
+  }
+
+  .blog-content .hljs-deletion {
+    @apply bg-red-900/30;
+  }
+
+  .blog-content .hljs-addition {
+    @apply bg-green-900/30;
+  }
+
+  .blog-content .hljs-emphasis {
+    @apply italic;
+  }
+
+  .blog-content .hljs-strong {
+    @apply font-bold;
+  }
+}
