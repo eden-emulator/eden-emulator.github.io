@@ -19,7 +19,7 @@ export const footerLinks: Record<string, FooterLink[]> = {
   PRODUCT: [
     { name: 'Download', href: '/download' },
     { name: 'Features', href: '/features' },
-    { name: 'System Requirements', href: '#' },
+    { name: 'System Requirements', href: '/system-requirements' },
     {
       name: 'Release Notes',
       href: 'https://github.com/eden-emulator/Releases/releases',
