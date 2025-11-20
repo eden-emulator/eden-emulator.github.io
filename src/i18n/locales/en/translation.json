@@ -1,0 +1,22 @@
+{
+    "emulator": "Emulator",
+    "emulator-description": "is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind. It is written in C++ with cross-platform support for Windows, Linux, FreeBSD, Solaris, OpenBSD, and Android.",
+    "slogan": "Our actions define our legacy.",
+    "follow": "Follow us on social media",
+    "licence": "Utopia LLC. Eden. All rights reserved.",
+    "made-with": "Made with",
+    "by-team": "by The Eden Team.",
+    "property": "Eden is not affiliated with any game console manufacturer. All trademarks are property of their respective owners.",
+    "BASICS": {
+        "FEATURES": "FEATURES",
+        "DOWNLOAD": "DOWNLOAD",
+        "REQUIREMENTS": "REQUIREMENTS",
+        "SYSTEM_REQUIREMENTS": "SYSTEM REQUIREMENTS",
+        "COMPATIBILITY": "COMPATIBILITY",
+        "DOCS": "DOCS",
+        "COMMUNITY": "COMMUNITY",
+        "TEAM": "TEAM",
+        "DONATIONS": "DONATIONS",
+        "SOURCE_CODE": "SOURCE CODE"
+    }
+}
