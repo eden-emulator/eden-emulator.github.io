@@ -1,13 +1,4 @@
-import {
-  Code2,
-  Cpu,
-  Shield,
-  Wrench,
-  Palette,
-  Users,
-  BookOpen,
-  type LucideIcon,
-} from 'lucide-react'
+import { Code2, Cpu, Shield, Wrench, Palette, Users, BookOpen, type LucideIcon } from 'lucide-react'
 
 export interface TeamMember {
   name: string
@@ -274,8 +265,7 @@ export const teamSections: TeamSection[] = [
       {
         name: 'Glitxh',
         role: 'Community Management',
-        avatar:
-          'https://i.ibb.co/PsnmV40F/Eden-glitxhhh-avatar.gif',
+        avatar: 'https://i.ibb.co/PsnmV40F/Eden-glitxhhh-avatar.gif',
         specialties: ['Community Management'],
         icon: Palette,
         color: 'from-pink-500 to-purple-500',

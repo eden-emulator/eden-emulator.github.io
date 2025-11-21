@@ -1,17 +1,18 @@
-// src/components/Icons/StoatIcon.tsx
-import * as React from "react";
+import { type SVGProps } from 'react'
 
-export const StoatIcon = (props: React.SVGProps<SVGSVGElement>) => (
+export function StoatIcon(props: SVGProps<SVGSVGElement>) {
+  return (
     <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 925 1280"
-    width="48"
-    height="48"
-    fill="currentColor"
-    {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 925 1280"
+      width="48"
+      height="48"
+      fill="currentColor"
+      {...props}
     >
-    <g transform="translate(0,1280) scale(0.1,-0.1)">
-    <path d="M4515 12793 c-781 -37 -1484 -207 -2095 -509 -205 -101 -325 -170
+      <g transform="translate(0,1280) scale(0.1,-0.1)">
+        <path
+          d="M4515 12793 c-781 -37 -1484 -207 -2095 -509 -205 -101 -325 -170
     -505 -289 -877 -581 -1415 -1369 -1595 -2340 -94 -506 -93 -1076 1 -1555 154
     -781 558 -1422 1209 -1915 333 -252 678 -422 1417 -696 399 -148 600 -216
     1638 -556 541 -177 849 -335 1056 -542 77 -77 104 -112 135 -176 l39 -79 0
@@ -25,8 +26,9 @@ export const StoatIcon = (props: React.SVGProps<SVGSVGElement>) => (
     233 -971 350 -178 88 -306 172 -406 267 -137 131 -185 240 -175 393 24 338
     256 565 687 674 182 46 298 58 550 58 465 0 853 -85 1249 -274 277 -132 466
     -258 776 -518 92 -77 123 -97 131 -88 36 38 1976 2381 1980 2391 4 11 -370
-    282 -541 391 -808 518 -1592 834 -2470 994 -475 88 -1061 127 -1540 104z"/>
-    </g>
+    282 -541 391 -808 518 -1592 834 -2470 994 -475 88 -1061 127 -1540 104z"
+        />
+      </g>
     </svg>
-);
-
+  )
+}
