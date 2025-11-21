@@ -3,7 +3,7 @@ title: "Welcome to the eden emulator blog"
 slug: "welcome-to-eden-blog"
 description: "introducing the official eden emulator blog - your source for updates, news, and insights into the development of eden."
 author: "Producdevity"
-date: "2025-11-15"
+date: "2025-11-21"
 tags: ["announcement", "news"]
 draft: false
 ---
