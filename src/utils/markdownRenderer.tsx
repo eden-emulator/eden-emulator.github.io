@@ -1,3 +1,4 @@
+import { type ReactElement } from 'react'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
@@ -13,7 +14,7 @@ import { createElement, Fragment } from 'react'
  * Work in progress (Producdevity)
  * Process markdown content and return React elements
  */
-export async function renderMarkdown(content: string): Promise<React.ReactElement> {
+export async function renderMarkdown(content: string): Promise<ReactElement> {
   const result = await unified()
     .use(remarkParse)
     .use(remarkGfm)
@@ -38,5 +39,5 @@ export async function renderMarkdown(content: string): Promise<React.ReactElemen
     })
     .process(content)
 
-  return result.result as React.ReactElement
+  return result.result as ReactElement
 }

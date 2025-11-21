@@ -1,7 +1,10 @@
 #!/usr/bin/env tsx
 
+// @ts-expect-error we use tsx to run this script, ignore tsconfig
 import fs from 'fs/promises'
+// @ts-expect-error we use tsx to run this script, ignore tsconfig
 import path from 'path'
+// @ts-expect-error we use tsx to run this script, ignore tsconfig
 import matter from 'gray-matter'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -29,8 +32,8 @@ const OUTPUT_DIR = path.join(process.cwd(), 'public', 'noscript', 'blog')
 const DATA_DIR = path.join(process.cwd(), 'src', 'data')
 
 const SITE_URL = 'https://eden-emu.dev'
-const SITE_TITLE = 'Eden Emulator Blog'
-const SITE_DESCRIPTION = 'News, updates, and announcements from the Eden Emulator team'
+const SITE_TITLE = 'Eden Blog'
+const SITE_DESCRIPTION = 'News, updates, and announcements from the Eden team'
 
 /**
  * Extract table of contents from HTML
@@ -38,14 +41,11 @@ const SITE_DESCRIPTION = 'News, updates, and announcements from the Eden Emulato
 function extractToc(htmlContent: string): TocEntry[] {
   const toc: TocEntry[] = []
   const headingRegex = /<h([2-3])[^>]*id="([^"]+)"[^>]*>([^<]+)<\/h\1>/g
-  let match
+  let match: string[]
 
   while ((match = headingRegex.exec(htmlContent)) !== null) {
-    toc.push({
-      level: parseInt(match[1]),
-      id: match[2],
-      text: match[3],
-    })
+    const [, level, id, text] = match
+    toc.push({ level: parseInt(level), id, text })
   }
 
   return toc
@@ -398,7 +398,7 @@ async function generateFeeds(posts: BlogPostMeta[]) {
     id: SITE_URL,
     link: SITE_URL,
     language: 'en',
-    image: `${SITE_URL}/img/logofavicon2.png`,
+    image: `${SITE_URL}/noscript/img/logofavicon2.png`,
     favicon: `${SITE_URL}/favicon.ico`,
     copyright: `All rights reserved ${new Date().getFullYear()}, The Eden Team`,
     updated: new Date(posts[0]?.date || Date.now()),
@@ -451,7 +451,7 @@ async function buildBlog() {
   await fs.mkdir(DATA_DIR, { recursive: true })
 
   // Read all markdown files
-  let files: string[] = []
+  let files: string[]
   try {
     files = await fs.readdir(POSTS_DIR)
   } catch {
