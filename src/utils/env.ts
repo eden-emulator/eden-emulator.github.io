@@ -14,8 +14,8 @@ function env(): Env {
     DISCORD_URL: import.meta.env.VITE_DISCORD_URL || 'https://discord.gg/4RtpRVWXcy',
     DOWNLOAD_URL:
       import.meta.env.VITE_DOWNLOAD_URL ||
-      'https://github.com/eden-emulator/Releases/releases/tag/v0.0.3',
-    DOWNLOAD_VERSION: import.meta.env.VITE_DOWNLOAD_VERSION || 'v0.0.3',
+      'https://github.com/eden-emulator/Releases/releases/tag/v0.0.4',
+    DOWNLOAD_VERSION: import.meta.env.VITE_DOWNLOAD_VERSION || 'v0.0.4',
     EMUREADY_API_BASE_URL: import.meta.env.DEV
       ? '/api/mobile/trpc'
       : import.meta.env.VITE_EMUREADY_API_BASE_URL || 'https://www.emuready.com/api/mobile/trpc',
