@@ -88,10 +88,7 @@ export default function BlogPost({ blogIndex }: BlogPostProps) {
 
           {/* Post Header */}
           <header className="mb-8">
-            <HeadingText
-              title={post.title}
-              center={false}
-            />
+            <HeadingText title={post.title} center={false} />
 
             <div className="flex flex-wrap gap-4 text-cyan-400 mb-6 font-orbitron">
               <span className="flex items-center gap-2">
