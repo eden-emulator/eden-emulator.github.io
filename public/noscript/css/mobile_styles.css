@@ -5,21 +5,21 @@
   }
 
   /* Old static header */
-  /* header {
+  header {
         flex-direction: column;
         padding: 10px 5px;
         margin: 20px 20px 15px;
         gap: 10px;
-    } */
+    }
 
   /* New hotness hamburger menu */
-  header {
+  /* header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     margin: 20px 20px 15px;
-  }
+  } */
 
   section {
     margin: 15px 20px;
@@ -195,7 +195,7 @@
 
   .hamburger-inner::after {
     bottom: -10px;
-  }
+  } */
 
   .nav-mobile {
     position: fixed;

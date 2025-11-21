@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { Globe, Heart } from 'lucide-react'
 import { GitHubIcon, TwitterIcon, DiscordIcon } from '@/components/Icons'
 import HeadingText from '@/components/HeadingText'
-import { teamSections, teamStats, pastMembers } from './data'
+import { teamSections, teamStats } from './data'
 import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
 import PageWrapper from '@/components/PageWrapper'
@@ -12,7 +12,7 @@ function TeamPage() {
   return (
     <>
       <SEO
-        title="Eden Team - Meet the Developers"
+        title="Eden Team - Contribute Now"
         description="Meet the passionate developers and contributors behind Eden. Learn about our team members and how you can contribute to the project."
         keywords="Eden team, Eden developers, emulator contributors, open source team"
         url={`${env().APP_URL}/team`}
@@ -28,7 +28,7 @@ function TeamPage() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
-            title="Meet The Team"
+            title="Join The Team"
             description="The passionate developers and contributors behind Eden"
           />
 
@@ -195,73 +195,6 @@ function TeamPage() {
             </div>
           ))}
 
-          {/* Past Members Section */}
-          {pastMembers.length > 0 && (
-            <div className="mb-20">
-              <div className="text-center mb-12">
-                <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-linear-to-r from-gray-400 to-gray-600 mb-4">
-                  PAST MEMBERS
-                </h3>
-                <p className="text-lg text-gray-400/80 font-light max-w-2xl mx-auto">
-                  Former contributors who helped shape Eden
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {pastMembers.map((member, index) => (
-                  <div key={index} className="group relative">
-                    <div className="relative bg-black/60 backdrop-blur-md border border-gray-600/30 rounded-xl p-6 transition-all duration-500 group-hover:border-gray-500/50">
-                      <div className="flex items-center gap-4 mb-4">
-                        {member.avatar ? (
-                          <img
-                            src={member.avatar}
-                            alt={member.name}
-                            className="w-16 h-16 rounded-lg object-cover border border-gray-600/30 opacity-70"
-                          />
-                        ) : (
-                          <div className="w-16 h-16 rounded-lg bg-gray-700/30 border border-gray-600/30" />
-                        )}
-                        <div>
-                          <h4 className="text-lg font-semibold text-gray-300">{member.name}</h4>
-                          <p className="text-sm text-gray-500 uppercase tracking-wider">
-                            {member.role}
-                          </p>
-                        </div>
-                      </div>
-
-                      {member.specialties && (
-                        <div className="flex flex-wrap gap-2">
-                          {member.specialties.map((specialty, idx) => (
-                            <span
-                              key={idx}
-                              className="px-2 py-1 text-xs bg-gray-700/30 border border-gray-600/30 rounded text-gray-400"
-                            >
-                              {specialty}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-
-                      {member.socials?.github && member.socials.github !== '#' && (
-                        <div className="mt-4">
-                          <a
-                            href={`https://github.com/${member.socials.github}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-gray-400 transition-colors"
-                          >
-                            <GitHubIcon className="w-4 h-4" />
-                            <span>GitHub</span>
-                          </a>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
           {/* Join the Team CTA */}
           <div className="relative py-20">
             <div className="absolute inset-0">
@@ -293,7 +226,16 @@ function TeamPage() {
                   rel="noopener noreferrer"
                   className="px-8 py-4 bg-linear-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white rounded-lg font-bold tracking-wider transition-all duration-300 shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70"
                 >
-                  JOIN DISCORD
+                  Join Discord
+                </a>
+                <a
+                  href="https://rvlt.gg/qKgFEAbH"
+                  target="_blank"
+                  aria-label="Join Eden Stoat"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 bg-linear-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white rounded-lg font-bold tracking-wider transition-all duration-300 shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70"
+                >
+                  Join Stoat
                 </a>
                 <a
                   href="https://git.eden-emu.dev/eden-emu/eden/"

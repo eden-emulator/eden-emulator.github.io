@@ -31,6 +31,10 @@ export const requirements = {
     ],
     laptop: [
       {
+        level: 'Minimum',
+        specs: 'Intel Core i5-8265U / AMD Ryzen 3 2300U',
+      },
+      {
         level: 'Recommended',
         specs: 'Intel Core i5-13420H / AMD Ryzen 7 5700U',
       },
@@ -44,11 +48,11 @@ export const requirements = {
     dedicated: [
       {
         level: 'Minimum for Linux',
-        specs: 'NVIDIA GeForce GT 1050 4GB / AMD Radeon R7 240 4GB',
+        specs: 'NVIDIA GeForce GT 1030 4GB / AMD Radeon R7 240 4GB',
       },
       {
         level: 'Minimum for Windows',
-        specs: 'NVIDIA GeForce GT 1050 4GB / AMD Radeon RX 550 4GB',
+        specs: 'NVIDIA GeForce GTX 1050 4GB / AMD Radeon RX 550 4GB',
       },
       {
         level: 'Recommended',
@@ -64,7 +68,7 @@ export const requirements = {
     integrated: [
       {
         level: 'Minimum For Windows',
-        specs: 'Intel UHD Graphics 730 / AMD Radeon Vega 3',
+        specs: 'Intel UHD Graphics 620 / AMD Radeon Vega 3',
       },
       {
         level: 'Minimum For Linux',
