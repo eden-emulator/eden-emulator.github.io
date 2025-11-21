@@ -9,11 +9,11 @@ draft: false
 ---
 
 
-## welcome! 
+## Welcome! 
 
 We're excited to announce the launch of the official **eden emulator blog**! this blog will serve as a place to talk about development, new features, bugfixes, and rant about our changes. 
 
-## what to expect
+## What to expect
 
 Individual developers and community members will post blogs, and we will occasionally post all-encompassing progress reports, general development updates, and information for packagers.
 
@@ -25,7 +25,7 @@ Some of the topics we'll cover on the blog include:
 - **Tutorials**: Step-by-step guides to help you get the most out of Eden
 - **Troubleshooting, Tips & Tricks**: Tips on how to recognize issues to start understanding what settings might be able to improve your experience
 
-## why we're doing this
+## Why we're doing this
 
 A lot of open-source projects have interesting and valuable information hidden in private conversations, changelogs and discord servers. 
 This blog will be our space to share the things we deem worthy of sharing with the community,
@@ -37,7 +37,7 @@ Here are some of the benefits of having a blog:
 3. celebrate milestones and achievements
 4. build a stronger connection with our community, sounds cheesy, but we mean it.
 
-## stay connected
+## Stay connected
 
 make sure to check back regularly for new posts! you can also:
 
