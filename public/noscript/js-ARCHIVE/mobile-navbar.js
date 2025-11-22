@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
     navMobile.classList.toggle('active')
   })
 
-  // Fechar o menu ao clicar em um link
   navMobile.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', function () {
       hamburger.classList.remove('active')

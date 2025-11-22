@@ -15,6 +15,7 @@ import {
   Users,
   Users2,
   X,
+  FileText,
 } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -28,6 +29,7 @@ function Header() {
 
   const navigation = [
     { name: t("BASICS.FEATURES"), href: '/features', icon: Sparkles },
+    { name: t("BASICS.BLOG"), href: '/blog', icon: FileText },
     { name: t("BASICS.DOWNLOAD"), href: '/download', icon: Download },
     { name: t("BASICS.REQUIREMENTS"), href: '/system-requirements', icon: Monitor },
     { name: t("BASICS.COMPATIBILITY"), href: '/compatibility', icon: ClipboardList },

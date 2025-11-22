@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 .vite
+public/atom.xml
+public/rss.xml
+public/blog.json
+src/data/blog.json
+public/noscript/blog/
 
 # Editor directories and files
 .vscode/*
