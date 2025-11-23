@@ -23,15 +23,15 @@ function Header() {
   const location = useLocation()
 
   const navigation = [
-    { name: 'FEATURES', href: '/features', icon: Sparkles },
-    { name: 'BLOG', href: '/blog', icon: FileText },
-    { name: 'DOWNLOAD', href: '/download', icon: Download },
-    { name: 'REQUIREMENTS', href: '/system-requirements', icon: Monitor },
-    { name: 'COMPATIBILITY', href: '/compatibility', icon: ClipboardList },
-    { name: 'DOCS', href: '/docs', icon: Book },
-    { name: 'COMMUNITY', href: '/community', icon: Users },
-    { name: 'TEAM', href: '/team', icon: Users2 },
-    { name: 'DONATIONS', href: '/donations', icon: Heart },
+    { name: 'Features', href: '/features', icon: Sparkles },
+    { name: 'Blog', href: '/blog', icon: FileText },
+    { name: 'Download', href: '/download', icon: Download },
+    { name: 'Requirements', href: '/system-requirements', icon: Monitor },
+    { name: 'Compatibility', href: '/compatibility', icon: ClipboardList },
+    { name: 'Docs', href: '/docs', icon: Book },
+    { name: 'Community', href: '/community', icon: Users },
+    { name: 'Team', href: '/team', icon: Users2 },
+    { name: 'Donations', href: '/donations', icon: Heart },
     {
       name: '',
       href: 'https://github.com/eden-emulator/Releases/releases',
@@ -61,7 +61,7 @@ function Header() {
                 style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))' }}
               />
             </picture>
-            <span className="hidden 2xl:block text-xl font-bold text-white">EDEN</span>
+            <span className="hidden 2xl:block text-xl font-bold text-white">Eden</span>
           </Link>
 
           {/* Desktop Navigation */}
