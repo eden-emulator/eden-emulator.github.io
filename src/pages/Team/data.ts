@@ -105,7 +105,7 @@ export const teamSections: TeamSection[] = [
         name: 'SDK-Chan',
         role: 'Low-Level and Vulkan',
         avatar:
-          'https://cdn.discordapp.com/avatars/1351901569897201766/c8ebcac73de3de04fa6c608be3277778.png?size=1024',
+          'https://cdn.discordapp.com/avatars/1351901569897201766/856fd3fd1fa384347df812d37ef9e60e.png?size=1024',
         specialties: ['Nvidia Driver', 'Low-Level', 'Vulkan'],
         icon: Cpu,
         color: 'from-pink-500 to-purple-600',
@@ -182,6 +182,19 @@ export const teamSections: TeamSection[] = [
           github: 'Producdevity',
           twitter: 'Producdevity',
           website: 'https://www.emuready.com',
+        },
+      },
+            {
+        name: 'DraVee',
+        role: 'Building & Linux',
+        bio: 'Breaking and fixing things for fun also part of translating Eden to Brazilian Portuguese',
+        avatar:
+          'https://cdn.discordapp.com/avatars/464275051307335700/20748ae06642cb7ee24bc0fbc6db2532.webp?size=512',
+        specialties: ['CI', 'Scripts', 'Kasane Teto Fan'],
+        icon: Palette,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: 'caio99br',
         },
       },
     ],
@@ -271,19 +284,6 @@ export const teamSections: TeamSection[] = [
         color: 'from-pink-500 to-purple-500',
         socials: {
           github: 'Glitxhhh',
-        },
-      },
-      {
-        name: 'DraVee',
-        role: 'Building & Linux',
-        bio: 'Breaking and fixing things for fun also part of translating Eden to Brazilian Portuguese',
-        avatar:
-          'https://cdn.discordapp.com/avatars/464275051307335700/20748ae06642cb7ee24bc0fbc6db2532.webp?size=512',
-        specialties: ['CI', 'Scripts', 'Kasane Teto Fan'],
-        icon: Palette,
-        color: 'from-pink-500 to-purple-500',
-        socials: {
-          github: 'caio99br',
         },
       },
     ],

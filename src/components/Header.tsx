@@ -71,7 +71,7 @@ function Header() {
                 style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))' }}
               />
             </picture>
-            <span className="hidden 2xl:block text-xl font-bold text-white">EDEN</span>
+            <span className="hidden 2xl:block text-xl font-bold text-white">Eden</span>
           </Link>
 
           {/* Desktop Navigation */}
