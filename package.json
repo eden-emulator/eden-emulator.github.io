@@ -19,9 +19,12 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "@tanstack/react-router": "^1.128.3",
+    "i18next": "^25.6.3",
+    "i18next-browser-languagedetector": "^8.2.0",
     "lucide-react": "^0.525.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-i18next": "^16.3.5",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {

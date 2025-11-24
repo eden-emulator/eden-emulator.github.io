@@ -1,14 +1,16 @@
-import { memo } from 'react'
-import { Cpu, Heart, CloudDownload, Zap } from 'lucide-react'
-import edenLogoWebP from '@/assets/eden_neon_logo.webp'
 import edenLogoPNG from '@/assets/eden_neon_logo.png'
-import { Link } from '@tanstack/react-router'
+import edenLogoWebP from '@/assets/eden_neon_logo.webp'
 import { GitIcon } from '@/components/Icons'
 import SEO from '@/components/SEO'
-import SynthWaveBackground from '@/pages/Home/components/SynthWaveBackground'
 import { usePerformanceOptimization } from '@/hooks/usePerformanceOptimization'
+import SynthWaveBackground from '@/pages/Home/components/SynthWaveBackground'
+import { Link } from '@tanstack/react-router'
+import { CloudDownload, Cpu, Heart, Zap } from 'lucide-react'
+import { memo } from 'react'
+import { useTranslation } from 'react-i18next'
 
 function HomePage() {
+  const { t } = useTranslation();
   const { shouldUseReducedAnimations, shouldDisableAllAnimations, browser } =
     usePerformanceOptimization()
 
@@ -43,14 +45,11 @@ function HomePage() {
 
           <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight font-orbitron">
             <span className="block text-white mb-2 text-shadow-cyan">Nintendo Switch</span>
-            <span className="block text-white mt-2 text-shadow-pink">Emulator</span>
+            <span className="block text-white mt-2 text-shadow-pink">{t("emulator")}</span>
           </h1>
 
           <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-gray-200 font-sans">
-            <span className="font-bold text-synthwave-pink text-shadow-pink-sm">Eden</span> is an
-            experimental open-source emulator for the Nintendo Switch, built with performance and
-            stability in mind. It is written in C++ with cross-platform support for Windows, Linux,
-            FreeBSD, Solaris, OpenBSD, and Android.
+            <span className="font-bold text-synthwave-pink text-shadow-pink-sm">Eden</span> {t("emulator-description")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-14 mb-12">
@@ -65,7 +64,7 @@ function HomePage() {
               />
               <div className="relative flex items-center space-x-3">
                 <CloudDownload className="w-6 h-6" aria-hidden="true" />
-                <span>DOWNLOAD</span>
+                <span className='capitalize'>{t("BASICS.DOWNLOAD").toLowerCase()}</span>
               </div>
             </Link>
 
@@ -82,7 +81,7 @@ function HomePage() {
               />
               <div className="relative flex items-center space-x-3">
                 <GitIcon className="w-6 h-6" aria-hidden="true" />
-                <span>SOURCE CODE</span>
+                <span className='capitalize'>{t("BASICS.SOURCE_CODE").toLowerCase()}</span>
               </div>
             </a>
           </div>
@@ -97,7 +96,7 @@ function HomePage() {
               aria-label="View Eden features"
             >
               <Zap className="w-6 h-6" aria-hidden="true" />
-              <span className="font-bold">Features</span>
+              <span className="font-bold capitalize">{t("BASICS.FEATURES").toLowerCase()}</span>
             </Link>
 
             <Link
@@ -106,7 +105,7 @@ function HomePage() {
               aria-label="View system requirements for Eden"
             >
               <Cpu className="w-6 h-6" aria-hidden="true" />
-              <span className="font-bold">System Requirements</span>
+              <span className="font-bold capitalize">{t("BASICS.SYSTEM_REQUIREMENTS").toLowerCase()}</span>
             </Link>
 
             <Link
@@ -115,7 +114,7 @@ function HomePage() {
               aria-label="Download Eden"
             >
               <Heart className="w-6 h-6" aria-hidden="true" />
-              <span className="font-bold">Donations</span>
+              <span className="font-bold capitalize">{t("BASICS.DONATIONS").toLowerCase()}</span>
             </Link>
           </nav>
         </div>
