@@ -31,7 +31,7 @@ export const teamSections: TeamSection[] = [
         name: 'Camille LaVey',
         role: 'Project Lead',
         avatar:
-          'https://cdn.discordapp.com/avatars/393592530442387457/b0b256122e194280620cbb2055ba5fe3.png?size=1024',
+          'https://cdn.discordapp.com/avatars/393592530442387457/386e8bf8fc18934bcd0afb0957eb357e.png',
         specialties: ['Project Management', 'Architecture', 'Core Systems'],
         icon: Shield,
         color: 'from-purple-500 to-pink-500',
@@ -80,7 +80,7 @@ export const teamSections: TeamSection[] = [
         role: 'Main Web Designer',
         bio: 'Good Soldiers follow orders',
         avatar:
-          'https://cdn.discordapp.com/avatars/707876199329824798/8ee1442551c6031f6de11c12c9bf282e.png?size=1024',
+          'https://github.com/Bixbr/Bixbr.github.io/blob/main/christmas-logo.png?raw=true',
         specialties: ['Web Design', 'Frontend', 'UX', 'Admin'],
         icon: Users,
         color: 'from-cyan-500 to-teal-500',
