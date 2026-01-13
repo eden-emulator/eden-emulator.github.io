@@ -20,7 +20,7 @@ interface SocialLink {
 export const stats: Stat[] = [
   {
     label: 'DOWNLOADS',
-    value: '420,069+',
+    value: '420,169+',
     icon: CloudDownload,
     color: 'from-blue-400 to-cyan-500',
   },
