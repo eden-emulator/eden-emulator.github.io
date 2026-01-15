@@ -102,18 +102,6 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
-        name: 'SDK-Chan',
-        role: 'Low-Level and Vulkan',
-        avatar:
-          'https://cdn.discordapp.com/avatars/1351901569897201766/856fd3fd1fa384347df812d37ef9e60e.png?size=1024',
-        specialties: ['Nvidia Driver', 'Low-Level', 'Vulkan'],
-        icon: Cpu,
-        color: 'from-pink-500 to-purple-600',
-        socials: {
-          github: 'sdkchan',
-        },
-      },
-      {
         name: 'WildCard',
         role: 'Drivers and Android',
         avatar:
@@ -273,17 +261,6 @@ export const teamSections: TeamSection[] = [
         color: 'from-pink-500 to-purple-500',
         socials: {
           github: 'Shinmegumi',
-        },
-      },
-      {
-        name: 'Glitxh',
-        role: 'Community Management',
-        avatar: 'https://i.ibb.co/PsnmV40F/Eden-glitxhhh-avatar.gif',
-        specialties: ['Community Management'],
-        icon: Palette,
-        color: 'from-pink-500 to-purple-500',
-        socials: {
-          github: 'Glitxhhh',
         },
       },
     ],
