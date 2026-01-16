@@ -80,7 +80,7 @@ export const teamSections: TeamSection[] = [
         role: 'Main Web Designer',
         bio: 'Good Soldiers follow orders',
         avatar:
-          'https://github.com/Bixbr/Bixbr.github.io/blob/main/christmas-logo.png?raw=true',
+          'https://github.com/Bixbr/Bixbr.github.io/blob/main/pfp-emu-community.png?raw=true',
         specialties: ['Web Design', 'Frontend', 'UX', 'Admin'],
         icon: Users,
         color: 'from-cyan-500 to-teal-500',
@@ -240,6 +240,18 @@ export const teamSections: TeamSection[] = [
         },
       },
       {
+        name: 'Forrest Mark X',
+        role: 'Vulkan',
+        avatar:
+          'https://cdn.discordapp.com/avatars/247434024132280336/b344b417bc7d5d5f8d291bfa406e497e.png',
+        specialties: ['Debugging', 'General'],
+        icon: Cpu,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: 'tbc',
+        },
+      },
+      {
         name: 'John',
         role: 'Testing & Building',
         avatar:
@@ -249,6 +261,18 @@ export const teamSections: TeamSection[] = [
         color: 'from-pink-500 to-purple-500',
         socials: {
           github: 'JohnQ89',
+        },
+      },
+      {
+        name: 'Gidoly',
+        role: 'Testing',
+        avatar:
+          'https://cdn.discordapp.com/avatars/482000349297639434/f14669da7c4d4d8b84a606c31ba57997.png',
+        specialties: ['Performance Profling', 'Testing'],
+        icon: Code2,
+        color: 'from-pink-500 to-purple-500',
+        socials: {
+          github: 'tbc',
         },
       },
       {
