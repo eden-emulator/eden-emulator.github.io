@@ -64,7 +64,14 @@
         }
       }
     </script>
-  </head>
+    <script>
+    if (location.pathname === '/docs' || location.pathname.startsWith('/docs/')) {
+      location.replace(
+        'https://git.eden-emu.dev/eden-emu/eden/src/branch/master/docs/user/README.md'
+      )
+      }
+      </script>
+    </head>
   <body>
     <noscript>
       <meta http-equiv="refresh" content="0; url=/noscript/index.html" />
