@@ -5,5 +5,6 @@ export * from './GitHubIcon'
 export * from './GitIcon'
 export * from './TwitterIcon'
 export * from './StoatIcon'
+export * from './LanguageIcon'
 
 export type Icon = (props: SVGProps<SVGSVGElement>) => ReactNode
