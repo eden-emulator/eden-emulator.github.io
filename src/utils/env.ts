@@ -14,7 +14,7 @@ function env(): Env {
     DISCORD_URL: import.meta.env.VITE_DISCORD_URL || 'https://discord.gg/4RtpRVWXcy',
     DOWNLOAD_URL:
       import.meta.env.VITE_DOWNLOAD_URL ||
-      'https://github.com/eden-emulator/Releases/releases/tag/v0.2.0-rc1',
+      'https://git.eden-emu.dev/eden-emu/eden/releases/tag/v0.2.0-rc1',
     DOWNLOAD_VERSION: import.meta.env.VITE_DOWNLOAD_VERSION || 'v0.2.0-rc1',
     EMUREADY_API_BASE_URL: import.meta.env.DEV
       ? '/api/mobile/trpc'
