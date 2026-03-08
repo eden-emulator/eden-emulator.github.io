@@ -22,7 +22,7 @@ export const footerLinks: Record<string, FooterLink[]> = {
     { name: 'System Requirements', href: '/system-requirements' },
     {
       name: 'Release Notes',
-      href: 'https://github.com/eden-emulator/Releases/releases',
+      href: 'https://git.eden-emu.dev/eden-emu/eden/releases',
       external: true,
     },
   ],
