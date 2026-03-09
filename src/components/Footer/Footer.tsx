@@ -1,11 +1,14 @@
-import { Heart, ExternalLink, LinkIcon } from 'lucide-react'
-import { Link } from '@tanstack/react-router'
 import edenLogoPNG from '@/assets/eden_logo.png'
 import edenLogoWebP from '@/assets/eden_logo.webp'
 import { footerLinks, socialLinks } from '@/components/Footer/data'
 import { cn } from '@/utils/style'
+import { Link } from '@tanstack/react-router'
+import { ExternalLink, Heart, LinkIcon } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer
       className="bg-black border-t border-purple-500/30 relative overflow-hidden"
@@ -57,9 +60,9 @@ function Footer() {
               </picture>
               <span className="text-xl font-bold text-white">Eden</span>
             </Link>
-            <p className="text-blue-200 text-sm mb-4">"Our actions define our legacy."</p>
+            <p className="text-blue-200 text-sm mb-4">"{t("slogan")}"</p>
             <nav aria-label="Social media links">
-              <h3 className="sr-only">Follow us on social media</h3>
+              <h3 className="sr-only">{t("follow")}</h3>
               <div className="flex space-x-3">
                 {socialLinks.map((social, index) => (
                   <a
@@ -123,21 +126,20 @@ function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <p className="text-blue-200 text-sm">
-                © {new Date().getFullYear()} Utopia LLC. Eden. All rights reserved.
+                © {new Date().getFullYear()} {t("licence")}
               </p>
             </div>
 
             <div className="flex items-center space-x-2 text-blue-200 text-sm">
-              <span>Made with</span>
+              <span>{t("made-with")}</span>
               <Heart className="w-4 h-4 text-purple-400 mr-2 animate-pulse" aria-hidden="true" />
-              <span>by The Eden Team.</span>
+              <span>{t("by-team")}</span>
             </div>
           </div>
 
           <div className="mt-4 text-center">
             <p className="text-blue-300/60 text-xs">
-              Eden is not affiliated with any game console manufacturer. All trademarks are property
-              of their respective owners.
+              {t("property")}
             </p>
           </div>
         </div>
