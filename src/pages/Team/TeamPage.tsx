@@ -220,7 +220,7 @@ function TeamPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://discord.gg/edenemu"
+                  href="https://discord.gg/MHaYRW2rxy"
                   target="_blank"
                   aria-label="Join Eden Discord"
                   rel="noopener noreferrer"

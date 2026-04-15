@@ -177,7 +177,7 @@ Special thanks to our supporters on [Donations](/donations). Your contributions 
 
 ## Stay Updated
 
-- Join our [Discord](https://discord.gg/edenemu) for daily updates
+- Join our [Discord](https://discord.gg/MHaYRW2rxy) for daily updates
 - Follow [@edenemuofficial](https://x.com/edenemuofficial) on X
 - Subscribe to this blog for monthly updates
 - Star us on [GitHub](https://github.com/eden-emulator)

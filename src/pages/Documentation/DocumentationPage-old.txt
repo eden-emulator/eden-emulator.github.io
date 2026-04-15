@@ -50,7 +50,7 @@ function DocumentationPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a
-                  href="https://discord.gg/edenemu"
+                  href="https://discord.gg/MHaYRW2rxy"
                   target="_blank"
                   className="bg-linear-to-r from-purple-500 to-blue-600 hover:from-purple-400 hover:to-blue-500 text-white px-8 py-4 rounded-lg font-bold tracking-wider transition-all duration-300 shadow-lg shadow-purple-500/50"
                 >

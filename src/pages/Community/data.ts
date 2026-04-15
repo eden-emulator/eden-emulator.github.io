@@ -48,7 +48,7 @@ export const socialLinks: SocialLink[] = [
   {
     name: 'Discord',
     icon: DiscordIcon,
-    href: 'https://discord.gg/edenemu',
+    href: 'https://discord.gg/MHaYRW2rxy',
     description: 'Join our Discord server (44.0K+ members)',
     color: 'from-indigo-500 to-purple-600',
     hoverColor: 'hover:from-indigo-400 hover:to-purple-500',

@@ -40,7 +40,7 @@ export const features = [
   },
   {
     icon: Palette,
-    title: 'EDEN’S VEIL',
+    title: 'Graphics Extensions',
     description:
       'An all new experimental config tab for advanced settings and ultimate customisation.',
     color: 'from-purple-400 to-blue-500',

@@ -188,7 +188,7 @@ If you run into issues:
 
 1. Check our [Documentation](/docs)
 2. Search existing issues on [GitHub](https://github.com/eden-emulator)
-3. Ask in our [Discord server](https://discord.gg/edenemu)
+3. Ask in our [Discord server](https://discord.gg/MHaYRW2rxy)
 4. Report bugs through GitHub Issues
 
 ## What's Next?

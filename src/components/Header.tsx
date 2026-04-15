@@ -34,7 +34,7 @@ function Header() {
     { name: 'Donations', href: '/donations', icon: Heart },
     {
       name: '',
-      href: 'https://github.com/eden-emulator/Releases/releases',
+      href: 'https://git.eden-emu.dev/eden-emu/eden/releases',
       icon: GitHubIcon,
       external: true,
     },

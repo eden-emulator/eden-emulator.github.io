@@ -41,7 +41,7 @@ Here are some of the benefits of having a blog:
 
 make sure to check back regularly for new posts! you can also:
 
-- join our [discord server](https://discord.gg/edenemu) for real-time discussions
+- join our [discord server](https://discord.gg/MHaYRW2rxy) for real-time discussions
 - follow us on [x (twitter)](https://x.com/edenemuofficial) for quick updates
 - follow development on our [git repository](https://git.eden-emu.dev/eden-emu/eden) 
 

@@ -215,7 +215,7 @@ function generatePostHtml(post: BlogPost): string {
         <a href="../compatibility.html">Compatibility</a>
         <a href="../devs.html">Developers</a>
         <a href="../donations.html">Donations</a>
-        <a href="https://discord.gg/edenemu">Join Our Discord</a>
+        <a href="https://discord.gg/MHaYRW2rxy">Join Our Discord</a>
       </nav>
     </header>
 
@@ -322,7 +322,7 @@ function generateListingHtml(posts: BlogPostMeta[]): string {
         <a href="../compatibility.html">Compatibility</a>
         <a href="../devs.html">Developers</a>
         <a href="../donations.html">Donations</a>
-        <a href="https://discord.gg/edenemu">Join Our Discord</a>
+        <a href="https://discord.gg/MHaYRW2rxy">Join Our Discord</a>
       </nav>
     </header>
 

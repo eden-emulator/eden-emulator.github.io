@@ -22,7 +22,7 @@ export const footerLinks: Record<string, FooterLink[]> = {
     { name: 'System Requirements', href: '/system-requirements' },
     {
       name: 'Release Notes',
-      href: 'https://github.com/eden-emulator/Releases/releases',
+      href: 'https://git.eden-emu.dev/eden-emu/eden/releases',
       external: true,
     },
   ],
@@ -30,10 +30,10 @@ export const footerLinks: Record<string, FooterLink[]> = {
     { name: 'Documentation', href: '/docs' },
     { name: 'FAQ (soon)', href: '#' },
     { name: 'Troubleshooting (soon)', href: '#' },
-    { name: 'Contact Us', href: 'https://discord.gg/edenemu' },
+    { name: 'Contact Us', href: 'https://discord.gg/MHaYRW2rxy' },
   ],
   COMMUNITY: [
-    { name: 'Discord', href: 'https://discord.gg/edenemu', external: true },
+    { name: 'Discord', href: 'https://discord.gg/MHaYRW2rxy', external: true },
     { name: 'GitHub', href: 'https://git.eden-emu.dev/eden-emu/eden/releases', external: true },
     { name: 'Twitter', href: 'https://x.com/edenemuofficial', external: true },
     { name: 'EmuReady', href: 'https://emuready.com', external: true },
@@ -49,7 +49,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     icon: DiscordIcon,
-    href: 'https://discord.gg/edenemu',
+    href: 'https://discord.gg/MHaYRW2rxy',
     label: 'Discord',
     color: 'hover:text-purple-400',
   },
