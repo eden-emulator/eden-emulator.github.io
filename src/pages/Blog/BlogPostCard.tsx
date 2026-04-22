@@ -11,14 +11,14 @@ export function BlogPostCard(props: BlogPostCardProps) {
 
   return (
     <article
-      className="group relative bg-black/40 backdrop-blur-xs border border-pink-500/30 rounded-xl p-8 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105 will-change-transform"
+      className="group relative bg-black/40 backdrop-blur-xs border border-pink-500/30 rounded-xl p-8 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105"
       style={{
         background:
           'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(139,69,19,0.1) 50%, rgba(0,0,0,0.8) 100%)',
       }}
     >
       {/* Glow effect on hover */}
-      <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-cyan-500 opacity-0 group-hover:opacity-15 rounded-xl blur-sm transition-opacity duration-300 will-change-opacity" />
+      <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-cyan-500 opacity-0 group-hover:opacity-15 rounded-xl blur-sm transition-opacity duration-300" />
 
       <div className="relative">
         <Link to="/blog/$slug" params={{ slug: props.post.slug }} className="block">

@@ -1,16 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import 'tailwindcss';
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -35,7 +24,6 @@
 
 @utility backdrop-blur-xs {
   backdrop-filter: blur(1px);
-  will-change: backdrop-filter;
 }
 
 @utility neon-border {
@@ -61,21 +49,18 @@
     scroll-behavior: smooth;
   }
 
-  /* Force GPU acceleration for better scroll performance */
-  body {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
+  .header-synthwave {
+    background-color: rgba(0, 0, 0, 0.95);
   }
 
-  /* Simple performance mode - disables backdrop-filter for users with performance issues */
-  .no-backdrop-filter .backdrop-blur-xs,
-  .no-backdrop-filter .backdrop-blur-sm,
-  .no-backdrop-filter .backdrop-blur-md,
-  .no-backdrop-filter .backdrop-blur-lg,
-  .no-backdrop-filter .backdrop-blur-xl {
-    backdrop-filter: none !important;
-    background-color: rgba(0, 0, 0, 0.95);
+  @media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+    @supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+      .header-synthwave {
+        background-color: rgba(0, 0, 0, 0.8);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+      }
+    }
   }
 
   body {
@@ -84,7 +69,7 @@
     color: #f0f0ff;
   }
 
-  /* 80's Synthwave Color Variables */
+  /* Synthwave Color Variables */
   :root {
     --synthwave-pink: #ff006e;
     --synthwave-hot-pink: #ff10f0;
@@ -99,7 +84,6 @@
   }
 }
 
-/* Custom scrollbar with retro synthwave theme */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -125,7 +109,7 @@
     0 0 40px var(--synthwave-purple);
 }
 
-/* Neon animations */
+/* animations */
 @keyframes neon-flicker {
   0%,
   100% {
@@ -148,16 +132,10 @@
 @keyframes pulse-neon {
   0%,
   100% {
-    box-shadow:
-      0 0 5px currentColor,
-      0 0 10px currentColor,
-      0 0 15px currentColor;
+    opacity: 0.7;
   }
   50% {
-    box-shadow:
-      0 0 10px currentColor,
-      0 0 20px currentColor,
-      0 0 30px currentColor;
+    opacity: 1;
   }
 }
 
@@ -249,15 +227,6 @@
 .animate-float-slow-delay-2 {
   animation: float 8s ease-in-out infinite;
   animation-delay: 2s;
-}
-
-/* Smooth transitions */
-* {
-  transition-property:
-    color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
-    transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
 }
 
 /* Selection styling */
@@ -361,7 +330,6 @@ a:focus {
   }
 }
 
-/* 80's Chrome Text Effect */
 .chrome-text {
   background: linear-gradient(180deg, #eee 0%, #999 50%, #777 51%, #555 100%);
   -webkit-background-clip: text;
@@ -380,7 +348,6 @@ a:focus {
     0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* Scanline Effect */
 @keyframes scanlines {
   0% {
     background-position: 0 0;
@@ -406,7 +373,6 @@ a:focus {
   z-index: 1;
 }
 
-/* VHS Tracking Effect */
 @keyframes vhs-tracking {
   0% {
     background-position: 0 0;
@@ -503,7 +469,6 @@ a:focus {
   animation: sun-pulse 4s ease-in-out infinite;
 }
 
-/* Subtle Animated Synthwave Background */
 @keyframes synthwave-beat {
   0%,
   100% {
@@ -528,11 +493,9 @@ a:focus {
   0%,
   100% {
     opacity: 0.3;
-    filter: brightness(1);
   }
   50% {
-    opacity: 0.5;
-    filter: brightness(1.2);
+    opacity: 0.55;
   }
 }
 
@@ -572,9 +535,7 @@ a:focus {
     transparent 34px,
     transparent 64px
   );
-  opacity: 0.3;
-  filter: blur(0.5px) drop-shadow(0 0 6px var(--synthwave-hot-pink))
-    drop-shadow(0 0 6px var(--synthwave-cyan));
+  opacity: 0.45;
   animation: synthwave-flow 12s linear infinite;
 }
 
@@ -599,10 +560,7 @@ a:focus {
   );
   transform: perspective(400px) rotateX(75deg);
   transform-origin: bottom;
-  opacity: 0.25;
-  filter: blur(0.5px) drop-shadow(0 0 8px var(--synthwave-purple))
-    drop-shadow(0 0 8px var(--synthwave-blue));
-  animation: synthwave-beat 3s ease-in-out infinite;
+  opacity: 0.35;
 }
 
 .synthwave-gradient-animated {
@@ -726,10 +684,6 @@ a:focus {
   );
   transform-origin: bottom;
   border-radius: 2px 2px 0 0;
-  box-shadow:
-    0 0 5px var(--synthwave-hot-pink),
-    0 0 10px var(--synthwave-purple),
-    0 0 15px var(--synthwave-cyan);
   animation: musicBarPulse 1s ease-in-out infinite;
 }
 
@@ -749,8 +703,7 @@ a:focus {
 
 /* HomePage custom classes */
 .synthwave-logo-glow {
-  filter: drop-shadow(0 0 30px var(--synthwave-hot-pink))
-    drop-shadow(0 0 60px var(--synthwave-cyan)) drop-shadow(0 0 90px var(--synthwave-purple));
+  filter: drop-shadow(0 0 35px var(--synthwave-hot-pink));
 }
 
 .text-shadow-cyan {
@@ -785,7 +738,6 @@ a:focus {
     0 0 40px var(--synthwave-purple),
     inset 0 0 20px rgba(255, 0, 255, 0.2);
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform;
 }
 
 .btn-synthwave-primary:hover {
@@ -804,7 +756,6 @@ a:focus {
     0 0 15px var(--synthwave-cyan),
     inset 0 0 15px rgba(0, 255, 255, 0.1);
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform;
 }
 
 .btn-synthwave-secondary:hover {
@@ -824,7 +775,6 @@ a:focus {
   border: 2px solid var(--synthwave-cyan);
   box-shadow: 0 0 10px var(--synthwave-cyan);
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform;
 }
 
 .link-synthwave-cyan:hover {
@@ -836,7 +786,6 @@ a:focus {
   border: 2px solid var(--synthwave-hot-pink);
   box-shadow: 0 0 10px var(--synthwave-hot-pink);
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform;
 }
 
 .link-synthwave-pink:hover {
@@ -848,7 +797,6 @@ a:focus {
   border: 2px solid var(--synthwave-yellow);
   box-shadow: 0 0 10px var(--synthwave-yellow);
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform;
 }
 
 .link-synthwave-yellow:hover {
@@ -860,7 +808,6 @@ a:focus {
   border: 2px solid var(--synthwave-sunset-orange);
   box-shadow: 0 0 10px var(--synthwave-sunset-orange);
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform;
 }
 
 .link-synthwave-orange:hover {
@@ -921,23 +868,15 @@ a:focus {
   }
 }
 
-/* Advanced Performance Optimizations */
-
-/* Force GPU acceleration for smooth animations */
 .gpu-accelerated {
   transform: translate3d(0, 0, 0);
-  will-change: transform;
-  backface-visibility: hidden;
-  perspective: 1000px;
   contain: layout style;
 }
 
-/* Contain layout and paint for better performance */
 .performance-contain {
   contain: layout style paint;
 }
 
-/* Optimize style recalculation performance */
 .music-bar {
   contain: layout style;
   isolation: isolate;
@@ -962,85 +901,72 @@ a:focus {
   filter: var(--blur-amount, blur(8px));
 }
 
-/* Optimized mobile performance - animations are simplified, not removed */
-@media (max-width: 768px) {
-  /* Reduce blur intensity on mobile for better performance */
-  .blur-xl {
-    filter: blur(8px) !important;
+/* covers phones in both orientations and most iPads in portrait. */
+@media (max-width: 1023px) {
+  [class*='animate-'],
+  .music-bar,
+  .synthwave-animated-bg,
+  .synthwave-animated-bg::before,
+  .synthwave-lines,
+  .synthwave-gradient-animated,
+  .synthwave-horizon,
+  .synthwave-horizon::after,
+  .synthwave-logo-glow,
+  .btn-synthwave-primary,
+  .btn-synthwave-secondary,
+  .outrun-sun,
+  .retro-text,
+  .scanlines::before,
+  .vhs-effect::after {
+    animation: none !important;
   }
-  .blur-lg {
-    filter: blur(6px) !important;
-  }
+
+  .blur-xs,
+  .blur-sm,
   .blur-md,
-  .blur-sm {
-    filter: blur(4px) !important;
-  }
-
-  /* Optimize animations for mobile - use GPU-accelerated properties only */
-  [class*='animate-'] {
-    animation-duration: 2s !important; /* Slower animations = less GPU load */
-    animation-timing-function: linear !important;
-  }
-
-  /* Optimize synthwave logo glow for mobile */
-  .synthwave-logo-glow {
-    filter: drop-shadow(0 0 20px rgba(255, 0, 204, 0.6)) !important;
-    animation: synthwave-glow-mobile 3s ease-in-out infinite;
-  }
-
-  /* Optimize button glows for mobile */
+  .blur-lg,
+  .blur-xl,
+  .blur-2xl,
+  .blur-3xl,
+  .synthwave-animated-bg,
+  .synthwave-animated-bg::before,
+  .synthwave-lines,
+  .synthwave-horizon,
+  .synthwave-horizon::after,
+  .synthwave-logo-glow,
   .btn-synthwave-primary-glow,
   .btn-synthwave-secondary-glow {
-    filter: blur(8px) !important;
+    filter: none !important;
   }
 
-  /* Optimize text shadows for mobile */
+  [class*='backdrop-blur'],
+  .header-synthwave {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .header-synthwave {
+    background-color: rgba(0, 0, 0, 0.95) !important;
+  }
+
+  .music-bars {
+    display: none !important;
+  }
+
   .text-shadow-cyan {
-    text-shadow:
-      0 0 15px rgba(0, 255, 255, 0.6),
-      0 0 30px rgba(0, 255, 255, 0.3) !important;
+    text-shadow: 0 0 12px rgba(0, 255, 255, 0.6) !important;
   }
   .text-shadow-pink {
-    text-shadow:
-      0 0 15px rgba(255, 0, 204, 0.6),
-      0 0 30px rgba(255, 0, 204, 0.3) !important;
+    text-shadow: 0 0 12px rgba(255, 0, 204, 0.6) !important;
   }
 
-  /* Optimize music bar animations on mobile */
-  .music-bar {
-    animation-name: musicBarPulse !important;
-    animation-timing-function: ease-in-out !important;
-    animation-iteration-count: infinite !important;
-    /* animation-delay and animation-duration set via inline styles */
-    box-shadow: 0 0 5px currentColor !important;
-    width: 4px !important; /* Slightly wider on mobile for visibility */
-  }
-
-  /* Optimize music bars container for mobile */
-  .music-bars {
-    transform: none !important; /* Remove 3D transform on mobile */
+  .synthwave-lines,
+  .synthwave-animated-bg {
+    transform: none !important;
     perspective: none !important;
-    height: 60px !important; /* Shorter on mobile */
-    gap: 3px !important; /* Tighter spacing */
-    justify-content: center !important;
-    align-items: flex-end !important;
-  }
-
-  /* Optimize synthwave background for mobile */
-  .synthwave-animated-bg::before,
-  .synthwave-lines {
-    opacity: 0.6 !important;
-    animation-duration: 30s !important; /* Much slower animation */
-  }
-
-  /* Show simplified gradient animation */
-  .synthwave-gradient-animated {
-    opacity: 0.7 !important;
-    animation: synthwave-gradient-mobile 10s ease-in-out infinite !important;
   }
 }
 
-/* Mobile-optimized animations */
 @keyframes synthwave-glow-mobile {
   0%,
   100% {
@@ -1084,66 +1010,26 @@ a:focus {
     animation-iteration-count: 1 !important;
   }
 
-  /* Simplify transforms in Firefox */
   .music-bars {
     transform: none !important;
     perspective: none !important;
   }
 
-  /* Disable blur effects in Firefox for better performance */
   .blur-xl,
   .blur-lg {
     filter: blur(4px) !important;
   }
 
-  /* Remove complex gradients in Firefox */
   .synthwave-gradient-animated {
     opacity: 0.3 !important;
   }
 }
 
-/* Safari-specific optimizations */
-@supports (-webkit-appearance: none) and (not (appearance: none)) {
-  /* Older Safari versions - disable heavy effects */
-  .blur-xl {
-    filter: blur(8px) !important;
-  }
-
-  /* Optimize webkit transforms */
-  .gpu-accelerated {
-    -webkit-backface-visibility: hidden;
-    -webkit-perspective: 1000px;
-  }
-}
-
-/* iOS-specific optimizations */
-@supports (-webkit-touch-callout: none) {
-  /* iOS devices - optimize animations instead of disabling */
-  [class*='animate-'] {
-    -webkit-animation-fill-mode: both !important;
-    animation-fill-mode: both !important;
-    -webkit-transform: translateZ(0); /* Force GPU acceleration */
-    transform: translateZ(0);
-  }
-
-  .blur-xl,
-  .blur-lg,
-  .blur-md {
-    filter: none !important;
-  }
-
-  .music-bar {
-    box-shadow: none !important;
-  }
-}
-
-/* Blog Post Content Styles - Synthwave Edition */
 @layer base {
   .blog-content {
     @apply text-gray-100 leading-loose text-lg;
   }
 
-  /* Headings with neon underlines */
   .blog-content h2 {
     @apply text-4xl font-bold mt-16 mb-8 text-white relative pb-4;
     font-family: 'Inter', sans-serif;
@@ -1173,7 +1059,6 @@ a:focus {
     @apply my-7 text-gray-100;
   }
 
-  /* Cyberpunk links */
   .blog-content a {
     @apply no-underline transition-all;
     color: #00ffff;
@@ -1196,7 +1081,6 @@ a:focus {
     color: #00ffff;
   }
 
-  /* Lists with better spacing */
   .blog-content ul,
   .blog-content ol {
     @apply my-8 pl-10 space-y-3 text-gray-200;
@@ -1228,7 +1112,6 @@ a:focus {
     @apply my-3 leading-relaxed;
   }
 
-  /* Cyberpunk blockquotes */
   .blog-content blockquote {
     @apply my-10 px-8 py-6 rounded-r-xl relative italic;
     border-left: 4px solid #ff00cc;

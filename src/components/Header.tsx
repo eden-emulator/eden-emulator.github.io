@@ -46,7 +46,7 @@ function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-purple-500/30">
+    <header className="header-synthwave fixed top-0 left-0 right-0 z-50 border-b border-purple-500/30">
       <div className="absolute inset-0 bg-linear-to-r from-purple-500/10 via-blue-500/10 to-purple-500/10" />
       <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
