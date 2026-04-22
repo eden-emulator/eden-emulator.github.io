@@ -72,8 +72,8 @@ export default function BlogPost({ blogIndex }: BlogPostProps) {
         <div className="h-24 md:h-34" />
         {/* Background Effects */}
         <div className="absolute inset-0" aria-hidden={true}>
-          <div className="absolute top-0 left-1/4 w-72 h-72 bg-pink-500/8 rounded-full blur-xl animate-subtle-pulse will-change-transform" />
-          <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-cyan-500/8 rounded-full blur-xl animate-subtle-pulse-delay-2 will-change-transform" />
+          <div className="absolute top-0 left-1/4 w-72 h-72 bg-pink-500/8 rounded-full blur-xl animate-subtle-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-cyan-500/8 rounded-full blur-xl animate-subtle-pulse-delay-2" />
         </div>
 
         <article className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -172,7 +172,7 @@ function RelatedPostCard({ post }: { post: BlogPostMeta }) {
     <Link
       to="/blog/$slug"
       params={{ slug: post.slug }}
-      className="block bg-black/40 backdrop-blur-xs border border-pink-500/30 rounded-xl p-5 hover:border-cyan-400/50 hover:-translate-y-1 hover:scale-105 transition-all duration-300 will-change-transform"
+      className="block bg-black/40 backdrop-blur-xs border border-pink-500/30 rounded-xl p-5 hover:border-cyan-400/50 hover:-translate-y-1 hover:scale-105 transition-all duration-300"
       style={{
         background:
           'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(139,69,19,0.1) 50%, rgba(0,0,0,0.8) 100%)',
