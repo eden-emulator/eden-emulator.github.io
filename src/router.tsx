@@ -1,20 +1,36 @@
+import { lazy, Suspense, type ComponentType } from 'react'
 import { createRouter, createRoute, createRootRoute } from '@tanstack/react-router'
 import HomePage from './pages/Home/HomePage'
-import FeaturesPage from './pages/Features/FeaturesPage'
-import DownloadPage from './pages/Download/DownloadPage'
-import DocumentationPage from './pages/Documentation/DocumentationPage'
-import CommunityPage from './pages/Community/CommunityPage'
-import SystemRequirementsPage from './pages/SystemRequirements/SystemRequirementsPage'
-import CompatibilityReportsPage from './pages/CompatibilityReports/CompatibilityReportsPage'
-import TeamPage from './pages/Team/TeamPage'
-import DonationsPage from './pages/Donations/DonationsPage'
 import NotFoundPage from './pages/NotFound/NotFoundPage'
 import AppLayout from './components/AppLayout'
-import BlogLayout from './pages/Blog/BlogLayout'
-import BlogList from './pages/Blog/BlogList'
-import BlogPost from './pages/Blog/BlogPost'
 import { loadBlogIndex } from './utils/blogLoader'
 import type { BlogIndex } from './types/blog'
+
+const FeaturesPage = lazy(() => import('./pages/Features/FeaturesPage'))
+const DownloadPage = lazy(() => import('./pages/Download/DownloadPage'))
+const DocumentationPage = lazy(() => import('./pages/Documentation/DocumentationPage'))
+const CommunityPage = lazy(() => import('./pages/Community/CommunityPage'))
+const SystemRequirementsPage = lazy(
+  () => import('./pages/SystemRequirements/SystemRequirementsPage'),
+)
+const CompatibilityReportsPage = lazy(
+  () => import('./pages/CompatibilityReports/CompatibilityReportsPage'),
+)
+const TeamPage = lazy(() => import('./pages/Team/TeamPage'))
+const DonationsPage = lazy(() => import('./pages/Donations/DonationsPage'))
+const BlogLayout = lazy(() => import('./pages/Blog/BlogLayout'))
+const BlogList = lazy(() => import('./pages/Blog/BlogList'))
+const BlogPost = lazy(() => import('./pages/Blog/BlogPost'))
+
+const withSuspense = <P extends object>(Component: ComponentType<P>) => {
+  return function SuspenseWrapped(props: P) {
+    return (
+      <Suspense fallback={null}>
+        <Component {...props} />
+      </Suspense>
+    )
+  }
+}
 
 const rootRoute = createRootRoute({ component: AppLayout })
 
@@ -27,55 +43,55 @@ const homeRoute = createRoute({
 const featuresRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/features',
-  component: FeaturesPage,
+  component: withSuspense(FeaturesPage),
 })
 
 const downloadRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/download',
-  component: DownloadPage,
+  component: withSuspense(DownloadPage),
 })
 
 const docsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/docs',
-  component: DocumentationPage,
+  component: withSuspense(DocumentationPage),
 })
 
 const communityRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/community',
-  component: CommunityPage,
+  component: withSuspense(CommunityPage),
 })
 
 const systemRequirementsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/system-requirements',
-  component: SystemRequirementsPage,
+  component: withSuspense(SystemRequirementsPage),
 })
 
 const compatibilityReportsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/compatibility',
-  component: CompatibilityReportsPage,
+  component: withSuspense(CompatibilityReportsPage),
 })
 
 const teamRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/team',
-  component: TeamPage,
+  component: withSuspense(TeamPage),
 })
 
 const donationsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/donations',
-  component: DonationsPage,
+  component: withSuspense(DonationsPage),
 })
 
 const blogLayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/blog',
-  component: BlogLayout,
+  component: withSuspense(BlogLayout),
   loader: async (): Promise<{ blogIndex: BlogIndex }> => {
     const blogIndex = await loadBlogIndex()
     return { blogIndex }
@@ -87,7 +103,11 @@ const blogIndexRoute = createRoute({
   path: '/',
   component: () => {
     const { blogIndex } = blogLayoutRoute.useLoaderData()
-    return <BlogList blogIndex={blogIndex} />
+    return (
+      <Suspense fallback={null}>
+        <BlogList blogIndex={blogIndex} />
+      </Suspense>
+    )
   },
 })
 
@@ -96,7 +116,11 @@ const blogPostRoute = createRoute({
   path: '/$slug',
   component: () => {
     const { blogIndex } = blogLayoutRoute.useLoaderData()
-    return <BlogPost blogIndex={blogIndex} />
+    return (
+      <Suspense fallback={null}>
+        <BlogPost blogIndex={blogIndex} />
+      </Suspense>
+    )
   },
 })
 
