@@ -891,54 +891,7 @@ a:focus {
   contain: layout;
 }
 
-/* Lazy blur - start with no blur, add it when visible */
-.lazy-blur {
-  filter: none !important;
-  transition: filter 0.3s ease-out;
-}
-
-.lazy-blur.blur-loaded {
-  filter: var(--blur-amount, blur(8px));
-}
-
-/* covers phones in both orientations and most iPads in portrait. */
 @media (max-width: 1023px) {
-  [class*='animate-'],
-  .music-bar,
-  .synthwave-animated-bg,
-  .synthwave-animated-bg::before,
-  .synthwave-lines,
-  .synthwave-gradient-animated,
-  .synthwave-horizon,
-  .synthwave-horizon::after,
-  .synthwave-logo-glow,
-  .btn-synthwave-primary,
-  .btn-synthwave-secondary,
-  .outrun-sun,
-  .retro-text,
-  .scanlines::before,
-  .vhs-effect::after {
-    animation: none !important;
-  }
-
-  .blur-xs,
-  .blur-sm,
-  .blur-md,
-  .blur-lg,
-  .blur-xl,
-  .blur-2xl,
-  .blur-3xl,
-  .synthwave-animated-bg,
-  .synthwave-animated-bg::before,
-  .synthwave-lines,
-  .synthwave-horizon,
-  .synthwave-horizon::after,
-  .synthwave-logo-glow,
-  .btn-synthwave-primary-glow,
-  .btn-synthwave-secondary-glow {
-    filter: none !important;
-  }
-
   [class*='backdrop-blur'],
   .header-synthwave {
     -webkit-backdrop-filter: none !important;
@@ -949,21 +902,8 @@ a:focus {
     background-color: rgba(0, 0, 0, 0.95) !important;
   }
 
-  .music-bars {
-    display: none !important;
-  }
-
-  .text-shadow-cyan {
-    text-shadow: 0 0 12px rgba(0, 255, 255, 0.6) !important;
-  }
-  .text-shadow-pink {
-    text-shadow: 0 0 12px rgba(255, 0, 204, 0.6) !important;
-  }
-
-  .synthwave-lines,
-  .synthwave-animated-bg {
-    transform: none !important;
-    perspective: none !important;
+  .synthwave-logo-glow {
+    filter: drop-shadow(0 0 20px var(--synthwave-hot-pink)) !important;
   }
 }
 
