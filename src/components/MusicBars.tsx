@@ -12,8 +12,7 @@ function MusicBars() {
 
   const getBarCount = () => {
     if (shouldDisableAllAnimations) return 0
-    if (isMobile) return 0
-    if (browser.isFirefox) return 8
+    if (isMobile || browser.isFirefox) return 8
     return 12
   }
 
