@@ -8,10 +8,10 @@ function SynthWaveBackground() {
     threshold: 0.1,
     pauseAnimationsWhenHidden: true,
   })
-  const { isMobile, prefersReducedMotion, shouldDisableAllAnimations, browser } =
+  const { prefersReducedMotion, shouldDisableAllAnimations, browser } =
     usePerformanceOptimization()
 
-  if (isMobile || shouldDisableAllAnimations || prefersReducedMotion) {
+  if (shouldDisableAllAnimations || prefersReducedMotion) {
     return (
       <div
         ref={targetRef}
