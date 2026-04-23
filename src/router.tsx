@@ -1,5 +1,5 @@
 import { lazy, Suspense, type ComponentType } from 'react'
-import { createRouter, createRoute, createRootRoute } from '@tanstack/react-router'
+import { createRouter, createRoute, createRootRoute, redirect } from '@tanstack/react-router'
 import HomePage from './pages/Home/HomePage'
 import NotFoundPage from './pages/NotFound/NotFoundPage'
 import AppLayout from './components/AppLayout'
@@ -8,7 +8,6 @@ import type { BlogIndex } from './types/blog'
 
 const FeaturesPage = lazy(() => import('./pages/Features/FeaturesPage'))
 const DownloadPage = lazy(() => import('./pages/Download/DownloadPage'))
-const DocumentationPage = lazy(() => import('./pages/Documentation/DocumentationPage'))
 const CommunityPage = lazy(() => import('./pages/Community/CommunityPage'))
 const SystemRequirementsPage = lazy(
   () => import('./pages/SystemRequirements/SystemRequirementsPage'),
@@ -55,7 +54,11 @@ const downloadRoute = createRoute({
 const docsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/docs',
-  component: withSuspense(DocumentationPage),
+  beforeLoad: () => {
+    throw redirect({
+      href: 'https://git.eden-emu.dev/eden-emu/eden/src/branch/master/docs/user/README.md',
+    })
+  },
 })
 
 const communityRoute = createRoute({
