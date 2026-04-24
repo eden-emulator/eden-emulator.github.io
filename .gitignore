@@ -1,3 +1,33 @@
-public/
-src/data/blog.json
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies / build
 node_modules
+dist
+.vite
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Editor directories and files
+.vscode
+.idea
+.cursor
+.claude
+.DS_Store
+*.sw?
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Generated blog artifacts
+src/data/blog.json
+public/atom.xml
+public/rss.xml
+public/blog.json
+public/noscript/blog/
+public/blog/images/
