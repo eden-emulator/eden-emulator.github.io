@@ -1,10 +1,7 @@
 #!/usr/bin/env tsx
 
-// @ts-expect-error we use tsx to run this script, ignore tsconfig
 import fs from 'fs/promises'
-// @ts-expect-error we use tsx to run this script, ignore tsconfig
 import path from 'path'
-// @ts-expect-error we use tsx to run this script, ignore tsconfig
 import matter from 'gray-matter'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -28,6 +25,8 @@ import type {
 
 const BLOG_DIR = path.join(process.cwd(), 'blog')
 const POSTS_DIR = path.join(BLOG_DIR, 'posts')
+const IMAGES_SRC_DIR = path.join(BLOG_DIR, 'images')
+const IMAGES_DEST_DIR = path.join(process.cwd(), 'public', 'blog', 'images')
 const OUTPUT_DIR = path.join(process.cwd(), 'public', 'noscript', 'blog')
 const DATA_DIR = path.join(process.cwd(), 'src', 'data')
 
@@ -41,7 +40,7 @@ const SITE_DESCRIPTION = 'News, updates, and announcements from the Eden team'
 function extractToc(htmlContent: string): TocEntry[] {
   const toc: TocEntry[] = []
   const headingRegex = /<h([2-3])[^>]*id="([^"]+)"[^>]*>([^<]+)<\/h\1>/g
-  let match: string[]
+  let match: RegExpExecArray | null
 
   while ((match = headingRegex.exec(htmlContent)) !== null) {
     const [, level, id, text] = match
@@ -51,9 +50,6 @@ function extractToc(htmlContent: string): TocEntry[] {
   return toc
 }
 
-/**
- * Create an excerpt from content
- */
 function createExcerpt(content: string, maxLength = 200): string {
   // Remove Markdown syntax
   const plainText = content
@@ -68,9 +64,6 @@ function createExcerpt(content: string, maxLength = 200): string {
   return plainText.slice(0, maxLength).trim() + '...'
 }
 
-/**
- * Process a single Markdown file
- */
 async function processMarkdownFile(filePath: string): Promise<BlogPost | null> {
   const content = await fs.readFile(filePath, 'utf-8')
   const { data, content: markdownContent } = matter(content)
@@ -111,14 +104,8 @@ async function processMarkdownFile(filePath: string): Promise<BlogPost | null> {
     .process(markdownContent)
 
   const htmlContent = String(processedHtml)
-
-  // Calculate reading time
   const readingTimeResult = readingTime(markdownContent)
-
-  // Extract TOC
   const toc = extractToc(htmlContent)
-
-  // Create excerpt
   const excerpt = createExcerpt(markdownContent)
 
   return {
@@ -132,9 +119,6 @@ async function processMarkdownFile(filePath: string): Promise<BlogPost | null> {
   }
 }
 
-/**
- * Generate HTML template for noscript blog post
- */
 function generatePostHtml(post: BlogPost): string {
   const formattedDate = format(parseISO(post.date), 'MMMM d, yyyy')
   const tocHtml =
@@ -265,9 +249,6 @@ function generatePostHtml(post: BlogPost): string {
 </html>`
 }
 
-/**
- * Generate blog listing HTML
- */
 function generateListingHtml(posts: BlogPostMeta[]): string {
   return `<!doctype html>
 <html lang="en-GB">
@@ -388,9 +369,6 @@ function generateListingHtml(posts: BlogPostMeta[]): string {
 </html>`
 }
 
-/**
- * Generate RSS and Atom feeds
- */
 async function generateFeeds(posts: BlogPostMeta[]) {
   const feed = new Feed({
     title: SITE_TITLE,
@@ -419,11 +397,7 @@ async function generateFeeds(posts: BlogPostMeta[]) {
       link: `${SITE_URL}${post.url}`,
       description: post.description,
       content: post.excerpt,
-      author: [
-        {
-          name: post.author,
-        },
-      ],
+      author: [{ name: post.author }],
       date: parseISO(post.date),
       image: post.image,
     })
@@ -440,15 +414,26 @@ async function generateFeeds(posts: BlogPostMeta[]) {
   console.log('✅ Generated Atom feed')
 }
 
-/**
- * Main build function
- */
+async function copyBlogImages() {
+  try {
+    await fs.access(IMAGES_SRC_DIR)
+  } catch {
+    return
+  }
+  await fs.rm(IMAGES_DEST_DIR, { recursive: true, force: true })
+  await fs.mkdir(IMAGES_DEST_DIR, { recursive: true })
+  await fs.cp(IMAGES_SRC_DIR, IMAGES_DEST_DIR, { recursive: true })
+  console.log('✅ Copied blog images')
+}
+
 async function buildBlog() {
   console.log('🚀 Building blog...\n')
 
   // Ensure output directories exist
   await fs.mkdir(OUTPUT_DIR, { recursive: true })
   await fs.mkdir(DATA_DIR, { recursive: true })
+
+  await copyBlogImages()
 
   // Read all markdown files
   let files: string[]
@@ -517,7 +502,6 @@ async function buildBlog() {
   await fs.writeFile(path.join(OUTPUT_DIR, 'index.html'), listingHtml)
   console.log('✅ Generated blog listing page')
 
-  // Generate RSS/Atom feeds
   if (posts.length > 0) {
     await generateFeeds(postsMeta)
   }
@@ -525,7 +509,6 @@ async function buildBlog() {
   console.log('\n✨ Blog build complete!\n')
 }
 
-// Run the build
 buildBlog().catch((error) => {
   console.error('❌ Build failed:', error)
   process.exit(1)
